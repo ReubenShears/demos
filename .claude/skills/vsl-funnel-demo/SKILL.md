@@ -186,6 +186,16 @@ a `GITHUB_TOKEN`: `git push origin main` just works. Push directly to `main` (do
 branch — main is what Vercel auto-builds). If `git push` itself genuinely errors, report that error
 clearly rather than switching to MCP push tools.
 
+**If a `GITHUB_TOKEN` is provided** (env var, or given in your instructions) — PREFER it; it's the most
+deterministic push path and works regardless of git-proxy permissions. Point the remote at it, then
+commit + push:
+```bash
+git remote set-url origin "https://x-access-token:${GITHUB_TOKEN}@github.com/ReubenShears/demos.git"
+git add <slug>/index.html
+git -c user.email="132842611+ReubenShears@users.noreply.github.com" -c user.name="ReubenShears" commit -m "demo: <slug>"
+git push origin main
+```
+
 **Do not change the commit author email.** Vercel BLOCKS a git deploy if the commit author email
 can't be matched to a GitHub account. `132842611+ReubenShears@users.noreply.github.com` is the
 account's verified noreply address and is what unblocks the build — keep using it for every commit
