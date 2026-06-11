@@ -113,18 +113,31 @@ it as failed. From the finished screen capture:
 - `screenshot.downloadUrl` (preview image)
 - the project id (for the Stitch project URL)
 
-### 6. Place + retarget CTAs
+### 6. Retrieve the HTML, retarget CTAs, place the file
 
-Download the HTML, then run the bundled script to rewrite every "Learn More" CTA to the partner
-tracking URL (new tab) and drop the file at `demos/<slug>/index.html`:
+**Get the generated HTML reliably — this is the step that fails most often if done naively.** The
+finished screen's `htmlCode.downloadUrl` is a `contribution.usercontent.google.com` link. A plain
+`curl` / WebFetch of it works on a local machine but is frequently **BLOCKED in headless / cloud
+routine environments** (that's why naive runs flail through get_screen → WebFetch → etc.). Use this
+order and stop at the first that returns a full HTML document:
 
+1. **Firecrawl (use this first in a routine):** `firecrawl_scrape` with `url: <htmlCode.downloadUrl>`
+   and `formats: ["rawHtml"]`; use the returned `rawHtml` — it's the generated page source and
+   Firecrawl fetches server-side, so it isn't blocked.
+2. **curl (local machine):** `curl -sL "<htmlCode.downloadUrl>" -o /tmp/<slug>.html`.
+
+Write the HTML to a temp file (e.g. `/tmp/<slug>.html`) and VERIFY it's a complete document — it must
+contain `<html` and the hero headline text. Never proceed with empty/truncated HTML; if every method
+fails, post a FAILURE to Slack rather than deploying a blank page.
+
+Then run the bundled script to rewrite every "Learn More" CTA to the partner tracking URL (new tab)
+and place the file:
 ```bash
-curl -sL "<htmlCode.downloadUrl>" -o /tmp/<slug>.html
-node "<skill-dir>/scripts/place_demo.mjs" /tmp/<slug>.html <slug> "D:/Claude Cowork/demos"
+node "<skill-dir>/scripts/place_demo.mjs" /tmp/<slug>.html <slug> "<deploy-root>"
 ```
-
-`place_demo.mjs` rewrites the anchors, preserves the original image URLs (the user does **not** want
-Stitch images localized), creates `demos/<slug>/`, writes `index.html`, and prints how many CTAs it
+`<deploy-root>` is `D:/Claude Cowork/demos` locally, or the cloned/working repo root remotely.
+`place_demo.mjs` handles BOTH `<a>` and `<button>` CTAs, preserves the original image URLs (the user
+does **not** want Stitch images localized), writes `<slug>/index.html`, and prints how many CTAs it
 retargeted. Sanity-check that the printed count is > 0.
 
 ### 7. Deploy to Vercel
