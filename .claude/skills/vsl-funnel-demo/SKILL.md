@@ -74,9 +74,11 @@ Plus Jakarta Sans, etc. Use `INTER` when unsure.)
 
 ### 2. Create the Stitch project
 
-`mcp__stitch__create_project` with `title: "<Brand name (short)> | Demo Landing Page"` (e.g.
-`Optimally | Demo Landing Page` — use the SHORT brand, not the full company name). Save the numeric
-project id (strip the `projects/` prefix).
+`mcp__stitch__create_project` with `title` set EXACTLY to `<Brand name (short)> | Demo Landing Page`
+— e.g. `Unorthodox | Demo Landing Page`, `Optimally | Demo Landing Page`. The ` | Demo Landing Page`
+suffix is REQUIRED. Do NOT name the project just the brand (`Unorthodox`), the full company name, a
+tagline, or anything ending in `… VSL Funnel` (that is the auto-generated SCREEN title, not the
+project title). Use the short brand. Save the numeric project id (strip the `projects/` prefix).
 
 ### 3. Create + apply the design system
 
@@ -173,13 +175,20 @@ account's verified noreply address and is what unblocks the build — keep using
 `curl -sS -o /dev/null -w "%{http_code}" https://demos.optimally.ltd/<slug>` returns `200` (allow a
 couple of minutes).
 
-### 8. Extract a few fields for logging
+### 8. Extract fields + verify completeness
 
-From the local `demos/<slug>/index.html`, pull:
+From the generated `<slug>/index.html`, pull:
 - **Headline**: the hero `<h1>` text (collapse whitespace).
 - **ICP**: the text after "Attention:" in the hero eyebrow.
 
-These go into Baserow + Slack so the user can scan them without opening the page.
+Also VERIFY the page is complete before logging it as done. Confirm it contains all nine sections —
+the ones generations tend to drop are **Building Trust / testimonials, Founder, and FAQ**. Quick
+check: the HTML should have an FAQ accordion (~7 question entries), a Founder / "Meet the …" section,
+and testimonial quote blocks. If any required section is missing, set the Baserow **Status** to
+`Needs Review` and note what's missing in Baserow + the Slack post — do not present an incomplete page
+as finished.
+
+These fields go into Baserow + Slack so the user can scan them without opening the page.
 
 ### 9. Log to Baserow
 

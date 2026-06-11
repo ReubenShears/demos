@@ -28,14 +28,14 @@ GLOBAL CTA RULES:
 - Every call-to-action button must be IDENTICAL — same size, same brand-primary fill, same styling — and the button label must ALWAYS read exactly "Learn More". Place one in essentially every section. (The buttons will be retargeted to a tracking URL after generation; just render them as "Learn More" anchor buttons.)
 - Directly beneath each "Learn More" button, add a small, subtle line of visual social proof (tiny stacked avatar row + a short proof line, or a small star rating). Keep it small and consistent everywhere.
 
-PAGE STRUCTURE — build the sections in EXACTLY this order:
+PAGE STRUCTURE — the page MUST contain ALL NINE sections below (0–8), in this exact order. Do NOT omit, merge, abbreviate, or reorder any of them. Generations frequently drop sections 5 (Building Trust), 6 (Founder), and 7 (FAQ) and jump from the Call to Action straight to the Footer — that is WRONG. Every one of the nine must be present and fully built:
 
 0. BANNER (above everything): a slim full-width announcement banner, on-brand colour, with a short line prompting the visitor to watch the video below (e.g. "▶ Watch the free training below to see how it works"). No nav menu; place the logo close beneath it.
 
-1. HERO (fits ~100% desktop viewport, centered):
+1. HERO (must fit within roughly a single square desktop viewport, centered):
    - The {{COMPANY}} logo centered at top (not a nav bar).
    - A small eyebrow line ABOVE the headline reading "Attention:" followed by who the ICP is (from the site, e.g. "Attention: Coaches, Consultants & Service Businesses").
-   - MAIN HEADLINE in this format: "We'll take you from [point A / current pain] to [point B / desired outcome] in [X timeframe] using [unique mechanism]" — populated from the real offer.
+   - MAIN HEADLINE in this format: "We'll take you from [point A / current pain] to [point B / desired outcome] in [X timeframe] using [unique mechanism]" — populated from the real offer. SIZE IT TO FIT: scale the headline font size DOWN when the headline is long, so the whole hero (logo → eyebrow → headline → guarantee → single subheadline → video → first CTA) still fits within roughly a single square desktop viewport. A long headline must NEVER blow out the hero height — keeping the hero compact and roughly square takes priority over large headline text.
    - A risk-reversal / guarantee line right after the headline (e.g. "...or you don't pay").
    - EXACTLY ONE subheadline (never two). It must clearly LIST the actual tangible deliverables a client gets from the service (e.g. conversion funnels, automated systems, booked qualified calls) — pulled from the site. Do not add a second generic subheadline.
    - The VSL: a large 16:9 VIDEO PLACEHOLDER (not a real embed) — a big centered play button over an aesthetic background made of a gradient laid on top of an appropriate image (gradient + image), on-brand.
@@ -48,12 +48,14 @@ PAGE STRUCTURE — build the sections in EXACTLY this order:
 
 4. CALL TO ACTION — a dedicated punchy conversion section: strong headline, the identical "Learn More" CTA, small social proof.
 
-5. BUILDING TRUST — social proof presented as TESTIMONIAL BLOCKS (quote cards). Use real testimonial wording from the site if present; otherwise use neutral lorem-ipsum placeholder quotes. Do NOT use decorative people photos — if an avatar is shown, use the small placeholder graphic. Optionally a results/stats strip. Identical "Learn More" CTA + small social proof.
+5. BUILDING TRUST (REQUIRED — do not skip) — social proof presented as TESTIMONIAL BLOCKS (quote cards). Use real testimonial wording from the site if present; otherwise use neutral lorem-ipsum placeholder quotes. Do NOT use decorative people photos — if an avatar is shown, use the small placeholder graphic. Optionally a results/stats strip. Identical "Learn More" CTA + small social proof.
 
-6. FOUNDER SECTION — a personal section introducing the founder to build authority. Use a large empty image-PLACEHOLDER graphic for the photo (never an AI-generated persona). Include the founder's name/bio text from the site if available. Identical "Learn More" CTA + small social proof.
+6. FOUNDER SECTION (REQUIRED — do not skip) — a personal section introducing the founder to build authority. Use a large empty image-PLACEHOLDER graphic for the photo (never an AI-generated persona). Include the founder's name/bio text from the site if available. Identical "Learn More" CTA + small social proof.
 
-7. FAQ — an accordion with EXACTLY SEVEN (7) questions. Each must be a realistic SALES OBJECTION this specific offer would face (price, time commitment, "does this work for my niche", "what if it doesn't work", trust/credibility, contract length, how fast results come), and each answer must directly overcome that objection. A final identical "Learn More" CTA + small social proof after the FAQ.
+7. FAQ (REQUIRED — do not skip) — an accordion with EXACTLY SEVEN (7) questions. Each must be a realistic SALES OBJECTION this specific offer would face (price, time commitment, "does this work for my niche", "what if it doesn't work", trust/credibility, contract length, how fast results come), and each answer must directly overcome that objection. A final identical "Learn More" CTA + small social proof after the FAQ.
 
 8. FOOTER — clean and tidy: the {{COMPANY}} logo, a final identical "Learn More" CTA, basic links (privacy/terms/contact), and a copyright line reading "© 2026 {{COMPANY}}" (use 2026). No stray decorative images in the footer.
+
+FINAL CHECK before you finish: confirm the page includes every one of these nine sections, in order — (0) Banner, (1) Hero, (2) Pains, (3) Solution, (4) Call to Action, (5) Building Trust / testimonials, (6) Founder, (7) FAQ with exactly 7 objection Q&As, (8) Footer. If any is missing, add it before finishing.
 
 Make it feel like a high-converting, professionally designed VSL funnel — cohesive, trustworthy, on-brand, space-efficient, and free of AI-marketing clichés.
