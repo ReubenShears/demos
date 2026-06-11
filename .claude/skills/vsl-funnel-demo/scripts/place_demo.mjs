@@ -3,10 +3,14 @@
 // generated page at <outRoot>/<slug>/index.html. Original image URLs are preserved on purpose
 // (the user does NOT want Stitch's images localized).
 //
+// Handles CTAs rendered as <a> OR <button>, with or without nested spans
+// (e.g. <button><span>Learn More</span></button>). Buttons are converted to anchors so the
+// tracking link works.
+//
 // Usage: node place_demo.mjs <htmlPath> <slug> <outRoot> [ctaBase]
 //   htmlPath  path to the downloaded Stitch HTML
-//   slug      partner slug, e.g. "optimally"
-//   outRoot   the Vercel project root, e.g. "D:/Claude Cowork/demos"
+//   slug      partner slug, e.g. "unorthodox"
+//   outRoot   the deploy root (local "D:/Claude Cowork/demos", or a cloned repo root)
 //   ctaBase   optional, defaults to https://www.optimally.ltd/demo
 
 import fs from 'node:fs';
@@ -22,20 +26,21 @@ const target = `${ctaBase}?partner=${slug}`;
 
 let html = fs.readFileSync(htmlPath, 'utf8');
 
-// Match any anchor whose visible text is exactly "Learn More" (whitespace-tolerant).
-// Preserve all existing attributes except href/target/rel, then set our tracking href + new tab.
-const anchorRe = /<a\b([^>]*)>(\s*Learn More\s*)<\/a>/gi;
+// Match any <a> or <button> whose visible text (tags stripped) is exactly "Learn More".
+// Preserve all attributes except href/target/rel/type/onclick; convert buttons to anchors.
+// Non-CTA elements are returned untouched.
+const elRe = /<(a|button)\b([^>]*)>([\s\S]*?)<\/\1>/gi;
 let count = 0;
-html = html.replace(anchorRe, (_m, attrs, label) => {
+html = html.replace(elRe, (m, _tag, attrs, inner) => {
+  const text = inner.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
+  if (text !== 'Learn More') return m;
   count++;
-  // Drop any existing href / target / rel so we don't duplicate them.
   const cleaned = attrs
-    .replace(/\shref\s*=\s*"[^"]*"/gi, '')
-    .replace(/\starget\s*=\s*"[^"]*"/gi, '')
-    .replace(/\srel\s*=\s*"[^"]*"/gi, '')
+    .replace(/\s(href|target|rel|type|onclick)\s*=\s*"[^"]*"/gi, '')
+    .replace(/\s(href|target|rel|type|onclick)\s*=\s*'[^']*'/gi, '')
     .trim();
   const sep = cleaned ? ' ' + cleaned : '';
-  return `<a href="${target}" target="_blank" rel="noopener noreferrer"${sep}>${label}</a>`;
+  return `<a href="${target}" target="_blank" rel="noopener noreferrer"${sep}>${inner}</a>`;
 });
 
 const outDir = path.join(outRoot, slug);
@@ -46,6 +51,6 @@ fs.writeFileSync(outFile, html, 'utf8');
 console.log(`CTAs retargeted: ${count} -> ${target}`);
 console.log(`Wrote: ${outFile}`);
 if (count === 0) {
-  console.error('WARNING: 0 CTAs matched. Inspect the HTML — the CTA text may not be exactly "Learn More".');
+  console.error('WARNING: 0 CTAs matched. Inspect the HTML — CTA text may not be exactly "Learn More".');
   process.exit(2);
 }

@@ -49,9 +49,11 @@ short status lines — this pipeline takes several minutes (Stitch generation al
 ### 0. Derive identifiers from the URL
 
 Three identifiers used in different places — keep them straight:
-- **slug** (king): short lowercase id from the domain, strip TLD and non-alphanumerics.
-  `https://www.optimally.ltd` → `optimally`; `https://getacme.io` → `getacme`. Reused for the folder,
-  the URL path, and the `partner=` param — keep it short and clean.
+- **slug** (king): the FIRST domain label after removing a leading `www.` — i.e. the text before the
+  first dot, lowercased. `https://www.unorthodox.digital` → `unorthodox`; `https://getacme.io` →
+  `getacme`; `https://www.optimally.ltd` → `optimally`. Drop the TLD entirely and NEVER hyphenate it
+  into the slug (`.digital` / `.io` / `.ltd` are not part of the slug — `unorthodox`, never
+  `unorthodox-digital`). Reused for the folder, URL path, and `partner=` param — keep it short and clean.
 - **Brand name (short)**: the concise brand, used ONLY for the Stitch project title, e.g. `Optimally`.
   Derive it after the scrape from `ogTitle` / logo: take the brand root and drop suffixes like
   "Systems", anything after a `|` or `-` separator, and entity tags ("Ltd" / "Inc").
