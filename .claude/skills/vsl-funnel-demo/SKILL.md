@@ -176,10 +176,15 @@ git -C "D:/Claude Cowork/demos" push origin main
     && git push origin main
   ```
 
-For pushing, the routine needs git write access to `ReubenShears/demos`. If the routine already has
-GitHub write access via Claude's GitHub connection (it's operating on the repo), no extra credential
-is needed. Otherwise provide a `GITHUB_TOKEN` with push access in the environment. If neither is
-present, report it clearly rather than failing silently.
+**CRITICAL — deploy with the git CLI, NOT GitHub MCP tools.** Push using plain `git add` / `git commit`
+/ `git push origin main` (exactly as shown above). The routine's **"Allow unrestricted git push"
+permission** authorizes precisely this — the git CLI / git proxy. Do NOT use GitHub MCP tools
+(`mcp__github__push_files`, `create_or_update_file`, `push_files`, etc.) to deploy — they use a
+SEPARATE, read-only credential and return **403**, which sends the run into a dead-end of retrying
+alternative push tools and feature branches. When already inside the repo checkout there is NO need for
+a `GITHUB_TOKEN`: `git push origin main` just works. Push directly to `main` (do not create a feature
+branch — main is what Vercel auto-builds). If `git push` itself genuinely errors, report that error
+clearly rather than switching to MCP push tools.
 
 **Do not change the commit author email.** Vercel BLOCKS a git deploy if the commit author email
 can't be matched to a GitHub account. `132842611+ReubenShears@users.noreply.github.com` is the
