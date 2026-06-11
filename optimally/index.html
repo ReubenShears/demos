@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Optimally Systems | Double Your Cash Collected in 90 Days</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-dim": "#dbdad9",
+                        "tertiary-fixed-dim": "#f4b1ec",
+                        "surface-container": "#efeded",
+                        "on-surface": "#1b1c1c",
+                        "tertiary-container": "#9b6096",
+                        "on-primary-container": "#faffe8",
+                        "on-secondary-fixed": "#002020",
+                        "inverse-surface": "#303031",
+                        "surface-container-low": "#f5f3f3",
+                        "outline": "#75796a",
+                        "on-background": "#1b1c1c",
+                        "primary-fixed": "#d0ed97",
+                        "primary": "#4c641d",
+                        "on-tertiary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "surface-container-highest": "#e3e2e2",
+                        "surface-container-high": "#e9e8e7",
+                        "tertiary": "#7f487c",
+                        "surface": "#fbf9f9",
+                        "primary-fixed-dim": "#b4d17d",
+                        "secondary": "#456464",
+                        "on-error-container": "#93000a",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed-variant": "#683366",
+                        "inverse-on-surface": "#f2f0f0",
+                        "tertiary-fixed": "#ffd6f7",
+                        "secondary-container": "#c7e9e8",
+                        "on-primary-fixed": "#131f00",
+                        "secondary-fixed-dim": "#accdcc",
+                        "on-primary-fixed-variant": "#374e07",
+                        "surface-bright": "#fbf9f9",
+                        "surface-tint": "#4e6620",
+                        "on-tertiary-container": "#fffbff",
+                        "primary-container": "#647d34",
+                        "outline-variant": "#c5c8b7",
+                        "on-secondary-container": "#4b6a6a",
+                        "background": "#fbf9f9",
+                        "inverse-primary": "#b4d17d",
+                        "on-primary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-fixed-variant": "#2d4c4c",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface-variant": "#45483b",
+                        "surface-variant": "#e3e2e2",
+                        "secondary-fixed": "#c7e9e8",
+                        "on-tertiary-fixed": "#350437",
+                        "error-container": "#ffdad6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter", "sans-serif"],
+                        "display": ["Inter", "sans-serif"],
+                        "body": ["Inter", "sans-serif"],
+                        "label": ["Inter", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FFFFFF;
+            color: #737373;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            color: #1A1A1A;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: -0.02em;
+        }
+        .cta-button {
+            background-color: #728C41;
+            color: #FFFFFF;
+            border-radius: 8px;
+            padding: 16px 32px;
+            font-weight: 600;
+            font-size: 1.125rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease-in-out;
+            box-shadow: none;
+        }
+        .cta-button:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+        .proof-text {
+            font-size: 0.875rem;
+            color: #737373;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 8px;
+        }
+        .vsl-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 */
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+            background-color: #1A1A1A;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+        .vsl-iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background-color: #728C41;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: transform 0.2s;
+            z-index: 10;
+        }
+        .vsl-container:hover .play-button {
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+        .avatar-group {
+            display: flex;
+        }
+        .avatar {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            border: 2px solid white;
+            margin-left: -8px;
+            background-color: #e5e7eb;
+        }
+        .avatar:first-child {
+            margin-left: 0;
+        }
+        .tight-section {
+            padding: 40px 20px;
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        .accordion-content.open {
+            max-height: 500px;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- 0. BANNER -->
+<div class="w-full bg-[#1A1A1A] text-white text-center py-2 text-sm font-medium tracking-wide">
+        ▶ Watch the free training below to see how it works
+    </div>
+<main class="max-w-4xl mx-auto flex flex-col items-center">
+<!-- 1. HERO (Tight vertical fitting) -->
+<section class="w-full flex flex-col items-center text-center px-4 pt-8 pb-12 min-h-[calc(100vh-40px)] justify-center">
+<img alt="Optimally Systems Logo" class="h-8 md:h-10 mb-8 object-contain" src="https://lh3.googleusercontent.com/aida/AP1WRLsovjHUbkDecT4JFrNGEu_eTbbiy00EM45i53jDzfHU4U776iqkAcfPuwx9BOuHO5gONadPWzyeSytLcqO7PDgn1XgPsnfQwN99QMqrXISlSE6xLECelQ8IlfehLcczGQAXiI95ayj7WNOgdj-z9GB4g6NxspZN-7PhpcrjumIHizHFY96MdHa1fqvHL13bnnZu1F8GBhttJsD5Dg7klkTgxfs3P0CeMiYqWbI7d__Yyl2DSnzJu7z2jOg"/>
+<p class="text-[#728C41] font-bold text-sm tracking-widest uppercase mb-4">
+                Attention: Coaches, Consultants &amp; Service Businesses
+            </p>
+<h1 class="text-3xl md:text-5xl font-black leading-tight mb-2 max-w-3xl">
+                We'll take you from unpredictable revenue to doubling your cash collected in 90 days using the Webinar Conversion Ecosystem™
+            </h1>
+<p class="text-xl md:text-2xl font-bold text-[#1A1A1A] mb-6">
+                ...or you don't pay.
+            </p>
+<p class="text-base md:text-lg text-[#737373] mb-8 max-w-2xl font-medium leading-relaxed">
+                Scalable sales funnels, automated systems, and calendars filled with pre-vetted, ready-to-buy prospects.
+            </p>
+<!-- VSL Placeholder -->
+<div class="w-full max-w-3xl mb-6 relative">
+<div class="vsl-container bg-surface-container-high border border-outline-variant">
+<!-- Fake Video Thumbnail -->
+<div class="absolute inset-0 bg-gradient-to-br from-surface-container-highest to-surface flex items-center justify-center">
+<span class="material-symbols-outlined text-outline" style="font-size: 64px; opacity: 0.2;">videocam</span>
+</div>
+<div class="play-button">
+<span class="material-symbols-outlined" style="font-size: 40px; font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+</div>
+<p class="text-sm font-semibold text-[#1A1A1A] mb-6">See exactly how we scale B2B companies to $1M+ ARR.</p>
+<!-- CTA Cluster -->
+<div class="flex flex-col items-center">
+<a class="cta-button w-full sm:w-auto px-12" href="https://www.optimally.ltd/demo?partner=optimally" target="_blank" rel="noopener noreferrer">Learn More</a>
+<div class="proof-text mt-3">
+<div class="avatar-group">
+<div class="avatar bg-gray-300"></div>
+<div class="avatar bg-gray-400"></div>
+<div class="avatar bg-gray-500"></div>
+<div class="avatar bg-gray-600"></div>
+<div class="avatar bg-gray-700"></div>
+</div>
+<span>Join 100+ businesses already scaling</span>
+</div>
+</div>
+</section>
+<!-- Divider -->
+<div class="w-full h-px bg-outline-variant/30 max-w-3xl"></div>
+<!-- 2. PAINS -->
+<section class="w-full flex flex-col items-center text-center tight-section max-w-3xl">
+<h2 class="text-3xl font-extrabold mb-8">Ever lost a deal?</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10 w-full">
+<div class="bg-surface-container-low p-6 rounded-lg text-left border border-outline-variant/50">
+<span class="material-symbols-outlined text-[#728C41] mb-4 text-3xl">trending_down</span>
+<h3 class="font-bold text-lg mb-2 text-[#1A1A1A]">Lack of Traffic</h3>
+<p class="text-sm text-[#737373]">Struggling to get enough eyeballs on your offers consistently.</p>
+</div>
+<div class="bg-surface-container-low p-6 rounded-lg text-left border border-outline-variant/50">
+<span class="material-symbols-outlined text-[#728C41] mb-4 text-3xl">filter_alt_off</span>
+<h3 class="font-bold text-lg mb-2 text-[#1A1A1A]">Low Conversions</h3>
+<p class="text-sm text-[#737373]">Traffic isn't turning into qualified leads or booked appointments.</p>
+</div>
+<div class="bg-surface-container-low p-6 rounded-lg text-left border border-outline-variant/50">
+<span class="material-symbols-outlined text-[#728C41] mb-4 text-3xl">money_off</span>
+<h3 class="font-bold text-lg mb-2 text-[#1A1A1A]">Low Close Rates</h3>
+<p class="text-sm text-[#737373]">Talking to unqualified prospects who can't afford your services.</p>
+</div>
+</div>
+<div class="flex flex-col items-center">
+<a class="cta-button w-full sm:w-auto px-12" href="https://www.optimally.ltd/demo?partner=optimally" target="_blank" rel="noopener noreferrer">Learn More</a>
+<div class="proof-text mt-3">
+<div class="avatar-group">
+<div class="avatar bg-gray-300"></div>
+<div class="avatar bg-gray-400"></div>
+<div class="avatar bg-gray-500"></div>
+</div>
+<span>Join 100+ businesses already scaling</span>
+</div>
+</div>
+</section>
+<!-- Divider -->
+<div class="w-full h-px bg-outline-variant/30 max-w-3xl"></div>
+<!-- 3. SOLUTION -->
+<section class="w-full flex flex-col items-center text-center tight-section max-w-3xl">
+<h2 class="text-3xl font-extrabold mb-4">The Conversion Ecosystem™</h2>
+<p class="text-lg mb-10 max-w-2xl text-[#737373]">Our proprietary system designed to fix your pipeline and scale your revenue predictably.</p>
+<div class="space-y-4 mb-10 w-full text-left">
+<div class="flex items-start gap-4 p-4 bg-surface rounded-lg border border-outline-variant/30">
+<span class="material-symbols-outlined text-[#728C41] mt-1">check_circle</span>
+<div>
+<h4 class="font-bold text-[#1A1A1A]">Significantly More Traffic</h4>
+<p class="text-sm text-[#737373]">Targeted ad strategies that bring high-intent prospects to your funnel.</p>
+</div>
+</div>
+<div class="flex items-start gap-4 p-4 bg-surface rounded-lg border border-outline-variant/30">
+<span class="material-symbols-outlined text-[#728C41] mt-1">check_circle</span>
+<div>
+<h4 class="font-bold text-[#1A1A1A]">Qualified Sales Calls</h4>
+<p class="text-sm text-[#737373]">Automated vetting systems so you only speak to ready-to-buy leads.</p>
+</div>
+</div>
+<div class="flex items-start gap-4 p-4 bg-surface rounded-lg border border-outline-variant/30">
+<span class="material-symbols-outlined text-[#728C41] mt-1">check_circle</span>
+<div>
+<h4 class="font-bold text-[#1A1A1A]">More Deals Closed</h4>
+<p class="text-sm text-[#737373]">Sales frameworks and follow-up automations to maximize close rates.</p>
+</div>
+</div>
+</div>
+<div class="flex flex-col items-center">
+<a class="cta-button w-full sm:w-auto px-12" href="https://www.optimally.ltd/demo?partner=optimally" target="_blank" rel="noopener noreferrer">Learn More</a>
+<div class="proof-text mt-3">
+<div class="avatar-group">
+<div class="avatar bg-gray-300"></div>
+<div class="avatar bg-gray-400"></div>
+<div class="avatar bg-gray-500"></div>
+</div>
+<span>Join 100+ businesses already scaling</span>
+</div>
+</div>
+</section>
+<!-- Divider -->
+<div class="w-full h-px bg-outline-variant/30 max-w-3xl"></div>
+<!-- 4. CTA SECTION (Punchy) -->
+<section class="w-full flex flex-col items-center text-center tight-section max-w-3xl bg-[#365555] rounded-xl my-8 px-6 py-12 text-white">
+<h2 class="text-3xl font-extrabold mb-4 text-white">Ready to double your cash collected?</h2>
+<p class="text-lg mb-8 text-white/80 max-w-xl">Stop relying on hope and referrals. Build a predictable revenue machine today.</p>
+<div class="flex flex-col items-center">
+<a class="cta-button w-full sm:w-auto px-12 bg-[#728C41] text-white hover:bg-[#728C41]/90" href="https://www.optimally.ltd/demo?partner=optimally" target="_blank" rel="noopener noreferrer">Learn More</a>
+<div class="proof-text mt-3 text-white/70">
+<div class="avatar-group">
+<div class="avatar bg-gray-300 border-[#365555]"></div>
+<div class="avatar bg-gray-400 border-[#365555]"></div>
+<div class="avatar bg-gray-500 border-[#365555]"></div>
+</div>
+<span class="text-white/80">Join 100+ businesses already scaling</span>
+</div>
+</div>
+</section>
+<!-- 5. TRUST -->
+<section class="w-full flex flex-col items-center text-center tight-section max-w-4xl">
+<h2 class="text-3xl font-extrabold mb-10">Real Results. No Fluff.</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full mb-10">
+<div class="rounded-lg overflow-hidden border border-outline-variant shadow-sm">
+<img alt="Testimonial Results 1" class="w-full h-auto object-cover aspect-[1.33]" data-alt="A clean, professional dashboard screenshot showing significant revenue growth, a steep upward trending graph, and high conversion metrics, styled in a modern, light-mode minimalist aesthetic with subtle olive green accents." src="https://lh3.googleusercontent.com/aida/AP1WRLsnoVsYt2myB1Yp-QlKaK6yrkTtI-mkxib9tEsddqhaxF4wA6UZFEZOX5nnSR0LdXzDn1CpDg9vYmWk2RT67OMuPHZswHobx2riDPhVagwF5yPp30_ji89G77KdySR6BkLwhUWipGRopD1xpuhSWs6W7GFw-gQjhTndlXniv4HbH0YMgyWgOE0FucNei8jkbSEvxStsO8V6ZNr80sB3gVNu1yH_e41o7jcChBKdenfnzhKnq5DQsP288LHa"/>
+</div>
+<div class="rounded-lg overflow-hidden border border-outline-variant shadow-sm">
+<img alt="Testimonial Results 2" class="w-full h-auto object-cover aspect-[1.16]" data-alt="A modern software interface screenshot displaying a calendar packed with booked sales calls, highlighting a highly successful lead generation campaign. The UI is crisp, bright, and uses a professional B2B color palette with deep teal and olive green highlights." src="https://lh3.googleusercontent.com/aida/AP1WRLvU-0wm80SEDYy66oAh3WDRZXVsc3OcWZnINjuqxwA1-P0l8SbeHRYZtd3Eiww8PY6SLrDURFp14Yu-j6wQGMR4YNHTW13Q5NqOZRUBH4kAZa0sj69V0MZiwyjceKdV5UbbGb_ogpwjC4SscKzWU5JAESpZu7iOvBWtVShZVN3vzKg0PUmF_roeH-qOt0mc__IflS2xhCDyAfOXUCF_HY_TBhLEaj68jgEdfQ4-R9V8Gct1QC2WpINHQTW6"/>
+</div>
+</div>
+<div class="flex flex-col items-center">
+<a class="cta-button w-full sm:w-auto px-12" href="https://www.optimally.ltd/demo?partner=optimally" target="_blank" rel="noopener noreferrer">Learn More</a>
+<div class="proof-text mt-3">
+<div class="avatar-group">
+<div class="avatar bg-gray-300"></div>
+<div class="avatar bg-gray-400"></div>
+<div class="avatar bg-gray-500"></div>
+</div>
+<span>Join 100+ businesses already scaling</span>
+</div>
+</div>
+</section>
+<!-- Divider -->
+<div class="w-full h-px bg-outline-variant/30 max-w-3xl"></div>
+<!-- 6. FOUNDER -->
+<section class="w-full flex flex-col items-center text-center tight-section max-w-3xl">
+<h2 class="text-3xl font-extrabold mb-8">Meet the Architect</h2>
+<div class="flex flex-col md:flex-row items-center gap-8 mb-10 text-left w-full bg-surface-container-low p-6 rounded-xl border border-outline-variant/30">
+<div class="w-48 h-48 bg-surface-variant rounded-lg flex-shrink-0 flex items-center justify-center border border-outline-variant">
+<span class="material-symbols-outlined text-outline text-5xl">person</span>
+</div>
+<div>
+<h3 class="text-2xl font-bold mb-2 text-[#1A1A1A]">Reuben Shears</h3>
+<p class="text-sm font-semibold text-[#728C41] mb-4">Founder, Optimally Systems</p>
+<p class="text-[#737373] text-sm leading-relaxed mb-4">
+                        After building and scaling multiple 7-figure funnels, I realized the biggest bottleneck for service businesses isn't their offer—it's their acquisition system.
+                    </p>
+<p class="text-[#737373] text-sm leading-relaxed">
+                        I built the Webinar Conversion Ecosystem™ to remove the guesswork from scaling. We don't just give you advice; we install the exact systems we use to grow predictable revenue.
+                    </p>
+</div>
+</div>
+<div class="flex flex-col items-center">
+<a class="cta-button w-full sm:w-auto px-12" href="https://www.optimally.ltd/demo?partner=optimally" target="_blank" rel="noopener noreferrer">Learn More</a>
+<div class="proof-text mt-3">
+<div class="avatar-group">
+<div class="avatar bg-gray-300"></div>
+<div class="avatar bg-gray-400"></div>
+<div class="avatar bg-gray-500"></div>
+</div>
+<span>Join 100+ businesses already scaling</span>
+</div>
+</div>
+</section>
+<!-- Divider -->
+<div class="w-full h-px bg-outline-variant/30 max-w-3xl"></div>
+<!-- 7. FAQ -->
+<section class="w-full flex flex-col items-center tight-section max-w-2xl mb-12">
+<h2 class="text-3xl font-extrabold mb-8 text-center">Frequently Asked Questions</h2>
+<div class="w-full space-y-3 mb-10">
+<!-- FAQ 1 -->
+<div class="border border-outline-variant/50 rounded-lg overflow-hidden bg-surface">
+<button class="w-full text-left px-5 py-4 font-bold text-[#1A1A1A] flex justify-between items-center hover:bg-surface-container-low transition-colors" onclick="toggleAccordion(this)">
+                        What is the pricing?
+                        <span class="material-symbols-outlined transition-transform duration-200">expand_more</span>
+</button>
+<div class="accordion-content px-5">
+<p class="py-4 text-sm text-[#737373] border-t border-outline-variant/20">We customize our pricing based on your current revenue, infrastructure, and exactly what you need built. Book a call to get a tailored roadmap and quote.</p>
+</div>
+</div>
+<!-- FAQ 2 -->
+<div class="border border-outline-variant/50 rounded-lg overflow-hidden bg-surface">
+<button class="w-full text-left px-5 py-4 font-bold text-[#1A1A1A] flex justify-between items-center hover:bg-surface-container-low transition-colors" onclick="toggleAccordion(this)">
+                        How much time will this take me?
+                        <span class="material-symbols-outlined transition-transform duration-200">expand_more</span>
+</button>
+<div class="accordion-content px-5">
+<p class="py-4 text-sm text-[#737373] border-t border-outline-variant/20">Our goal is to save you time. We handle the heavy lifting of building the funnel and systems. You just need to show up to the sales calls.</p>
+</div>
+</div>
+<!-- FAQ 3 -->
+<div class="border border-outline-variant/50 rounded-lg overflow-hidden bg-surface">
+<button class="w-full text-left px-5 py-4 font-bold text-[#1A1A1A] flex justify-between items-center hover:bg-surface-container-low transition-colors" onclick="toggleAccordion(this)">
+                        Does this work for my niche?
+                        <span class="material-symbols-outlined transition-transform duration-200">expand_more</span>
+</button>
+<div class="accordion-content px-5">
+<p class="py-4 text-sm text-[#737373] border-t border-outline-variant/20">If you sell high-ticket B2B services, coaching, or consulting, yes. The principles of human psychology and high-converting funnels apply across industries.</p>
+</div>
+</div>
+<!-- FAQ 4 -->
+<div class="border border-outline-variant/50 rounded-lg overflow-hidden bg-surface">
+<button class="w-full text-left px-5 py-4 font-bold text-[#1A1A1A] flex justify-between items-center hover:bg-surface-container-low transition-colors" onclick="toggleAccordion(this)">
+                        How does the results guarantee work?
+                        <span class="material-symbols-outlined transition-transform duration-200">expand_more</span>
+</button>
+<div class="accordion-content px-5">
+<p class="py-4 text-sm text-[#737373] border-t border-outline-variant/20">If we don't hit the agreed-upon KPIs and double your cash collected within the 90-day timeframe, we work for free until we do, or you don't pay. Simple.</p>
+</div>
+</div>
+<!-- FAQ 5 -->
+<div class="border border-outline-variant/50 rounded-lg overflow-hidden bg-surface">
+<button class="w-full text-left px-5 py-4 font-bold text-[#1A1A1A] flex justify-between items-center hover:bg-surface-container-low transition-colors" onclick="toggleAccordion(this)">
+                        Why should I trust you?
+                        <span class="material-symbols-outlined transition-transform duration-200">expand_more</span>
+</button>
+<div class="accordion-content px-5">
+<p class="py-4 text-sm text-[#737373] border-t border-outline-variant/20">Because we put our money where our mouth is with our guarantee, and our track record of scaling 100+ businesses speaks for itself. Watch the VSL for proof.</p>
+</div>
+</div>
+<!-- FAQ 6 -->
+<div class="border border-outline-variant/50 rounded-lg overflow-hidden bg-surface">
+<button class="w-full text-left px-5 py-4 font-bold text-[#1A1A1A] flex justify-between items-center hover:bg-surface-container-low transition-colors" onclick="toggleAccordion(this)">
+                        Is there a long-term contract?
+                        <span class="material-symbols-outlined transition-transform duration-200">expand_more</span>
+</button>
+<div class="accordion-content px-5">
+<p class="py-4 text-sm text-[#737373] border-t border-outline-variant/20">Our initial sprint is 90 days to build and validate the ecosystem. After that, we offer performance-based maintenance options, but no lock-in contracts.</p>
+</div>
+</div>
+<!-- FAQ 7 -->
+<div class="border border-outline-variant/50 rounded-lg overflow-hidden bg-surface">
+<button class="w-full text-left px-5 py-4 font-bold text-[#1A1A1A] flex justify-between items-center hover:bg-surface-container-low transition-colors" onclick="toggleAccordion(this)">
+                        How fast will I see results?
+                        <span class="material-symbols-outlined transition-transform duration-200">expand_more</span>
+</button>
+<div class="accordion-content px-5">
+<p class="py-4 text-sm text-[#737373] border-t border-outline-variant/20">We launch the initial funnel within 14 days. You should start seeing booked calls in week 3, and cash collected within the first 30-45 days.</p>
+</div>
+</div>
+</div>
+<div class="flex flex-col items-center">
+<a class="cta-button w-full sm:w-auto px-12" href="https://www.optimally.ltd/demo?partner=optimally" target="_blank" rel="noopener noreferrer">Learn More</a>
+<div class="proof-text mt-3">
+<div class="avatar-group">
+<div class="avatar bg-gray-300"></div>
+<div class="avatar bg-gray-400"></div>
+<div class="avatar bg-gray-500"></div>
+</div>
+<span>Join 100+ businesses already scaling</span>
+</div>
+</div>
+</section>
+</main>
+<!-- 8. FOOTER -->
+<footer class="w-full bg-surface-container-low dark:bg-surface-container-highest py-12 border-t border-outline-variant mt-12">
+<div class="flex flex-col items-center gap-8 px-8 max-w-7xl mx-auto text-center">
+<img alt="Optimally Systems Logo" class="h-6 object-contain grayscale opacity-80" src="https://lh3.googleusercontent.com/aida/AP1WRLsovjHUbkDecT4JFrNGEu_eTbbiy00EM45i53jDzfHU4U776iqkAcfPuwx9BOuHO5gONadPWzyeSytLcqO7PDgn1XgPsnfQwN99QMqrXISlSE6xLECelQ8IlfehLcczGQAXiI95ayj7WNOgdj-z9GB4g6NxspZN-7PhpcrjumIHizHFY96MdHa1fqvHL13bnnZu1F8GBhttJsD5Dg7klkTgxfs3P0CeMiYqWbI7d__Yyl2DSnzJu7z2jOg"/>
+<!-- On-brand visual -->
+<div class="w-full max-w-sm rounded-lg overflow-hidden border border-outline-variant/50 opacity-80">
+<img alt="Optimally Systems Dashboard Visual" class="w-full h-auto aspect-[1.83] object-cover" data-alt="A minimal, abstract representation of a data dashboard and analytics interface, featuring sleek geometric graphs and charts in a high-key, bright modern aesthetic. The color palette incorporates crisp whites, deep slate, and precise olive green data lines, communicating professional B2B software metrics." src="https://lh3.googleusercontent.com/aida/AP1WRLvNg6s6TOkFaki5brIe2Icf_Jun4bscqLqZDWGekZj784A_NC6Nnf6a_V242qTqaQtvh2b8XdUgpTdpxD6T3RaVzZWDm0_uCT-4rDAzCHN7uggN6rDjnn9vgdcAXpo0LiC_wZaW8a9TRc7AMpfDGQJ1cC6MIZ9XEBob9mFvQxz8GA8AUEHBACqzTJV-9kdxYiJdkEDNF4Dy6A0CcxyX4bZa4iaeGNSaUSPbgxznOF-6dH8sze6jalqN1VlP"/>
+</div>
+<div class="flex flex-col items-center my-4">
+<a class="cta-button w-full sm:w-auto px-12 text-sm py-3" href="https://www.optimally.ltd/demo?partner=optimally" target="_blank" rel="noopener noreferrer">Learn More</a>
+<div class="proof-text mt-2 text-xs">
+<div class="avatar-group scale-75 transform origin-left">
+<div class="avatar bg-gray-300"></div>
+<div class="avatar bg-gray-400"></div>
+<div class="avatar bg-gray-500"></div>
+</div>
+<span>Join 100+ businesses</span>
+</div>
+</div>
+<div class="flex flex-col items-center gap-4">
+<p class="font-body text-sm leading-comfortable text-on-surface-variant">© 2026 Optimally Systems. All rights reserved.</p>
+<div class="flex gap-6 text-sm text-on-surface-variant">
+<a class="hover:text-primary dark:hover:text-primary-fixed transition-colors underline" href="#">Privacy Policy</a>
+<a class="hover:text-primary dark:hover:text-primary-fixed transition-colors underline" href="#">Terms of Service</a>
+<a class="hover:text-primary dark:hover:text-primary-fixed transition-colors underline" href="#">Contact Us</a>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        function toggleAccordion(button) {
+            const content = button.nextElementSibling;
+            const icon = button.querySelector('.material-symbols-outlined');
+            
+            if (content.classList.contains('open')) {
+                content.classList.remove('open');
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                // Close others
+                document.querySelectorAll('.accordion-content').forEach(el => {
+                    el.classList.remove('open');
+                });
+                document.querySelectorAll('.material-symbols-outlined').forEach(el => {
+                    if(el.textContent === 'expand_more') el.style.transform = 'rotate(0deg)';
+                });
+                
+                content.classList.add('open');
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
+    </script>
+</body></html>
