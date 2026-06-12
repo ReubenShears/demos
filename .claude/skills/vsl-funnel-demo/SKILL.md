@@ -135,12 +135,15 @@ fails, post a FAILURE to Slack rather than deploying a blank page.
 Then run the bundled script to rewrite every "Learn More" CTA to the partner tracking URL (new tab)
 and place the file:
 ```bash
-node "<skill-dir>/scripts/place_demo.mjs" /tmp/<slug>.html <slug> "<deploy-root>"
+node "<skill-dir>/scripts/place_demo.mjs" /tmp/<slug>.html <slug> "<deploy-root>" "<logo-url>"
 ```
 `<deploy-root>` is `D:/Claude Cowork/demos` locally, or the cloned/working repo root remotely.
-`place_demo.mjs` handles BOTH `<a>` and `<button>` CTAs, preserves the original image URLs (the user
-does **not** want Stitch images localized), writes `<slug>/index.html`, and prints how many CTAs it
-retargeted. Sanity-check that the printed count is > 0.
+`<logo-url>` is the Firecrawl-scraped logo URL from step 1 (`branding.images.logo`) — passing it FORCES
+the real brand logo into the deployed HTML so it ALWAYS renders (Stitch's rehosted logo can expire or
+be wrong). `place_demo.mjs` handles BOTH `<a>` and `<button>` CTAs, forces the logo, normalizes the
+footer year to 2026, preserves the original (non-logo) image URLs (the user does **not** want Stitch
+images localized), writes `<slug>/index.html`, and prints the CTA + logo counts. Sanity-check the CTA
+count is > 0.
 
 ### 7. Deploy to Vercel
 
@@ -164,7 +167,7 @@ git -C "D:/Claude Cowork/demos" push origin main
   under `.claude/skills/`, so a routine pointed at this repo is already in the working copy). Write the
   page at the repo root and push — no clone needed:
   ```bash
-  node "<skill-dir>/scripts/place_demo.mjs" /tmp/<slug>.html <slug> "<repo-root>"   # writes <slug>/index.html
+  node "<skill-dir>/scripts/place_demo.mjs" /tmp/<slug>.html <slug> "<repo-root>" "<logo-url>"   # writes <slug>/index.html
   git add <slug>/index.html \
     && git -c user.email="132842611+ReubenShears@users.noreply.github.com" -c user.name="ReubenShears" commit -m "demo: <slug>" \
     && git push origin main
@@ -172,7 +175,7 @@ git -C "D:/Claude Cowork/demos" push origin main
 - *No checkout available* — clone first, then write into it:
   ```bash
   git clone https://x-access-token:$GITHUB_TOKEN@github.com/ReubenShears/demos.git repo
-  node "<skill-dir>/scripts/place_demo.mjs" /tmp/<slug>.html <slug> "repo"   # writes repo/<slug>/index.html
+  node "<skill-dir>/scripts/place_demo.mjs" /tmp/<slug>.html <slug> "repo" "<logo-url>"   # writes repo/<slug>/index.html
   cd repo && git add <slug>/index.html \
     && git -c user.email="132842611+ReubenShears@users.noreply.github.com" -c user.name="ReubenShears" commit -m "demo: <slug>" \
     && git push origin main
