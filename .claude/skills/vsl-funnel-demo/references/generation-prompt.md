@@ -15,9 +15,10 @@ automatically — the prompt just reinforces the conversion structure and the co
 
 Build a long-form, single-page VSL (Video Sales Letter) call-funnel landing page that recreates the offer of the company "{{COMPANY}}".
 
-SOURCE CONTENT — IMPORTANT:
-Scrape this exact URL for all real copy, offer details, deliverables, ICP, testimonial wording, founder info, and FAQ source material: {{URL}}
-Pull ONLY the company LOGO as a real image from that site (use the actual {{COMPANY}} logo at the top). Do NOT pull any other photos or imagery from the site into the design, and do NOT insert decorative stock or AI photos of people. Every place that would show a person (testimonials, founder) must use a clearly empty large image-placeholder graphic (a "place image here" icon box), never a realistic AI-generated human face.
+SOURCE CONTENT — YOU (STITCH) MUST SCRAPE THE SITE AND WRITE THE COPY YOURSELF:
+Scrape this exact URL yourself — {{URL}} — and use what you find there as the source for ALL real content: the offer, deliverables, ICP, mechanism, timeframe, guarantee, testimonial wording, founder info and FAQ material. WRITE every section's copy in your own words from that scraped site, following the STRUCTURE and STYLE guidelines below. These guidelines are NOT the copy — the actual words are yours to write from the real site content. Never leave generic or placeholder copy anywhere the site gives you real material; make the copy specific, rich, on-brand and persuasive.
+Also pull the company LOGO as a real image directly from the scraped site and use it at the top (and in the footer). Pull ONLY the LOGO as a real image — do NOT pull any other photos or imagery from the site into the design, and do NOT insert decorative stock or AI photos of people. Every place that would show a person (testimonials, founder) must use a clearly empty large image-placeholder graphic (a "place image here" icon box), never a realistic AI-generated human face.
+And ALWAYS build the full page with every section below — never return a thin or partial page.
 
 This is a direct-response VSL funnel, NOT a normal corporate website. Conversion-focused, clean, single centered column, funnelling the visitor toward ONE action: watch the VSL and click the call-to-action. Keep vertical spacing TIGHT and efficient — the hero (logo + eyebrow + headline + guarantee + single subheadline + video + first CTA) should fit within roughly a single viewport; keep the gap between the top banner and the logo small. Look premium but do not waste vertical space.
 

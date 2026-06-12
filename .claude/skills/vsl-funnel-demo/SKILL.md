@@ -95,7 +95,9 @@ requires the update call to make the system active for the project).
 ### 4. Generate the page
 
 Read `references/generation-prompt.md`, fill in the placeholders (`{{COMPANY}}` = the full company
-name, `{{URL}}`, `{{SLUG}}`, and the brand colors), and call `mcp__stitch__generate_screen_from_text` with
+name, `{{URL}}`, `{{SLUG}}`, and the brand colors — do NOT inject pre-written copy or scraped body
+text into the prompt; the prompt is structure + style guidelines only, and Stitch scrapes `{{URL}}`
+and writes all the page copy itself), and call `mcp__stitch__generate_screen_from_text` with
 `projectId`, `designSystem: assets/<id>`, `deviceType: DESKTOP`, `modelId: GEMINI_3_1_PRO`, and the
 filled prompt.
 
