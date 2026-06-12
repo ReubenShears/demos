@@ -70,6 +70,17 @@ if (logoUrl) {
 // --- Normalize footer copyright year to 2026 (Stitch sometimes emits 2024/2025) ---
 html = html.replace(/©\s*20\d\d/g, '© 2026');
 
+// --- Social / favicon safety net: ensure the link unfurls with a favicon + og:image ---
+const faviconUrl = process.env.FAVICON_URL || '';
+const ogImageUrl = process.env.OG_IMAGE_URL || logoUrl || '';
+if (faviconUrl && !/<link[^>]+rel=["'][^"']*icon[^"']*["']/i.test(html)) {
+  html = html.replace(/<\/head>/i, `  <link rel="icon" href="${faviconUrl}">\n</head>`);
+}
+if (ogImageUrl && !/property=["']og:image["']/i.test(html)) {
+  html = html.replace(/<\/head>/i,
+    `  <meta property="og:image" content="${ogImageUrl}">\n  <meta name="twitter:card" content="summary_large_image">\n  <meta name="twitter:image" content="${ogImageUrl}">\n</head>`);
+}
+
 const outDir = path.join(outRoot, slug);
 fs.mkdirSync(outDir, { recursive: true });
 const outFile = path.join(outDir, 'index.html');

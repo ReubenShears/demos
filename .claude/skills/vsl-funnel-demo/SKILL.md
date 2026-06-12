@@ -52,7 +52,7 @@ Work in order; short status lines as you go. Total run ~1–3 min (no Stitch gen
 Call `firecrawl_scrape` **ONCE** on the URL with `formats: ["branding","markdown"]`. That single call
 (a fixed endpoint) returns BOTH the brand tokens AND the homepage copy:
 - Brand: `branding.colors` (primary/secondary/textPrimary/background), `branding.images.logo`,
-  `branding.fonts`, `branding.spacing.borderRadius`
+  `branding.images.favicon`, `branding.images.ogImage`, `branding.fonts`, `branding.spacing.borderRadius`
 - Content: the homepage `markdown`
 
 Read that markdown directly and pull the offer, ICP, deliverables, mechanism, timeframe, guarantee, and
@@ -82,11 +82,12 @@ Self-check before placing: all 9 sections present; headline ≤3 lines; logo pro
 Run the bundled script — it's now a SAFETY NET (Claude already baked CTAs/logo/year, but this guarantees
 them and places the file):
 ```bash
-node "<skill-dir>/scripts/place_demo.mjs" /tmp/<slug>.html <slug> "<deploy-root>" "<logo-url>"
+FAVICON_URL="<favicon-url>" OG_IMAGE_URL="<og-image-url>" node "<skill-dir>/scripts/place_demo.mjs" /tmp/<slug>.html <slug> "<deploy-root>" "<logo-url>"
 ```
-`<deploy-root>` = `D:/Claude Cowork/demos` locally, or the cloned/working repo root remotely. `<logo-url>`
-= `branding.images.logo`. The script re-asserts tracked "Learn More" CTAs, forces the real logo, normalizes
-the footer year to 2026, and writes `<slug>/index.html`. Confirm the printed CTA count is > 0.
+`<deploy-root>` = `D:/Claude Cowork/demos` locally, or the cloned/working repo root remotely. `<logo-url>`,
+`<favicon-url>`, `<og-image-url>` come from step 1 (`branding.images.logo` / `.favicon` / `.ogImage`). The
+script re-asserts tracked "Learn More" CTAs, forces the real logo, injects the favicon + og:image if Claude
+missed them, normalizes the footer year to 2026, and writes `<slug>/index.html`. Confirm the printed CTA count is > 0.
 
 ### 4. Deploy to Vercel (git push to ReubenShears/demos)
 Deploy = commit `<slug>/index.html` and push to `main`; Vercel auto-builds → `demos.optimally.ltd/<slug>`.

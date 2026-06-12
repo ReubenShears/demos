@@ -82,6 +82,18 @@ controlled headline length and logo size, real animations.
 ## Footer
 - Real logo, final "Learn More" CTA, basic links (privacy/terms/contact), copyright **"© 2026 <Company>"**.
 
+## Social share / SEO — the link must unfurl beautifully when sent to a prospect
+The demo link gets pasted into iMessage / Slack / WhatsApp / email, so the `<head>` must produce a rich
+preview card:
+- `<title>` — `<Company> — <short value prop>` (concise, specific).
+- `<meta name="description">` — one sentence on the offer.
+- Open Graph: `og:title`, `og:description`, `og:type=website`, `og:url=https://demos.optimally.ltd/<slug>`,
+  and **`og:image` = the scraped `branding.images.ogImage`** (a proper ~1200×630 card; fall back to the
+  logo URL only if no ogImage exists).
+- `<meta name="twitter:card" content="summary_large_image">` plus `twitter:title` / `twitter:description` / `twitter:image`.
+- **Favicon** = the scraped `branding.images.favicon` (`<link rel="icon" href="...">`).
+Use real brand values, never placeholders. (place_demo.mjs injects favicon + og:image as a safety net if missing.)
+
 ## Output & quality gate
 - Write the finished single `index.html` to `<deploy-root>/<slug>/index.html`.
 - Before finishing, self-check: all 9 sections present; headline ≤3 lines; logo prominent; every CTA is a
