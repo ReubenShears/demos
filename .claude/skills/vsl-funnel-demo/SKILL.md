@@ -1,313 +1,150 @@
 ---
 name: vsl-funnel-demo
 description: >-
-  Turn a single company URL into a fully deployed VSL (video sales letter) call-funnel demo
-  landing page, end to end. Use this whenever the user gives a company/website URL and wants a
-  demo funnel, demo landing page, mock funnel, recreated funnel, or "build a demo for this site" —
-  even if they don't say the word "skill". Trigger on phrases like "make a demo landing page for
-  optimally.ltd", "spin up a VSL funnel for this URL", "build a demo funnel for <company>", "recreate
-  this site as a sales funnel", or just a bare URL accompanied by "do the demo". The skill scrapes
-  the brand, generates the page in Google Stitch, rewrites the CTAs with partner tracking, deploys
-  it to demos.optimally.ltd/<slug> on Vercel, logs it to Baserow, and posts a summary to Slack.
-  This is an Optimally-internal pipeline (CTAs always point back to optimally.ltd/demo).
+  Turn a single company URL into a fully deployed, premium VSL (video sales letter) call-funnel demo
+  landing page, end to end. Use this whenever the user gives a company/website URL and wants a demo
+  funnel, demo landing page, mock funnel, recreated funnel, or "build a demo for this site" — even if
+  they don't say the word "skill". Trigger on phrases like "make a demo landing page for optimally.ltd",
+  "spin up a VSL funnel for this URL", "build a demo funnel for <company>", "recreate this site as a
+  sales funnel", or a bare URL with "do the demo". The skill scrapes the brand + business content with
+  Firecrawl, then CLAUDE WRITES a self-contained premium index.html itself (no Stitch), deploys it to
+  demos.optimally.ltd/<slug> on Vercel via git, logs it to Baserow, and posts a summary to Slack.
+  Optimally-internal pipeline (CTAs always point back to optimally.ltd/demo).
 ---
 
-# VSL Funnel Demo Builder
+# VSL Funnel Demo Builder (Claude-authored)
 
-Turn one company URL into a deployed, on-brand VSL call-funnel demo landing page, then log and
-announce it. The whole point: the user pastes a URL and gets back a live link to send to that
-prospect, with click tracking so Optimally can see who engaged.
+One company URL → a deployed, on-brand, premium VSL call-funnel demo landing page, then logged and
+announced. The visitor gets a live link to send a prospect, with click tracking back to Optimally.
 
-This skill is **Optimally-specific** — it hardcodes Optimally's Vercel project, custom domain,
-Baserow base, Slack channel, and the partner-tracking CTA. The full rationale for every design
-decision lives in the user's memory files; treat them as the source of truth and skim them first:
-- `stitch-vsl-funnel-prompt-spec.md` — every copy/layout/imagery rule for the generated page
-- `stitch-project-naming.md` — Stitch project naming convention
-- `vercel-demo-deploys.md` — the Vercel project + domain + deploy command
+**Claude writes the page directly** (Tailwind + a little CSS/JS) from a rich Firecrawl scrape — no
+Stitch. This is deterministic: all sections always present, controlled headline length and logo size,
+real animations, CTAs tracked from the start.
 
-If a convention here ever conflicts with those memory files, the memory files win (they get updated
-as the user gives new feedback).
+Optimally-specific — hardcodes the Vercel project, domain, Baserow base, Slack channel, and the
+partner CTA. Conventions also live in the user's memory files (source of truth; skim first):
+`stitch-vsl-funnel-prompt-spec.md`, `stitch-project-naming.md`, `vercel-demo-deploys.md`.
 
 ## Fixed configuration (Optimally)
 
 | Thing | Value |
 |-------|-------|
-| Vercel project root (local) | `D:\Claude Cowork\demos\` |
-| Live domain | `https://demos.optimally.ltd/<slug>` |
-| Deploy command | `vercel deploy --prod --yes --cwd "D:/Claude Cowork/demos"` |
+| Deploy repo (git) | `ReubenShears/demos` (public), root mirrors `demos/` — one `<slug>/index.html` per demo |
+| Local working copy | `D:\Claude Cowork\demos\` |
+| Live domain | `https://demos.optimally.ltd/<slug>` (Vercel auto-builds on push to `main`) |
 | CTA tracking base | `https://www.optimally.ltd/demo?partner=<slug>` (opens new tab) |
-| Baserow database | `Backend` (id `453125`) |
-| Baserow table | `Demo Landing Page Data` (discover id at runtime) |
+| Baserow database / table | `Backend` (id `453125`) / `Demo Landing Page Data` (id `1024310`) |
 | Slack channel | `#5-asset-generation` (id `C0AN653QCF2`) |
-| Stitch model | `GEMINI_3_1_PRO`, device `DESKTOP` |
+| Build spec | `references/build-spec.md` — the premium design + structure rules Claude follows |
 
 ## Workflow
 
-Work through these in order. Most steps are a single tool call. Tell the user what you're doing in
-short status lines — this pipeline takes several minutes (Stitch generation alone is ~3-5 min).
+Work in order; short status lines as you go. Total run ~1–3 min (no Stitch generation wait).
 
 ### 0. Derive identifiers from the URL
+- **slug** (king): first domain label after removing a leading `www.`, lowercased.
+  `www.unorthodox.digital` → `unorthodox`; `getacme.io` → `getacme`. Drops the TLD entirely (never
+  `unorthodox-digital`). Reused for the folder, URL path, and `partner=` param.
+- **Brand name (short)** for display (e.g. `Unorthodox`); **Company name (full)** for Baserow Prospect
+  Name + footer (e.g. `Unorthodox Systems`). Refine both after the scrape from `ogTitle`.
 
-Three identifiers used in different places — keep them straight:
-- **slug** (king): the FIRST domain label after removing a leading `www.` — i.e. the text before the
-  first dot, lowercased. `https://www.unorthodox.digital` → `unorthodox`; `https://getacme.io` →
-  `getacme`; `https://www.optimally.ltd` → `optimally`. Drop the TLD entirely and NEVER hyphenate it
-  into the slug (`.digital` / `.io` / `.ltd` are not part of the slug — `unorthodox`, never
-  `unorthodox-digital`). Reused for the folder, URL path, and `partner=` param — keep it short and clean.
-- **Brand name (short)**: the concise brand, used ONLY for the Stitch project title, e.g. `Optimally`.
-  Derive it after the scrape from `ogTitle` / logo: take the brand root and drop suffixes like
-  "Systems", anything after a `|` or `-` separator, and entity tags ("Ltd" / "Inc").
-- **Company name (full)**: the fuller real company name, used for the Baserow `Prospect Name` and the
-  page copy, e.g. `Optimally Systems` (from `ogTitle`, before any `|` / `-` separator).
+### 1. Gather brand + business content (Firecrawl — this is what makes the copy good)
+This replaces Stitch's in-generation scrape; gather DEEPLY so Claude writes from a real understanding.
 
-### 1. Brand scrape (Firecrawl)
+a. **Homepage:** `firecrawl_scrape` on the URL with `formats: ["branding","markdown"]`. Capture brand
+   tokens (`branding.colors` primary/secondary/textPrimary/background, `branding.images.logo`,
+   `branding.fonts`, `branding.spacing.borderRadius`) AND the full homepage `markdown`.
+b. **Map:** `firecrawl_map` the domain to list URLs. Pick the highest-value pages (up to ~5):
+   about / team / founder, offer / pricing / work-with-us / apply, testimonials / results / case-studies,
+   faq, services / product.
+c. **Deep scrape:** `firecrawl_scrape` (`formats: ["markdown"]`) each picked page. Gather real founder
+   bio, real testimonials/results, real FAQ Q&As, the actual offer + deliverables + mechanism + guarantee.
+   (If `firecrawl_map` returns little, just use the homepage — don't block on it.)
+d. **Distil a business brief** (hold it in your reasoning): company (full + short), ICP, the offer as
+   **A → B → timeframe → mechanism**, deliverables list, current pains, the solution/mechanism, real
+   proof/testimonials, founder name + bio, **7 likely sales objections**, the guarantee/risk-reversal.
+   Write the page from THIS — never generic filler where the site gives you real material.
 
-Call `firecrawl_scrape` with `formats: ["branding"]` on the URL. From the result keep:
-- `branding.colors.primary`, `.secondary`, `.textPrimary` (→ neutral), `.background`
-- `branding.fonts` / `branding.typography.fontFamilies` (map to a Stitch font enum; default `INTER`)
-- `branding.images.logo`
-- `metadata.ogTitle` (company name) and `metadata.ogDescription` / `description` (offer + ICP hints)
-- `branding.spacing.borderRadius` (→ roundness; 8px → `ROUND_EIGHT`)
+### 2. Write the page (Claude authors it — the core step)
+Read `references/build-spec.md` and follow it exactly to write ONE self-contained `index.html`:
+the 9-section premium VSL funnel, brand colours/fonts/logo, real copy from the business brief, headline
+2–3 lines max, prominent logo, atmospheric design + subtle scroll motion, every CTA a tracked
+**"Learn More"** anchor (`href="https://www.optimally.ltd/demo?partner=<slug>"`, new tab), `© 2026`.
+Write it to a temp file, e.g. `/tmp/<slug>.html`. (In a routine, fetch the build spec from the raw URL:
+`https://raw.githubusercontent.com/ReubenShears/demos/main/.claude/skills/vsl-funnel-demo/references/build-spec.md`.)
 
-Only the **logo** is used as a real image in the page — see the imagery rule in the prompt. Map the
-detected body/heading font to the closest Stitch enum value; if it isn't in the Stitch font list,
-fall back to `INTER`. (The Stitch font enum is large — Inter, Manrope, DM Sans, Sora, Geist,
-Plus Jakarta Sans, etc. Use `INTER` when unsure.)
+Self-check before placing: all 9 sections present; headline ≤3 lines; logo prominent; every CTA tracked;
+`© 2026`; renders mobile/tablet/desktop; no letter clipping; no lorem where real content existed.
 
-### 2. Create the Stitch project
-
-`mcp__stitch__create_project` with `title` set EXACTLY to `<Brand name (short)> | Demo Landing Page`
-— e.g. `Unorthodox | Demo Landing Page`, `Optimally | Demo Landing Page`. The ` | Demo Landing Page`
-suffix is REQUIRED. Do NOT name the project just the brand (`Unorthodox`), the full company name, a
-tagline, or anything ending in `… VSL Funnel` (that is the auto-generated SCREEN title, not the
-project title). Use the short brand. Save the numeric project id (strip the `projects/` prefix).
-
-### 3. Create + apply the design system
-
-`mcp__stitch__create_design_system` with `projectId` and a theme built from the brand:
-`colorMode: LIGHT`, `headlineFont`/`bodyFont`/`labelFont` = mapped font, `roundness` from radius,
-`customColor` = primary, `colorVariant: FIDELITY`, and `overridePrimaryColor` / `overrideSecondaryColor`
-/ `overrideNeutralColor` = primary / secondary / text colors. Put a short brand `designMd` in it
-(see the design-system block in the prompt reference). Save the returned `assets/<id>` name, then
-**immediately** call `mcp__stitch__update_design_system` with the same payload to apply it (Stitch
-requires the update call to make the system active for the project).
-
-### 4. Generate the page
-
-Read `references/generation-prompt.md`, fill in the placeholders (`{{COMPANY}}` = the full company
-name, `{{URL}}`, `{{SLUG}}`, and the brand colors — do NOT inject pre-written copy or scraped body
-text into the prompt; the prompt is structure + style guidelines only, and Stitch scrapes `{{URL}}`
-and writes all the page copy itself), and call `mcp__stitch__generate_screen_from_text` with
-`projectId`, `designSystem: assets/<id>`, `deviceType: DESKTOP`, `modelId: GEMINI_3_1_PRO`, and the
-filled prompt.
-
-**Expect this call to time out** — that's normal, the generation keeps running server-side. Do NOT
-retry it. Instead poll (next step).
-
-### 5. Poll for the finished screen
-
-Poll `mcp__stitch__list_screens` for the project until a screen titled like
-`"<Company> VSL Funnel"` (or similar) appears **with a populated `htmlCode.downloadUrl`**. Generation
-typically takes 3-5 minutes, so wait in chunks: start a background `sleep 75` (Bash,
-`run_in_background: true`), and on each wake re-list. Keep going for up to ~8 minutes before treating
-it as failed. From the finished screen capture:
-- `htmlCode.downloadUrl` (the generated HTML)
-- `screenshot.downloadUrl` (preview image)
-- the project id (for the Stitch project URL)
-
-### 6. Retrieve the HTML, retarget CTAs, place the file
-
-**Get the generated HTML reliably — this is the step that fails most often if done naively.** The
-finished screen's `htmlCode.downloadUrl` is a `contribution.usercontent.google.com` link. A plain
-`curl` / WebFetch of it works on a local machine but is frequently **BLOCKED in headless / cloud
-routine environments** (that's why naive runs flail through get_screen → WebFetch → etc.). Use this
-order and stop at the first that returns a full HTML document:
-
-1. **Firecrawl (use this first in a routine):** `firecrawl_scrape` with `url: <htmlCode.downloadUrl>`
-   and `formats: ["rawHtml"]`; use the returned `rawHtml` — it's the generated page source and
-   Firecrawl fetches server-side, so it isn't blocked.
-2. **curl (local machine):** `curl -sL "<htmlCode.downloadUrl>" -o /tmp/<slug>.html`.
-
-Write the HTML to a temp file (e.g. `/tmp/<slug>.html`) and VERIFY it's a complete document — it must
-contain `<html` and the hero headline text. Never proceed with empty/truncated HTML; if every method
-fails, post a FAILURE to Slack rather than deploying a blank page.
-
-Then run the bundled script to rewrite every "Learn More" CTA to the partner tracking URL (new tab)
-and place the file:
+### 3. Place + safety net
+Run the bundled script — it's now a SAFETY NET (Claude already baked CTAs/logo/year, but this guarantees
+them and places the file):
 ```bash
 node "<skill-dir>/scripts/place_demo.mjs" /tmp/<slug>.html <slug> "<deploy-root>" "<logo-url>"
 ```
-`<deploy-root>` is `D:/Claude Cowork/demos` locally, or the cloned/working repo root remotely.
-`<logo-url>` is the Firecrawl-scraped logo URL from step 1 (`branding.images.logo`) — passing it FORCES
-the real brand logo into the deployed HTML so it ALWAYS renders (Stitch's rehosted logo can expire or
-be wrong). `place_demo.mjs` handles BOTH `<a>` and `<button>` CTAs, forces the logo, normalizes the
-footer year to 2026, preserves the original (non-logo) image URLs (the user does **not** want Stitch
-images localized), writes `<slug>/index.html`, and prints the CTA + logo counts. Sanity-check the CTA
-count is > 0.
+`<deploy-root>` = `D:/Claude Cowork/demos` locally, or the cloned/working repo root remotely. `<logo-url>`
+= `branding.images.logo`. The script re-asserts tracked "Learn More" CTAs, forces the real logo, normalizes
+the footer year to 2026, and writes `<slug>/index.html`. Confirm the printed CTA count is > 0.
 
-### 7. Deploy to Vercel
+### 4. Deploy to Vercel (git push to ReubenShears/demos)
+Deploy = commit `<slug>/index.html` and push to `main`; Vercel auto-builds → `demos.optimally.ltd/<slug>`.
 
-Deploy = commit the new `<slug>/index.html` to the **`ReubenShears/demos`** repo (private) and push
-to `main`. That repo is connected to the Vercel `demos` project, so Vercel auto-builds and serves it
-at `demos.optimally.ltd/<slug>`. The local `demos/` folder IS the git working copy of this repo, so
-local and remote use the same mechanism — push to git. Always push (don't rely on CLI-only deploys),
-so the repo never drifts behind and a later remote run sees every demo.
-
-**Local machine.** Step 6 already wrote `demos/<slug>/index.html` into the working copy. Commit + push:
+**Local machine:**
 ```bash
 git -C "D:/Claude Cowork/demos" add <slug>/index.html
 git -C "D:/Claude Cowork/demos" -c user.email="132842611+ReubenShears@users.noreply.github.com" -c user.name="ReubenShears" commit -m "demo: <slug>"
 git -C "D:/Claude Cowork/demos" push origin main
 ```
-(Optional, for an instant preview without waiting on the git build: `vercel deploy --prod --yes --cwd "D:/Claude Cowork/demos"`.)
+**Remote / headless (cloud routine):** if already inside the repo checkout, just `git add/commit/push origin main`.
 
-**Remote / headless (cloud routine).** Two sub-cases:
+**CRITICAL — push with the git CLI, NOT GitHub MCP tools** (`push_files`/`create_or_update_file` use a
+separate read-only credential → 403). If a `GITHUB_TOKEN` is provided, PREFER it:
+`git remote set-url origin "https://x-access-token:${GITHUB_TOKEN}@github.com/ReubenShears/demos.git"` then push.
+Commit author email MUST be `132842611+ReubenShears@users.noreply.github.com` or Vercel blocks the build.
+Push directly to `main` (no feature branch). After pushing, poll until
+`curl -sS -o /dev/null -w "%{http_code}" https://demos.optimally.ltd/<slug>` returns `200` (allow a couple of minutes).
 
-- *Already inside a checkout of this repo* (the common case — this skill lives in `ReubenShears/demos`
-  under `.claude/skills/`, so a routine pointed at this repo is already in the working copy). Write the
-  page at the repo root and push — no clone needed:
-  ```bash
-  node "<skill-dir>/scripts/place_demo.mjs" /tmp/<slug>.html <slug> "<repo-root>" "<logo-url>"   # writes <slug>/index.html
-  git add <slug>/index.html \
-    && git -c user.email="132842611+ReubenShears@users.noreply.github.com" -c user.name="ReubenShears" commit -m "demo: <slug>" \
-    && git push origin main
-  ```
-- *No checkout available* — clone first, then write into it:
-  ```bash
-  git clone https://x-access-token:$GITHUB_TOKEN@github.com/ReubenShears/demos.git repo
-  node "<skill-dir>/scripts/place_demo.mjs" /tmp/<slug>.html <slug> "repo" "<logo-url>"   # writes repo/<slug>/index.html
-  cd repo && git add <slug>/index.html \
-    && git -c user.email="132842611+ReubenShears@users.noreply.github.com" -c user.name="ReubenShears" commit -m "demo: <slug>" \
-    && git push origin main
-  ```
+### 5. Extract fields + verify completeness
+From the placed `<slug>/index.html`, pull **Headline** (hero `<h1>`) and **ICP** (after "Attention:").
+Verify all nine sections are present (esp. Building Trust / Founder / FAQ). If something's missing, set
+Baserow Status `Needs Review` and note it.
 
-**CRITICAL — deploy with the git CLI, NOT GitHub MCP tools.** Push using plain `git add` / `git commit`
-/ `git push origin main` (exactly as shown above). The routine's **"Allow unrestricted git push"
-permission** authorizes precisely this — the git CLI / git proxy. Do NOT use GitHub MCP tools
-(`mcp__github__push_files`, `create_or_update_file`, `push_files`, etc.) to deploy — they use a
-SEPARATE, read-only credential and return **403**, which sends the run into a dead-end of retrying
-alternative push tools and feature branches. When already inside the repo checkout there is NO need for
-a `GITHUB_TOKEN`: `git push origin main` just works. Push directly to `main` (do not create a feature
-branch — main is what Vercel auto-builds). If `git push` itself genuinely errors, report that error
-clearly rather than switching to MCP push tools.
+### 6. Log to Baserow
+`get_table_schema` for table `1024310`, then `create_rows` with: Prospect Name (full company), Slug,
+Source URL, Live Demo URL (`https://demos.optimally.ltd/<slug>`), CTA Tracking URL, Status `Deployed`,
+Headline, ICP, Primary Colour, Secondary Colour, Logo URL, Date Generated (today). Only send fields that
+exist. (Stitch Project ID/URL no longer apply — leave blank or skip.)
 
-**If a `GITHUB_TOKEN` is provided** (env var, or given in your instructions) — PREFER it; it's the most
-deterministic push path and works regardless of git-proxy permissions. Point the remote at it, then
-commit + push:
-```bash
-git remote set-url origin "https://x-access-token:${GITHUB_TOKEN}@github.com/ReubenShears/demos.git"
-git add <slug>/index.html
-git -c user.email="132842611+ReubenShears@users.noreply.github.com" -c user.name="ReubenShears" commit -m "demo: <slug>"
-git push origin main
-```
-
-**Do not change the commit author email.** Vercel BLOCKS a git deploy if the commit author email
-can't be matched to a GitHub account. `132842611+ReubenShears@users.noreply.github.com` is the
-account's verified noreply address and is what unblocks the build — keep using it for every commit
-(local and remote). A "real-looking" email like `reuben@optimally.ltd` will silently block the deploy.
-
-**After pushing**, the Vercel build is async — poll until
-`curl -sS -o /dev/null -w "%{http_code}" https://demos.optimally.ltd/<slug>` returns `200` (allow a
-couple of minutes).
-
-### 8. Extract fields + verify completeness
-
-From the generated `<slug>/index.html`, pull:
-- **Headline**: the hero `<h1>` text (collapse whitespace).
-- **ICP**: the text after "Attention:" in the hero eyebrow.
-
-Also VERIFY the page is complete before logging it as done. Confirm it contains all nine sections —
-the ones generations tend to drop are **Building Trust / testimonials, Founder, and FAQ**. Quick
-check: the HTML should have an FAQ accordion (~7 question entries), a Founder / "Meet the …" section,
-and testimonial quote blocks. If any required section is missing, set the Baserow **Status** to
-`Needs Review` and note what's missing in Baserow + the Slack post — do not present an incomplete page
-as finished.
-
-These fields go into Baserow + Slack so the user can scan them without opening the page.
-
-### 9. Log to Baserow
-
-Find the table: `mcp__...baserow...list_tables` (database `453125`) → locate `Demo Landing Page Data`,
-then `get_table_schema` to confirm the exact field names at runtime (the user may tweak them) and only
-send fields that exist. Confirmed schema for `Demo Landing Page Data` (table id `1024310`):
-
-| Field | Value |
-|-------|-------|
-| Prospect Name | full company name, e.g. `Optimally Systems` (primary field — NOT the short brand) |
-| Slug | `<slug>` |
-| Source URL | the input URL |
-| Live Demo URL | `https://demos.optimally.ltd/<slug>` |
-| CTA Tracking URL | `https://www.optimally.ltd/demo?partner=<slug>` |
-| Status | `Deployed` (single-select; options: Generated, Deployed, Sent, Live, Needs Review, Archived) |
-| Headline | extracted headline |
-| ICP | extracted ICP |
-| Primary Colour | brand primary hex (British spelling) |
-| Secondary Colour | brand secondary hex (British spelling) |
-| Logo URL | scraped logo url |
-| Stitch Project ID | the numeric project id |
-| Stitch Project URL | `https://stitch.withgoogle.com/projects/<projectId>` |
-| Preview Screenshot | the screenshot downloadUrl |
-| Date Generated | today's date (from context) |
-| Notes | optional — anything notable / fallbacks used |
-
-The slug is not stored separately (it lives inside the URLs). Re-confirm the schema with
-`get_table_schema` at runtime in case the user tweaks it, and only send fields that exist.
-
-### 10. Announce in Slack
-
-Post to channel `C0AN653QCF2` with `slack_send_message` using the **exact** format below so every
-demo reads consistently.
-
-CRITICAL — use **Slack mrkdwn**, not Markdown, or it renders broken:
-- Bold is single asterisks `*like this*` — NEVER `**like this**` (Slack shows the literal `**`).
-- Links are `<url|label>` — NEVER `[label](url)`. Always label links so no giant raw URLs appear.
-- Group lines with `>` blockquotes; a blank line starts a new quote block (gives the 3-group UI).
-- No em dashes (`—`) anywhere. Use `:`, `/`, or `·`.
-- Shorten the displayed link labels (e.g. `demos.optimally.ltd/optimally`, `optimally.ltd/demo?partner=optimally`).
-
+### 7. Announce in Slack
+Post to `C0AN653QCF2` with `slack_send_message` using **Slack mrkdwn** (single-asterisk `*bold*`,
+`<url|label>` links, `>` quote groups, NO em dashes, valid emoji shortcodes — `:frame_with_picture:`
+not `:framed_picture:`):
 ```
 :rocket: *New Demo Landing Page*
 
 *{{Company}}*   `{{slug}}`
 
-> :link:  *Live:*  <{{liveURL}}|{{liveURL_short}}>
-> :dart:  *CTA (tracked):*  <{{ctaURL}}|{{ctaURL_short}}>  _(new tab)_
+> :link:  *Live:*  <https://demos.optimally.ltd/{{slug}}|demos.optimally.ltd/{{slug}}>
+> :dart:  *CTA (tracked):*  <https://www.optimally.ltd/demo?partner={{slug}}|optimally.ltd/demo?partner={{slug}}>  _(new tab)_
 > :globe_with_meridians:  *Source:*  <{{sourceURL}}|{{sourceURL_short}}>
 
 > :pencil2:  *Headline:*  {{headline}}
 > :busts_in_silhouette:  *ICP:*  {{icp}}
 > :art:  *Brand:*  `{{primary}}`  /  `{{secondary}}`
 
-> :hammer_and_wrench:  *Stitch project:*  <{{stitchURL}}|Open in Stitch>
-> :white_check_mark:  *Status:*  Deployed
-> :card_index_dividers:  *Baserow:*  Logged
-
-:frame_with_picture:  <{{screenshotURL}}|View preview screenshot>
+> :white_check_mark:  *Status:*  Deployed  ·  Logged to Baserow
 ```
 
-Omit a line only if its value is truly unavailable. Use only valid **Slack** emoji shortcodes (the
-template above is verified) — note Slack uses `:frame_with_picture:` for 🖼️, NOT `:framed_picture:`.
-
-### 11. Report back to the user
-
-Give the user the live link first and biggest, then a compact recap (brand colors, CTA tracking
-param, Stitch project, Baserow + Slack confirmations). Flag anything that needed a fallback (e.g.
-font not in Stitch's list, a Baserow field that didn't exist).
+### 8. Report back
+Live link first and biggest, then a compact recap (brand colours, CTA tracking param, Baserow + Slack
+confirmations). Flag anything that needed a fallback.
 
 ## Failure handling
-
-- **Stitch generate times out**: expected — never retry the generate call; poll `list_screens`.
-- **Screen never appears after ~8 min**: report it; the Stitch project still exists, so the user can
-  retry generation without recreating the project/design system.
-- **Deploy fails / domain 404**: re-run the deploy command; confirm `demos/<slug>/index.html` exists.
-  The custom domain only serves paths that exist as folders.
-- **Baserow field mismatch**: log what you can, tell the user which fields you skipped — don't abort
-  the whole run over a logging field.
-- **CTA count is 0** after `place_demo.mjs`: the generated markup may differ; open the HTML, find the
-  CTA anchors, and adjust (the script targets anchors whose visible text is "Learn More").
+- **Firecrawl map/deep-scrape thin:** fall back to the homepage scrape; still build all sections from it.
+- **Deploy 403:** ensure you used the git CLI (not GitHub MCP) and the token/permission; report the real error.
+- **Live URL 404 after push:** confirm `<slug>/index.html` exists and the push landed on `main`; allow build time.
+- **Baserow field mismatch:** log what you can; note skipped fields. Don't abort the run over a logging field.
 
 ## Notes on scope / side effects
-
-This skill **deploys real pages, writes a Baserow row, and posts to Slack** on every run. Don't run
-it speculatively or in a test/eval loop that would spam those systems. One URL in → one real demo
-out.
+Deploys a real page, writes a Baserow row, posts to Slack on every run. One URL in → one real demo out.
+Don't run speculatively. Stitch is retired; if ever needed, the old Stitch-based skill is in this repo's git history.
