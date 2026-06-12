@@ -20,10 +20,16 @@ controlled headline length and logo size, real animations.
 - Fully responsive: looks right at 375 / 768 / 1440px. Hero fits ~one viewport at every breakpoint.
 
 ## Structure — the same 9 sections, in order (do not change)
-0. Banner (slim, "watch the video below", on-brand) — NO nav menu, NO sticky header
-1. Hero — logo, "Attention: <ICP>" eyebrow, headline, guarantee, ONE deliverables subheadline, VSL placeholder (gradient/mesh bg + big play button), tagline, CTA + small social proof
+0. Banner (slim announcement strip, "watch the video below", on-brand). NO nav menu. **NOT sticky/fixed**
+   — the banner AND any top bar/header scroll away with the page. Never `position: sticky` or `position: fixed`
+   on the banner/header.
+1. Hero — render in THIS exact vertical order: logo → "Attention: <ICP>" eyebrow → headline → guarantee →
+   ONE deliverables subheadline → **the VSL placeholder** (gradient/mesh bg + big play button) → tagline →
+   **then the "Learn More" CTA + small social proof, UNDERNEATH the video.** The hero CTA goes BELOW the
+   video, NEVER above it.
 2. Pains  3. Solution  4. Call to Action  5. Building Trust (testimonials)  6. Founder  7. FAQ (exactly 7 objection Q&As)  8. Footer
-- A CTA in essentially every section.
+- **EVERY section has a tracked "Learn More" CTA** (with the small social-proof line beneath it) — every
+  one, not just some.
 
 ## Headline (fixes the blow-out)
 - **2–3 lines max on desktop, NEVER 4+. Target ≤ ~12 words / ~70 characters.** Compress the
