@@ -26,7 +26,9 @@ controlled headline length and logo size, real animations.
 1. Hero — render in THIS exact vertical order: logo → "Attention: <ICP>" eyebrow → headline → guarantee →
    ONE deliverables subheadline → **the VSL placeholder** (gradient/mesh bg + big play button) → tagline →
    **then the "Learn More" CTA + small social proof, UNDERNEATH the video.** The hero CTA goes BELOW the
-   video, NEVER above it.
+   video, NEVER above it. Keep the hero TIGHT: the logo + eyebrow + headline must all sit within the
+   **TOP THIRD of the viewport** — no tall top padding, no big empty gap above or between them, no
+   duplicate logo. The headline must be visible without scrolling.
 2. Pains  3. Solution  4. Call to Action  5. Building Trust (testimonials)  6. Founder  7. FAQ (exactly 7 objection Q&As)  8. Footer
 - **EVERY section has a tracked "Learn More" CTA** (with the small social-proof line beneath it) — every
   one, not just some.
@@ -37,10 +39,17 @@ controlled headline length and logo size, real animations.
 - Fluid size: `clamp()` / responsive Tailwind (`text-3xl sm:text-4xl lg:text-6xl`) so it scales down on mobile.
 - Highlight 2–3 key words in the brand accent colour. Medium/semi-bold weight (not heavy black).
 
-## Logo (fixes the tiny logo)
-- Header logo PROMINENT: height ~44–56px desktop / ~36–40px mobile, with MINIMAL padding around it
-  (don't bury it in whitespace). Footer logo similar (~32–40px). Use the real scraped logo URL.
-- The logo should read clearly at a glance — it's the brand anchor, not a tiny afterthought.
+## Logo (prominent, single, always visible)
+- Use the real scraped logo ONCE at the top — placed in the hero directly under the banner. Do NOT also
+  add a separate header/nav bar with a second logo (that creates a duplicate logo + a big gap). One
+  prominent logo up top, one small one in the footer.
+- Size: hero logo height ~56–72px desktop / ~44–52px mobile, with MINIMAL padding around it — never tiny,
+  never buried in whitespace. Footer logo ~32–40px.
+- **CONTRAST — critical (this broke on a black-on-black brand):** check the logo against the background it
+  sits on. A dark logo on a dark section (or light-on-light) is invisible. Fix it: invert a simple
+  monochrome mark with CSS (`filter: brightness(0) invert(1)` to make it white on dark, or `filter:
+  brightness(0)` for black on light), OR sit it on a small contrasting chip / rounded container. The logo
+  must ALWAYS read clearly — never a black logo on a black background.
 
 ## CTAs (baked in — no post-process)
 - Every CTA is an identical `<a>` styled as a premium pill button, text exactly **"Learn More"**,
@@ -48,8 +57,14 @@ controlled headline length and logo size, real animations.
 - Small social-proof line directly beneath each (tiny avatars/stars + short proof). Consistent everywhere.
 
 ## Visual quality (the premium bar — borrowed brief, non-structural)
+- **Colour — use ONLY the scraped palette; never invent an accent:** the design uses ONLY the scraped
+  brand hex values (primary, secondary, neutral/text, background). The accent/highlight/CTA colour MUST be
+  the scraped PRIMARY — do NOT default to your own "premium" accent (no yellow/blue/purple just because it
+  looks slick). Sanity-check the brand: if it reads essentially monochrome (black/white/grey) — or the
+  scraped "primary" is a stray saturated colour that clashes with an otherwise mono/dark brand — KEEP it
+  monochrome and use white/near-white for highlights and CTAs. When in doubt: fewer colours, true to the brand.
 - **Atmosphere:** never flat solid backgrounds — subtle gradient mesh / volumetric glow / soft lighting +
-  depth. Accent colour used sparingly (CTAs, key stats, glow). Alternate section tones; never 5 same-tone in a row.
+  depth, built from the BRAND colours only. Accent used sparingly (CTAs, key stats, glow). Alternate section tones; never 5 same-tone in a row.
 - **Typography:** headline 2–3× subhead size; body 16–18px, 1.5–1.7 line-height, ~65–75 char lines.
   **NO letter clipping** — line-height ≥1.15–1.25 on big type, extra top/bottom padding on any
   gradient/clipped text so descenders (g, j, p, q, y) and ascenders never crop.
