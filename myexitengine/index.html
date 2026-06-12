@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>ExitEngine™ | Control Your Business Destiny</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@600;700;800&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      fontFamily: {
+        heading: ['Sora', 'sans-serif'],
+        body: ['Inter', 'sans-serif'],
+      },
+      colors: {
+        primary: '#FF9800',
+        secondary: '#4B5563',
+        dark: '#1F2430',
+      },
+      borderRadius: {
+        DEFAULT: '10px',
+        lg: '10px',
+        xl: '12px',
+      }
+    }
+  }
+}
+</script>
+<style>
+  body { font-family: 'Inter', sans-serif; color: #1F2430; background: #ffffff; }
+  h1,h2,h3,h4 { font-family: 'Sora', sans-serif; }
+  .btn-primary {
+    display: inline-flex; align-items: center; justify-content: center;
+    background: #FF9800; color: #ffffff; font-family: 'Sora', sans-serif;
+    font-weight: 700; font-size: clamp(1rem, 1.5vw, 1.125rem);
+    padding: 1rem 2.5rem; border-radius: 10px; text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .btn-primary:hover { background: #e68900; transform: translateY(-2px); }
+  details > summary { list-style: none; cursor: pointer; }
+  details > summary::-webkit-details-marker { display: none; }
+  details[open] .faq-icon { transform: rotate(45deg); }
+  .faq-icon { transition: transform 0.2s; }
+  .avatar { width: 36px; height: 36px; border-radius: 9999px; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: 700; border: 2px solid #fff; }
+</style>
+</head>
+<body class="antialiased">
+
+<!-- 0. Announcement Banner -->
+<div style="background:#FF9800; color:#fff; font-family:'Inter',sans-serif; font-weight:600; font-size:0.875rem; text-align:center; padding:0.75rem 1.25rem; position:sticky; top:0; z-index:50;">
+  🎥 Watch the short video below to see how ExitEngine™ transforms founder-led companies into buyer-ready assets — in 90 days.
+</div>
+
+<!-- 1. Hero Section -->
+<section style="background:#ffffff; padding: clamp(3rem,6vw,5rem) 1.25rem clamp(3rem,6vw,5rem);">
+  <div style="max-width:900px; margin:0 auto; text-align:center;">
+    <!-- Logo -->
+    <div style="margin-bottom:2rem;">
+      <img src="https://www.myexitengine.com/_assets/v11/4557858219ed3693311e2b3a85238355023e64e4.png" alt="ExitEngine" style="height:40px; width:auto; display:inline-block;"/>
+    </div>
+    <!-- Eyebrow -->
+    <span style="display:inline-block; border:1.5px solid #FF9800; color:#FF9800; font-size:0.75rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; padding:0.35rem 1rem; border-radius:9999px; margin-bottom:1.5rem;">For Founder-Led Companies Generating $3M–$15M in Revenue</span>
+    <!-- Headline -->
+    <h1 style="font-size:clamp(2rem,5vw,3.75rem); font-weight:800; line-height:1.1; color:#1F2430; margin-bottom:1rem; letter-spacing:-0.02em;">
+      Every Founder Exits.<br/>Will Yours Be <span style="color:#FF9800;">By Design</span><br/>Or By Default?
+    </h1>
+    <!-- Guarantee -->
+    <p style="font-size:0.875rem; color:#4B5563; font-style:italic; margin-bottom:1.25rem;">No commitment required. Just 15 minutes of clarity.</p>
+    <!-- Sub-headline -->
+    <p style="font-size:clamp(1rem,1.8vw,1.2rem); color:#4B5563; max-width:680px; margin:0 auto 2.5rem; line-height:1.6;">
+      ExitEngine™ helps founder-led companies transform into transferable, buyer-ready assets — so you gain freedom, leverage, and real exit options through the Total Exit Value System™.
+    </p>
+    <!-- Video Placeholder -->
+    <div style="max-width:800px; margin:0 auto 2rem; position:relative; padding-bottom:56.25%; background:#1F2430; border-radius:10px; overflow:hidden; box-shadow:0 20px 48px rgba(31,36,48,0.18);">
+      <div style="position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:1rem;">
+        <div style="width:72px; height:72px; background:#FF9800; border-radius:9999px; display:flex; align-items:center; justify-content:center;">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+        <p style="color:#ffffff; font-size:0.9rem; font-family:'Inter',sans-serif; opacity:0.8; text-align:center; padding:0 1rem;">Watch: How Founders Turn Their Biggest Asset Into Real Options (8 min)</p>
+      </div>
+    </div>
+    <!-- Tagline -->
+    <p style="font-size:0.875rem; color:#4B5563; margin-bottom:1.5rem;">Join hundreds of founders who've taken control of their business destiny.</p>
+    <!-- CTA -->
+    <a href="https://www.optimally.ltd/demo?partner=myexitengine" target="_blank" rel="noopener noreferrer" class="btn-primary learn-more-cta" style="margin-bottom:1.25rem;">Learn More</a>
+    <!-- Social Proof -->
+    <div style="display:flex; align-items:center; justify-content:center; gap:0.75rem; margin-top:1rem;">
+      <div style="display:flex; margin-right:0.25rem;">
+        <div class="avatar" style="background:#FF9800; color:#fff; margin-left:-8px;">MK</div>
+        <div class="avatar" style="background:#4B5563; color:#fff; margin-left:-8px;">SL</div>
+        <div class="avatar" style="background:#1F2430; color:#fff; margin-left:-8px;">DR</div>
+        <div class="avatar" style="background:#6B7280; color:#fff; margin-left:-8px;">JC</div>
+        <div class="avatar" style="background:#9CA3AF; color:#fff; margin-left:-8px;">+</div>
+      </div>
+      <span style="font-size:0.875rem; color:#4B5563;">127 founders enrolled this quarter</span>
+    </div>
+  </div>
+</section>
+
+<!-- 2. Pain Points -->
+<section style="background:#F9FAFB; padding:clamp(3rem,6vw,5rem) 1.25rem;">
+  <div style="max-width:1000px; margin:0 auto;">
+    <h2 style="font-size:clamp(1.75rem,3.5vw,2.75rem); font-weight:700; color:#1F2430; text-align:center; margin-bottom:1rem; line-height:1.2;">
+      You Built a Successful Business.<br/><span style="color:#FF9800;">So Why Does It Still Feel So Heavy?</span>
+    </h2>
+    <p style="text-align:center; color:#4B5563; font-size:1.05rem; max-width:640px; margin:0 auto 3rem; line-height:1.6;">
+      You've done what most people never do — built a real company with real revenue. But something still isn't right:
+    </p>
+    <!-- Pain Cards -->
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.25rem; margin-bottom:2.5rem;">
+      <div style="background:#fff; border-radius:10px; padding:1.5rem; box-shadow:0 2px 12px rgba(31,36,48,0.07); border-left:4px solid #FF9800;">
+        <h3 style="font-size:1rem; font-weight:700; color:#1F2430; margin-bottom:0.5rem;">Too many decisions still land on your desk</h3>
+        <p style="color:#4B5563; font-size:0.9rem; line-height:1.5;">You're the bottleneck, not the CEO. Every major call waits for you.</p>
+      </div>
+      <div style="background:#fff; border-radius:10px; padding:1.5rem; box-shadow:0 2px 12px rgba(31,36,48,0.07); border-left:4px solid #FF9800;">
+        <h3 style="font-size:1rem; font-weight:700; color:#1F2430; margin-bottom:0.5rem;">Growth feels harder than it used to</h3>
+        <p style="color:#4B5563; font-size:0.9rem; line-height:1.5;">Every new level of scale requires more of you, not less.</p>
+      </div>
+      <div style="background:#fff; border-radius:10px; padding:1.5rem; box-shadow:0 2px 12px rgba(31,36,48,0.07); border-left:4px solid #FF9800;">
+        <h3 style="font-size:1rem; font-weight:700; color:#1F2430; margin-bottom:0.5rem;">Taking real time away feels risky</h3>
+        <p style="color:#4B5563; font-size:0.9rem; line-height:1.5;">The business runs on you, not systems. A week off creates a week of catch-up.</p>
+      </div>
+      <div style="background:#fff; border-radius:10px; padding:1.5rem; box-shadow:0 2px 12px rgba(31,36,48,0.07); border-left:4px solid #FF9800;">
+        <h3 style="font-size:1rem; font-weight:700; color:#1F2430; margin-bottom:0.5rem;">You wonder what would happen if you stepped back</h3>
+        <p style="color:#4B5563; font-size:0.9rem; line-height:1.5;">No one has mapped that path. No systems. No succession. Just uncertainty.</p>
+      </div>
+      <div style="background:#fff; border-radius:10px; padding:1.5rem; box-shadow:0 2px 12px rgba(31,36,48,0.07); border-left:4px solid #FF9800;">
+        <h3 style="font-size:1rem; font-weight:700; color:#1F2430; margin-bottom:0.5rem;">You're successful — but exhausted</h3>
+        <p style="color:#4B5563; font-size:0.9rem; line-height:1.5;">Revenue is up. Team has grown. And yet freedom feels further away than ever.</p>
+      </div>
+    </div>
+    <p style="text-align:center; font-size:1.05rem; font-weight:600; color:#1F2430;">
+      You're not failing. The business just hasn't been designed to run without you — yet.
+    </p>
+  </div>
+</section>
+
+<!-- 3. Solution Section -->
+<section style="background:#ffffff; padding:clamp(3rem,6vw,5rem) 1.25rem;">
+  <div style="max-width:1000px; margin:0 auto;">
+    <h2 style="font-size:clamp(1.75rem,3.5vw,2.75rem); font-weight:700; color:#1F2430; text-align:center; margin-bottom:1rem; line-height:1.2;">
+      The Real Problem Isn't Growth.<br/><span style="color:#FF9800;">It's Structure.</span>
+    </h2>
+    <!-- Three columns -->
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:2rem; margin:2.5rem 0;">
+      <div style="text-align:center;">
+        <div style="font-size:2.5rem; margin-bottom:1rem;">⚠️</div>
+        <h3 style="font-size:1.05rem; font-weight:700; color:#1F2430; margin-bottom:0.5rem;">The company still depends on the founder</h3>
+        <p style="color:#4B5563; font-size:0.9rem; line-height:1.6;">Value lives in your relationships, expertise, and decisions — not in transferable systems. Buyers see this immediately.</p>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-size:2.5rem; margin-bottom:1rem;">📊</div>
+        <h3 style="font-size:1.05rem; font-weight:700; color:#1F2430; margin-bottom:0.5rem;">Value lives in your head, not the business</h3>
+        <p style="color:#4B5563; font-size:0.9rem; line-height:1.6;">A buyer pays for what survives without you. Right now, that number is almost certainly lower than it should be.</p>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-size:2.5rem; margin-bottom:1rem;">🚀</div>
+        <h3 style="font-size:1.05rem; font-weight:700; color:#1F2430; margin-bottom:0.5rem;">Systems and leadership haven't kept pace</h3>
+        <p style="color:#4B5563; font-size:0.9rem; line-height:1.6;">The org chart hasn't caught up with your ambition. The team still escalates everything up to you.</p>
+      </div>
+    </div>
+    <p style="text-align:center; color:#4B5563; font-size:1.05rem; max-width:700px; margin:0 auto 3rem; line-height:1.6;">
+      This is normal — and fixable. ExitEngine™ uses the <strong style="color:#1F2430;">Total Exit Value System™</strong> to move you through three stages: <strong>Clarity → Momentum → Freedom.</strong>
+    </p>
+    <!-- Three stages -->
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:1.5rem;">
+      <div style="background:#F9FAFB; border-radius:10px; padding:1.75rem; position:relative;">
+        <div style="width:36px; height:36px; background:#FF9800; color:#fff; border-radius:9999px; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:1rem; margin-bottom:1rem;">1</div>
+        <h3 style="font-size:1.05rem; font-weight:700; color:#1F2430; margin-bottom:0.5rem;">Clarity</h3>
+        <p style="color:#4B5563; font-size:0.9rem; line-height:1.6;">Understand where your business truly stands today with a TEV Score™ baseline across People, Product, and Process.</p>
+      </div>
+      <div style="background:#F9FAFB; border-radius:10px; padding:1.75rem; position:relative;">
+        <div style="width:36px; height:36px; background:#FF9800; color:#fff; border-radius:9999px; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:1rem; margin-bottom:1rem;">2</div>
+        <h3 style="font-size:1.05rem; font-weight:700; color:#1F2430; margin-bottom:0.5rem;">Momentum</h3>
+        <p style="color:#4B5563; font-size:0.9rem; line-height:1.6;">Execute systematic value-building initiatives with your dedicated ExitEngineer — the execution leader you never had.</p>
+      </div>
+      <div style="background:#F9FAFB; border-radius:10px; padding:1.75rem; position:relative;">
+        <div style="width:36px; height:36px; background:#FF9800; color:#fff; border-radius:9999px; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:1rem; margin-bottom:1rem;">3</div>
+        <h3 style="font-size:1.05rem; font-weight:700; color:#1F2430; margin-bottom:0.5rem;">Freedom</h3>
+        <p style="color:#4B5563; font-size:0.9rem; line-height:1.6;">Achieve the freedom to choose your next move — exit on your terms, bring on a partner, or simply step back from daily operations.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. CTA Section -->
+<section style="background:#1F2430; padding:clamp(3rem,6vw,5rem) 1.25rem; text-align:center;">
+  <div style="max-width:700px; margin:0 auto;">
+    <h2 style="font-size:clamp(1.75rem,3.5vw,2.5rem); font-weight:700; color:#ffffff; margin-bottom:1rem; line-height:1.2;">
+      What Could Your Business Actually Be Worth?
+    </h2>
+    <p style="color:#9CA3AF; font-size:1.05rem; line-height:1.6; margin-bottom:2rem;">
+      Give us 15 minutes and we'll give you a clear picture of where you stand — and what it will take to get where you want to go.
+    </p>
+    <a href="https://www.optimally.ltd/demo?partner=myexitengine" target="_blank" rel="noopener noreferrer" class="btn-primary learn-more-cta" style="margin-bottom:1.25rem;">Learn More</a>
+    <div style="display:flex; align-items:center; justify-content:center; gap:0.75rem; margin-top:1rem; margin-bottom:1.25rem;">
+      <div style="display:flex;">
+        <div class="avatar" style="background:#FF9800; color:#fff; margin-left:-8px;">MK</div>
+        <div class="avatar" style="background:#6B7280; color:#fff; margin-left:-8px;">SL</div>
+        <div class="avatar" style="background:#4B5563; color:#fff; margin-left:-8px;">DR</div>
+      </div>
+      <span style="font-size:0.875rem; color:#9CA3AF;">No pressure. Just clarity.</span>
+    </div>
+    <div style="display:inline-flex; align-items:center; gap:0.5rem; background:rgba(255,152,0,0.12); border:1px solid rgba(255,152,0,0.3); border-radius:9999px; padding:0.5rem 1.25rem;">
+      <span style="font-size:1rem;">🔒</span>
+      <span style="color:#FF9800; font-size:0.875rem; font-weight:600;">Free 15-minute Value Snapshot™ — no obligation</span>
+    </div>
+  </div>
+</section>
+
+<!-- 5. Testimonials / Building Trust -->
+<section style="background:#F9FAFB; padding:clamp(3rem,6vw,5rem) 1.25rem;">
+  <div style="max-width:1000px; margin:0 auto;">
+    <h2 style="font-size:clamp(1.75rem,3.5vw,2.75rem); font-weight:700; color:#1F2430; text-align:center; margin-bottom:0.75rem; line-height:1.2;">
+      Trusted by Founders. <span style="color:#FF9800;">Backed by Results.</span>
+    </h2>
+    <p style="text-align:center; color:#4B5563; margin-bottom:3rem; font-size:1rem;">Real outcomes from founders who've been through the program.</p>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.5rem; margin-bottom:1.5rem;">
+      <!-- Testimonial 1 -->
+      <div style="background:#ffffff; border-radius:12px; padding:2rem; box-shadow:0 2px 16px rgba(31,36,48,0.08);">
+        <div style="color:#FF9800; font-size:1.5rem; margin-bottom:1rem;">★★★★★</div>
+        <p style="color:#1F2430; font-size:0.95rem; line-height:1.6; margin-bottom:1.5rem; font-style:italic;">
+          "I used to think exit planning meant I was leaving. ExitEngine showed me it meant I was finally free to choose. Our TEV Score went from 48 to 71 in 8 months."
+        </p>
+        <div style="display:flex; align-items:center; gap:0.75rem;">
+          <div style="width:44px; height:44px; background:#FF9800; border-radius:9999px; display:flex; align-items:center; justify-content:center; color:#fff; font-weight:700; font-size:0.85rem; flex-shrink:0;">MK</div>
+          <div>
+            <div style="font-weight:700; font-size:0.9rem; color:#1F2430;">Michael K.</div>
+            <div style="font-size:0.8rem; color:#4B5563;">Manufacturing CEO, $8M revenue</div>
+          </div>
+        </div>
+      </div>
+      <!-- Testimonial 2 -->
+      <div style="background:#ffffff; border-radius:12px; padding:2rem; box-shadow:0 2px 16px rgba(31,36,48,0.08);">
+        <div style="color:#FF9800; font-size:1.5rem; margin-bottom:1rem;">★★★★★</div>
+        <p style="color:#1F2430; font-size:0.95rem; line-height:1.6; margin-bottom:1.5rem; font-style:italic;">
+          "The ExitEngineer concept was the missing piece. We stopped depending on me for every decision within 90 days. The relief is hard to describe."
+        </p>
+        <div style="display:flex; align-items:center; gap:0.75rem;">
+          <div style="width:44px; height:44px; background:#4B5563; border-radius:9999px; display:flex; align-items:center; justify-content:center; color:#fff; font-weight:700; font-size:0.85rem; flex-shrink:0;">SL</div>
+          <div>
+            <div style="font-weight:700; font-size:0.9rem; color:#1F2430;">Sarah L.</div>
+            <div style="font-size:0.8rem; color:#4B5563;">Tech Services Founder, $5M revenue</div>
+          </div>
+        </div>
+      </div>
+      <!-- Testimonial 3 -->
+      <div style="background:#ffffff; border-radius:12px; padding:2rem; box-shadow:0 2px 16px rgba(31,36,48,0.08);">
+        <div style="color:#FF9800; font-size:1.5rem; margin-bottom:1rem;">★★★★★</div>
+        <p style="color:#1F2430; font-size:0.95rem; line-height:1.6; margin-bottom:1.5rem; font-style:italic;">
+          "We got an unsolicited acquisition inquiry 6 months into the program. We weren't even for sale — but the business was finally worth talking about."
+        </p>
+        <div style="display:flex; align-items:center; gap:0.75rem;">
+          <div style="width:44px; height:44px; background:#1F2430; border-radius:9999px; display:flex; align-items:center; justify-content:center; color:#fff; font-weight:700; font-size:0.85rem; flex-shrink:0;">DR</div>
+          <div>
+            <div style="font-weight:700; font-size:0.9rem; color:#1F2430;">David R.</div>
+            <div style="font-size:0.8rem; color:#4B5563;">Distribution Company, $12M revenue</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p style="text-align:center; font-size:0.8rem; color:#9CA3AF;">Results based on program participants. Individual outcomes vary.</p>
+  </div>
+</section>
+
+<!-- 6. Founder Section -->
+<section style="background:#ffffff; padding:clamp(3rem,6vw,5rem) 1.25rem;">
+  <div style="max-width:1000px; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:3rem; align-items:center;">
+    <!-- Image placeholder -->
+    <div style="background:#E5E7EB; border-radius:12px; aspect-ratio:1/1; display:flex; align-items:center; justify-content:center; min-height:300px;">
+      <span style="color:#6B7280; font-size:0.9rem; font-family:'Inter',sans-serif;">Founder Photo</span>
+    </div>
+    <!-- Text -->
+    <div>
+      <span style="display:inline-block; color:#FF9800; font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.75rem;">Powered by Exeo Advisors</span>
+      <h2 style="font-size:clamp(1.5rem,3vw,2.25rem); font-weight:700; color:#1F2430; margin-bottom:1.25rem; line-height:1.2;">
+        Built by Advisors Who've Been In the Room When Deals Get Done.
+      </h2>
+      <p style="color:#4B5563; font-size:0.95rem; line-height:1.7; margin-bottom:1.5rem;">
+        ExitEngine™ is backed by Exeo Advisors, a firm specializing in founder-led growth and exit strategies. The ExitEngineer program pairs you with a dedicated execution leader — someone who's built and transferred value in real businesses, not just advised on it from the outside. The methodology is proprietary. The results are real. And the goal is always the same: your freedom on your terms.
+      </p>
+      <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:0.75rem;">
+        <li style="display:flex; align-items:flex-start; gap:0.75rem; font-size:0.9rem; color:#1F2430;">
+          <span style="color:#FF9800; font-weight:700; flex-shrink:0;">✓</span> Proprietary Total Exit Value System™
+        </li>
+        <li style="display:flex; align-items:flex-start; gap:0.75rem; font-size:0.9rem; color:#1F2430;">
+          <span style="color:#FF9800; font-weight:700; flex-shrink:0;">✓</span> Dedicated ExitEngineer execution leader
+        </li>
+        <li style="display:flex; align-items:flex-start; gap:0.75rem; font-size:0.9rem; color:#1F2430;">
+          <span style="color:#FF9800; font-weight:700; flex-shrink:0;">✓</span> Advisory Partner network for specialist depth
+        </li>
+        <li style="display:flex; align-items:flex-start; gap:0.75rem; font-size:0.9rem; color:#1F2430;">
+          <span style="color:#FF9800; font-weight:700; flex-shrink:0;">✓</span> AI-powered insight and tracking
+        </li>
+        <li style="display:flex; align-items:flex-start; gap:0.75rem; font-size:0.9rem; color:#1F2430;">
+          <span style="color:#FF9800; font-weight:700; flex-shrink:0;">✓</span> Community support so momentum never stalls
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 7. FAQ Section -->
+<section style="background:#F9FAFB; padding:clamp(3rem,6vw,5rem) 1.25rem;">
+  <div style="max-width:760px; margin:0 auto;">
+    <h2 style="font-size:clamp(1.75rem,3.5vw,2.5rem); font-weight:700; color:#1F2430; text-align:center; margin-bottom:3rem;">Frequently Asked Questions</h2>
+
+    <details style="border-bottom:1px solid #E5E7EB; padding:1.25rem 0;">
+      <summary style="display:flex; justify-content:space-between; align-items:center; font-weight:600; font-size:1rem; color:#1F2430; font-family:'Sora',sans-serif;">
+        Do I need to be planning to sell my business to work with ExitEngine™?
+        <span class="faq-icon" style="color:#FF9800; font-size:1.5rem; line-height:1; flex-shrink:0; margin-left:1rem;">+</span>
+      </summary>
+      <p style="color:#4B5563; font-size:0.9rem; line-height:1.7; margin-top:1rem; padding-right:2rem;">No. Most of our founders aren't ready to sell — and many never will. ExitEngine™ is about building options: the freedom to sell on your terms, bring on a partner, step back from operations, or simply run a more valuable, less dependent business. You start by understanding where you are.</p>
+    </details>
+
+    <details style="border-bottom:1px solid #E5E7EB; padding:1.25rem 0;">
+      <summary style="display:flex; justify-content:space-between; align-items:center; font-weight:600; font-size:1rem; color:#1F2430; font-family:'Sora',sans-serif;">
+        What is the Total Exit Value System™ and how does it work?
+        <span class="faq-icon" style="color:#FF9800; font-size:1.5rem; line-height:1; flex-shrink:0; margin-left:1rem;">+</span>
+      </summary>
+      <p style="color:#4B5563; font-size:0.9rem; line-height:1.7; margin-top:1rem; padding-right:2rem;">The TEV System™ is a proprietary framework that assesses your business across three dimensions: People, Product, and Process. It starts with a Value Sprint™ to establish your TEV Score™ baseline, then your dedicated ExitEngineer guides you through systematic initiatives that increase transferable value — tracked in real time.</p>
+    </details>
+
+    <details style="border-bottom:1px solid #E5E7EB; padding:1.25rem 0;">
+      <summary style="display:flex; justify-content:space-between; align-items:center; font-weight:600; font-size:1rem; color:#1F2430; font-family:'Sora',sans-serif;">
+        What size business is ExitEngine™ designed for?
+        <span class="faq-icon" style="color:#FF9800; font-size:1.5rem; line-height:1; flex-shrink:0; margin-left:1rem;">+</span>
+      </summary>
+      <p style="color:#4B5563; font-size:0.9rem; line-height:1.7; margin-top:1rem; padding-right:2rem;">ExitEngine™ is purpose-built for founder-led companies generating between $3M and $15M in annual revenue. At this stage, the founder-dependency problem is real, the value-creation opportunity is significant, and the window to act — before value erodes — is open.</p>
+    </details>
+
+    <details style="border-bottom:1px solid #E5E7EB; padding:1.25rem 0;">
+      <summary style="display:flex; justify-content:space-between; align-items:center; font-weight:600; font-size:1rem; color:#1F2430; font-family:'Sora',sans-serif;">
+        How long before I see results?
+        <span class="faq-icon" style="color:#FF9800; font-size:1.5rem; line-height:1; flex-shrink:0; margin-left:1rem;">+</span>
+      </summary>
+      <p style="color:#4B5563; font-size:0.9rem; line-height:1.7; margin-top:1rem; padding-right:2rem;">Most founders notice a meaningful shift in their TEV Score™ within 90 days. Full program outcomes — including Buyer-Readiness certification — typically take 12–18 months, depending on your baseline and execution pace.</p>
+    </details>
+
+    <details style="border-bottom:1px solid #E5E7EB; padding:1.25rem 0;">
+      <summary style="display:flex; justify-content:space-between; align-items:center; font-weight:600; font-size:1rem; color:#1F2430; font-family:'Sora',sans-serif;">
+        What does the Value Snapshot™ call involve?
+        <span class="faq-icon" style="color:#FF9800; font-size:1.5rem; line-height:1; flex-shrink:0; margin-left:1rem;">+</span>
+      </summary>
+      <p style="color:#4B5563; font-size:0.9rem; line-height:1.7; margin-top:1rem; padding-right:2rem;">It's a free 15-minute diagnostic session. We look at where your business stands today across the TEV dimensions, identify the 2–3 most significant gaps affecting your value, and give you a clear picture of your options. No pitch. Just clarity.</p>
+    </details>
+
+    <details style="border-bottom:1px solid #E5E7EB; padding:1.25rem 0;">
+      <summary style="display:flex; justify-content:space-between; align-items:center; font-weight:600; font-size:1rem; color:#1F2430; font-family:'Sora',sans-serif;">
+        How is ExitEngine™ different from traditional exit planning or M&amp;A advisory?
+        <span class="faq-icon" style="color:#FF9800; font-size:1.5rem; line-height:1; flex-shrink:0; margin-left:1rem;">+</span>
+      </summary>
+      <p style="color:#4B5563; font-size:0.9rem; line-height:1.7; margin-top:1rem; padding-right:2rem;">Traditional advisors help you plan to sell when you're ready. ExitEngine™ helps you build a business that's worth buying — long before you're ready. We embed an ExitEngineer in your execution, not just your strategy. The difference is momentum.</p>
+    </details>
+
+    <details style="padding:1.25rem 0;">
+      <summary style="display:flex; justify-content:space-between; align-items:center; font-weight:600; font-size:1rem; color:#1F2430; font-family:'Sora',sans-serif;">
+        Is the program a good fit if I want to keep running my business indefinitely?
+        <span class="faq-icon" style="color:#FF9800; font-size:1.5rem; line-height:1; flex-shrink:0; margin-left:1rem;">+</span>
+      </summary>
+      <p style="color:#4B5563; font-size:0.9rem; line-height:1.7; margin-top:1rem; padding-right:2rem;">Absolutely. Many founders engage ExitEngine™ specifically to gain more freedom from day-to-day operations — not to exit. Building a transferable business means building a business that runs well without you at the center. That's valuable regardless of your exit timeline.</p>
+    </details>
+  </div>
+</section>
+
+<!-- 8. Footer -->
+<footer style="background:#1F2430; padding:clamp(3rem,5vw,4rem) 1.25rem; text-align:center;">
+  <div style="max-width:700px; margin:0 auto;">
+    <img src="https://www.myexitengine.com/_assets/v11/4557858219ed3693311e2b3a85238355023e64e4.png" alt="ExitEngine" style="height:36px; width:auto; display:inline-block; margin-bottom:1rem; filter:brightness(0) invert(1);"/>
+    <p style="color:#9CA3AF; font-size:0.9rem; margin-bottom:2rem;">Control Your Business Destiny.</p>
+    <a href="https://www.optimally.ltd/demo?partner=myexitengine" target="_blank" rel="noopener noreferrer" class="btn-primary learn-more-cta" style="margin-bottom:2rem; display:inline-flex;">Learn More</a>
+    <div style="margin-top:2rem; padding-top:1.5rem; border-top:1px solid rgba(255,255,255,0.1);">
+      <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:1.5rem; margin-bottom:1rem;">
+        <a href="#" style="color:#6B7280; font-size:0.85rem; text-decoration:none;">Privacy Policy</a>
+        <a href="#" style="color:#6B7280; font-size:0.85rem; text-decoration:none;">Terms</a>
+        <a href="#" style="color:#6B7280; font-size:0.85rem; text-decoration:none;">Contact</a>
+      </div>
+      <p style="color:#6B7280; font-size:0.8rem; margin-bottom:0.5rem;">© 2025 ExitEngine™ / Exeo Advisors. All rights reserved.</p>
+      <p style="color:#4B5563; font-size:0.8rem;">Trusted by 100+ founder-led companies across North America.</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
