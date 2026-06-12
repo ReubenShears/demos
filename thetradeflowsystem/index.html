@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The TradeFlow System — More Trade Jobs From Google</title>
+<meta name="description" content="Done-for-you website, Local SEO and Google Ads for UK tradespeople. More enquiries, more quotes, more jobs — every lead exclusive to you, every result tracked.">
+<meta property="og:title" content="The TradeFlow System — More Trade Jobs From Google">
+<meta property="og:description" content="Website, Local SEO and Google Ads built and managed for UK trades. Exclusive leads, tracked results, no long contracts.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://demos.optimally.ltd/thetradeflowsystem">
+<meta property="og:image" content="https://thetradeflowsystem.co.uk/favicon.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The TradeFlow System — More Trade Jobs From Google">
+<meta name="twitter:description" content="Website, Local SEO and Google Ads built and managed for UK trades. Exclusive leads, tracked results, no long contracts.">
+<meta name="twitter:image" content="https://thetradeflowsystem.co.uk/favicon.png">
+<link rel="icon" href="https://thetradeflowsystem.co.uk/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        green: { DEFAULT: '#155E00', bright: '#1d8a02', deep: '#0c3a00', glow: '#2ca800' },
+        cream: '#FFF7ED',
+        ink: '#111111',
+        paper: '#FFFFFF',
+      },
+      fontFamily: {
+        display: ['"Archivo Black"', 'Impact', 'sans-serif'],
+        sans: ['"DM Sans"', '-apple-system', 'sans-serif'],
+      },
+    },
+  },
+};
+</script>
+<style>
+  html, body { overflow-x: hidden; max-width: 100%; }
+  body { background: #FFFFFF; color: #111111; font-family: "DM Sans", -apple-system, sans-serif; -webkit-font-smoothing: antialiased; }
+  .font-display { letter-spacing: -0.01em; }
+  h1, h2, h3 { line-height: 1.12; }
+  /* atmospheric backdrops built from brand greens only */
+  .mesh-light {
+    background:
+      radial-gradient(60% 55% at 12% 8%, rgba(21,94,0,0.10) 0%, rgba(21,94,0,0) 60%),
+      radial-gradient(55% 50% at 92% 0%, rgba(44,168,0,0.10) 0%, rgba(44,168,0,0) 55%),
+      linear-gradient(180deg, #FFFFFF 0%, #FFF7ED 100%);
+  }
+  .mesh-cream {
+    background:
+      radial-gradient(50% 60% at 100% 10%, rgba(21,94,0,0.08) 0%, rgba(21,94,0,0) 60%),
+      linear-gradient(180deg, #FFF7ED 0%, #FFFFFF 100%);
+  }
+  .mesh-deep {
+    background:
+      radial-gradient(70% 80% at 15% 0%, rgba(44,168,0,0.30) 0%, rgba(44,168,0,0) 55%),
+      radial-gradient(60% 70% at 95% 100%, rgba(12,58,0,0.6) 0%, rgba(12,58,0,0) 60%),
+      linear-gradient(165deg, #114e00 0%, #0c3a00 100%);
+  }
+  .ring-soft { box-shadow: 0 1px 0 rgba(17,17,17,0.04), 0 18px 40px -24px rgba(21,94,0,0.35); }
+  .cta-glow { box-shadow: 0 10px 30px -8px rgba(21,94,0,0.55); }
+  .cta-btn { transition: transform .18s ease, box-shadow .18s ease, background .18s ease; }
+  .cta-btn:hover { transform: translateY(-2px) scale(1.015); box-shadow: 0 16px 38px -8px rgba(21,94,0,0.65); }
+  .card-hover { transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
+  .card-hover:hover { transform: translateY(-4px); border-color: rgba(21,94,0,0.45); box-shadow: 0 22px 48px -28px rgba(21,94,0,0.5); }
+  /* play button pulse */
+  .play-pulse::before { content:''; position:absolute; inset:-14px; border-radius:9999px; border:2px solid rgba(255,255,255,0.5); animation: pulse 2.4s ease-out infinite; }
+  @keyframes pulse { 0%{transform:scale(.85);opacity:.7} 100%{transform:scale(1.5);opacity:0} }
+  /* reveal on scroll */
+  .reveal { opacity:0; transform: translateY(26px); transition: opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1); }
+  .reveal.in { opacity:1; transform:none; }
+  /* marquee */
+  .marquee { display:flex; gap:3rem; width:max-content; animation: scroll 26s linear infinite; }
+  @keyframes scroll { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal{opacity:1;transform:none;transition:none} .marquee{animation:none} .play-pulse::before{animation:none}
+  }
+  .stat-num { font-variant-numeric: tabular-nums; }
+</style>
+</head>
+<body>
+
+<!-- ============ 0. BANNER (not sticky) ============ -->
+<div class="w-full bg-green text-cream text-center text-[13px] sm:text-sm font-semibold tracking-wide px-4 py-2.5">
+  <span class="inline-flex items-center gap-2 justify-center">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" class="shrink-0"><path d="M8 5v14l11-7-11-7z" fill="currentColor"/></svg>
+    Watch the short video below — see how UK trades are filling their diaries from Google
+  </span>
+</div>
+
+<!-- ============ 1. HERO ============ -->
+<header class="mesh-light relative">
+  <div class="max-w-6xl mx-auto px-5 pt-7 pb-14 sm:pt-9 sm:pb-20">
+    <!-- logo wordmark (single, prominent) -->
+    <div class="flex items-center gap-3">
+      <span class="inline-flex items-center justify-center w-11 h-11 bg-green text-cream shrink-0" aria-hidden="true">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 17l5-5 4 3 8-9" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" stroke-linejoin="round"/><path d="M16 6h5v5" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" stroke-linejoin="round"/></svg>
+      </span>
+      <span class="font-display text-xl sm:text-2xl text-ink leading-none">
+        The<span class="text-green">TradeFlow</span>System
+      </span>
+    </div>
+
+    <div class="mt-8 sm:mt-10 max-w-3xl">
+      <p class="text-green font-bold uppercase tracking-[0.14em] text-xs sm:text-sm">Attention: UK Tradespeople</p>
+      <h1 class="font-display text-ink text-[2rem] leading-[1.08] sm:text-5xl lg:text-6xl mt-3">
+        More Enquiries, More Quotes, More <span class="text-green">Trade Jobs</span> — Straight From <span class="text-green">Google</span>
+      </h1>
+      <p class="mt-4 text-ink/70 font-semibold text-base sm:text-lg">
+        Rolling monthly, no long contracts — you own the website, the rankings, and every lead.
+      </p>
+      <p class="mt-2 text-ink/60 text-base sm:text-lg">
+        Website, Local SEO and Google Ads — built, managed and tracked for you.
+      </p>
+    </div>
+
+    <!-- VSL placeholder -->
+    <div class="mt-8 sm:mt-10 max-w-3xl">
+      <div class="reveal relative w-full aspect-video bg-green-deep ring-soft overflow-hidden border border-green/30">
+        <div class="absolute inset-0 mesh-deep opacity-90"></div>
+        <div class="absolute inset-0 flex flex-col items-center justify-center text-cream">
+          <button class="play-pulse relative w-[68px] h-[68px] sm:w-20 sm:h-20 rounded-full bg-cream text-green flex items-center justify-center cta-btn" aria-label="Play video">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7-11-7z"/></svg>
+          </button>
+          <span class="mt-4 text-sm font-semibold tracking-wide text-cream/90">How TradeFlow gets trades more Google jobs · 4 min</span>
+        </div>
+        <span class="absolute top-3 left-3 text-[11px] font-bold uppercase tracking-wider bg-cream/15 text-cream px-2 py-1">Meet Callum</span>
+      </div>
+      <p class="mt-4 text-center text-ink/55 text-sm">Press play — then grab your free, personalised Google audit below.</p>
+
+      <!-- hero CTA (below video) -->
+      <div class="mt-6 flex flex-col items-center">
+        <a href="https://www.optimally.ltd/demo?partner=thetradeflowsystem" target="_blank" rel="noopener noreferrer" class="cta-btn cta-glow inline-flex items-center gap-2 bg-green hover:bg-green-bright text-cream font-bold text-base sm:text-lg px-9 py-4">
+          Learn More
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"/></svg>
+        </a>
+        <div class="mt-3 flex items-center gap-2 text-ink/60 text-sm">
+          <span class="text-green tracking-tight">★★★★★</span>
+          <span>Trusted by 10+ UK trades · £500K+ generated for clients</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ trust stat strip + marquee ============ -->
+<section class="bg-green-deep text-cream py-10 sm:py-12 overflow-hidden">
+  <div class="max-w-6xl mx-auto px-5">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+      <div class="reveal">
+        <div class="font-display text-3xl sm:text-4xl stat-num" data-count="10" data-suffix="+">0</div>
+        <div class="text-cream/70 text-sm mt-1">Trades served</div>
+      </div>
+      <div class="reveal">
+        <div class="font-display text-3xl sm:text-4xl stat-num" data-prefix="£" data-count="500" data-suffix="K+">0</div>
+        <div class="text-cream/70 text-sm mt-1">Generated for clients</div>
+      </div>
+      <div class="reveal">
+        <div class="font-display text-3xl sm:text-4xl stat-num" data-count="100" data-suffix="%">0</div>
+        <div class="text-cream/70 text-sm mt-1">Exclusive leads</div>
+      </div>
+      <div class="reveal">
+        <div class="font-display text-3xl sm:text-4xl stat-num">1–2<span class="text-2xl">wk</span></div>
+        <div class="text-cream/70 text-sm mt-1">Website live</div>
+      </div>
+    </div>
+    <div class="mt-10 relative">
+      <div class="marquee text-cream/55 font-semibold uppercase tracking-wider text-sm">
+        <span>Groundworks</span><span>·</span><span>Roofing</span><span>·</span><span>Glazing &amp; Windows</span><span>·</span><span>Solar</span><span>·</span><span>Carpentry</span><span>·</span><span>Extensions</span><span>·</span><span>Decking</span><span>·</span><span>Brickwork</span><span>·</span><span>Balustrades</span><span>·</span><span>Landscaping</span><span>·</span>
+        <span>Groundworks</span><span>·</span><span>Roofing</span><span>·</span><span>Glazing &amp; Windows</span><span>·</span><span>Solar</span><span>·</span><span>Carpentry</span><span>·</span><span>Extensions</span><span>·</span><span>Decking</span><span>·</span><span>Brickwork</span><span>·</span><span>Balustrades</span><span>·</span><span>Landscaping</span><span>·</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 2. PAINS ============ -->
+<section class="mesh-cream py-16 sm:py-24">
+  <div class="max-w-6xl mx-auto px-5">
+    <div class="reveal max-w-2xl">
+      <p class="text-green font-bold uppercase tracking-[0.14em] text-xs sm:text-sm">The Problem</p>
+      <h2 class="font-display text-ink text-3xl sm:text-4xl mt-3">You're Great At Your Trade. Your Phone Just Isn't Ringing Enough.</h2>
+      <p class="mt-4 text-ink/65 text-lg">You're tired of chasing work. You want jobs coming to you — from people who already decided they want you before they pick up the phone.</p>
+    </div>
+    <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div class="reveal card-hover bg-paper border border-ink/10 p-6">
+        <div class="w-11 h-11 bg-cream text-green flex items-center justify-center mb-4 border border-green/20">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.8 19.8 0 0 1 3.08 4.18 2 2 0 0 1 5 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L9.1 9.91" stroke="currentColor" stroke-width="2" stroke-linecap="square"/><path d="M2 2l20 20" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></svg>
+        </div>
+        <h3 class="font-display text-lg text-ink">A Silent Phone</h3>
+        <p class="mt-2 text-ink/65">Quotes dry up the moment word-of-mouth slows down, and you've no idea where the next job is coming from.</p>
+      </div>
+      <div class="reveal card-hover bg-paper border border-ink/10 p-6">
+        <div class="w-11 h-11 bg-cream text-green flex items-center justify-center mb-4 border border-green/20">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="14" rx="0" stroke="currentColor" stroke-width="2"/><path d="M3 9h18" stroke="currentColor" stroke-width="2"/></svg>
+        </div>
+        <h3 class="font-display text-lg text-ink">A Website That Just Sits There</h3>
+        <p class="mt-2 text-ink/65">You paid for a site that looks like a brochure and brings in nothing — no calls, no enquiries, no return.</p>
+      </div>
+      <div class="reveal card-hover bg-paper border border-ink/10 p-6">
+        <div class="w-11 h-11 bg-cream text-green flex items-center justify-center mb-4 border border-green/20">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M12 9v4M12 17h.01" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></svg>
+        </div>
+        <h3 class="font-display text-lg text-ink">Burned By An Agency</h3>
+        <p class="mt-2 text-ink/65">Someone promised the world, locked you into a contract, and delivered next to nothing you could actually keep.</p>
+      </div>
+      <div class="reveal card-hover bg-paper border border-ink/10 p-6">
+        <div class="w-11 h-11 bg-cream text-green flex items-center justify-center mb-4 border border-green/20">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="2" stroke-linecap="square"/><circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="2"/><path d="M22 11l-3 3-2-2" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></svg>
+        </div>
+        <h3 class="font-display text-lg text-ink">Shared, Recycled Leads</h3>
+        <p class="mt-2 text-ink/65">Checkatrade and MyBuilder sell the same enquiry to five of your competitors — so you race to the bottom on price.</p>
+      </div>
+      <div class="reveal card-hover bg-paper border border-ink/10 p-6">
+        <div class="w-11 h-11 bg-cream text-green flex items-center justify-center mb-4 border border-green/20">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M21 21l-4.3-4.3" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></svg>
+        </div>
+        <h3 class="font-display text-lg text-ink">Invisible On Google</h3>
+        <p class="mt-2 text-ink/65">When someone searches your trade in your area, it's your competitors showing up on the map — not you.</p>
+      </div>
+      <div class="reveal card-hover bg-paper border border-ink/10 p-6">
+        <div class="w-11 h-11 bg-cream text-green flex items-center justify-center mb-4 border border-green/20">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></svg>
+        </div>
+        <h3 class="font-display text-lg text-ink">No Time To Fix It</h3>
+        <p class="mt-2 text-ink/65">You're on the tools all day. Learning SEO, ads and websites is the last thing you've got hours for.</p>
+      </div>
+    </div>
+    <div class="reveal mt-10">
+      <a href="https://www.optimally.ltd/demo?partner=thetradeflowsystem" target="_blank" rel="noopener noreferrer" class="cta-btn cta-glow inline-flex items-center gap-2 bg-green hover:bg-green-bright text-cream font-bold px-8 py-3.5">
+        Learn More
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"/></svg>
+      </a>
+      <div class="mt-3 flex items-center gap-2 text-ink/60 text-sm">
+        <span class="text-green tracking-tight">★★★★★</span><span>“I wish I'd done it sooner.” — Jacc Bolt, Four Groundworks</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3. SOLUTION ============ -->
+<section class="bg-paper py-16 sm:py-24">
+  <div class="max-w-6xl mx-auto px-5">
+    <div class="reveal max-w-2xl">
+      <p class="text-green font-bold uppercase tracking-[0.14em] text-xs sm:text-sm">What You Get</p>
+      <h2 class="font-display text-ink text-3xl sm:text-4xl mt-3">Everything Built, Managed &amp; Tracked For You</h2>
+      <p class="mt-4 text-ink/65 text-lg">One done-for-you system that turns Google searches into booked jobs — and you own every part of it from day one.</p>
+    </div>
+
+    <!-- deliverables bento -->
+    <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div class="reveal card-hover bg-cream border border-ink/10 p-6 lg:col-span-2">
+        <div class="flex items-start gap-4">
+          <div class="w-11 h-11 bg-green text-cream flex items-center justify-center shrink-0">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" stroke="currentColor" stroke-width="2"/><path d="M3 8h18M8 3v18" stroke="currentColor" stroke-width="2"/></svg>
+          </div>
+          <div>
+            <h3 class="font-display text-lg text-ink">A Conversion-Focused Website</h3>
+            <p class="mt-2 text-ink/65">Built to turn visitors into enquiries — not a brochure that sits there. Live within 1–2 weeks.</p>
+          </div>
+        </div>
+      </div>
+      <div class="reveal card-hover bg-cream border border-ink/10 p-6">
+        <div class="w-11 h-11 bg-green text-cream flex items-center justify-center mb-4">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2"/></svg>
+        </div>
+        <h3 class="font-display text-lg text-ink">Google Business Profile</h3>
+        <p class="mt-2 text-ink/65">Fully optimised so you show up on the map when homeowners search nearby.</p>
+      </div>
+      <div class="reveal card-hover bg-cream border border-ink/10 p-6">
+        <div class="w-11 h-11 bg-green text-cream flex items-center justify-center mb-4">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 4h16v12H5.2L4 17.5V4z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M8 9h8M8 12h5" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></svg>
+        </div>
+        <h3 class="font-display text-lg text-ink">Service Area Pages</h3>
+        <p class="mt-2 text-ink/65">Targeting every job type you do, in every area you cover.</p>
+      </div>
+      <div class="reveal card-hover bg-cream border border-ink/10 p-6">
+        <div class="w-11 h-11 bg-green text-cream flex items-center justify-center mb-4">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+        </div>
+        <h3 class="font-display text-lg text-ink">Google Ads, Running</h3>
+        <p class="mt-2 text-ink/65">Set up to get you immediate visibility while your SEO builds underneath it.</p>
+      </div>
+      <div class="reveal card-hover bg-cream border border-ink/10 p-6">
+        <div class="w-11 h-11 bg-green text-cream flex items-center justify-center mb-4">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.6 1.4 6.8L12 17.8 5.9 20.4l1.4-6.8L2.2 9l6.9-.7L12 2z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+        </div>
+        <h3 class="font-display text-lg text-ink">Review Generation System</h3>
+        <p class="mt-2 text-ink/65">So prospects already trust you before they've even called.</p>
+      </div>
+      <div class="reveal card-hover bg-cream border border-ink/10 p-6">
+        <div class="w-11 h-11 bg-green text-cream flex items-center justify-center mb-4">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="6" y="2" width="12" height="20" rx="0" stroke="currentColor" stroke-width="2"/><path d="M10 18h4" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></svg>
+        </div>
+        <h3 class="font-display text-lg text-ink">Full Lead Tracking</h3>
+        <p class="mt-2 text-ink/65">Every call and message in a simple mobile app, with a dedicated number.</p>
+      </div>
+    </div>
+
+    <!-- why different -->
+    <div class="reveal mt-14 max-w-2xl">
+      <p class="text-green font-bold uppercase tracking-[0.14em] text-xs sm:text-sm">Why This Is Different</p>
+      <h2 class="font-display text-ink text-3xl sm:text-4xl mt-3">Not Another Agency. A System That's Yours.</h2>
+    </div>
+    <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div class="reveal card-hover bg-green-deep text-cream p-6">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="mb-4"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6l8-4z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></svg>
+        <h3 class="font-display text-lg">Your Leads, Nobody Else's</h3>
+        <p class="mt-2 text-cream/70 text-[15px]">Every enquiry is exclusive to you. We never sell or share your leads with competitors. Ever.</p>
+      </div>
+      <div class="reveal card-hover bg-green-deep text-cream p-6">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="mb-4"><path d="M3 11l9-8 9 8" stroke="currentColor" stroke-width="2" stroke-linecap="square"/><path d="M5 10v10h14V10" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></svg>
+        <h3 class="font-display text-lg">You Own Everything</h3>
+        <p class="mt-2 text-cream/70 text-[15px]">The website, the rankings, the leads. Nothing held hostage if you ever want to leave.</p>
+      </div>
+      <div class="reveal card-hover bg-green-deep text-cream p-6">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="mb-4"><path d="M3 3v18h18" stroke="currentColor" stroke-width="2" stroke-linecap="square"/><path d="M7 14l3-3 3 3 5-6" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="round"/></svg>
+        <h3 class="font-display text-lg">Every Lead Tracked</h3>
+        <p class="mt-2 text-cream/70 text-[15px]">A CRM with a dedicated number — see exactly where every enquiry came from and what happened to it.</p>
+      </div>
+      <div class="reveal card-hover bg-green-deep text-cream p-6">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="mb-4"><path d="M8 7V5a4 4 0 0 1 8 0v2" stroke="currentColor" stroke-width="2" stroke-linecap="square"/><rect x="4" y="7" width="16" height="13" stroke="currentColor" stroke-width="2"/><path d="M9 13l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></svg>
+        <h3 class="font-display text-lg">No Long Contracts</h3>
+        <p class="mt-2 text-cream/70 text-[15px]">Everything runs rolling monthly. Stop whenever you like and keep everything we've built.</p>
+      </div>
+    </div>
+
+    <div class="reveal mt-10">
+      <a href="https://www.optimally.ltd/demo?partner=thetradeflowsystem" target="_blank" rel="noopener noreferrer" class="cta-btn cta-glow inline-flex items-center gap-2 bg-green hover:bg-green-bright text-cream font-bold px-8 py-3.5">
+        Learn More
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"/></svg>
+      </a>
+      <div class="mt-3 flex items-center gap-2 text-ink/60 text-sm">
+        <span class="text-green tracking-tight">★★★★★</span><span>You own the website, the rankings and every lead — from day one</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ process ============ -->
+<section class="mesh-cream py-16 sm:py-24">
+  <div class="max-w-6xl mx-auto px-5">
+    <div class="reveal max-w-2xl">
+      <p class="text-green font-bold uppercase tracking-[0.14em] text-xs sm:text-sm">What Happens Next</p>
+      <h2 class="font-display text-ink text-3xl sm:text-4xl mt-3">From First Contact To Jobs Coming In</h2>
+    </div>
+    <div class="mt-10 grid md:grid-cols-5 sm:grid-cols-2 gap-5">
+      <div class="reveal bg-paper border border-ink/10 p-6 card-hover">
+        <div class="font-display text-green text-3xl">01</div>
+        <h3 class="font-display text-base text-ink mt-3">You Fill In The Form</h3>
+        <p class="mt-2 text-ink/65 text-[15px]">Takes 30 seconds — name, trade, area and number.</p>
+      </div>
+      <div class="reveal bg-paper border border-ink/10 p-6 card-hover">
+        <div class="font-display text-green text-3xl">02</div>
+        <h3 class="font-display text-base text-ink mt-3">Free Google Audit</h3>
+        <p class="mt-2 text-ink/65 text-[15px]">A personalised video showing where you sit on Google and what competitors are doing that you aren't.</p>
+      </div>
+      <div class="reveal bg-paper border border-ink/10 p-6 card-hover">
+        <div class="font-display text-green text-3xl">03</div>
+        <h3 class="font-display text-base text-ink mt-3">A Quick 15-Min Call</h3>
+        <p class="mt-2 text-ink/65 text-[15px]">I walk you through the audit and how it works for your trade. No pressure, no hard sell.</p>
+      </div>
+      <div class="reveal bg-paper border border-ink/10 p-6 card-hover">
+        <div class="font-display text-green text-3xl">04</div>
+        <h3 class="font-display text-base text-ink mt-3">We Get Started</h3>
+        <p class="mt-2 text-ink/65 text-[15px]">Work begins immediately. Your website is live within 1–2 weeks, ads shortly after.</p>
+      </div>
+      <div class="reveal bg-paper border border-ink/10 p-6 card-hover">
+        <div class="font-display text-green text-3xl">05</div>
+        <h3 class="font-display text-base text-ink mt-3">Enquiries Come In</h3>
+        <p class="mt-2 text-ink/65 text-[15px]">Every lead tracked in your CRM. Results compound month on month as SEO builds.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 4. CALL TO ACTION (mid band) ============ -->
+<section class="bg-green-deep text-cream py-16 sm:py-20 relative overflow-hidden">
+  <div class="absolute inset-0 mesh-deep opacity-80"></div>
+  <div class="relative max-w-3xl mx-auto px-5 text-center">
+    <h2 class="font-display text-3xl sm:text-4xl">Not Sure It'd Work For Your Trade?</h2>
+    <p class="mt-4 text-cream/80 text-lg">Fill in the form and Callum will record you a free, personalised video showing exactly where you stand on Google right now — real data, no obligation.</p>
+    <div class="mt-8 flex flex-col items-center">
+      <a href="https://www.optimally.ltd/demo?partner=thetradeflowsystem" target="_blank" rel="noopener noreferrer" class="cta-btn inline-flex items-center gap-2 bg-cream hover:bg-white text-green font-bold text-lg px-9 py-4">
+        Learn More
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"/></svg>
+      </a>
+      <div class="mt-3 flex items-center gap-2 text-cream/75 text-sm">
+        <span class="text-cream tracking-tight">★★★★★</span><span>Free Google audit · No obligation · Replies within 24 hours</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 5. BUILDING TRUST (testimonials + case studies) ============ -->
+<section class="bg-paper py-16 sm:py-24">
+  <div class="max-w-6xl mx-auto px-5">
+    <div class="reveal max-w-2xl">
+      <p class="text-green font-bold uppercase tracking-[0.14em] text-xs sm:text-sm">Proof It Works</p>
+      <h2 class="font-display text-ink text-3xl sm:text-4xl mt-3">Real Trades. Real Results.</h2>
+      <p class="mt-4 text-ink/65 text-lg">Hear it straight from the trades already filling their diaries from Google.</p>
+    </div>
+
+    <!-- featured case studies -->
+    <div class="mt-10 grid lg:grid-cols-3 sm:grid-cols-1 gap-5">
+      <div class="reveal card-hover bg-cream border border-ink/10 p-6">
+        <p class="text-green font-bold text-sm uppercase tracking-wide">Four Groundworks · Dorset</p>
+        <h3 class="font-display text-xl text-ink mt-2">£40k Booked In 8 Weeks</h3>
+        <div class="grid grid-cols-3 gap-3 mt-4 text-center">
+          <div><div class="font-display text-2xl text-green stat-num">9</div><div class="text-ink/55 text-xs mt-1">Enquiries</div></div>
+          <div><div class="font-display text-2xl text-green stat-num">6</div><div class="text-ink/55 text-xs mt-1">Quotes sent</div></div>
+          <div><div class="font-display text-2xl text-green stat-num">£40K</div><div class="text-ink/55 text-xs mt-1">Revenue</div></div>
+        </div>
+        <p class="mt-4 text-ink/70 text-[15px]">Had a website for 12 months with zero enquiries. Within 6 weeks of going live: 9 qualified enquiries including a £25,000+ job — in the quietest months of the year, with zero paid ads.</p>
+        <p class="mt-3 text-ink font-semibold text-[15px]">“Best decision I've ever made in the whole business. I wish I'd done it sooner.” — Jacc Bolt</p>
+      </div>
+      <div class="reveal card-hover bg-cream border border-ink/10 p-6">
+        <p class="text-green font-bold text-sm uppercase tracking-wide">Minster Decking · Dorset</p>
+        <h3 class="font-display text-xl text-ink mt-2">Booked 5 Months Ahead</h3>
+        <div class="grid grid-cols-3 gap-3 mt-4 text-center">
+          <div><div class="font-display text-2xl text-green stat-num">100%</div><div class="text-ink/55 text-xs mt-1">Search coverage</div></div>
+          <div><div class="font-display text-2xl text-green stat-num">5mo</div><div class="text-ink/55 text-xs mt-1">Booked ahead</div></div>
+          <div><div class="font-display text-2xl text-green stat-num">0</div><div class="text-ink/55 text-xs mt-1">Paid ads</div></div>
+        </div>
+        <p class="mt-4 text-ink/70 text-[15px]">Previous provider charged £300/month for 100 visitors and almost no enquiries. Now: 100% coverage for decking searches across Dorset and enquiries in December for the first time ever — busiest year on record.</p>
+        <p class="mt-3 text-ink font-semibold text-[15px]">“If you're ready to make more money and take on more work, look no further.” — Elliot Mayer</p>
+      </div>
+      <div class="reveal card-hover bg-cream border border-ink/10 p-6">
+        <p class="text-green font-bold text-sm uppercase tracking-wide">JFE Brickwork · Dorset</p>
+        <h3 class="font-display text-xl text-ink mt-2">Subbie To Self-Employed In 4 Months</h3>
+        <div class="grid grid-cols-3 gap-3 mt-4 text-center">
+          <div><div class="font-display text-2xl text-green stat-num">Daily</div><div class="text-ink/55 text-xs mt-1">Enquiries</div></div>
+          <div><div class="font-display text-2xl text-green stat-num">4mo</div><div class="text-ink/55 text-xs mt-1">To self-employed</div></div>
+          <div><div class="font-display text-2xl text-green stat-num">0</div><div class="text-ink/55 text-xs mt-1">Paid ads</div></div>
+        </div>
+        <p class="mt-4 text-ink/70 text-[15px]">Started from scratch — no website, no Google profile. Now gets enquiries almost every day, booked weeks ahead, and is planning to go limited and take on staff.</p>
+        <p class="mt-3 text-ink font-semibold text-[15px]">“I just choose my own hours now. I wouldn't go back to subbie work.” — Jack Ellington</p>
+      </div>
+    </div>
+
+    <!-- short quote cards -->
+    <div class="mt-6 grid md:grid-cols-3 sm:grid-cols-1 gap-5">
+      <div class="reveal card-hover bg-paper border border-ink/10 p-6">
+        <div class="flex items-center gap-3">
+          <span class="w-10 h-10 bg-green text-cream flex items-center justify-center font-display text-sm shrink-0">DG</span>
+          <div><div class="font-semibold text-ink text-[15px]">DNA Glazing</div><div class="text-ink/55 text-xs">8–10 leads / week</div></div>
+        </div>
+        <p class="mt-4 text-ink/75 text-[15px]">“When we get a call from Google, it's almost as if they want you already.”</p>
+        <div class="mt-3 text-green text-sm tracking-tight">★★★★★</div>
+      </div>
+      <div class="reveal card-hover bg-paper border border-ink/10 p-6">
+        <div class="flex items-center gap-3">
+          <span class="w-10 h-10 bg-green text-cream flex items-center justify-center font-display text-sm shrink-0">NG</span>
+          <div><div class="font-semibold text-ink text-[15px]">New Gen Renewables</div><div class="text-ink/55 text-xs">Solar · Phil</div></div>
+        </div>
+        <p class="mt-4 text-ink/75 text-[15px]">“I hate to say it, but I think he should be more expensive for the results he's producing.”</p>
+        <div class="mt-3 text-green text-sm tracking-tight">★★★★★</div>
+      </div>
+      <div class="reveal card-hover bg-paper border border-ink/10 p-6">
+        <div class="flex items-center gap-3">
+          <span class="w-10 h-10 bg-green text-cream flex items-center justify-center font-display text-sm shrink-0">NS</span>
+          <div><div class="font-semibold text-ink text-[15px]">NSG Roofing</div><div class="text-ink/55 text-xs">Nathan Gee</div></div>
+        </div>
+        <p class="mt-4 text-ink/75 text-[15px]">“After just 1 month we're already seeing results and generating leads. Can't thank Callum enough.”</p>
+        <div class="mt-3 text-green text-sm tracking-tight">★★★★★</div>
+      </div>
+    </div>
+
+    <!-- more results strip -->
+    <div class="mt-6 grid lg:grid-cols-3 sm:grid-cols-2 gap-4">
+      <div class="reveal bg-cream border border-ink/10 p-5"><div class="font-display text-base text-ink">Bespoke Builds</div><p class="text-ink/65 text-sm mt-1">Carpentry — #1 on Google for “Carpenter Poole” in 4 months, weekly enquiries.</p></div>
+      <div class="reveal bg-cream border border-ink/10 p-5"><div class="font-display text-base text-ink">Brother Build</div><p class="text-ink/65 text-sm mt-1">Extensions — #1 for “House Extension Builders Poole”, high-value leads monthly.</p></div>
+      <div class="reveal bg-cream border border-ink/10 p-5"><div class="font-display text-base text-ink">Minster Balustrades</div><p class="text-ink/65 text-sm mt-1">Brand new niche — 10 leads in the first 4 months, first jobs booked.</p></div>
+    </div>
+
+    <div class="reveal mt-10">
+      <a href="https://www.optimally.ltd/demo?partner=thetradeflowsystem" target="_blank" rel="noopener noreferrer" class="cta-btn cta-glow inline-flex items-center gap-2 bg-green hover:bg-green-bright text-cream font-bold px-8 py-3.5">
+        Learn More
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"/></svg>
+      </a>
+      <div class="mt-3 flex items-center gap-2 text-ink/60 text-sm">
+        <span class="text-green tracking-tight">★★★★★</span><span>10+ UK trades · every lead exclusive · £500K+ generated</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 6. FOUNDER ============ -->
+<section class="mesh-cream py-16 sm:py-24">
+  <div class="max-w-6xl mx-auto px-5">
+    <div class="grid lg:grid-cols-[280px_1fr] gap-10 items-center">
+      <div class="reveal">
+        <div class="w-full max-w-[280px] aspect-[4/5] bg-green-deep relative overflow-hidden border border-green/30 ring-soft">
+          <div class="absolute inset-0 mesh-deep opacity-90"></div>
+          <div class="absolute inset-0 flex items-center justify-center text-cream">
+            <svg width="72" height="72" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.6"/><path d="M4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/></svg>
+          </div>
+          <span class="absolute bottom-3 left-3 text-cream font-display text-sm">Callum</span>
+        </div>
+      </div>
+      <div class="reveal">
+        <p class="text-green font-bold uppercase tracking-[0.14em] text-xs sm:text-sm">Meet The Founder</p>
+        <h2 class="font-display text-ink text-3xl sm:text-4xl mt-3">Hi, I'm Callum — And I Only Work With Trades.</h2>
+        <p class="mt-4 text-ink/70 text-lg">I built The TradeFlow System because I watched too many good tradespeople get burned by agencies that overpromised, locked them in, and handed back nothing they could keep.</p>
+        <p class="mt-3 text-ink/70 text-lg">So I do it differently. I build the website, optimise your Google profile, run the ads and set up the tracking — then manage it all month to month. You own everything, every lead is yours alone, and you can see exactly what's working. No jargon, no long contracts, just more jobs coming in from Google.</p>
+        <div class="mt-6">
+          <a href="https://www.optimally.ltd/demo?partner=thetradeflowsystem" target="_blank" rel="noopener noreferrer" class="cta-btn cta-glow inline-flex items-center gap-2 bg-green hover:bg-green-bright text-cream font-bold px-8 py-3.5">
+            Learn More
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"/></svg>
+          </a>
+          <div class="mt-3 flex items-center gap-2 text-ink/60 text-sm">
+            <span class="text-green tracking-tight">★★★★★</span><span>Personally records every free Google audit</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 7. FAQ ============ -->
+<section class="bg-paper py-16 sm:py-24">
+  <div class="max-w-3xl mx-auto px-5">
+    <div class="reveal text-center max-w-2xl mx-auto">
+      <p class="text-green font-bold uppercase tracking-[0.14em] text-xs sm:text-sm">Common Questions</p>
+      <h2 class="font-display text-ink text-3xl sm:text-4xl mt-3">Fair Questions. Honest Answers.</h2>
+    </div>
+    <div class="mt-10 space-y-3">
+      <details class="reveal group bg-cream border border-ink/10 p-5 open:border-green/40">
+        <summary class="flex items-center justify-between cursor-pointer list-none font-display text-ink text-base sm:text-lg">I've been burned by an agency before. How is this different?<span class="text-green ml-4 group-open:rotate-45 transition-transform text-2xl leading-none">+</span></summary>
+        <p class="mt-3 text-ink/70">Most agencies charge a retainer and hope you stick around. Every lead here comes through a CRM, so there's no guessing where your enquiries come from. You own the website, the rankings and the leads — nothing is held hostage — and there are no long contracts, so you're never tied in.</p>
+      </details>
+      <details class="reveal group bg-cream border border-ink/10 p-5 open:border-green/40">
+        <summary class="flex items-center justify-between cursor-pointer list-none font-display text-ink text-base sm:text-lg">How quickly will I start getting enquiries?<span class="text-green ml-4 group-open:rotate-45 transition-transform text-2xl leading-none">+</span></summary>
+        <p class="mt-3 text-ink/70">Google Ads can start producing leads within the first few weeks of the site going live. SEO takes longer to compound, but most clients see organic enquiries by month 2–3. The combination gives you short-term results from ads while building a long-term pipeline from search.</p>
+      </details>
+      <details class="reveal group bg-cream border border-ink/10 p-5 open:border-green/40">
+        <summary class="flex items-center justify-between cursor-pointer list-none font-display text-ink text-base sm:text-lg">What does it cost to get started?<span class="text-green ml-4 group-open:rotate-45 transition-transform text-2xl leading-none">+</span></summary>
+        <p class="mt-3 text-ink/70">It depends on your trade, your area and how competitive your search terms are — which is exactly what the free Google audit uncovers. Everything runs rolling monthly with no big lock-in, and clients like Jacc booked £40k of work in 8 weeks. Book the audit and you'll get clear numbers for your situation, no obligation.</p>
+      </details>
+      <details class="reveal group bg-cream border border-ink/10 p-5 open:border-green/40">
+        <summary class="flex items-center justify-between cursor-pointer list-none font-display text-ink text-base sm:text-lg">I don't have time to learn new tech or manage a CRM.<span class="text-green ml-4 group-open:rotate-45 transition-transform text-2xl leading-none">+</span></summary>
+        <p class="mt-3 text-ink/70">You don't need to. Everything's done for you. The CRM runs in the background — when a lead calls, your phone rings, and you call them back through the app. That's it. Most clients prefer it once they see how nothing falls through the cracks.</p>
+      </details>
+      <details class="reveal group bg-cream border border-ink/10 p-5 open:border-green/40">
+        <summary class="flex items-center justify-between cursor-pointer list-none font-display text-ink text-base sm:text-lg">What if I already have a website?<span class="text-green ml-4 group-open:rotate-45 transition-transform text-2xl leading-none">+</span></summary>
+        <p class="mt-3 text-ink/70">If it's not generating enquiries, it's not doing its job. Almost every client had a website before — the issue was never that they didn't have one, it's that it wasn't built to rank or convert. I rebuild it properly as part of the setup.</p>
+      </details>
+      <details class="reveal group bg-cream border border-ink/10 p-5 open:border-green/40">
+        <summary class="flex items-center justify-between cursor-pointer list-none font-display text-ink text-base sm:text-lg">Why Google instead of Facebook ads?<span class="text-green ml-4 group-open:rotate-45 transition-transform text-2xl leading-none">+</span></summary>
+        <p class="mt-3 text-ink/70">Facebook leads are people interrupted while scrolling. Google leads are people who typed “landscaper near me” and are ready to hire right now. They convert better, they're higher quality, and they've already decided they want you before they pick up the phone.</p>
+      </details>
+      <details class="reveal group bg-cream border border-ink/10 p-5 open:border-green/40">
+        <summary class="flex items-center justify-between cursor-pointer list-none font-display text-ink text-base sm:text-lg">Do I have to commit to a long contract?<span class="text-green ml-4 group-open:rotate-45 transition-transform text-2xl leading-none">+</span></summary>
+        <p class="mt-3 text-ink/70">No long contracts. Once the setup phase is complete, everything runs on a rolling monthly basis. If you ever want to stop, you keep everything we've built — the website, the rankings, all of it.</p>
+      </details>
+    </div>
+    <div class="reveal mt-10 text-center flex flex-col items-center">
+      <a href="https://www.optimally.ltd/demo?partner=thetradeflowsystem" target="_blank" rel="noopener noreferrer" class="cta-btn cta-glow inline-flex items-center gap-2 bg-green hover:bg-green-bright text-cream font-bold px-8 py-3.5">
+        Learn More
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"/></svg>
+      </a>
+      <div class="mt-3 flex items-center gap-2 text-ink/60 text-sm">
+        <span class="text-green tracking-tight">★★★★★</span><span>Real data · No obligation · Get your free Google audit</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 8. FOOTER ============ -->
+<footer class="bg-green-deep text-cream pt-16 pb-10">
+  <div class="max-w-6xl mx-auto px-5">
+    <div class="grid md:grid-cols-[1.4fr_1fr] gap-10 items-start">
+      <div>
+        <div class="flex items-center gap-2.5">
+          <span class="inline-flex items-center justify-center w-9 h-9 bg-cream text-green shrink-0">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M3 17l5-5 4 3 8-9" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" stroke-linejoin="round"/><path d="M16 6h5v5" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" stroke-linejoin="round"/></svg>
+          </span>
+          <span class="font-display text-lg text-cream leading-none">The<span class="text-green-glow">TradeFlow</span>System</span>
+        </div>
+        <p class="mt-4 text-cream/65 max-w-md">Done-for-you websites, Local SEO and Google Ads for UK tradespeople. More enquiries, more quotes, more jobs — every lead exclusive to you.</p>
+        <div class="mt-6">
+          <a href="https://www.optimally.ltd/demo?partner=thetradeflowsystem" target="_blank" rel="noopener noreferrer" class="cta-btn inline-flex items-center gap-2 bg-cream hover:bg-white text-green font-bold px-7 py-3">
+            Learn More
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"/></svg>
+          </a>
+          <div class="mt-3 flex items-center gap-2 text-cream/65 text-sm">
+            <span class="text-cream tracking-tight">★★★★★</span><span>Free Google audit · No obligation</span>
+          </div>
+        </div>
+      </div>
+      <div class="grid grid-cols-2 gap-6 text-sm">
+        <div>
+          <div class="font-display text-cream/90 text-sm uppercase tracking-wide">Company</div>
+          <ul class="mt-3 space-y-2 text-cream/65">
+            <li><a href="https://www.optimally.ltd/demo?partner=thetradeflowsystem" target="_blank" rel="noopener noreferrer" class="hover:text-cream">About</a></li>
+            <li><a href="https://www.optimally.ltd/demo?partner=thetradeflowsystem" target="_blank" rel="noopener noreferrer" class="hover:text-cream">Results</a></li>
+            <li><a href="https://www.optimally.ltd/demo?partner=thetradeflowsystem" target="_blank" rel="noopener noreferrer" class="hover:text-cream">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="font-display text-cream/90 text-sm uppercase tracking-wide">Legal</div>
+          <ul class="mt-3 space-y-2 text-cream/65">
+            <li><a href="https://www.optimally.ltd/demo?partner=thetradeflowsystem" target="_blank" rel="noopener noreferrer" class="hover:text-cream">Privacy</a></li>
+            <li><a href="https://www.optimally.ltd/demo?partner=thetradeflowsystem" target="_blank" rel="noopener noreferrer" class="hover:text-cream">Terms</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="mt-12 pt-6 border-t border-cream/15 flex flex-col sm:flex-row gap-3 justify-between items-center text-cream/55 text-sm">
+      <span>© 2026 The TradeFlow System. All rights reserved.</span>
+      <span>Built for UK trades who want their phone ringing.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // reveal on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // count-up on real stats
+  const fmt = (n) => n.toLocaleString('en-GB');
+  const countIO = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el = e.target;
+      const target = parseInt(el.dataset.count, 10);
+      const prefix = el.dataset.prefix || '';
+      const suffix = el.dataset.suffix || '';
+      let cur = 0; const steps = 38; const inc = target / steps;
+      const tick = () => {
+        cur += inc;
+        if (cur >= target) { el.textContent = prefix + fmt(target) + suffix; }
+        else { el.textContent = prefix + fmt(Math.floor(cur)) + suffix; requestAnimationFrame(tick); }
+      };
+      tick();
+      countIO.unobserve(el);
+    });
+  }, { threshold: 0.6 });
+  document.querySelectorAll('[data-count]').forEach(el => countIO.observe(el));
+</script>
+</body>
+</html>
