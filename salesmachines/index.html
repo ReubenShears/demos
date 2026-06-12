@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sales Machines — Predictable High-Ticket Offers, Built &amp; Scaled</title>
+<meta name="description" content="We publish and scale high-ticket offers. You bring the offer, we build the acquisition, sales and fulfillment machine that scales it. Average client: $147k in 90 days.">
+<link rel="icon" href="https://salesmachines.io/__l5e/assets-v1/89ca6f3b-9a3b-441b-ab16-1b1655374500/logo.png">
+<meta property="og:title" content="Sales Machines — Predictable High-Ticket Offers">
+<meta property="og:description" content="You bring the offer, we build the machine that scales it. Average client makes $147k within 90 days.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://demos.optimally.ltd/salesmachines">
+<meta property="og:image" content="https://storage.googleapis.com/gpt-engineer-file-uploads/HlGfxPH3FDZzKiRtOTNCOOdxIk62/social-images/social-1773198129609-logo_121212_SM.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sales Machines — Predictable High-Ticket Offers">
+<meta name="twitter:description" content="You bring the offer, we build the machine that scales it. Average client makes $147k within 90 days.">
+<meta name="twitter:image" content="https://storage.googleapis.com/gpt-engineer-file-uploads/HlGfxPH3FDZzKiRtOTNCOOdxIk62/social-images/social-1773198129609-logo_121212_SM.webp">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        ink: '#050506',
+        ink2: '#0b0c0e',
+        ink3: '#121316',
+        line: '#1c1e22',
+        paper: '#F4F5F5',
+        muted: '#9CA3AF',
+        gold: '#FACC15',
+      },
+      fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+    }
+  }
+}
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { background: #050506; color: #F4F5F5; font-family: 'Inter', system-ui, sans-serif; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  .glow-gold { background: radial-gradient(closest-side, rgba(250,204,21,0.16), rgba(250,204,21,0) 70%); }
+  .glow-soft { background: radial-gradient(closest-side, rgba(255,255,255,0.06), rgba(255,255,255,0) 70%); }
+  .hero-grid {
+    background-image:
+      linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+    background-size: 64px 64px;
+    -webkit-mask-image: radial-gradient(ellipse 75% 60% at 50% 35%, #000 40%, transparent 100%);
+    mask-image: radial-gradient(ellipse 75% 60% at 50% 35%, #000 40%, transparent 100%);
+  }
+  .grad-text {
+    background: linear-gradient(180deg, #FFFFFF 0%, #C9CCD2 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    padding-bottom: 0.12em;
+  }
+  .card { background: linear-gradient(180deg, rgba(255,255,255,0.045), rgba(255,255,255,0.012)); border: 1px solid #1c1e22; }
+  .card-feature { box-shadow: 0 0 0 1px rgba(250,204,21,0.18), 0 24px 60px -30px rgba(250,204,21,0.25); }
+  .pill-cta { box-shadow: 0 10px 30px -10px rgba(250,204,21,0.55); transition: transform .2s ease, box-shadow .2s ease; }
+  .pill-cta:hover { transform: translateY(-2px) scale(1.02); box-shadow: 0 16px 40px -10px rgba(250,204,21,0.7); }
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1); }
+  .reveal.in { opacity: 1; transform: none; }
+  .marquee { display: flex; gap: 3.5rem; width: max-content; animation: scrollx 28s linear infinite; }
+  @keyframes scrollx { to { transform: translateX(-50%); } }
+  details > summary { list-style: none; cursor: pointer; }
+  details > summary::-webkit-details-marker { display: none; }
+  details[open] .faq-ico { transform: rotate(45deg); }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .marquee { animation: none; }
+    html { scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body class="bg-ink text-paper">
+
+<!-- 0. ANNOUNCEMENT BANNER (non-sticky) -->
+<div class="w-full bg-gold text-ink text-center text-[13px] sm:text-sm font-semibold tracking-wide py-2.5 px-4">
+  New 90-day case study breakdowns inside &mdash; watch the walkthrough below
+</div>
+
+<!-- TOP BAR (non-sticky, scrolls away) -->
+<header class="w-full border-b border-line/70 bg-ink/80">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8 h-[68px] flex items-center justify-between">
+    <img src="https://salesmachines.io/__l5e/assets-v1/89ca6f3b-9a3b-441b-ab16-1b1655374500/logo.png" alt="Sales Machines logo" class="h-11 md:h-12 w-auto">
+    <a href="https://www.optimally.ltd/demo?partner=salesmachines" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center rounded-full bg-paper text-ink text-sm font-semibold px-5 py-2.5 hover:bg-white transition-colors">Learn More</a>
+  </div>
+</header>
+
+<!-- 1. HERO -->
+<section class="relative overflow-hidden">
+  <div class="absolute inset-0 hero-grid pointer-events-none"></div>
+  <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[900px] h-[900px] glow-gold pointer-events-none"></div>
+  <div class="relative max-w-5xl mx-auto px-5 sm:px-8 pt-16 sm:pt-20 pb-20 text-center">
+
+    <div class="flex justify-center mb-7">
+      <img src="https://salesmachines.io/__l5e/assets-v1/89ca6f3b-9a3b-441b-ab16-1b1655374500/logo.png" alt="Sales Machines logo" class="h-12 md:h-14 w-auto">
+    </div>
+
+    <p class="inline-flex items-center gap-2 rounded-full border border-line bg-ink2 px-4 py-1.5 text-xs sm:text-sm text-muted mb-6">
+      <span class="w-1.5 h-1.5 rounded-full bg-gold"></span>
+      Attention: Offer Owners &amp; Operators doing $15K&ndash;$100k / month
+    </p>
+
+    <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.12] tracking-tight max-w-4xl mx-auto">
+      We build <span class="text-gold">predictable</span> high-ticket offers that scale to <span class="text-gold">$147k</span> in <span class="text-gold">90 days</span>
+    </h1>
+
+    <p class="mt-5 text-sm sm:text-base text-muted max-w-xl mx-auto">
+      Backed by a real track record &mdash; if the deep dive says the offer can carry the weight, we move. No reckless launches.
+    </p>
+
+    <p class="mt-3 text-base sm:text-lg text-paper/90 max-w-2xl mx-auto font-medium">
+      You bring the offer. We build the acquisition, sales and fulfillment machine that scales it &mdash; messaging, CRM, flows, sales process and client success, fully built.
+    </p>
+
+    <!-- VSL placeholder -->
+    <div class="mt-10 max-w-3xl mx-auto">
+      <div class="relative aspect-video rounded-2xl border border-line overflow-hidden card group">
+        <div class="absolute inset-0" style="background:radial-gradient(120% 100% at 50% 0%, rgba(250,204,21,0.16), rgba(5,5,6,0) 55%), linear-gradient(180deg,#0d0e10,#050506);"></div>
+        <div class="absolute inset-0 hero-grid opacity-60"></div>
+        <div class="relative h-full flex flex-col items-center justify-center gap-4">
+          <button aria-label="Play the video" class="w-20 h-20 rounded-full bg-gold text-ink grid place-items-center pill-cta">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" class="ml-1"><path d="M8 5v14l11-7z"/></svg>
+          </button>
+          <p class="text-sm text-muted tracking-wide uppercase">Watch: how we build &amp; scale the machine</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="mt-8 text-sm text-muted">You bring the offer &mdash; we build the machine.</p>
+
+    <!-- Hero CTA UNDER the video -->
+    <div class="mt-5 flex flex-col items-center gap-4">
+      <a href="https://www.optimally.ltd/demo?partner=salesmachines" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center rounded-full bg-gold text-ink text-base font-bold px-9 py-4 pill-cta">Learn More</a>
+      <div class="flex items-center gap-3 text-xs sm:text-sm text-muted">
+        <div class="flex -space-x-2">
+          <span class="w-7 h-7 rounded-full border border-line bg-ink3 grid place-items-center text-gold"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4 2 7L12 17l-6.5 3 2-7L2 9h7z"/></svg></span>
+          <span class="w-7 h-7 rounded-full border border-line bg-ink3 grid place-items-center text-gold"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4 2 7L12 17l-6.5 3 2-7L2 9h7z"/></svg></span>
+          <span class="w-7 h-7 rounded-full border border-line bg-ink3 grid place-items-center text-gold"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4 2 7L12 17l-6.5 3 2-7L2 9h7z"/></svg></span>
+        </div>
+        <span><span class="text-paper font-semibold">$2.1M+</span> tracked revenue driven across partners</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- trust marquee -->
+  <div class="relative border-y border-line/70 bg-ink2/60 py-5 overflow-hidden">
+    <div class="marquee text-muted/80 text-sm font-medium uppercase tracking-wider">
+      <span class="flex gap-14">
+        <span>Marshal Crews &middot; $312k / 30 days</span><span>Creator Haven &middot; $125.7k / 24 days</span><span>KJ Rainey &middot; $74k / mo</span><span>Adsbydan &middot; $13k &rarr; $52k / mo</span><span>Danny &middot; $61.6k / mo</span><span>Morgan &middot; $36k / mo</span>
+      </span>
+      <span class="flex gap-14" aria-hidden="true">
+        <span>Marshal Crews &middot; $312k / 30 days</span><span>Creator Haven &middot; $125.7k / 24 days</span><span>KJ Rainey &middot; $74k / mo</span><span>Adsbydan &middot; $13k &rarr; $52k / mo</span><span>Danny &middot; $61.6k / mo</span><span>Morgan &middot; $36k / mo</span>
+      </span>
+    </div>
+  </div>
+</section>
+
+<!-- 2. PAINS -->
+<section class="relative py-20 sm:py-28">
+  <div class="absolute top-1/2 left-0 w-[600px] h-[600px] glow-soft pointer-events-none"></div>
+  <div class="relative max-w-6xl mx-auto px-5 sm:px-8 reveal">
+    <p class="text-gold text-sm font-semibold tracking-widest uppercase mb-3">Where the money leaks</p>
+    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight max-w-2xl">Your offer works. The machine around it doesn&rsquo;t.</h2>
+    <p class="mt-4 text-muted max-w-2xl text-base sm:text-lg">Most operators hit a ceiling not because the offer is weak, but because the system feeding it is held together with duct tape.</p>
+
+    <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div class="card rounded-2xl p-6">
+        <div class="w-11 h-11 rounded-xl bg-gold/10 text-gold grid place-items-center mb-4"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg></div>
+        <h3 class="font-semibold text-lg mb-2">Revenue you can&rsquo;t predict</h3>
+        <p class="text-sm text-muted leading-relaxed">Good months, dead months. No system that turns effort into a number you can forecast.</p>
+      </div>
+      <div class="card rounded-2xl p-6">
+        <div class="w-11 h-11 rounded-xl bg-gold/10 text-gold grid place-items-center mb-4"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+        <h3 class="font-semibold text-lg mb-2">Messaging that won&rsquo;t convert</h3>
+        <p class="text-sm text-muted leading-relaxed">The presentation, emails and flows aren&rsquo;t built to close high-ticket at scale.</p>
+      </div>
+      <div class="card rounded-2xl p-6">
+        <div class="w-11 h-11 rounded-xl bg-gold/10 text-gold grid place-items-center mb-4"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg></div>
+        <h3 class="font-semibold text-lg mb-2">A sales process that leaks</h3>
+        <p class="text-sm text-muted leading-relaxed">No CRM discipline, no workflows &mdash; leads slip through and cash gets left on the table.</p>
+      </div>
+      <div class="card rounded-2xl p-6">
+        <div class="w-11 h-11 rounded-xl bg-gold/10 text-gold grid place-items-center mb-4"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h18v4H3z"/><path d="M5 7v14h14V7"/><path d="M9 11h6"/></svg></div>
+        <h3 class="font-semibold text-lg mb-2">Churn eating your wins</h3>
+        <p class="text-sm text-muted leading-relaxed">New cash comes in the front door and walks out the back without a client-success engine.</p>
+      </div>
+    </div>
+
+    <div class="mt-12 flex flex-col items-start gap-3">
+      <a href="https://www.optimally.ltd/demo?partner=salesmachines" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center rounded-full bg-gold text-ink text-base font-bold px-8 py-4 pill-cta">Learn More</a>
+      <p class="text-xs text-muted">Took one partner&rsquo;s churn from <span class="text-paper font-semibold">15.4% &rarr; 2.69%</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- 3. SOLUTION -->
+<section class="relative py-20 sm:py-28 bg-ink2/50 border-y border-line/60">
+  <div class="absolute -top-20 right-0 w-[600px] h-[600px] glow-gold pointer-events-none opacity-70"></div>
+  <div class="relative max-w-6xl mx-auto px-5 sm:px-8 reveal">
+    <p class="text-gold text-sm font-semibold tracking-widest uppercase mb-3">The machine we build</p>
+    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight max-w-3xl">One system that publishes the offer and scales the cash.</h2>
+    <p class="mt-4 text-muted max-w-2xl text-base sm:text-lg">We cover the full picture &mdash; deep sales expertise on one side, deep marketing on the other. Done-for-you or done-with-you, scoped on the call.</p>
+
+    <div class="mt-12 grid lg:grid-cols-3 gap-5">
+      <div class="card card-feature rounded-2xl p-7 lg:row-span-2 flex flex-col">
+        <div class="w-12 h-12 rounded-xl bg-gold text-ink grid place-items-center mb-5"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+        <h3 class="font-semibold text-xl mb-2">The winning offer &amp; message</h3>
+        <p class="text-sm text-muted leading-relaxed">We publish new B2C and high-ticket offers or sharpen existing ones &mdash; positioning, the sales presentation, and the conversion story that makes prospects buy.</p>
+        <ul class="mt-5 space-y-2.5 text-sm text-paper/90">
+          <li class="flex gap-2.5"><span class="text-gold mt-0.5">&check;</span> Full sales presentation, scripted &amp; built</li>
+          <li class="flex gap-2.5"><span class="text-gold mt-0.5">&check;</span> Email, SMS &amp; WhatsApp flows</li>
+          <li class="flex gap-2.5"><span class="text-gold mt-0.5">&check;</span> Challenge events &amp; webinar funnels</li>
+        </ul>
+      </div>
+      <div class="card rounded-2xl p-7">
+        <div class="w-12 h-12 rounded-xl bg-gold/10 text-gold grid place-items-center mb-5"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><rect x="7" y="11" width="3" height="6"/><rect x="12" y="7" width="3" height="10"/><rect x="17" y="13" width="3" height="4"/></svg></div>
+        <h3 class="font-semibold text-xl mb-2">The sales engine</h3>
+        <p class="text-sm text-muted leading-relaxed">New CRM, workflows and a sales process built to close &mdash; so every lead is worked and nothing leaks.</p>
+      </div>
+      <div class="card rounded-2xl p-7">
+        <div class="w-12 h-12 rounded-xl bg-gold/10 text-gold grid place-items-center mb-5"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div>
+        <h3 class="font-semibold text-xl mb-2">The client-success engine</h3>
+        <p class="text-sm text-muted leading-relaxed">A retention system that keeps the cash you collect &mdash; the difference between a launch and a business.</p>
+      </div>
+    </div>
+
+    <div class="mt-12 flex flex-col items-start gap-3">
+      <a href="https://www.optimally.ltd/demo?partner=salesmachines" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center rounded-full bg-gold text-ink text-base font-bold px-8 py-4 pill-cta">Learn More</a>
+      <p class="text-xs text-muted">Two skillsets, one team &mdash; sales <span class="text-paper font-semibold">and</span> marketing under one roof</p>
+    </div>
+  </div>
+</section>
+
+<!-- 4. CALL TO ACTION -->
+<section class="relative py-20 sm:py-28">
+  <div class="absolute inset-0 hero-grid opacity-40 pointer-events-none"></div>
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] glow-gold pointer-events-none"></div>
+  <div class="relative max-w-4xl mx-auto px-5 sm:px-8 text-center reveal">
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 mb-12">
+      <div><div class="text-3xl sm:text-4xl font-extrabold text-gold count" data-target="2.1" data-suffix="M+" data-prefix="$">$0</div><p class="text-xs text-muted mt-1">Tracked revenue driven</p></div>
+      <div><div class="text-3xl sm:text-4xl font-extrabold text-gold count" data-target="147" data-suffix="k" data-prefix="$">$0</div><p class="text-xs text-muted mt-1">Avg client in 90 days</p></div>
+      <div><div class="text-3xl sm:text-4xl font-extrabold text-gold count" data-target="7" data-suffix="x">0x</div><p class="text-xs text-muted mt-1">Up to monthly lift</p></div>
+      <div><div class="text-3xl sm:text-4xl font-extrabold text-gold count" data-target="24" data-suffix=" days">0</div><p class="text-xs text-muted mt-1">Fastest six-figure window</p></div>
+    </div>
+    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight">Become the next number on the wall.</h2>
+    <p class="mt-4 text-muted max-w-xl mx-auto text-base sm:text-lg">A short call is the fastest way to know if we&rsquo;re a fit. We&rsquo;ll assess the offer&rsquo;s ceiling and tell you straight.</p>
+    <div class="mt-8 flex flex-col items-center gap-3">
+      <a href="https://www.optimally.ltd/demo?partner=salesmachines" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center rounded-full bg-gold text-ink text-base font-bold px-9 py-4 pill-cta">Learn More</a>
+      <p class="text-xs text-muted">Every number on this page is a real outcome inside a defined window</p>
+    </div>
+  </div>
+</section>
+
+<!-- 5. BUILDING TRUST (testimonials) -->
+<section class="relative py-20 sm:py-28 bg-ink2/50 border-y border-line/60">
+  <div class="relative max-w-6xl mx-auto px-5 sm:px-8 reveal">
+    <p class="text-gold text-sm font-semibold tracking-widest uppercase mb-3">02 &mdash; Track record</p>
+    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight max-w-2xl">Offers we&rsquo;ve published or scaled.</h2>
+    <p class="mt-4 text-muted max-w-2xl text-base sm:text-lg">Every number is a real outcome inside a defined window. Not projections &mdash; payment-processor screenshots.</p>
+
+    <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      <!-- card -->
+      <div class="card rounded-2xl p-6">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="w-11 h-11 rounded-xl bg-ink3 border border-line grid place-items-center text-gold"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h18v18H3z"/><path d="M3 9h18M9 21V9"/></svg></span>
+          <div><p class="font-semibold leading-tight">Marshal Crews</p><p class="text-xs text-muted uppercase tracking-wide">Clothing brand</p></div>
+        </div>
+        <p class="text-2xl font-extrabold text-gold">$312k <span class="text-sm text-muted font-medium">in 30 days</span></p>
+        <p class="mt-3 text-sm text-muted leading-relaxed">3-day challenge event plus a post-challenge webinar &mdash; we scripted and built every presentation, flow and CRM behind it.</p>
+      </div>
+      <div class="card rounded-2xl p-6">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="w-11 h-11 rounded-xl bg-ink3 border border-line grid place-items-center text-gold"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7h-9M14 17H5M17 3l4 4-4 4M7 21l-4-4 4-4"/></svg></span>
+          <div><p class="font-semibold leading-tight">Creator Haven</p><p class="text-xs text-muted uppercase tracking-wide">TikTok Shop</p></div>
+        </div>
+        <p class="text-2xl font-extrabold text-gold">$125.7k <span class="text-sm text-muted font-medium">first 24 days</span></p>
+        <p class="mt-3 text-sm text-muted leading-relaxed">Published a brand-new B2C offer and scaled it past six figures inside the first month.</p>
+      </div>
+      <div class="card rounded-2xl p-6">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="w-11 h-11 rounded-xl bg-ink3 border border-line grid place-items-center text-gold"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg></span>
+          <div><p class="font-semibold leading-tight">KJ Rainey</p><p class="text-xs text-muted uppercase tracking-wide">Copywriting</p></div>
+        </div>
+        <p class="text-2xl font-extrabold text-gold">$74k / mo <span class="text-sm text-muted font-medium">$400k+ / 6 mo</span></p>
+        <p class="mt-3 text-sm text-muted leading-relaxed">Predictably collected $60&ndash;70k a month across six months, purely organically.</p>
+      </div>
+      <div class="card rounded-2xl p-6">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="w-11 h-11 rounded-xl bg-ink3 border border-line grid place-items-center text-gold"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="5" r="2"/><path d="M12 7v4"/></svg></span>
+          <div><p class="font-semibold leading-tight">Danny</p><p class="text-xs text-muted uppercase tracking-wide">AI Agency</p></div>
+        </div>
+        <p class="text-2xl font-extrabold text-gold">$61.6k / mo <span class="text-sm text-muted font-medium">from $8k</span></p>
+        <p class="mt-3 text-sm text-muted leading-relaxed">Scaled an existing coaching offer from $8k/mo in January to $61.6k/mo by May &mdash; over $167k collected in 4 months.</p>
+      </div>
+      <div class="card rounded-2xl p-6">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="w-11 h-11 rounded-xl bg-ink3 border border-line grid place-items-center text-gold"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h7l-1 8 10-12h-7z"/></svg></span>
+          <div><p class="font-semibold leading-tight">Adsbydan</p><p class="text-xs text-muted uppercase tracking-wide">Agency coaching</p></div>
+        </div>
+        <p class="text-2xl font-extrabold text-gold">$13k &rarr; $52k / mo <span class="text-sm text-muted font-medium">60 days</span></p>
+        <p class="mt-3 text-sm text-muted leading-relaxed">Re-engineered the sales process and sales ops to nearly 4x monthly cash collected.</p>
+      </div>
+      <div class="card rounded-2xl p-6">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="w-11 h-11 rounded-xl bg-ink3 border border-line grid place-items-center text-gold"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 1 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg></span>
+          <div><p class="font-semibold leading-tight">Morgan</p><p class="text-xs text-muted uppercase tracking-wide">Holistic wellness</p></div>
+        </div>
+        <p class="text-2xl font-extrabold text-gold">$36k / mo <span class="text-sm text-muted font-medium">from $24k</span></p>
+        <p class="mt-3 text-sm text-muted leading-relaxed">Hit a record month in cash collected within 30 days of signing.</p>
+      </div>
+    </div>
+
+    <!-- featured quote -->
+    <div class="mt-6 card card-feature rounded-2xl p-7 sm:p-9">
+      <div class="flex items-center gap-1 text-gold mb-4">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4 2 7L12 17l-6.5 3 2-7L2 9h7z"/></svg>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4 2 7L12 17l-6.5 3 2-7L2 9h7z"/></svg>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4 2 7L12 17l-6.5 3 2-7L2 9h7z"/></svg>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4 2 7L12 17l-6.5 3 2-7L2 9h7z"/></svg>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4 2 7L12 17l-6.5 3 2-7L2 9h7z"/></svg>
+      </div>
+      <p class="text-lg sm:text-xl font-medium leading-relaxed max-w-3xl">&ldquo;They didn&rsquo;t just hand over a plan &mdash; they built the whole machine and ran it with us. The numbers showed up because the system did.&rdquo;</p>
+      <div class="mt-5 flex items-center gap-3">
+        <span class="w-11 h-11 rounded-xl bg-ink3 border border-line grid place-items-center text-gold"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span>
+        <div><p class="font-semibold leading-tight">Alexi</p><p class="text-xs text-muted">Partner &middot; verified client feedback</p></div>
+      </div>
+    </div>
+
+    <div class="mt-10 flex flex-col items-start gap-3">
+      <a href="https://www.optimally.ltd/demo?partner=salesmachines" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center rounded-full bg-gold text-ink text-base font-bold px-8 py-4 pill-cta">Learn More</a>
+      <p class="text-xs text-muted"><span class="text-paper font-semibold">4x&ndash;7x</span> typical monthly revenue lift across partners</p>
+    </div>
+  </div>
+</section>
+
+<!-- 6. FOUNDER -->
+<section class="relative py-20 sm:py-28">
+  <div class="absolute -top-10 left-1/2 -translate-x-1/2 w-[700px] h-[500px] glow-gold pointer-events-none opacity-60"></div>
+  <div class="relative max-w-6xl mx-auto px-5 sm:px-8 reveal">
+    <p class="text-gold text-sm font-semibold tracking-widest uppercase mb-3">03 &mdash; About us</p>
+    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight max-w-3xl">A track record earned, not assumed.</h2>
+
+    <div class="mt-12 grid lg:grid-cols-3 gap-8 lg:gap-12 items-start">
+      <div class="lg:col-span-1">
+        <div class="card rounded-2xl p-6 text-center">
+          <div class="w-28 h-28 mx-auto rounded-2xl bg-ink3 border border-line grid place-items-center text-gold mb-4">
+            <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+          </div>
+          <p class="font-semibold text-lg">Andres Diaz</p>
+          <p class="text-sm text-muted">Founder &middot; Sales Machines</p>
+          <div class="mt-5 grid grid-cols-2 gap-3 text-left">
+            <div class="rounded-xl bg-ink2 border border-line p-3"><p class="text-gold font-bold">$2.1M+</p><p class="text-[11px] text-muted">Tracked revenue</p></div>
+            <div class="rounded-xl bg-ink2 border border-line p-3"><p class="text-gold font-bold">7+ offers</p><p class="text-[11px] text-muted">Published &amp; scaled</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="lg:col-span-2 space-y-5 text-base sm:text-lg text-paper/90 leading-relaxed">
+        <p>Most operators believe taking equity in high-ticket businesses is something they can walk into from day one. We disagree.</p>
+        <p>I&rsquo;m Andres Diaz, and I built Sales Machines only after years of slowly building a track record. I paid my dues as a closer, then a sales manager, then an in-house Sales Director before I ever called myself an operator.</p>
+        <p>My twin brother took the same road &mdash; started as a copywriter, then moved into full-stack CMO roles for multiple seven-figure businesses over that same stretch of time.</p>
+        <div class="grid sm:grid-cols-2 gap-4 pt-2">
+          <div class="card rounded-2xl p-5">
+            <div class="w-10 h-10 rounded-lg bg-gold/10 text-gold grid place-items-center mb-3"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg></div>
+            <p class="font-semibold mb-1">The sales side</p>
+            <p class="text-sm text-muted leading-relaxed">Closer &rarr; Sales Manager &rarr; in-house Sales Director. Owns strategy, management, and sales process.</p>
+          </div>
+          <div class="card rounded-2xl p-5">
+            <div class="w-10 h-10 rounded-lg bg-gold/10 text-gold grid place-items-center mb-3"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+            <p class="font-semibold mb-1">The marketing side</p>
+            <p class="text-sm text-muted leading-relaxed">Copywriter &rarr; full-stack CMO across multiple 7-figure businesses. Owns messaging and conversion.</p>
+          </div>
+        </div>
+        <div class="pt-3 flex flex-col items-start gap-3">
+          <a href="https://www.optimally.ltd/demo?partner=salesmachines" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center rounded-full bg-gold text-ink text-base font-bold px-8 py-4 pill-cta">Learn More</a>
+          <p class="text-xs text-muted">Two skillsets most competitors only <span class="text-paper font-semibold">claim</span> to have</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. FAQ -->
+<section class="relative py-20 sm:py-28 bg-ink2/50 border-y border-line/60">
+  <div class="relative max-w-3xl mx-auto px-5 sm:px-8 reveal">
+    <p class="text-gold text-sm font-semibold tracking-widest uppercase mb-3 text-center">04 &mdash; FAQ</p>
+    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-center">Questions, answered plainly.</h2>
+
+    <div class="mt-12 space-y-3">
+      <details class="card rounded-xl px-5 py-1 group" open>
+        <summary class="flex items-center justify-between gap-4 py-4"><span class="font-semibold text-base sm:text-lg">How does the pricing work?</span><span class="faq-ico text-gold transition-transform shrink-0 text-2xl leading-none">+</span></summary>
+        <p class="pb-4 text-sm text-muted leading-relaxed">Transparently. There are a lot of ways to structure a partnership &mdash; rev share on closed contracts, profit share, or a tiered set-up fee. If the deep dive shows a high ceiling, we prefer to sit down and structure something that works long term, not just for one launch.</p>
+      </details>
+      <details class="card rounded-xl px-5 py-1 group">
+        <summary class="flex items-center justify-between gap-4 py-4"><span class="font-semibold text-base sm:text-lg">What do I need to be making a month to work with you?</span><span class="faq-ico text-gold transition-transform shrink-0 text-2xl leading-none">+</span></summary>
+        <p class="pb-4 text-sm text-muted leading-relaxed">There&rsquo;s no single number. We publish new offers as well as scale existing ones, so the right fit depends on the offer&rsquo;s ceiling &mdash; not just current revenue. The best move is to book a call so we can assess fit.</p>
+      </details>
+      <details class="card rounded-xl px-5 py-1 group">
+        <summary class="flex items-center justify-between gap-4 py-4"><span class="font-semibold text-base sm:text-lg">What if it doesn&rsquo;t work for my niche?</span><span class="faq-ico text-gold transition-transform shrink-0 text-2xl leading-none">+</span></summary>
+        <p class="pb-4 text-sm text-muted leading-relaxed">Our track record spans clothing, TikTok Shop, copywriting, AI agencies, wellness and more. The machine isn&rsquo;t niche-specific &mdash; it&rsquo;s a sales and marketing system. The deep dive tells us fast whether your offer can carry the weight.</p>
+      </details>
+      <details class="card rounded-xl px-5 py-1 group">
+        <summary class="flex items-center justify-between gap-4 py-4"><span class="font-semibold text-base sm:text-lg">What if it doesn&rsquo;t work for me?</span><span class="faq-ico text-gold transition-transform shrink-0 text-2xl leading-none">+</span></summary>
+        <p class="pb-4 text-sm text-muted leading-relaxed">We don&rsquo;t take on offers we don&rsquo;t believe in. We only move after a deep dive says the ceiling is real &mdash; and we structure the partnership so our upside is tied to your results, not just a fee.</p>
+      </details>
+      <details class="card rounded-xl px-5 py-1 group">
+        <summary class="flex items-center justify-between gap-4 py-4"><span class="font-semibold text-base sm:text-lg">Done-for-you or done-with-you?</span><span class="faq-ico text-gold transition-transform shrink-0 text-2xl leading-none">+</span></summary>
+        <p class="pb-4 text-sm text-muted leading-relaxed">Both, depending on the offer and your team. We can build and run the full acquisition, sales and fulfillment machine for you, or embed alongside your operators and level the systems up with you. We scope that on the call.</p>
+      </details>
+      <details class="card rounded-xl px-5 py-1 group">
+        <summary class="flex items-center justify-between gap-4 py-4"><span class="font-semibold text-base sm:text-lg">Are you tied to a long contract?</span><span class="faq-ico text-gold transition-transform shrink-0 text-2xl leading-none">+</span></summary>
+        <p class="pb-4 text-sm text-muted leading-relaxed">We&rsquo;d rather build something that operates long term than chase a single launch &mdash; but the structure is set on the call once we both see the ceiling. We get clear on terms before anyone commits.</p>
+      </details>
+      <details class="card rounded-xl px-5 py-1 group">
+        <summary class="flex items-center justify-between gap-4 py-4"><span class="font-semibold text-base sm:text-lg">How quickly do you move?</span><span class="faq-ico text-gold transition-transform shrink-0 text-2xl leading-none">+</span></summary>
+        <p class="pb-4 text-sm text-muted leading-relaxed">Fast, but never reckless. Our fastest six-figure launch window has been around 24 days. We move only after the deep dive tells us the offer can carry the weight.</p>
+      </details>
+    </div>
+
+    <div class="mt-10 flex flex-col items-center gap-3 text-center">
+      <p class="text-muted">Still deciding? The fastest way to know if we&rsquo;re a fit is a short call.</p>
+      <a href="https://www.optimally.ltd/demo?partner=salesmachines" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center rounded-full bg-gold text-ink text-base font-bold px-9 py-4 pill-cta">Learn More</a>
+      <p class="text-xs text-muted">We&rsquo;ll assess the offer and tell you straight</p>
+    </div>
+  </div>
+</section>
+
+<!-- 8. FOOTER -->
+<footer class="relative pt-16 pb-10 border-t border-line">
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[300px] glow-gold pointer-events-none opacity-50"></div>
+  <div class="relative max-w-6xl mx-auto px-5 sm:px-8">
+    <div class="grid md:grid-cols-3 gap-10 pb-12">
+      <div class="md:col-span-1">
+        <img src="https://salesmachines.io/__l5e/assets-v1/89ca6f3b-9a3b-441b-ab16-1b1655374500/logo.png" alt="Sales Machines logo" class="h-9 w-auto mb-4">
+        <p class="text-sm text-muted leading-relaxed max-w-xs">We publish and scale companies in the high-ticket online space. You bring the offer &mdash; we build the machine that scales it.</p>
+      </div>
+      <div>
+        <p class="text-sm font-semibold mb-4">Site</p>
+        <ul class="space-y-2.5 text-sm text-muted">
+          <li><a href="https://www.optimally.ltd/demo?partner=salesmachines" target="_blank" rel="noopener noreferrer" class="hover:text-paper transition-colors">Home</a></li>
+          <li><a href="https://www.optimally.ltd/demo?partner=salesmachines" target="_blank" rel="noopener noreferrer" class="hover:text-paper transition-colors">Case studies</a></li>
+          <li><a href="https://www.optimally.ltd/demo?partner=salesmachines" target="_blank" rel="noopener noreferrer" class="hover:text-paper transition-colors">About us</a></li>
+          <li><a href="https://www.optimally.ltd/demo?partner=salesmachines" target="_blank" rel="noopener noreferrer" class="hover:text-paper transition-colors">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="text-sm font-semibold mb-4">Ready to scale?</p>
+        <p class="text-sm text-muted mb-4 max-w-xs">Book the deep dive and we&rsquo;ll tell you straight if the offer can carry the weight.</p>
+        <a href="https://www.optimally.ltd/demo?partner=salesmachines" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center rounded-full bg-gold text-ink text-sm font-bold px-7 py-3 pill-cta">Learn More</a>
+        <p class="text-[11px] text-muted mt-3">Operators in high-ticket acquisition &amp; fulfillment</p>
+      </div>
+    </div>
+    <div class="border-t border-line pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-muted">
+      <p>&copy; 2026 Sales Machines. All rights reserved.</p>
+      <div class="flex items-center gap-5">
+        <a href="https://www.optimally.ltd/demo?partner=salesmachines" target="_blank" rel="noopener noreferrer" class="hover:text-paper transition-colors">Privacy</a>
+        <a href="https://www.optimally.ltd/demo?partner=salesmachines" target="_blank" rel="noopener noreferrer" class="hover:text-paper transition-colors">Terms</a>
+        <a href="https://www.optimally.ltd/demo?partner=salesmachines" target="_blank" rel="noopener noreferrer" class="hover:text-paper transition-colors">Contact</a>
+      </div>
+    </div>
+    <p class="relative mt-6 text-center text-[11px] text-muted/60">Demo experience by Optimally</p>
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Count-up on real stats
+  const fmt = (n) => (Math.round(n * 10) / 10).toString();
+  const countIO = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el = e.target;
+      const target = parseFloat(el.dataset.target);
+      const prefix = el.dataset.prefix || '';
+      const suffix = el.dataset.suffix || '';
+      const dur = 1400; const start = performance.now();
+      const tick = (now) => {
+        const p = Math.min((now - start) / dur, 1);
+        const eased = 1 - Math.pow(1 - p, 3);
+        const val = target % 1 === 0 ? Math.round(target * eased) : (target * eased);
+        el.textContent = prefix + fmt(val) + suffix;
+        if (p < 1) requestAnimationFrame(tick);
+        else el.textContent = prefix + fmt(target) + suffix;
+      };
+      requestAnimationFrame(tick);
+      countIO.unobserve(el);
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('.count').forEach(el => countIO.observe(el));
+</script>
+</body>
+</html>
