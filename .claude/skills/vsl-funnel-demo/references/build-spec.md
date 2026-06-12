@@ -6,10 +6,11 @@ controlled headline length and logo size, real animations.
 
 ## Inputs (from the content-gathering step)
 - **Brand tokens** (Firecrawl branding): primary, secondary, neutral/text, background hex; logo URL; fonts; radius.
-- **Business brief** (distilled from homepage + about + offer + testimonials + FAQ pages):
-  company name (full + short brand), ICP, the offer as A→B→timeframe→mechanism, deliverables list,
-  current pains, the solution/mechanism, real proof/testimonials/results, founder name + bio, 7 likely
-  sales objections, the guarantee/risk-reversal.
+- **Business brief** (read directly off the SINGLE homepage `markdown` + branding scrape — no extra
+  page fetches, no sub-agents): company name (full + short brand), ICP, the offer as
+  A→B→timeframe→mechanism, deliverables list, current pains, the solution/mechanism, any
+  proof/testimonials, founder name + bio if present, 7 plausible sales objections, the guarantee.
+  Where the homepage gives no specifics (founder/testimonials/FAQ), write reasonable on-brand copy.
 - **slug** (first domain label) and **partner CTA URL** `https://www.optimally.ltd/demo?partner=<slug>`.
 
 ## Tech

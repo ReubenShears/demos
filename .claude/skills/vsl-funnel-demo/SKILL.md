@@ -48,22 +48,24 @@ Work in order; short status lines as you go. Total run ~1–3 min (no Stitch gen
 - **Brand name (short)** for display (e.g. `Unorthodox`); **Company name (full)** for Baserow Prospect
   Name + footer (e.g. `Unorthodox Systems`). Refine both after the scrape from `ogTitle`.
 
-### 1. Gather brand + business content (Firecrawl — this is what makes the copy good)
-This replaces Stitch's in-generation scrape; gather DEEPLY so Claude writes from a real understanding.
+### 1. Scrape the site — ONE Firecrawl call (keep it lean)
+Call `firecrawl_scrape` **ONCE** on the URL with `formats: ["branding","markdown"]`. That single call
+(a fixed endpoint) returns BOTH the brand tokens AND the homepage copy:
+- Brand: `branding.colors` (primary/secondary/textPrimary/background), `branding.images.logo`,
+  `branding.fonts`, `branding.spacing.borderRadius`
+- Content: the homepage `markdown`
 
-a. **Homepage:** `firecrawl_scrape` on the URL with `formats: ["branding","markdown"]`. Capture brand
-   tokens (`branding.colors` primary/secondary/textPrimary/background, `branding.images.logo`,
-   `branding.fonts`, `branding.spacing.borderRadius`) AND the full homepage `markdown`.
-b. **Map:** `firecrawl_map` the domain to list URLs. Pick the highest-value pages (up to ~5):
-   about / team / founder, offer / pricing / work-with-us / apply, testimonials / results / case-studies,
-   faq, services / product.
-c. **Deep scrape:** `firecrawl_scrape` (`formats: ["markdown"]`) each picked page. Gather real founder
-   bio, real testimonials/results, real FAQ Q&As, the actual offer + deliverables + mechanism + guarantee.
-   (If `firecrawl_map` returns little, just use the homepage — don't block on it.)
-d. **Distil a business brief** (hold it in your reasoning): company (full + short), ICP, the offer as
-   **A → B → timeframe → mechanism**, deliverables list, current pains, the solution/mechanism, real
-   proof/testimonials, founder name + bio, **7 likely sales objections**, the guarantee/risk-reversal.
-   Write the page from THIS — never generic filler where the site gives you real material.
+Read that markdown directly and pull the offer, ICP, deliverables, mechanism, timeframe, guarantee, and
+any testimonial / founder / FAQ hints. That is your source for writing the page (the A → B → timeframe
+→ mechanism for the headline comes from here).
+
+EFFICIENCY — do NOT bloat this step (this is important — it was over-running before):
+- Do NOT `firecrawl_map` the site and do NOT scrape any additional pages. The one homepage scrape is enough.
+- Do NOT spawn sub-agents, and do NOT run repeated Grep/Read passes over the scrape to "extract" content
+  — just read the returned markdown directly and write from it.
+- If the homepage lacks founder / testimonial / FAQ specifics, write reasonable on-brand copy for those
+  sections (founder = placeholder graphic + plausible bio, testimonials = neutral quotes, FAQ = 7
+  plausible objections for this offer) rather than fetching more pages.
 
 ### 2. Write the page (Claude authors it — the core step)
 Read `references/build-spec.md` and follow it exactly to write ONE self-contained `index.html`:
