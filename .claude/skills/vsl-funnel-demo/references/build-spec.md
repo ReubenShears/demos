@@ -5,7 +5,8 @@ business brief + brand tokens, applying the premium design rules below. Determin
 controlled headline length and logo size, real animations.
 
 ## Inputs (from the content-gathering step)
-- **Brand tokens** (Firecrawl branding): primary, secondary, neutral/text, background hex; logo URL; fonts; radius.
+- **Brand tokens** (Firecrawl branding): primary, secondary, neutral/text, background hex; **colorScheme
+  (light/dark — the page MUST match it)**; logo URL; favicon; ogImage; fonts; radius.
 - **Business brief** (read directly off the SINGLE homepage `markdown` + branding scrape — no extra
   page fetches, no sub-agents): company name (full + short brand), ICP, the offer as
   A→B→timeframe→mechanism, deliverables list, current pains, the solution/mechanism, any
@@ -62,6 +63,10 @@ controlled headline length and logo size, real animations.
 - Small social-proof line directly beneath each (tiny avatars/stars + short proof). Consistent everywhere.
 
 ## Visual quality (the premium bar — borrowed brief, non-structural)
+- **Light / dark mode — MATCH the source site (do not default to dark):** use the scraped
+  `branding.colorScheme`. If the original site is **light**, build a **LIGHT** page (light/white
+  backgrounds, dark text). If the site is **dark**, build a dark page. Derive the mode from the scrape —
+  e.g. Optimally is light, so its demo MUST be light. Never auto-default to a dark "premium" look.
 - **Colour — use ONLY the scraped palette; never invent an accent:** the design uses ONLY the scraped
   brand hex values (primary, secondary, neutral/text, background). The accent/highlight/CTA colour MUST be
   the scraped PRIMARY — do NOT default to your own "premium" accent (no yellow/blue/purple just because it

@@ -51,8 +51,9 @@ Work in order; short status lines as you go. Total run ~1–3 min (no Stitch gen
 ### 1. Scrape the site — ONE Firecrawl call (keep it lean)
 Call `firecrawl_scrape` **ONCE** on the URL with `formats: ["branding","markdown"]`. That single call
 (a fixed endpoint) returns BOTH the brand tokens AND the homepage copy:
-- Brand: `branding.colors` (primary/secondary/textPrimary/background), `branding.images.logo`,
-  `branding.images.favicon`, `branding.images.ogImage`, `branding.fonts`, `branding.spacing.borderRadius`
+- Brand: `branding.colors` (primary/secondary/textPrimary/background), `branding.colorScheme` (light/dark
+  — the page must match this), `branding.images.logo`, `branding.images.favicon`,
+  `branding.images.ogImage`, `branding.fonts`, `branding.spacing.borderRadius`
 - Content: the homepage `markdown`
 
 Read that markdown directly and pull the offer, ICP, deliverables, mechanism, timeframe, guarantee, and
