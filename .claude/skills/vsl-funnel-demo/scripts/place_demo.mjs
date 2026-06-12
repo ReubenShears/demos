@@ -81,6 +81,11 @@ if (ogImageUrl && !/property=["']og:image["']/i.test(html)) {
     `  <meta property="og:image" content="${ogImageUrl}">\n  <meta name="twitter:card" content="summary_large_image">\n  <meta name="twitter:image" content="${ogImageUrl}">\n</head>`);
 }
 
+// --- Mobile safety net: hard-stop horizontal scroll/overflow ---
+if (!/overflow-x\s*:\s*hidden/i.test(html)) {
+  html = html.replace(/<\/head>/i, `  <style>html,body{overflow-x:hidden;max-width:100%}</style>\n</head>`);
+}
+
 const outDir = path.join(outRoot, slug);
 fs.mkdirSync(outDir, { recursive: true });
 const outFile = path.join(outDir, 'index.html');

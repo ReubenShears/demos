@@ -18,6 +18,11 @@ controlled headline length and logo size, real animations.
   animations (IntersectionObserver) and count-ups. Brand font via Google Fonts (fallback: a premium
   geometric sans — Inter/Geist/Sora — NEVER Montserrat/Poppins/Roboto/Open Sans/Lato).
 - Fully responsive: looks right at 375 / 768 / 1440px. Hero fits ~one viewport at every breakpoint.
+- **NO horizontal scroll on mobile (critical):** the page must never scroll sideways at any breakpoint.
+  Add `html, body { overflow-x: hidden; max-width: 100%; }`, and make every element fit the viewport — no
+  fixed widths wider than the screen, images/cards `max-width: 100%`, multi-column/bento grids collapse to
+  ONE column on mobile, and no floating/offset/negative-margin cards that bleed past the right edge. Verify
+  at 375px: zero horizontal overflow.
 
 ## Structure — the same 9 sections, in order (do not change)
 0. Banner (slim announcement strip, "watch the video below", on-brand). NO nav menu. **NOT sticky/fixed**
