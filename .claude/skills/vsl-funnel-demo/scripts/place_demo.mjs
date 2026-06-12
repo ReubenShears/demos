@@ -43,6 +43,9 @@ html = html.replace(elRe, (m, _tag, attrs, inner) => {
   return `<a href="${target}" target="_blank" rel="noopener noreferrer"${sep}>${inner}</a>`;
 });
 
+// Normalize the footer copyright year to 2026 (Stitch sometimes emits 2024/2025).
+html = html.replace(/©\s*20\d\d/g, '© 2026');
+
 const outDir = path.join(outRoot, slug);
 fs.mkdirSync(outDir, { recursive: true });
 const outFile = path.join(outDir, 'index.html');
