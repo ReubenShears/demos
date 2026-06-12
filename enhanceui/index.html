@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teach Me Design — Enhance UI</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; background-color: #132434; color: #e8f4ff; margin: 0; padding: 0; }
+  .gold { color: #FFC735; }
+  .btn-primary {
+    background-color: #FFC735;
+    color: #132434;
+    font-weight: 700;
+    padding: clamp(10px, 2vw, 14px) clamp(24px, 4vw, 36px);
+    border-radius: 9999px;
+    display: inline-block;
+    font-size: clamp(0.9rem, 2vw, 1.05rem);
+    transition: opacity 0.2s;
+    cursor: pointer;
+    text-decoration: none;
+    border: none;
+    font-family: 'Inter', sans-serif;
+  }
+  .btn-primary:hover { opacity: 0.88; }
+  .btn-dark {
+    background-color: #132434;
+    color: #FFC735;
+    font-weight: 700;
+    padding: clamp(10px, 2vw, 14px) clamp(24px, 4vw, 36px);
+    border-radius: 9999px;
+    display: inline-block;
+    font-size: clamp(0.9rem, 2vw, 1.05rem);
+    transition: opacity 0.2s;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  .btn-dark:hover { opacity: 0.88; }
+  .card-bg { background-color: #0c1a27; border: 1px solid #1e3550; border-radius: 12px; }
+  .section { padding: clamp(48px, 8vw, 88px) 0; }
+  .container { max-width: 860px; margin: 0 auto; padding: 0 clamp(16px, 5vw, 40px); }
+  .proof-row { display: flex; align-items: center; gap: 8px; justify-content: center; margin-top: 14px; font-size: 0.78rem; color: #7a9db8; }
+  .stars { color: #FFC735; letter-spacing: -1px; font-size: 0.8rem; }
+  .placeholder-img {
+    background: #0c1a27;
+    border: 2px dashed #1e3550;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #3a5570;
+    font-size: 0.75rem;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .accordion-item { border-bottom: 1px solid #1e3550; }
+  .accordion-btn {
+    width: 100%;
+    text-align: left;
+    padding: 18px 0;
+    font-weight: 600;
+    color: #e8f4ff;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: clamp(0.9rem, 2vw, 1rem);
+    font-family: 'Inter', sans-serif;
+    gap: 16px;
+  }
+  .accordion-content {
+    padding: 0 0 18px;
+    color: #8fb3d0;
+    line-height: 1.75;
+    font-size: 0.93rem;
+    display: none;
+  }
+  .accordion-content.open { display: block; }
+  .video-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: linear-gradient(145deg, #071220 0%, #0e2440 40%, #1a3050 70%, #0a1a2e 100%);
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: 1px solid #1e3550;
+  }
+  .video-wrap::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 60% 40%, rgba(255,199,53,0.07) 0%, transparent 65%);
+  }
+  .play-btn {
+    position: relative;
+    z-index: 1;
+    width: clamp(56px, 9vw, 76px);
+    height: clamp(56px, 9vw, 76px);
+    background: #FFC735;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 48px rgba(255,199,53,0.35);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .play-btn:hover { transform: scale(1.06); box-shadow: 0 0 64px rgba(255,199,53,0.5); }
+  .play-icon {
+    width: 0; height: 0;
+    border-style: solid;
+    border-width: clamp(10px,1.5vw,13px) 0 clamp(10px,1.5vw,13px) clamp(17px,2.5vw,22px);
+    border-color: transparent transparent transparent #132434;
+    margin-left: clamp(3px,0.5vw,5px);
+  }
+  .video-caption {
+    position: absolute;
+    bottom: 16px;
+    left: 0; right: 0;
+    text-align: center;
+    font-size: clamp(0.7rem, 1.5vw, 0.85rem);
+    color: #C5E9FF;
+    font-weight: 500;
+    z-index: 1;
+  }
+  .module-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 14px; }
+  .pain-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
+  .stat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 18px; }
+  @media (max-width: 480px) {
+    .stat-grid { grid-template-columns: 1fr 1fr; }
+    .stat-grid > div:last-child { grid-column: 1 / -1; }
+  }
+  h1 { line-height: 1.13; }
+  h2 { line-height: 1.2; }
+  h3 { line-height: 1.25; }
+</style>
+</head>
+<body>
+
+<!-- 0. BANNER -->
+<div style="background:#FFC735; color:#132434; padding: 10px 16px; text-align:center; font-weight:700; font-size:clamp(0.78rem,2vw,0.92rem);">
+  ▶ Watch the free training below — see how developers become confident designers, without art school
+</div>
+
+<!-- 1. HERO -->
+<section style="padding: clamp(28px,5vw,48px) 0 clamp(36px,6vw,60px);">
+  <div class="container" style="text-align:center;">
+
+    <!-- Logo -->
+    <div style="margin-bottom:18px;">
+      <img
+        src="https://cdn.prod.website-files.com/5f718e7b0d482ef36d2c8417/64ba3a6f96c21b6f0d0086c8_Teach%20Me%20Design%20-%20Combined.svg"
+        alt="Enhance UI logo"
+        class="enhanceui-logo"
+        style="height:clamp(36px,7vw,52px); max-width:clamp(140px,40vw,200px); object-fit:contain; display:inline-block;"
+      >
+    </div>
+
+    <!-- Eyebrow -->
+    <p style="font-size:clamp(0.72rem,1.8vw,0.88rem); font-weight:700; text-transform:uppercase; letter-spacing:0.09em; color:#7a9db8; margin-bottom:14px;">
+      Attention: Developers, Engineers &amp; Anyone Who Builds UIs But Never Studied Design
+    </p>
+
+    <!-- Headline -->
+    <h1 style="font-size:clamp(1.55rem,4.2vw,3rem); font-weight:900; margin-bottom:14px; max-width:700px; margin-left:auto; margin-right:auto;">
+      We'll take you from <span class="gold">shipping interfaces that embarrass you</span> to designing UIs that look <span class="gold">intentional and professional</span> — using a structured design curriculum built for developers
+    </h1>
+
+    <!-- Guarantee -->
+    <p style="font-size:clamp(0.82rem,1.9vw,0.97rem); color:#FFC735; font-weight:600; margin-bottom:16px;">
+      365-day money-back guarantee — if it doesn't improve your design skills, you don't pay
+    </p>
+
+    <!-- Subheadline (deliverables) -->
+    <p style="font-size:clamp(0.85rem,2vw,1rem); color:#C5E9FF; margin-bottom:26px; max-width:580px; margin-left:auto; margin-right:auto; line-height:1.65;">
+      You get: <strong>425-page PDF book</strong> (dark &amp; light versions) · <strong>60 full video tutorials</strong> · <strong>Figma wireframe kit</strong> · <strong>4 exercise workshops</strong> · <strong>private Discord community</strong> · <strong>component cheat-sheets</strong>
+    </p>
+
+    <!-- Video placeholder -->
+    <div class="video-wrap" style="max-width:700px; margin:0 auto 22px;">
+      <div class="play-btn">
+        <div class="play-icon"></div>
+      </div>
+      <div class="video-caption">▶ How the Teach Me Design curriculum works — 5 modules, 60 lessons</div>
+    </div>
+
+    <!-- Video tagline -->
+    <p style="font-size:clamp(0.8rem,1.8vw,0.92rem); color:#7a9db8; margin-bottom:24px;">
+      From color theory to a complete design system — built for the way developers think
+    </p>
+
+    <!-- CTA -->
+    <a href="https://www.optimally.ltd/demo?partner=enhanceui" target="_blank" rel="noopener noreferrer" class="btn-primary">Learn More</a>
+    <div class="proof-row">
+      <span class="stars">★★★★★</span>
+      <span>Trusted by developers in 50+ countries</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- 2. PAINS -->
+<section class="section" style="background:#0a1520;">
+  <div class="container">
+    <p style="text-align:center; font-size:clamp(0.72rem,1.8vw,0.85rem); font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:#FFC735; margin-bottom:10px;">Sound familiar?</p>
+    <h2 style="font-size:clamp(1.35rem,3.2vw,2.3rem); font-weight:800; text-align:center; margin-bottom:36px; max-width:580px; margin-left:auto; margin-right:auto;">
+      You can write the code. The designs just <span class="gold">never look quite right</span>.
+    </h2>
+
+    <div class="pain-grid" style="margin-bottom:40px;">
+
+      <div class="card-bg" style="padding:22px;">
+        <div style="font-size:1.4rem; margin-bottom:10px;">😤</div>
+        <h3 style="font-size:0.95rem; font-weight:700; color:#FFC735; margin-bottom:7px;">You copy templates without understanding why they work</h3>
+        <p style="font-size:0.87rem; color:#7a9db8; line-height:1.65;">The moment you stray from a template, it falls apart. You don't have the underlying rules — you have a reference that breaks the second the brief changes.</p>
+      </div>
+
+      <div class="card-bg" style="padding:22px;">
+        <div style="font-size:1.4rem; margin-bottom:10px;">😬</div>
+        <h3 style="font-size:0.95rem; font-weight:700; color:#FFC735; margin-bottom:7px;">Feedback feels vague and impossible to act on</h3>
+        <p style="font-size:0.87rem; color:#7a9db8; line-height:1.65;">"It just doesn't feel right." You've heard it. You agree. But nobody hands you a framework for diagnosing WHY — let alone fixing it.</p>
+      </div>
+
+      <div class="card-bg" style="padding:22px;">
+        <div style="font-size:1.4rem; margin-bottom:10px;">🎨</div>
+        <h3 style="font-size:0.95rem; font-weight:700; color:#FFC735; margin-bottom:7px;">Color and spacing decisions feel like guesswork</h3>
+        <p style="font-size:0.87rem; color:#7a9db8; line-height:1.65;">You're eyeballing padding, picking hex values that "sort of work" and hoping the result looks coherent. No system, just instinct you don't fully trust.</p>
+      </div>
+
+      <div class="card-bg" style="padding:22px;">
+        <div style="font-size:1.4rem; margin-bottom:10px;">💻</div>
+        <h3 style="font-size:0.95rem; font-weight:700; color:#FFC735; margin-bottom:7px;">Your work looks like a developer built it</h3>
+        <p style="font-size:0.87rem; color:#7a9db8; line-height:1.65;">Technically solid, visually flat. Clients and hiring managers notice. It affects rates, feedback and confidence on every project you ship.</p>
+      </div>
+
+      <div class="card-bg" style="padding:22px;">
+        <div style="font-size:1.4rem; margin-bottom:10px;">🔄</div>
+        <h3 style="font-size:0.95rem; font-weight:700; color:#FFC735; margin-bottom:7px;">Scattered tutorials don't build real foundations</h3>
+        <p style="font-size:0.87rem; color:#7a9db8; line-height:1.65;">You've watched hours of "UI tips" videos and still can't apply them reliably. Fragments of knowledge without a structure don't add up to competence.</p>
+      </div>
+
+      <div class="card-bg" style="padding:22px;">
+        <div style="font-size:1.4rem; margin-bottom:10px;">📐</div>
+        <h3 style="font-size:0.95rem; font-weight:700; color:#FFC735; margin-bottom:7px;">Every project starts from scratch</h3>
+        <p style="font-size:0.87rem; color:#7a9db8; line-height:1.65;">No reusable system, no internalized rules. You re-invent every button, every card, every form input on every project — and it still doesn't look right.</p>
+      </div>
+
+    </div>
+
+    <div style="text-align:center;">
+      <a href="https://www.optimally.ltd/demo?partner=enhanceui" target="_blank" rel="noopener noreferrer" class="btn-primary">Learn More</a>
+      <div class="proof-row">
+        <span class="stars">★★★★★</span>
+        <span>Developers from 50+ countries have worked through these exact problems</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. SOLUTION -->
+<section class="section">
+  <div class="container">
+    <p style="text-align:center; font-size:clamp(0.72rem,1.8vw,0.85rem); font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:#FFC735; margin-bottom:10px;">The Solution</p>
+    <h2 style="font-size:clamp(1.35rem,3.2vw,2.3rem); font-weight:800; text-align:center; margin-bottom:14px; max-width:600px; margin-left:auto; margin-right:auto;">
+      <span class="gold">Teach Me Design</span> — a step-by-step curriculum that builds the foundation you're missing
+    </h2>
+    <p style="text-align:center; font-size:clamp(0.88rem,2vw,1rem); color:#C5E9FF; max-width:560px; margin:0 auto 36px; line-height:1.7;">
+      Not another scattered collection of tips. A proper sequence — from color fundamentals through typography, component design, visual hierarchy and implementation — that compounds chapter by chapter.
+    </p>
+
+    <div class="module-grid" style="margin-bottom:30px;">
+
+      <div class="card-bg" style="padding:22px; border-left:3px solid #FFC735;">
+        <p style="font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:#FFC735; margin-bottom:5px;">Module 1</p>
+        <h3 style="font-size:0.97rem; font-weight:700; margin-bottom:7px;">Colors</h3>
+        <p style="font-size:0.85rem; color:#7a9db8; line-height:1.65;">Color theory, the wheel, psychology, contrast ratios and how to build a production-ready color schema you can drop into any project.</p>
+      </div>
+
+      <div class="card-bg" style="padding:22px; border-left:3px solid #FFC735;">
+        <p style="font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:#FFC735; margin-bottom:5px;">Module 2</p>
+        <h3 style="font-size:0.97rem; font-weight:700; margin-bottom:7px;">Typography</h3>
+        <p style="font-size:0.85rem; color:#7a9db8; line-height:1.65;">Typefaces, font families, legibility, text hierarchy and building a typography schema that scales consistently across every page.</p>
+      </div>
+
+      <div class="card-bg" style="padding:22px; border-left:3px solid #FFC735;">
+        <p style="font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:#FFC735; margin-bottom:5px;">Module 3</p>
+        <h3 style="font-size:0.97rem; font-weight:700; margin-bottom:7px;">Component Design</h3>
+        <p style="font-size:0.85rem; color:#7a9db8; line-height:1.65;">Spacing, grids, buttons, forms, cards, tables, accordions — every UI component category with the principles behind why good ones look good.</p>
+      </div>
+
+      <div class="card-bg" style="padding:22px; border-left:3px solid #FFC735;">
+        <p style="font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:#FFC735; margin-bottom:5px;">Module 4</p>
+        <h3 style="font-size:0.97rem; font-weight:700; margin-bottom:7px;">Visual Hierarchy</h3>
+        <p style="font-size:0.85rem; color:#7a9db8; line-height:1.65;">F and Z patterns, size, contrast, proximity, alignment and harmony — how users scan pages, and how to design so they see what you want them to see.</p>
+      </div>
+
+      <div class="card-bg" style="padding:22px; border-left:3px solid #FFC735;">
+        <p style="font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:#FFC735; margin-bottom:5px;">Module 5</p>
+        <h3 style="font-size:0.97rem; font-weight:700; margin-bottom:7px;">Design Process</h3>
+        <p style="font-size:0.85rem; color:#7a9db8; line-height:1.65;">Wireframing, style guides, imagery and the complete process for moving from a blank canvas to a finished, consistent design system.</p>
+      </div>
+
+      <div class="card-bg" style="padding:22px; border-left:3px solid #FFC735;">
+        <p style="font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:#FFC735; margin-bottom:5px;">Module 6</p>
+        <h3 style="font-size:0.97rem; font-weight:700; margin-bottom:7px;">Implementation</h3>
+        <p style="font-size:0.85rem; color:#7a9db8; line-height:1.65;">Build actual color palettes, prepare typography, design UI elements and create logos — turn everything you've learned into real, shippable output.</p>
+      </div>
+
+    </div>
+
+    <!-- Differentiators -->
+    <div class="card-bg" style="padding:26px; margin-bottom:36px; border-color:#FFC735;">
+      <h3 style="font-size:1rem; font-weight:700; color:#FFC735; margin-bottom:16px; text-align:center;">What makes this different from scattered YouTube tutorials</h3>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(190px,1fr)); gap:16px; text-align:center;">
+        <div>
+          <p style="font-weight:700; font-size:0.92rem; margin-bottom:4px;">Built by a developer</p>
+          <p style="font-size:0.83rem; color:#7a9db8; line-height:1.6;">Not an art-school grad. Adrian built this to solve the exact problem he had as a developer who couldn't design.</p>
+        </div>
+        <div>
+          <p style="font-weight:700; font-size:0.92rem; margin-bottom:4px;">Structured progression</p>
+          <p style="font-size:0.83rem; color:#7a9db8; line-height:1.6;">Each module builds on the last. You develop real intuition — not a pile of disconnected tips that don't compound.</p>
+        </div>
+        <div>
+          <p style="font-weight:700; font-size:0.92rem; margin-bottom:4px;">Dark &amp; light versions</p>
+          <p style="font-size:0.83rem; color:#7a9db8; line-height:1.6;">The 425-page book ships in both dark and light PDF versions. Read the one that works for you.</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align:center;">
+      <a href="https://www.optimally.ltd/demo?partner=enhanceui" target="_blank" rel="noopener noreferrer" class="btn-primary">Learn More</a>
+      <div class="proof-row">
+        <span class="stars">★★★★★</span>
+        <span>425 pages · 60 tutorials · Figma kit · Discord community</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- 4. CALL TO ACTION -->
+<section class="section" style="background:#FFC735;">
+  <div class="container" style="text-align:center;">
+    <h2 style="font-size:clamp(1.45rem,3.8vw,2.7rem); font-weight:900; color:#132434; margin-bottom:14px; max-width:620px; margin-left:auto; margin-right:auto;">
+      Stop guessing. Start making design decisions with actual rules behind them.
+    </h2>
+    <p style="font-size:clamp(0.9rem,2vw,1.05rem); color:#1a3040; margin-bottom:26px; max-width:480px; margin-left:auto; margin-right:auto; line-height:1.65;">
+      The Complete Pack gives you the book, videos, Figma kit, workshops and a community — for less than two hours of freelance billing.
+    </p>
+    <a href="https://www.optimally.ltd/demo?partner=enhanceui" target="_blank" rel="noopener noreferrer" class="btn-dark">Learn More</a>
+    <div style="display:flex; align-items:center; gap:8px; justify-content:center; margin-top:12px; font-size:0.78rem; color:#4a6a7a;">
+      <span style="color:#132434; letter-spacing:-1px;">★★★★★</span>
+      <span>365-day money-back guarantee — zero risk</span>
+    </div>
+  </div>
+</section>
+
+<!-- 5. BUILDING TRUST -->
+<section class="section" style="background:#0a1520;">
+  <div class="container">
+    <p style="text-align:center; font-size:clamp(0.72rem,1.8vw,0.85rem); font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:#FFC735; margin-bottom:10px;">What Others Say</p>
+    <h2 style="font-size:clamp(1.35rem,3.2vw,2.3rem); font-weight:800; text-align:center; margin-bottom:36px; max-width:560px; margin-left:auto; margin-right:auto;">
+      Trusted by developers with <span class="gold">millions of combined followers</span>
+    </h2>
+
+    <!-- Stats strip -->
+    <div class="stat-grid" style="margin-bottom:36px;">
+      <div class="card-bg" style="padding:18px; text-align:center;">
+        <p style="font-size:clamp(1.5rem,3.5vw,2.2rem); font-weight:900; color:#FFC735; line-height:1.1;">425</p>
+        <p style="font-size:0.8rem; color:#7a9db8; margin-top:4px;">Pages of design fundamentals</p>
+      </div>
+      <div class="card-bg" style="padding:18px; text-align:center;">
+        <p style="font-size:clamp(1.5rem,3.5vw,2.2rem); font-weight:900; color:#FFC735; line-height:1.1;">60</p>
+        <p style="font-size:0.8rem; color:#7a9db8; margin-top:4px;">Full video lessons</p>
+      </div>
+      <div class="card-bg" style="padding:18px; text-align:center;">
+        <p style="font-size:clamp(1.5rem,3.5vw,2.2rem); font-weight:900; color:#FFC735; line-height:1.1;">365</p>
+        <p style="font-size:0.8rem; color:#7a9db8; margin-top:4px;">Day money-back guarantee</p>
+      </div>
+    </div>
+
+    <div class="testimonial-grid" style="margin-bottom:40px;">
+
+      <div class="card-bg" style="padding:26px;">
+        <div style="display:flex; align-items:center; gap:14px; margin-bottom:14px;">
+          <div class="placeholder-img" style="width:48px; height:48px; min-width:48px; border-radius:50%;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/></svg>
+          </div>
+          <div>
+            <p style="font-weight:700; font-size:0.92rem;">Traversy Media</p>
+            <p style="font-size:0.78rem; color:#7a9db8;">1,270,000 subscribers</p>
+          </div>
+        </div>
+        <div style="color:#FFC735; margin-bottom:9px; font-size:0.82rem; letter-spacing:-0.5px;">★★★★★</div>
+        <p style="font-size:0.88rem; color:#C5E9FF; line-height:1.72; font-style:italic;">"Adrian is skilled in both development and design. He's a fantastic teacher and content creator with a lot to offer anyone wanting to get into UI design or web development."</p>
+      </div>
+
+      <div class="card-bg" style="padding:26px;">
+        <div style="display:flex; align-items:center; gap:14px; margin-bottom:14px;">
+          <div class="placeholder-img" style="width:48px; height:48px; min-width:48px; border-radius:50%;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/></svg>
+          </div>
+          <div>
+            <p style="font-weight:700; font-size:0.92rem;">CodeSTACKr (Jesse)</p>
+            <p style="font-size:0.78rem; color:#7a9db8;">271,000 subscribers</p>
+          </div>
+        </div>
+        <div style="color:#FFC735; margin-bottom:9px; font-size:0.82rem; letter-spacing:-0.5px;">★★★★★</div>
+        <p style="font-size:0.88rem; color:#C5E9FF; line-height:1.72; font-style:italic;">"Adrian's design skills are amazing. It's not often you get to learn from someone skilled in both areas. If you want to level up your UI design skills, look no further!"</p>
+      </div>
+
+      <div class="card-bg" style="padding:26px;">
+        <div style="display:flex; align-items:center; gap:14px; margin-bottom:14px;">
+          <div class="placeholder-img" style="width:48px; height:48px; min-width:48px; border-radius:50%;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/></svg>
+          </div>
+          <div>
+            <p style="font-weight:700; font-size:0.92rem;">Web Dev Simplified</p>
+            <p style="font-size:0.78rem; color:#7a9db8;">1,110,000 subscribers</p>
+          </div>
+        </div>
+        <div style="color:#FFC735; margin-bottom:9px; font-size:0.82rem; letter-spacing:-0.5px;">★★★★★</div>
+        <p style="font-size:0.88rem; color:#C5E9FF; line-height:1.72; font-style:italic;">"Adrian's ability to distill complex topics into easy-to-understand parts makes learning fun. His design skills are incredible. I highly recommend learning from Adrian if you want to improve."</p>
+      </div>
+
+    </div>
+
+    <div style="text-align:center;">
+      <a href="https://www.optimally.ltd/demo?partner=enhanceui" target="_blank" rel="noopener noreferrer" class="btn-primary">Learn More</a>
+      <div class="proof-row">
+        <span class="stars">★★★★★</span>
+        <span>Endorsed by some of the biggest names in web dev education</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- 6. FOUNDER -->
+<section class="section">
+  <div class="container">
+    <div style="max-width:680px; margin:0 auto; text-align:center;">
+
+      <div class="placeholder-img" style="width:clamp(120px,25vw,180px); height:clamp(120px,25vw,180px); border-radius:50%; margin:0 auto 22px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/></svg>
+        <span>Place photo here</span>
+      </div>
+
+      <p style="font-size:clamp(0.72rem,1.8vw,0.85rem); font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:#FFC735; margin-bottom:8px;">Your Instructor</p>
+      <h2 style="font-size:clamp(1.35rem,3.2vw,2.2rem); font-weight:800; margin-bottom:16px;">
+        Hi, I'm <span class="gold">Adrian</span> — a developer who taught himself design so he could stop shipping ugly work
+      </h2>
+      <p style="font-size:clamp(0.88rem,2vw,1rem); color:#C5E9FF; line-height:1.72; margin-bottom:14px;">
+        I started as a developer. I could build anything — but every project I delivered looked like a developer built it. I spent years watching scattered YouTube tutorials without seeing real, consistent improvement. So I went deep on design fundamentals, built the Merge Interface YouTube channel, and worked with channels like Traversy Media to share what I'd learned.
+      </p>
+      <p style="font-size:clamp(0.88rem,2vw,1rem); color:#7a9db8; line-height:1.72; margin-bottom:28px;">
+        Teach Me Design is the curriculum I wish had existed. It's structured for the way developers think — logical, progressive, grounded in principles that actually explain why good design looks good. No prerequisites. No art-school theory. Just the framework you need to make better decisions on every project you build.
+      </p>
+
+      <a href="https://www.optimally.ltd/demo?partner=enhanceui" target="_blank" rel="noopener noreferrer" class="btn-primary">Learn More</a>
+      <div class="proof-row">
+        <span class="stars">★★★★★</span>
+        <span>Developer-turned-designer · Merge Interface · Traversy Media collaborator</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 7. FAQ -->
+<section class="section" style="background:#0a1520;">
+  <div class="container">
+    <p style="text-align:center; font-size:clamp(0.72rem,1.8vw,0.85rem); font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:#FFC735; margin-bottom:10px;">Common Questions</p>
+    <h2 style="font-size:clamp(1.35rem,3.2vw,2.3rem); font-weight:800; text-align:center; margin-bottom:36px; max-width:540px; margin-left:auto; margin-right:auto;">
+      Straight answers to the questions you're probably asking
+    </h2>
+
+    <div style="max-width:660px; margin:0 auto 40px;">
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleFaq(this)">
+          How is this different from just watching YouTube tutorials?
+          <span class="acc-icon" style="font-size:1.2rem; flex-shrink:0;">+</span>
+        </button>
+        <div class="accordion-content">
+          YouTube tutorials teach isolated techniques — you get a tip about contrast here, a color hack there. Teach Me Design is a structured curriculum where each chapter builds directly on the previous one. You progress from color fundamentals through typography, components, visual hierarchy and a full design process. By the end you have internalized a framework you can apply to any project, not just the one in the video.
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleFaq(this)">
+          I'm a developer, not a designer — will this actually work for me?
+          <span class="acc-icon" style="font-size:1.2rem; flex-shrink:0;">+</span>
+        </button>
+        <div class="accordion-content">
+          That's exactly who this was built for. Adrian wrote it as a developer who learned design — so the explanations are framed in developer thinking, not art-school language. There are no prerequisites beyond being able to read a technical book and follow structured lessons. The curriculum assumes you know how to code, not how to draw.
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleFaq(this)">
+          Is the $179 Complete Pack worth it over the $49 book?
+          <span class="acc-icon" style="font-size:1.2rem; flex-shrink:0;">+</span>
+        </button>
+        <div class="accordion-content">
+          The $49 Basic gives you the 425-page PDF — solid value on its own. The Complete Pack at $179 adds 60 full video tutorials that cover every chapter in detail, a Figma wireframe prototype kit, four hands-on exercise workshops, the private Discord community, and component cheat-sheets. The site values the full pack at over $1,500 in equivalent content. If you want to actually make the shift, the Complete Pack is the right investment.
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleFaq(this)">
+          What if I'm not happy or don't see results?
+          <span class="acc-icon" style="font-size:1.2rem; flex-shrink:0;">+</span>
+        </button>
+        <div class="accordion-content">
+          There's a full 365-day money-back guarantee. Email teachme@adriantwarog.com for any reason within a year of purchase and you'll receive a full refund within 3–5 working days. No conditions, no hoops. You have an entire year to decide whether it was worth it.
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleFaq(this)">
+          How long before I notice real improvement in my designs?
+          <span class="acc-icon" style="font-size:1.2rem; flex-shrink:0;">+</span>
+        </button>
+        <div class="accordion-content">
+          Most students notice a meaningful shift after completing just the first Colors module. Understanding contrast, color psychology and how to build a proper color schema changes the way you approach every project immediately. Working through all five modules at a comfortable pace typically takes a few weeks of consistent study.
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleFaq(this)">
+          Do I need Figma or any paid tools?
+          <span class="acc-icon" style="font-size:1.2rem; flex-shrink:0;">+</span>
+        </button>
+        <div class="accordion-content">
+          The core curriculum is a PDF — no software required. The Figma wireframe prototype kit included in the Complete Pack works perfectly on Figma's free tier. You don't need to buy anything beyond the course itself to get full value from it.
+        </div>
+      </div>
+
+      <div class="accordion-item" style="border-bottom:none;">
+        <button class="accordion-btn" onclick="toggleFaq(this)">
+          Is there ongoing support or a community I can ask questions in?
+          <span class="acc-icon" style="font-size:1.2rem; flex-shrink:0;">+</span>
+        </button>
+        <div class="accordion-content">
+          Yes — the Complete Pack includes access to a private Discord community. You can ask questions, share work-in-progress, get feedback from other developers going through the same material, and stay accountable beyond the book and videos. The community is included at no extra cost.
+        </div>
+      </div>
+
+    </div>
+
+    <div style="text-align:center;">
+      <a href="https://www.optimally.ltd/demo?partner=enhanceui" target="_blank" rel="noopener noreferrer" class="btn-primary">Learn More</a>
+      <div class="proof-row">
+        <span class="stars">★★★★★</span>
+        <span>365-day guarantee · Instant PDF access · Complete Pack includes everything</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- 8. FOOTER -->
+<footer style="background:#0a1520; border-top:1px solid #1e3550; padding:clamp(36px,6vw,64px) 0;">
+  <div class="container" style="text-align:center;">
+
+    <div style="margin-bottom:22px;">
+      <img
+        src="https://cdn.prod.website-files.com/5f718e7b0d482ef36d2c8417/64ba3a6f96c21b6f0d0086c8_Teach%20Me%20Design%20-%20Combined.svg"
+        alt="Enhance UI logo"
+        class="enhanceui-logo"
+        style="height:44px; max-width:170px; object-fit:contain; display:inline-block; opacity:0.85;"
+      >
+    </div>
+
+    <div style="margin-bottom:22px;">
+      <a href="https://www.optimally.ltd/demo?partner=enhanceui" target="_blank" rel="noopener noreferrer" class="btn-primary">Learn More</a>
+    </div>
+
+    <div style="display:flex; gap:22px; justify-content:center; flex-wrap:wrap; margin-bottom:20px; font-size:0.82rem;">
+      <a href="#" style="color:#7a9db8; text-decoration:none;">Privacy Policy</a>
+      <a href="#" style="color:#7a9db8; text-decoration:none;">Terms of Service</a>
+      <a href="mailto:teachme@adriantwarog.com" style="color:#7a9db8; text-decoration:none;">Contact</a>
+    </div>
+
+    <p style="font-size:0.78rem; color:#3a5570;">© 2026 Enhance UI. All rights reserved.</p>
+
+  </div>
+</footer>
+
+<script>
+function toggleFaq(btn) {
+  var content = btn.nextElementSibling;
+  var icon = btn.querySelector('.acc-icon');
+  var isOpen = content.classList.contains('open');
+  document.querySelectorAll('.accordion-content').forEach(function(c) { c.classList.remove('open'); });
+  document.querySelectorAll('.acc-icon').forEach(function(i) { i.textContent = '+'; });
+  if (!isOpen) {
+    content.classList.add('open');
+    icon.textContent = '×';
+  }
+}
+</script>
+
+</body>
+</html>
