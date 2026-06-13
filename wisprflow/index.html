@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wispr Flow — Speak, and write 4x faster in every app</title>
+<meta name="description" content="Wispr Flow is the voice-to-text AI that turns rambled speech into clear, polished writing in every app on Mac, Windows, iPhone and Android — 4x faster than typing.">
+<link rel="icon" href="https://cdn.prod.website-files.com/682f84b3838c89f8ff7667db/684b3be32acf9b372f54d041_ws-favi.png">
+<meta property="og:title" content="Wispr Flow — Speak, and write 4x faster in every app">
+<meta property="og:description" content="The voice-to-text AI that turns speech into clear, polished writing in every app. 4x faster than typing.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://demos.optimally.ltd/wisprflow">
+<meta property="og:image" content="https://cdn.prod.website-files.com/682f84b3838c89f8ff7667db/683c611aba65ade013982bcd_wispr-og-min.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Wispr Flow — Speak, and write 4x faster in every app">
+<meta name="twitter:description" content="The voice-to-text AI that turns speech into clear, polished writing in every app. 4x faster than typing.">
+<meta name="twitter:image" content="https://cdn.prod.website-files.com/682f84b3838c89f8ff7667db/683c611aba65ade013982bcd_wispr-og-min.jpg">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        ink: '#1A1A1A',
+        forest: '#034F46',
+        forestdeep: '#023A33',
+        cream: '#FFFFEB',
+        creamsoft: '#FBFAE6',
+        lilac: '#F0D7FF',
+      },
+      fontFamily: {
+        body: ['Figtree', 'system-ui', 'sans-serif'],
+        display: ['"EB Garamond"', 'Georgia', 'serif'],
+      },
+    },
+  },
+};
+</script>
+<style>
+  html, body { overflow-x: hidden; max-width: 100%; }
+  body { background-color: #FFFFEB; color: #1A1A1A; }
+  .font-display { letter-spacing: -0.01em; }
+  h1, h2 { line-height: 1.12; padding-bottom: 0.06em; }
+  .mesh {
+    background:
+      radial-gradient(60% 55% at 18% 12%, rgba(3,79,70,0.10) 0%, rgba(3,79,70,0) 60%),
+      radial-gradient(50% 50% at 88% 8%, rgba(240,215,255,0.55) 0%, rgba(240,215,255,0) 60%),
+      radial-gradient(60% 60% at 82% 92%, rgba(3,79,70,0.08) 0%, rgba(3,79,70,0) 60%),
+      #FFFFEB;
+  }
+  .mesh-forest {
+    background:
+      radial-gradient(55% 60% at 12% 10%, rgba(240,215,255,0.18) 0%, rgba(240,215,255,0) 55%),
+      radial-gradient(60% 60% at 90% 90%, rgba(255,255,235,0.10) 0%, rgba(255,255,235,0) 55%),
+      linear-gradient(160deg, #034F46 0%, #023A33 100%);
+  }
+  .card-glow { box-shadow: 0 1px 0 rgba(26,26,26,0.04), 0 18px 40px -28px rgba(3,79,70,0.35); }
+  .cta {
+    display: inline-flex; align-items: center; gap: .5rem; white-space: nowrap;
+    background: #034F46; color: #FFFFEB; border: 1px solid #023A33;
+    padding: .9rem 1.6rem; border-radius: 9999px; font-weight: 600; font-size: 1.02rem;
+    box-shadow: 0 14px 30px -14px rgba(3,79,70,0.6); transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+  }
+  .cta:hover { transform: translateY(-2px) scale(1.02); box-shadow: 0 20px 44px -14px rgba(3,79,70,0.7); background:#023A33; }
+  .cta-light {
+    display:inline-flex; align-items:center; gap:.5rem; white-space:nowrap;
+    background:#F0D7FF; color:#1A1A1A; border:1px solid #1A1A1A;
+    padding:.9rem 1.6rem; border-radius:9999px; font-weight:600; font-size:1.02rem;
+    transition: transform .18s ease, box-shadow .18s ease;
+  }
+  .cta-light:hover { transform: translateY(-2px) scale(1.02); box-shadow: 0 16px 34px -16px rgba(3,79,70,0.45); }
+  .reveal { opacity: 0; transform: translateY(26px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+  .avatar { display:inline-flex; align-items:center; justify-content:center; border-radius:9999px; }
+  .marquee { display:flex; gap:3rem; width:max-content; animation: slide 32s linear infinite; }
+  @keyframes slide { from { transform: translateX(0);} to { transform: translateX(-50%);} }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity:1; transform:none; transition:none; }
+    .marquee { animation: none; }
+  }
+</style>
+</head>
+<body class="font-body antialiased">
+
+<!-- 0. BANNER (not sticky) -->
+<div class="w-full bg-forest text-cream text-center text-sm sm:text-[15px] py-2.5 px-4 font-medium">
+  Wispr just raised <span class="font-semibold text-lilac">$81M</span> to build the Voice OS — watch the 2-minute demo below
+</div>
+
+<!-- 1. HERO -->
+<header class="mesh">
+  <div class="max-w-5xl mx-auto px-5 pt-7 pb-16 sm:pt-9 sm:pb-20 flex flex-col items-center text-center">
+    <img src="https://cdn.prod.website-files.com/682f84b3838c89f8ff7667db/683215c6f233131a07d8bafc_navbar_logo.svg"
+         alt="Wispr Flow Logo" class="h-14 sm:h-16 w-auto mb-5" style="filter: brightness(0)">
+    <p class="text-forest font-semibold tracking-wide uppercase text-xs sm:text-sm mb-4">
+      Attention: anyone who writes all day at a keyboard
+    </p>
+    <h1 class="font-display font-medium text-4xl sm:text-5xl lg:text-6xl max-w-3xl mb-5">
+      Stop typing. Just <span class="text-forest italic">speak</span>, and write
+      <span class="text-forest italic">4x faster</span> in every app.
+    </h1>
+    <p class="text-base sm:text-lg text-ink/70 max-w-xl mb-3">
+      Free for 14 days. Works on Mac, Windows, iPhone &amp; Android — no setup, no scripts.
+    </p>
+    <p class="text-[15px] sm:text-base text-ink/80 max-w-2xl mb-8 font-medium">
+      Voice-to-text AI that turns rambled speech into clear, polished writing — filler words and typos removed automatically.
+    </p>
+
+    <!-- VSL placeholder -->
+    <div class="w-full max-w-3xl">
+      <div class="relative rounded-2xl overflow-hidden border border-ink/10 card-glow mesh-forest aspect-video flex items-center justify-center">
+        <div class="absolute inset-0 opacity-30" style="background:radial-gradient(40% 60% at 50% 50%, rgba(240,215,255,.5), transparent 70%)"></div>
+        <button aria-label="Play the demo" class="relative z-10 group">
+          <span class="avatar w-20 h-20 bg-cream/95 shadow-2xl group-hover:scale-110 transition-transform">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="#034F46"><path d="M8 5.14v13.72a1 1 0 0 0 1.54.84l10.79-6.86a1 1 0 0 0 0-1.68L9.54 4.3A1 1 0 0 0 8 5.14Z"/></svg>
+          </span>
+        </button>
+        <span class="absolute bottom-3 left-4 z-10 text-cream/90 text-sm font-medium">See Flow turn speech into polished text — live</span>
+      </div>
+    </div>
+    <p class="mt-5 text-ink/60 text-sm italic font-display text-lg">"Don't type, just speak."</p>
+
+    <!-- CTA below video -->
+    <a href="https://www.optimally.ltd/demo?partner=wisprflow" target="_blank" rel="noopener noreferrer" class="cta mt-6">
+      Learn More
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+    <div class="mt-4 flex items-center justify-center gap-3 text-sm text-ink/70">
+      <div class="flex -space-x-2">
+        <span class="avatar w-7 h-7 bg-forest text-cream text-[11px] font-semibold border-2 border-cream">RV</span>
+        <span class="avatar w-7 h-7 bg-lilac text-ink text-[11px] font-semibold border-2 border-cream">SX</span>
+        <span class="avatar w-7 h-7 bg-forest text-cream text-[11px] font-semibold border-2 border-cream">TT</span>
+      </div>
+      <span>Loved by people at Vercel, Notion, Amazon &amp; Nvidia</span>
+    </div>
+  </div>
+
+  <!-- trust marquee -->
+  <div class="border-y border-ink/10 bg-creamsoft/60 py-5 overflow-hidden">
+    <p class="text-center text-xs uppercase tracking-widest text-ink/50 mb-4">Used by professionals everywhere to speed up their thoughts</p>
+    <div class="marquee text-ink/55 font-display text-2xl">
+      <span>Vercel</span><span>Notion</span><span>Amazon</span><span>Nvidia</span><span>Replit</span><span>Clay</span><span>Mercury</span><span>Substack</span><span>Strava</span>
+      <span>Vercel</span><span>Notion</span><span>Amazon</span><span>Nvidia</span><span>Replit</span><span>Clay</span><span>Mercury</span><span>Substack</span><span>Strava</span>
+    </div>
+  </div>
+</header>
+
+<!-- 2. PAINS -->
+<section class="py-20 sm:py-24 px-5">
+  <div class="max-w-5xl mx-auto">
+    <div class="reveal text-center max-w-2xl mx-auto mb-14">
+      <p class="text-forest font-semibold uppercase tracking-wide text-xs mb-3">The keyboard is the bottleneck</p>
+      <h2 class="font-display font-medium text-3xl sm:text-4xl lg:text-5xl mb-4">Your thinking is fast. Your typing isn't.</h2>
+      <p class="text-ink/70 text-lg">You type at 45 words a minute but think at 220. Every message, doc and reply is a tax on your day.</p>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div class="reveal bg-creamsoft rounded-2xl border border-ink/10 p-6 card-glow">
+        <span class="avatar w-11 h-11 bg-forest/10 mb-4"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#034F46" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M3 12h18M3 18h12"/></svg></span>
+        <h3 class="font-semibold text-lg mb-2">Typing can't keep up</h3>
+        <p class="text-ink/70">Ideas hit fast, but your fingers are slow. The thought is gone before the sentence is finished.</p>
+      </div>
+      <div class="reveal bg-creamsoft rounded-2xl border border-ink/10 p-6 card-glow">
+        <span class="avatar w-11 h-11 bg-forest/10 mb-4"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#034F46" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 6-12 12M6 6l12 12"/></svg></span>
+        <h3 class="font-semibold text-lg mb-2">Built-in voice mode is clumsy</h3>
+        <p class="text-ink/70">Dictation that stops, mishears, and drops "the the" everywhere — so you give up and type instead.</p>
+      </div>
+      <div class="reveal bg-creamsoft rounded-2xl border border-ink/10 p-6 card-glow">
+        <span class="avatar w-11 h-11 bg-forest/10 mb-4"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#034F46" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8v4l3 3M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg></span>
+        <h3 class="font-semibold text-lg mb-2">Editing eats your time</h3>
+        <p class="text-ink/70">Filler words, typos and rambled thoughts mean every draft needs a clean-up pass before you can send it.</p>
+      </div>
+      <div class="reveal bg-creamsoft rounded-2xl border border-ink/10 p-6 card-glow">
+        <span class="avatar w-11 h-11 bg-forest/10 mb-4"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#034F46" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v12H5.17L4 17.17V4Z"/></svg></span>
+        <h3 class="font-semibold text-lg mb-2">Slow replies cost you</h3>
+        <p class="text-ink/70">Unread DMs, follow-ups and inbox pile up. Slow responses mean lost deals and dropped momentum.</p>
+      </div>
+      <div class="reveal bg-creamsoft rounded-2xl border border-ink/10 p-6 card-glow">
+        <span class="avatar w-11 h-11 bg-forest/10 mb-4"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#034F46" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg></span>
+        <h3 class="font-semibold text-lg mb-2">Every app is different</h3>
+        <p class="text-ink/70">Each tool has its own half-baked dictation. Nothing follows you from Slack to Cursor to your phone.</p>
+      </div>
+      <div class="reveal bg-creamsoft rounded-2xl border border-ink/10 p-6 card-glow">
+        <span class="avatar w-11 h-11 bg-forest/10 mb-4"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#034F46" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg></span>
+        <h3 class="font-semibold text-lg mb-2">Writer's block stalls you</h3>
+        <p class="text-ink/70">Blank pages and looming deadlines. Getting started is the hardest part — and it kills your momentum.</p>
+      </div>
+    </div>
+    <div class="reveal text-center mt-12">
+      <a href="https://www.optimally.ltd/demo?partner=wisprflow" target="_blank" rel="noopener noreferrer" class="cta">Learn More
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <p class="text-sm text-ink/60 mt-3">★★★★★ Trusted by professionals at fast-moving teams</p>
+    </div>
+  </div>
+</section>
+
+<!-- 3. SOLUTION -->
+<section class="mesh-forest text-cream py-20 sm:py-24 px-5">
+  <div class="max-w-5xl mx-auto">
+    <div class="reveal text-center max-w-2xl mx-auto mb-14">
+      <p class="text-lilac font-semibold uppercase tracking-wide text-xs mb-3">Meet Flow</p>
+      <h2 class="font-display font-medium text-3xl sm:text-4xl lg:text-5xl mb-4">Voice that finally works — in every app you use</h2>
+      <p class="text-cream/80 text-lg">Press a key, speak naturally, and Flow writes clean, formatted text wherever your cursor is. 220 words a minute, not 45.</p>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div class="reveal bg-cream/[0.06] rounded-2xl border border-cream/15 p-6 backdrop-blur-sm">
+        <span class="avatar w-11 h-11 bg-lilac/20 mb-4"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F0D7FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3ZM5 11a7 7 0 0 0 14 0M12 18v4"/></svg></span>
+        <h3 class="font-semibold text-lg mb-2">AI auto-edits</h3>
+        <p class="text-cream/75">Rambled thoughts become clear, perfectly formatted text — filler words and typos stripped instantly.</p>
+      </div>
+      <div class="reveal bg-cream/[0.06] rounded-2xl border border-cream/15 p-6 backdrop-blur-sm">
+        <span class="avatar w-11 h-11 bg-lilac/20 mb-4"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F0D7FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/></svg></span>
+        <h3 class="font-semibold text-lg mb-2">Personal dictionary</h3>
+        <p class="text-cream/75">Flow learns your names, jargon and brand terms automatically, so the hard words always land right.</p>
+      </div>
+      <div class="reveal bg-cream/[0.06] rounded-2xl border border-cream/15 p-6 backdrop-blur-sm">
+        <span class="avatar w-11 h-11 bg-lilac/20 mb-4"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F0D7FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 11 3 3 8-8M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/></svg></span>
+        <h3 class="font-semibold text-lg mb-2">Snippet library</h3>
+        <p class="text-cream/75">Say a short cue and Flow drops in the full text — scheduling links, FAQs, the lines you repeat daily.</p>
+      </div>
+      <div class="reveal bg-cream/[0.06] rounded-2xl border border-cream/15 p-6 backdrop-blur-sm">
+        <span class="avatar w-11 h-11 bg-lilac/20 mb-4"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F0D7FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></span>
+        <h3 class="font-semibold text-lg mb-2">100+ languages</h3>
+        <p class="text-cream/75">Flow detects and transcribes your language automatically — and lets you switch between them mid-sentence.</p>
+      </div>
+      <div class="reveal bg-cream/[0.06] rounded-2xl border border-cream/15 p-6 backdrop-blur-sm">
+        <span class="avatar w-11 h-11 bg-lilac/20 mb-4"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F0D7FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h14a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H8l-5 4V5a2 2 0 0 1 2-2Z"/></svg></span>
+        <h3 class="font-semibold text-lg mb-2">Works in every app</h3>
+        <p class="text-cream/75">Slack, Gmail, Cursor, Notion, iMessage and more — seamless speech-to-text wherever you put your cursor.</p>
+      </div>
+      <div class="reveal bg-cream/[0.06] rounded-2xl border border-cream/15 p-6 backdrop-blur-sm">
+        <span class="avatar w-11 h-11 bg-lilac/20 mb-4"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F0D7FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 18h.01M8 21h8a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H8a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1Z"/></svg></span>
+        <h3 class="font-semibold text-lg mb-2">Synced everywhere</h3>
+        <p class="text-cream/75">Mac, Windows, iPhone and Android — your dictionary, style and settings follow you to every device.</p>
+      </div>
+    </div>
+    <div class="reveal text-center mt-12">
+      <a href="https://www.optimally.ltd/demo?partner=wisprflow" target="_blank" rel="noopener noreferrer" class="cta-light">Learn More
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <p class="text-sm text-cream/70 mt-3">★★★★★ "The best AI product I've used since ChatGPT."</p>
+    </div>
+  </div>
+</section>
+
+<!-- 4. CALL TO ACTION (stat band) -->
+<section class="py-20 sm:py-24 px-5 mesh">
+  <div class="max-w-5xl mx-auto">
+    <div class="reveal grid sm:grid-cols-3 gap-6 text-center mb-12">
+      <div class="bg-creamsoft rounded-2xl border border-ink/10 p-7 card-glow">
+        <p class="font-display text-5xl font-medium text-forest counter" data-target="4" data-suffix="x">0x</p>
+        <p class="text-ink/70 mt-2">faster than typing</p>
+      </div>
+      <div class="bg-creamsoft rounded-2xl border border-ink/10 p-7 card-glow">
+        <p class="font-display text-5xl font-medium text-forest counter" data-target="220" data-suffix=" wpm">0</p>
+        <p class="text-ink/70 mt-2">speaking vs. 45 wpm typing</p>
+      </div>
+      <div class="bg-creamsoft rounded-2xl border border-ink/10 p-7 card-glow">
+        <p class="font-display text-5xl font-medium text-forest counter" data-target="100" data-suffix="+">0</p>
+        <p class="text-ink/70 mt-2">languages, auto-detected</p>
+      </div>
+    </div>
+    <div class="reveal mesh-forest rounded-3xl border border-ink/10 p-10 sm:p-14 text-center text-cream card-glow">
+      <h2 class="font-display font-medium text-3xl sm:text-4xl mb-4">Write at the speed of thought — starting today</h2>
+      <p class="text-cream/80 text-lg max-w-xl mx-auto mb-7">Create, code, message and write 4x faster, with AI commands and auto-edits. Free for 14 days.</p>
+      <a href="https://www.optimally.ltd/demo?partner=wisprflow" target="_blank" rel="noopener noreferrer" class="cta-light">Learn More
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <p class="text-sm text-cream/70 mt-4">Available on Mac, Windows, iPhone &amp; Android</p>
+    </div>
+  </div>
+</section>
+
+<!-- 5. BUILDING TRUST -->
+<section class="py-20 sm:py-24 px-5">
+  <div class="max-w-5xl mx-auto">
+    <div class="reveal text-center max-w-2xl mx-auto mb-14">
+      <p class="text-forest font-semibold uppercase tracking-wide text-xs mb-3">Love letters to Flow</p>
+      <h2 class="font-display font-medium text-3xl sm:text-4xl lg:text-5xl mb-4">People can't go back to typing</h2>
+      <p class="text-ink/70 text-lg">From founders to writers to engineers — once they speak, the keyboard starts to feel slow.</p>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div class="reveal bg-creamsoft rounded-2xl border border-ink/10 p-6 card-glow">
+        <p class="text-lilac mb-3">★★★★★</p>
+        <p class="text-ink/85 mb-5">"This is the best AI product I've used since ChatGPT."</p>
+        <div class="flex items-center gap-3">
+          <span class="avatar w-10 h-10 bg-forest/10"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#034F46" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M5 21a7 7 0 0 1 14 0"/></svg></span>
+          <div><p class="font-semibold text-sm">Rahul Vohra</p><p class="text-ink/60 text-xs">CEO, Superhuman</p></div>
+        </div>
+      </div>
+      <div class="reveal bg-creamsoft rounded-2xl border border-ink/10 p-6 card-glow">
+        <p class="text-lilac mb-3">★★★★★</p>
+        <p class="text-ink/85 mb-5">"You're making texting actually delightful right now. Can see it becoming a can't-live-without product fast."</p>
+        <div class="flex items-center gap-3">
+          <span class="avatar w-10 h-10 bg-forest/10"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#034F46" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M5 21a7 7 0 0 1 14 0"/></svg></span>
+          <div><p class="font-semibold text-sm">Tara Tan</p><p class="text-ink/60 text-xs">Founding Partner, Strange Ventures</p></div>
+        </div>
+      </div>
+      <div class="reveal bg-creamsoft rounded-2xl border border-ink/10 p-6 card-glow">
+        <p class="text-lilac mb-3">★★★★★</p>
+        <p class="text-ink/85 mb-5">"It's probably my favorite part of the day — especially at the end, when I go through my inbox with Wispr."</p>
+        <div class="flex items-center gap-3">
+          <span class="avatar w-10 h-10 bg-forest/10"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#034F46" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M5 21a7 7 0 0 1 14 0"/></svg></span>
+          <div><p class="font-semibold text-sm">Suzanne Xie</p><p class="text-ink/60 text-xs">Partner, Neo</p></div>
+        </div>
+      </div>
+      <div class="reveal bg-creamsoft rounded-2xl border border-ink/10 p-6 card-glow">
+        <p class="text-lilac mb-3">★★★★★</p>
+        <p class="text-ink/85 mb-5">"I have Parkinson's, and this app has just made my life so much easier using my Mac. I can't even explain the change."</p>
+        <div class="flex items-center gap-3">
+          <span class="avatar w-10 h-10 bg-forest/10"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#034F46" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M5 21a7 7 0 0 1 14 0"/></svg></span>
+          <div><p class="font-semibold text-sm">Rich Pankey</p><p class="text-ink/60 text-xs">Indirect Sourcing Manager</p></div>
+        </div>
+      </div>
+      <div class="reveal bg-creamsoft rounded-2xl border border-ink/10 p-6 card-glow">
+        <p class="text-lilac mb-3">★★★★★</p>
+        <p class="text-ink/85 mb-5">"I was able to dictate ~70% of our Q2 board doc with Wispr. It was a massive time saver."</p>
+        <div class="flex items-center gap-3">
+          <span class="avatar w-10 h-10 bg-forest/10"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#034F46" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M5 21a7 7 0 0 1 14 0"/></svg></span>
+          <div><p class="font-semibold text-sm">Jeff Seibert</p><p class="text-ink/60 text-xs">CEO, Digits AI</p></div>
+        </div>
+      </div>
+      <div class="reveal bg-creamsoft rounded-2xl border border-ink/10 p-6 card-glow">
+        <p class="text-lilac mb-3">★★★★★</p>
+        <p class="text-ink/85 mb-5">"Voice is the future of human-computer interaction."</p>
+        <div class="flex items-center gap-3">
+          <span class="avatar w-10 h-10 bg-forest/10"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#034F46" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M5 21a7 7 0 0 1 14 0"/></svg></span>
+          <div><p class="font-semibold text-sm">Reid Hoffman</p><p class="text-ink/60 text-xs">Co-founder, LinkedIn · Partner, Greylock</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="reveal text-center mt-12">
+      <a href="https://www.optimally.ltd/demo?partner=wisprflow" target="_blank" rel="noopener noreferrer" class="cta">Learn More
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <p class="text-sm text-ink/60 mt-3">Join people at Vercel, Notion, Amazon &amp; Nvidia writing with their voice</p>
+    </div>
+  </div>
+</section>
+
+<!-- 6. FOUNDER -->
+<section class="py-20 sm:py-24 px-5 mesh">
+  <div class="max-w-4xl mx-auto">
+    <div class="reveal bg-creamsoft rounded-3xl border border-ink/10 p-8 sm:p-12 card-glow grid sm:grid-cols-[160px_1fr] gap-8 items-center">
+      <div class="mx-auto sm:mx-0">
+        <div class="w-32 h-32 rounded-2xl mesh-forest border border-ink/10 flex items-center justify-center">
+          <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#F0D7FF" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+        </div>
+      </div>
+      <div>
+        <p class="text-forest font-semibold uppercase tracking-wide text-xs mb-3">Why we built Flow</p>
+        <h2 class="font-display font-medium text-3xl sm:text-4xl mb-4">A note from the Wispr team</h2>
+        <p class="text-ink/75 text-lg mb-4">We started Wispr because the keyboard is the slowest part of modern work. People think in full sentences but type one slow word at a time — and existing dictation never kept up.</p>
+        <p class="text-ink/75 text-lg mb-6">So we built Flow: voice that finally works, in every app, on every device. We just raised $81M to take it further and build the Voice OS — a world where you create at the speed you think.</p>
+        <a href="https://www.optimally.ltd/demo?partner=wisprflow" target="_blank" rel="noopener noreferrer" class="cta">Learn More
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <p class="text-sm text-ink/60 mt-3">★★★★★ Backed to build the future of how we write</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. FAQ -->
+<section class="py-20 sm:py-24 px-5">
+  <div class="max-w-3xl mx-auto">
+    <div class="reveal text-center mb-12">
+      <p class="text-forest font-semibold uppercase tracking-wide text-xs mb-3">Still deciding?</p>
+      <h2 class="font-display font-medium text-3xl sm:text-4xl lg:text-5xl">Questions, answered</h2>
+    </div>
+    <div class="space-y-3">
+      <details class="reveal group bg-creamsoft rounded-2xl border border-ink/10 p-5 card-glow" open>
+        <summary class="flex justify-between items-center cursor-pointer font-semibold text-lg list-none">How much does Flow cost?<span class="text-forest group-open:rotate-45 transition-transform text-2xl leading-none">+</span></summary>
+        <p class="text-ink/70 mt-3">Start completely free for 14 days — no card required to try it. After that, Flow stays affordable for individuals, with special pricing and centralized admin controls for teams.</p>
+      </details>
+      <details class="reveal group bg-creamsoft rounded-2xl border border-ink/10 p-5 card-glow">
+        <summary class="flex justify-between items-center cursor-pointer font-semibold text-lg list-none">I don't have time to learn a new tool.<span class="text-forest group-open:rotate-45 transition-transform text-2xl leading-none">+</span></summary>
+        <p class="text-ink/70 mt-3">There's nothing to learn. Press a key, speak, and Flow writes wherever your cursor already is. Most people are faster than their keyboard within the first few minutes.</p>
+      </details>
+      <details class="reveal group bg-creamsoft rounded-2xl border border-ink/10 p-5 card-glow">
+        <summary class="flex justify-between items-center cursor-pointer font-semibold text-lg list-none">Will it actually work for my kind of work?<span class="text-forest group-open:rotate-45 transition-transform text-2xl leading-none">+</span></summary>
+        <p class="text-ink/70 mt-3">Flow adapts to how you work — whether you're closing deals, writing code in Cursor, drafting legal briefs, or capturing class notes. The same tool flexes to your workflow.</p>
+      </details>
+      <details class="reveal group bg-creamsoft rounded-2xl border border-ink/10 p-5 card-glow">
+        <summary class="flex justify-between items-center cursor-pointer font-semibold text-lg list-none">What if the transcription is messy?<span class="text-forest group-open:rotate-45 transition-transform text-2xl leading-none">+</span></summary>
+        <p class="text-ink/70 mt-3">AI auto-edits clean it up as you speak — filler words, false starts and typos are removed automatically, so rambled thoughts come out as polished, formatted text.</p>
+      </details>
+      <details class="reveal group bg-creamsoft rounded-2xl border border-ink/10 p-5 card-glow">
+        <summary class="flex justify-between items-center cursor-pointer font-semibold text-lg list-none">Is my data secure?<span class="text-forest group-open:rotate-45 transition-transform text-2xl leading-none">+</span></summary>
+        <p class="text-ink/70 mt-3">Yes. Flow is HIPAA-eligible on every plan and SOC 2 Type II compliant for Enterprise — so you can move fast without putting sensitive work at risk.</p>
+      </details>
+      <details class="reveal group bg-creamsoft rounded-2xl border border-ink/10 p-5 card-glow">
+        <summary class="flex justify-between items-center cursor-pointer font-semibold text-lg list-none">Am I locked into a contract?<span class="text-forest group-open:rotate-45 transition-transform text-2xl leading-none">+</span></summary>
+        <p class="text-ink/70 mt-3">No long-term lock-in. Start free, stay only as long as Flow earns its place in your day. Teams get flexible plans with admin controls built in.</p>
+      </details>
+      <details class="reveal group bg-creamsoft rounded-2xl border border-ink/10 p-5 card-glow">
+        <summary class="flex justify-between items-center cursor-pointer font-semibold text-lg list-none">How fast will I see a difference?<span class="text-forest group-open:rotate-45 transition-transform text-2xl leading-none">+</span></summary>
+        <p class="text-ink/70 mt-3">Immediately. Speaking runs around 220 words a minute versus 45 typing — most people feel the 4x jump on their very first message or email.</p>
+      </details>
+    </div>
+    <div class="reveal text-center mt-12">
+      <a href="https://www.optimally.ltd/demo?partner=wisprflow" target="_blank" rel="noopener noreferrer" class="cta">Learn More
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <p class="text-sm text-ink/60 mt-3">Free for 14 days · Mac, Windows, iPhone &amp; Android</p>
+    </div>
+  </div>
+</section>
+
+<!-- 8. FOOTER -->
+<footer class="mesh-forest text-cream pt-16 pb-10 px-5">
+  <div class="max-w-4xl mx-auto text-center">
+    <img src="https://cdn.prod.website-files.com/682f84b3838c89f8ff7667db/683215c6f233131a07d8bafc_navbar_logo.svg"
+         alt="Wispr Flow Logo" class="h-9 w-auto mx-auto mb-6" style="filter: brightness(0) invert(1)">
+    <h2 class="font-display font-medium text-3xl sm:text-4xl mb-4">Don't type, just speak</h2>
+    <p class="text-cream/80 max-w-md mx-auto mb-7">Effortless voice dictation in every application — 4x faster than typing. Free for 14 days.</p>
+    <a href="https://www.optimally.ltd/demo?partner=wisprflow" target="_blank" rel="noopener noreferrer" class="cta-light">Learn More
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <div class="flex flex-wrap justify-center gap-x-7 gap-y-2 text-sm text-cream/70 mt-10">
+      <a href="https://www.optimally.ltd/demo?partner=wisprflow" target="_blank" rel="noopener noreferrer" class="hover:text-cream">Privacy</a>
+      <a href="https://www.optimally.ltd/demo?partner=wisprflow" target="_blank" rel="noopener noreferrer" class="hover:text-cream">Terms</a>
+      <a href="https://www.optimally.ltd/demo?partner=wisprflow" target="_blank" rel="noopener noreferrer" class="hover:text-cream">Contact</a>
+    </div>
+    <p class="text-cream/55 text-sm mt-8">© 2026 Wispr Flow. All rights reserved.</p>
+    <p class="text-cream/40 text-xs mt-2">Demo experience presented by Optimally.</p>
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Count-up on real stats
+  const cio = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el = e.target, target = +el.dataset.target, suffix = el.dataset.suffix || '';
+      let start = 0; const dur = 1100, t0 = performance.now();
+      const tick = (now) => {
+        const p = Math.min((now - t0) / dur, 1);
+        el.textContent = Math.round(p * target) + suffix;
+        if (p < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+      cio.unobserve(el);
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('.counter').forEach(el => cio.observe(el));
+</script>
+</body>
+</html>
