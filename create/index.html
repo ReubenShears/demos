@@ -143,7 +143,7 @@
     if(ok){
       $('#prompt').classList.add('hide');
       const live = data.liveUrl || '';
-      $('#doneText').innerHTML = 'On its way — live in ~2–3 min at<br><a href="'+live+'" target="_blank" rel="noopener">'+live.replace('https://','')+'</a><br><span style="color:#a6aa9c">and posted to #5-asset-generation.</span>';
+      $('#doneText').innerHTML = 'On its way — live in ~15 mins at<br><a href="'+live+'" target="_blank" rel="noopener">'+live.replace('https://','')+'</a><br><span style="color:#a6aa9c">and posted to #5-asset-generation.</span>';
       $('#done').classList.remove('hide');
     } else {
       msg.className='msg err'; msg.textContent = data.error || 'Something went wrong.';
