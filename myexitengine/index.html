@@ -1,389 +1,616 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>ExitEngine™ | Control Your Business Destiny</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@600;700;800&display=swap" rel="stylesheet"/>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ExitEngine — Build a Business Buyers Compete For</title>
+<meta name="description" content="ExitEngine helps founder-led companies ($3M–$15M revenue) turn a successful business into a valuable, transferable, buyer-ready asset using the Total Exit Value System." />
+<link rel="icon" href="https://www.myexitengine.com/_assets/v11/dac70e07ed1be80b36ce3497d2ee73be1c45f1ad.png" />
+
+<!-- Open Graph / Social -->
+<meta property="og:title" content="ExitEngine — Build a Business Buyers Compete For" />
+<meta property="og:description" content="Turn a successful, founder-dependent company into a transferable, buyer-ready asset with the Total Exit Value System." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://demos.optimally.ltd/myexitengine" />
+<meta property="og:image" content="https://www.myexitengine.com/og-image.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="ExitEngine — Build a Business Buyers Compete For" />
+<meta name="twitter:description" content="Turn a successful, founder-dependent company into a transferable, buyer-ready asset with the Total Exit Value System." />
+<meta name="twitter:image" content="https://www.myexitengine.com/og-image.png" />
+
 <script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@500;600;700&display=swap" rel="stylesheet" />
+
 <script>
-tailwind.config = {
-  theme: {
-    extend: {
-      fontFamily: {
-        heading: ['Sora', 'sans-serif'],
-        body: ['Inter', 'sans-serif'],
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['Inter', 'sans-serif'],
+          display: ['Sora', 'sans-serif'],
+        },
+        colors: {
+          brand: '#FF9800',
+          brandDark: '#E07B00',
+          ink: '#1F2430',
+          slate2: '#4B5563',
+          paper: '#FFFFFF',
+          cream: '#FAF8F4',
+          cream2: '#F4EFE7',
+        },
       },
-      colors: {
-        primary: '#FF9800',
-        secondary: '#4B5563',
-        dark: '#1F2430',
-      },
-      borderRadius: {
-        DEFAULT: '10px',
-        lg: '10px',
-        xl: '12px',
-      }
-    }
-  }
-}
+    },
+  };
 </script>
+
 <style>
-  body { font-family: 'Inter', sans-serif; color: #1F2430; background: #ffffff; }
-  h1,h2,h3,h4 { font-family: 'Sora', sans-serif; }
-  .btn-primary {
-    display: inline-flex; align-items: center; justify-content: center;
-    background: #FF9800; color: #ffffff; font-family: 'Sora', sans-serif;
-    font-weight: 700; font-size: clamp(1rem, 1.5vw, 1.125rem);
-    padding: 1rem 2.5rem; border-radius: 10px; text-decoration: none;
-    transition: background 0.2s, transform 0.2s;
+  html, body { overflow-x: hidden; max-width: 100%; }
+  body {
+    font-family: 'Inter', sans-serif;
+    color: #1F2430;
+    background: #FFFFFF;
+    -webkit-font-smoothing: antialiased;
   }
-  .btn-primary:hover { background: #e68900; transform: translateY(-2px); }
-  details > summary { list-style: none; cursor: pointer; }
-  details > summary::-webkit-details-marker { display: none; }
-  details[open] .faq-icon { transform: rotate(45deg); }
-  .faq-icon { transition: transform 0.2s; }
-  .avatar { width: 36px; height: 36px; border-radius: 9999px; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: 700; border: 2px solid #fff; }
+  h1, h2, h3, .font-display { font-family: 'Sora', sans-serif; letter-spacing: -0.02em; }
+
+  /* Atmosphere: soft warm glow built from the brand orange */
+  .glow-mesh {
+    background:
+      radial-gradient(60% 50% at 18% 10%, rgba(255,152,0,0.13), transparent 60%),
+      radial-gradient(55% 45% at 90% 0%, rgba(255,152,0,0.10), transparent 55%),
+      radial-gradient(70% 60% at 50% 110%, rgba(31,36,48,0.05), transparent 60%),
+      #FFFFFF;
+  }
+  .glow-soft {
+    background:
+      radial-gradient(50% 60% at 85% 20%, rgba(255,152,0,0.08), transparent 60%),
+      #FAF8F4;
+  }
+  .hero-vignette { box-shadow: inset 0 -120px 120px -90px rgba(31,36,48,0.10); }
+
+  .pill {
+    display:inline-flex; align-items:center; justify-content:center; gap:.5rem;
+    white-space:nowrap; font-weight:600; line-height:1;
+    border-radius:9999px;
+    background:#FF9800; color:#fff;
+    padding:0.95rem 1.9rem;
+    box-shadow: 0 10px 30px -8px rgba(255,152,0,0.55), 0 2px 0 rgba(0,0,0,0.02);
+    transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+  }
+  .pill:hover { transform: translateY(-2px) scale(1.02); background:#E07B00; box-shadow: 0 16px 40px -10px rgba(255,152,0,0.6); }
+
+  .card {
+    background:#fff; border:1px solid rgba(31,36,48,0.08);
+    border-radius:18px;
+    box-shadow: 0 1px 2px rgba(31,36,48,0.04), 0 18px 40px -28px rgba(31,36,48,0.18);
+    transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+  }
+  .card:hover { transform: translateY(-4px); border-color: rgba(255,152,0,0.45); box-shadow: 0 24px 50px -24px rgba(255,152,0,0.30); }
+
+  .icon-chip {
+    display:inline-flex; align-items:center; justify-content:center;
+    width:48px; height:48px; border-radius:14px;
+    background: rgba(255,152,0,0.10); color:#E07B00;
+    border:1px solid rgba(255,152,0,0.22);
+  }
+
+  .play-btn {
+    width:84px; height:84px; border-radius:9999px;
+    background: rgba(255,255,255,0.92);
+    box-shadow: 0 14px 40px -10px rgba(31,36,48,0.45);
+    transition: transform .2s ease, box-shadow .2s ease;
+  }
+  .play-btn:hover { transform: scale(1.06); box-shadow: 0 0 0 12px rgba(255,152,0,0.15), 0 14px 40px -10px rgba(31,36,48,0.45); }
+
+  .reveal { opacity:0; transform: translateY(22px); transition: opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1); }
+  .reveal.in { opacity:1; transform:none; }
+
+  .marquee { display:flex; gap:3rem; width:max-content; animation: scrollx 26s linear infinite; }
+  @keyframes scrollx { from { transform: translateX(0);} to { transform: translateX(-50%);} }
+
+  details > summary { list-style:none; cursor:pointer; }
+  details > summary::-webkit-details-marker { display:none; }
+  details[open] .faq-plus { transform: rotate(45deg); }
+  .faq-plus { transition: transform .2s ease; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity:1 !important; transform:none !important; transition:none; }
+    .marquee { animation: none; }
+  }
 </style>
 </head>
-<body class="antialiased">
 
-<!-- 0. Announcement Banner -->
-<div style="background:#FF9800; color:#fff; font-family:'Inter',sans-serif; font-weight:600; font-size:0.875rem; text-align:center; padding:0.75rem 1.25rem; position:sticky; top:0; z-index:50;">
-  🎥 Watch the short video below to see how ExitEngine™ transforms founder-led companies into buyer-ready assets — in 90 days.
+<body class="bg-paper text-ink">
+
+<!-- ============ 0. BANNER (slim, NOT sticky) ============ -->
+<div class="w-full bg-ink text-white text-center text-[13px] sm:text-sm py-2.5 px-4">
+  <span class="opacity-90">Watch the 2-minute video below</span>
+  <span class="hidden sm:inline opacity-60"> — see how founders build businesses that buyers compete for.</span>
 </div>
 
-<!-- 1. Hero Section -->
-<section style="background:#ffffff; padding: clamp(3rem,6vw,5rem) 1.25rem clamp(3rem,6vw,5rem);">
-  <div style="max-width:900px; margin:0 auto; text-align:center;">
-    <!-- Logo -->
-    <div style="margin-bottom:2rem;">
-      <img src="https://www.myexitengine.com/_assets/v11/4557858219ed3693311e2b3a85238355023e64e4.png" alt="ExitEngine" style="height:40px; width:auto; display:inline-block;"/>
+<!-- ============ 1. HERO ============ -->
+<header class="relative glow-mesh hero-vignette">
+  <div class="max-w-6xl mx-auto px-5 pt-7 pb-16 sm:pt-9 sm:pb-20">
+
+    <!-- Logo (single, prominent) -->
+    <div class="flex justify-center">
+      <img src="https://www.myexitengine.com/_assets/v11/4557858219ed3693311e2b3a85238355023e64e4.png"
+           alt="ExitEngine" class="h-14 sm:h-16 w-auto" />
     </div>
+
     <!-- Eyebrow -->
-    <span style="display:inline-block; border:1.5px solid #FF9800; color:#FF9800; font-size:0.75rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; padding:0.35rem 1rem; border-radius:9999px; margin-bottom:1.5rem;">For Founder-Led Companies Generating $3M–$15M in Revenue</span>
-    <!-- Headline -->
-    <h1 style="font-size:clamp(2rem,5vw,3.75rem); font-weight:800; line-height:1.1; color:#1F2430; margin-bottom:1rem; letter-spacing:-0.02em;">
-      Every Founder Exits.<br/>Will Yours Be <span style="color:#FF9800;">By Design</span><br/>Or By Default?
+    <p class="mt-7 text-center text-xs sm:text-sm font-semibold tracking-wide uppercase text-brandDark">
+      Attention: founder-led companies doing $3M–$15M in revenue
+    </p>
+
+    <!-- Headline (2 lines, tight) -->
+    <h1 class="mt-3 text-center mx-auto max-w-3xl font-display font-semibold leading-[1.12] text-ink text-[2rem] sm:text-5xl lg:text-6xl pb-1">
+      Make your exit <span class="text-brand">by design</span>,<br class="hidden sm:block" /> not by default
     </h1>
+
     <!-- Guarantee -->
-    <p style="font-size:0.875rem; color:#4B5563; font-style:italic; margin-bottom:1.25rem;">No commitment required. Just 15 minutes of clarity.</p>
-    <!-- Sub-headline -->
-    <p style="font-size:clamp(1rem,1.8vw,1.2rem); color:#4B5563; max-width:680px; margin:0 auto 2.5rem; line-height:1.6;">
-      ExitEngine™ helps founder-led companies transform into transferable, buyer-ready assets — so you gain freedom, leverage, and real exit options through the Total Exit Value System™.
+    <p class="mt-4 text-center text-sm sm:text-base font-medium text-slate2">
+      Free 15-minute Value Snapshot™ — clarity on what your business is worth today, no pressure to sell.
     </p>
-    <!-- Video Placeholder -->
-    <div style="max-width:800px; margin:0 auto 2rem; position:relative; padding-bottom:56.25%; background:#1F2430; border-radius:10px; overflow:hidden; box-shadow:0 20px 48px rgba(31,36,48,0.18);">
-      <div style="position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:1rem;">
-        <div style="width:72px; height:72px; background:#FF9800; border-radius:9999px; display:flex; align-items:center; justify-content:center;">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+
+    <!-- ONE deliverables subheadline -->
+    <p class="mt-2 text-center mx-auto max-w-2xl text-[15px] sm:text-lg text-slate2/90 leading-relaxed">
+      Turn a successful, founder-dependent company into a valuable, transferable, buyer-ready asset with the
+      <span class="font-semibold text-ink">Total Exit Value System™</span>.
+    </p>
+
+    <!-- VSL placeholder -->
+    <div class="mt-9 mx-auto max-w-3xl">
+      <div class="relative w-full rounded-2xl overflow-hidden border border-black/10 shadow-2xl"
+           style="aspect-ratio:16/9; background:
+             radial-gradient(60% 80% at 30% 20%, rgba(255,152,0,0.22), transparent 60%),
+             radial-gradient(70% 90% at 80% 90%, rgba(31,36,48,0.30), transparent 60%),
+             linear-gradient(135deg,#23262f 0%,#1b1d24 55%,#2a2117 100%);">
+        <div class="absolute inset-0 flex flex-col items-center justify-center">
+          <button aria-label="Play the video" class="play-btn flex items-center justify-center">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="#E07B00"><path d="M8 5v14l11-7z"/></svg>
+          </button>
+          <p class="mt-4 text-white/85 text-sm font-medium">How the Total Exit Value System™ works</p>
+          <p class="text-white/45 text-xs mt-1">2 min watch</p>
         </div>
-        <p style="color:#ffffff; font-size:0.9rem; font-family:'Inter',sans-serif; opacity:0.8; text-align:center; padding:0 1rem;">Watch: How Founders Turn Their Biggest Asset Into Real Options (8 min)</p>
       </div>
     </div>
+
     <!-- Tagline -->
-    <p style="font-size:0.875rem; color:#4B5563; margin-bottom:1.5rem;">Join hundreds of founders who've taken control of their business destiny.</p>
-    <!-- CTA -->
-    <a href="https://www.optimally.ltd/demo?partner=myexitengine" target="_blank" rel="noopener noreferrer" class="btn-primary learn-more-cta" style="margin-bottom:1.25rem;">Learn More</a>
-    <!-- Social Proof -->
-    <div style="display:flex; align-items:center; justify-content:center; gap:0.75rem; margin-top:1rem;">
-      <div style="display:flex; margin-right:0.25rem;">
-        <div class="avatar" style="background:#FF9800; color:#fff; margin-left:-8px;">MK</div>
-        <div class="avatar" style="background:#4B5563; color:#fff; margin-left:-8px;">SL</div>
-        <div class="avatar" style="background:#1F2430; color:#fff; margin-left:-8px;">DR</div>
-        <div class="avatar" style="background:#6B7280; color:#fff; margin-left:-8px;">JC</div>
-        <div class="avatar" style="background:#9CA3AF; color:#fff; margin-left:-8px;">+</div>
-      </div>
-      <span style="font-size:0.875rem; color:#4B5563;">127 founders enrolled this quarter</span>
-    </div>
-  </div>
-</section>
-
-<!-- 2. Pain Points -->
-<section style="background:#F9FAFB; padding:clamp(3rem,6vw,5rem) 1.25rem;">
-  <div style="max-width:1000px; margin:0 auto;">
-    <h2 style="font-size:clamp(1.75rem,3.5vw,2.75rem); font-weight:700; color:#1F2430; text-align:center; margin-bottom:1rem; line-height:1.2;">
-      You Built a Successful Business.<br/><span style="color:#FF9800;">So Why Does It Still Feel So Heavy?</span>
-    </h2>
-    <p style="text-align:center; color:#4B5563; font-size:1.05rem; max-width:640px; margin:0 auto 3rem; line-height:1.6;">
-      You've done what most people never do — built a real company with real revenue. But something still isn't right:
+    <p class="mt-6 text-center font-display text-lg sm:text-xl text-ink/90">
+      Freedom is the real exit strategy.
     </p>
-    <!-- Pain Cards -->
-    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.25rem; margin-bottom:2.5rem;">
-      <div style="background:#fff; border-radius:10px; padding:1.5rem; box-shadow:0 2px 12px rgba(31,36,48,0.07); border-left:4px solid #FF9800;">
-        <h3 style="font-size:1rem; font-weight:700; color:#1F2430; margin-bottom:0.5rem;">Too many decisions still land on your desk</h3>
-        <p style="color:#4B5563; font-size:0.9rem; line-height:1.5;">You're the bottleneck, not the CEO. Every major call waits for you.</p>
-      </div>
-      <div style="background:#fff; border-radius:10px; padding:1.5rem; box-shadow:0 2px 12px rgba(31,36,48,0.07); border-left:4px solid #FF9800;">
-        <h3 style="font-size:1rem; font-weight:700; color:#1F2430; margin-bottom:0.5rem;">Growth feels harder than it used to</h3>
-        <p style="color:#4B5563; font-size:0.9rem; line-height:1.5;">Every new level of scale requires more of you, not less.</p>
-      </div>
-      <div style="background:#fff; border-radius:10px; padding:1.5rem; box-shadow:0 2px 12px rgba(31,36,48,0.07); border-left:4px solid #FF9800;">
-        <h3 style="font-size:1rem; font-weight:700; color:#1F2430; margin-bottom:0.5rem;">Taking real time away feels risky</h3>
-        <p style="color:#4B5563; font-size:0.9rem; line-height:1.5;">The business runs on you, not systems. A week off creates a week of catch-up.</p>
-      </div>
-      <div style="background:#fff; border-radius:10px; padding:1.5rem; box-shadow:0 2px 12px rgba(31,36,48,0.07); border-left:4px solid #FF9800;">
-        <h3 style="font-size:1rem; font-weight:700; color:#1F2430; margin-bottom:0.5rem;">You wonder what would happen if you stepped back</h3>
-        <p style="color:#4B5563; font-size:0.9rem; line-height:1.5;">No one has mapped that path. No systems. No succession. Just uncertainty.</p>
-      </div>
-      <div style="background:#fff; border-radius:10px; padding:1.5rem; box-shadow:0 2px 12px rgba(31,36,48,0.07); border-left:4px solid #FF9800;">
-        <h3 style="font-size:1rem; font-weight:700; color:#1F2430; margin-bottom:0.5rem;">You're successful — but exhausted</h3>
-        <p style="color:#4B5563; font-size:0.9rem; line-height:1.5;">Revenue is up. Team has grown. And yet freedom feels further away than ever.</p>
-      </div>
-    </div>
-    <p style="text-align:center; font-size:1.05rem; font-weight:600; color:#1F2430;">
-      You're not failing. The business just hasn't been designed to run without you — yet.
-    </p>
-  </div>
-</section>
 
-<!-- 3. Solution Section -->
-<section style="background:#ffffff; padding:clamp(3rem,6vw,5rem) 1.25rem;">
-  <div style="max-width:1000px; margin:0 auto;">
-    <h2 style="font-size:clamp(1.75rem,3.5vw,2.75rem); font-weight:700; color:#1F2430; text-align:center; margin-bottom:1rem; line-height:1.2;">
-      The Real Problem Isn't Growth.<br/><span style="color:#FF9800;">It's Structure.</span>
-    </h2>
-    <!-- Three columns -->
-    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:2rem; margin:2.5rem 0;">
-      <div style="text-align:center;">
-        <div style="font-size:2.5rem; margin-bottom:1rem;">⚠️</div>
-        <h3 style="font-size:1.05rem; font-weight:700; color:#1F2430; margin-bottom:0.5rem;">The company still depends on the founder</h3>
-        <p style="color:#4B5563; font-size:0.9rem; line-height:1.6;">Value lives in your relationships, expertise, and decisions — not in transferable systems. Buyers see this immediately.</p>
-      </div>
-      <div style="text-align:center;">
-        <div style="font-size:2.5rem; margin-bottom:1rem;">📊</div>
-        <h3 style="font-size:1.05rem; font-weight:700; color:#1F2430; margin-bottom:0.5rem;">Value lives in your head, not the business</h3>
-        <p style="color:#4B5563; font-size:0.9rem; line-height:1.6;">A buyer pays for what survives without you. Right now, that number is almost certainly lower than it should be.</p>
-      </div>
-      <div style="text-align:center;">
-        <div style="font-size:2.5rem; margin-bottom:1rem;">🚀</div>
-        <h3 style="font-size:1.05rem; font-weight:700; color:#1F2430; margin-bottom:0.5rem;">Systems and leadership haven't kept pace</h3>
-        <p style="color:#4B5563; font-size:0.9rem; line-height:1.6;">The org chart hasn't caught up with your ambition. The team still escalates everything up to you.</p>
-      </div>
-    </div>
-    <p style="text-align:center; color:#4B5563; font-size:1.05rem; max-width:700px; margin:0 auto 3rem; line-height:1.6;">
-      This is normal — and fixable. ExitEngine™ uses the <strong style="color:#1F2430;">Total Exit Value System™</strong> to move you through three stages: <strong>Clarity → Momentum → Freedom.</strong>
-    </p>
-    <!-- Three stages -->
-    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:1.5rem;">
-      <div style="background:#F9FAFB; border-radius:10px; padding:1.75rem; position:relative;">
-        <div style="width:36px; height:36px; background:#FF9800; color:#fff; border-radius:9999px; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:1rem; margin-bottom:1rem;">1</div>
-        <h3 style="font-size:1.05rem; font-weight:700; color:#1F2430; margin-bottom:0.5rem;">Clarity</h3>
-        <p style="color:#4B5563; font-size:0.9rem; line-height:1.6;">Understand where your business truly stands today with a TEV Score™ baseline across People, Product, and Process.</p>
-      </div>
-      <div style="background:#F9FAFB; border-radius:10px; padding:1.75rem; position:relative;">
-        <div style="width:36px; height:36px; background:#FF9800; color:#fff; border-radius:9999px; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:1rem; margin-bottom:1rem;">2</div>
-        <h3 style="font-size:1.05rem; font-weight:700; color:#1F2430; margin-bottom:0.5rem;">Momentum</h3>
-        <p style="color:#4B5563; font-size:0.9rem; line-height:1.6;">Execute systematic value-building initiatives with your dedicated ExitEngineer — the execution leader you never had.</p>
-      </div>
-      <div style="background:#F9FAFB; border-radius:10px; padding:1.75rem; position:relative;">
-        <div style="width:36px; height:36px; background:#FF9800; color:#fff; border-radius:9999px; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:1rem; margin-bottom:1rem;">3</div>
-        <h3 style="font-size:1.05rem; font-weight:700; color:#1F2430; margin-bottom:0.5rem;">Freedom</h3>
-        <p style="color:#4B5563; font-size:0.9rem; line-height:1.6;">Achieve the freedom to choose your next move — exit on your terms, bring on a partner, or simply step back from daily operations.</p>
+    <!-- CTA + social proof (BELOW the video) -->
+    <div class="mt-6 flex flex-col items-center">
+      <a href="https://www.optimally.ltd/demo?partner=myexitengine" target="_blank" rel="noopener noreferrer" class="pill text-base sm:text-lg">
+        Learn More
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <div class="mt-3 flex items-center gap-2 text-xs sm:text-sm text-slate2">
+        <span class="flex -space-x-2">
+          <span class="w-6 h-6 rounded-full bg-cream2 border border-white flex items-center justify-center text-[10px] font-semibold text-brandDark">JM</span>
+          <span class="w-6 h-6 rounded-full bg-cream2 border border-white flex items-center justify-center text-[10px] font-semibold text-brandDark">SR</span>
+          <span class="w-6 h-6 rounded-full bg-cream2 border border-white flex items-center justify-center text-[10px] font-semibold text-brandDark">DK</span>
+        </span>
+        <span>Trusted by founders building toward an <span class="font-semibold text-ink">80+ TEV Score™</span></span>
       </div>
     </div>
   </div>
-</section>
+</header>
 
-<!-- 4. CTA Section -->
-<section style="background:#1F2430; padding:clamp(3rem,6vw,5rem) 1.25rem; text-align:center;">
-  <div style="max-width:700px; margin:0 auto;">
-    <h2 style="font-size:clamp(1.75rem,3.5vw,2.5rem); font-weight:700; color:#ffffff; margin-bottom:1rem; line-height:1.2;">
-      What Could Your Business Actually Be Worth?
-    </h2>
-    <p style="color:#9CA3AF; font-size:1.05rem; line-height:1.6; margin-bottom:2rem;">
-      Give us 15 minutes and we'll give you a clear picture of where you stand — and what it will take to get where you want to go.
-    </p>
-    <a href="https://www.optimally.ltd/demo?partner=myexitengine" target="_blank" rel="noopener noreferrer" class="btn-primary learn-more-cta" style="margin-bottom:1.25rem;">Learn More</a>
-    <div style="display:flex; align-items:center; justify-content:center; gap:0.75rem; margin-top:1rem; margin-bottom:1.25rem;">
-      <div style="display:flex;">
-        <div class="avatar" style="background:#FF9800; color:#fff; margin-left:-8px;">MK</div>
-        <div class="avatar" style="background:#6B7280; color:#fff; margin-left:-8px;">SL</div>
-        <div class="avatar" style="background:#4B5563; color:#fff; margin-left:-8px;">DR</div>
-      </div>
-      <span style="font-size:0.875rem; color:#9CA3AF;">No pressure. Just clarity.</span>
-    </div>
-    <div style="display:inline-flex; align-items:center; gap:0.5rem; background:rgba(255,152,0,0.12); border:1px solid rgba(255,152,0,0.3); border-radius:9999px; padding:0.5rem 1.25rem;">
-      <span style="font-size:1rem;">🔒</span>
-      <span style="color:#FF9800; font-size:0.875rem; font-weight:600;">Free 15-minute Value Snapshot™ — no obligation</span>
-    </div>
+<!-- Trust strip / marquee -->
+<section class="border-y border-black/5 bg-cream py-5 overflow-hidden">
+  <div class="marquee text-sm font-medium text-slate2/70 whitespace-nowrap px-6">
+    <span>Powered by Exeo Advisors</span><span>•</span><span>Total Exit Value System™</span><span>•</span>
+    <span>Dedicated ExitEngineers</span><span>•</span><span>Advisory Partners</span><span>•</span>
+    <span>The ExitEngine Podcast</span><span>•</span><span>Clarity · Momentum · Freedom</span><span>•</span>
+    <span>Powered by Exeo Advisors</span><span>•</span><span>Total Exit Value System™</span><span>•</span>
+    <span>Dedicated ExitEngineers</span><span>•</span><span>Advisory Partners</span><span>•</span>
+    <span>The ExitEngine Podcast</span><span>•</span><span>Clarity · Momentum · Freedom</span><span>•</span>
   </div>
 </section>
 
-<!-- 5. Testimonials / Building Trust -->
-<section style="background:#F9FAFB; padding:clamp(3rem,6vw,5rem) 1.25rem;">
-  <div style="max-width:1000px; margin:0 auto;">
-    <h2 style="font-size:clamp(1.75rem,3.5vw,2.75rem); font-weight:700; color:#1F2430; text-align:center; margin-bottom:0.75rem; line-height:1.2;">
-      Trusted by Founders. <span style="color:#FF9800;">Backed by Results.</span>
-    </h2>
-    <p style="text-align:center; color:#4B5563; margin-bottom:3rem; font-size:1rem;">Real outcomes from founders who've been through the program.</p>
-    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.5rem; margin-bottom:1.5rem;">
-      <!-- Testimonial 1 -->
-      <div style="background:#ffffff; border-radius:12px; padding:2rem; box-shadow:0 2px 16px rgba(31,36,48,0.08);">
-        <div style="color:#FF9800; font-size:1.5rem; margin-bottom:1rem;">★★★★★</div>
-        <p style="color:#1F2430; font-size:0.95rem; line-height:1.6; margin-bottom:1.5rem; font-style:italic;">
-          "I used to think exit planning meant I was leaving. ExitEngine showed me it meant I was finally free to choose. Our TEV Score went from 48 to 71 in 8 months."
-        </p>
-        <div style="display:flex; align-items:center; gap:0.75rem;">
-          <div style="width:44px; height:44px; background:#FF9800; border-radius:9999px; display:flex; align-items:center; justify-content:center; color:#fff; font-weight:700; font-size:0.85rem; flex-shrink:0;">MK</div>
-          <div>
-            <div style="font-weight:700; font-size:0.9rem; color:#1F2430;">Michael K.</div>
-            <div style="font-size:0.8rem; color:#4B5563;">Manufacturing CEO, $8M revenue</div>
-          </div>
-        </div>
-      </div>
-      <!-- Testimonial 2 -->
-      <div style="background:#ffffff; border-radius:12px; padding:2rem; box-shadow:0 2px 16px rgba(31,36,48,0.08);">
-        <div style="color:#FF9800; font-size:1.5rem; margin-bottom:1rem;">★★★★★</div>
-        <p style="color:#1F2430; font-size:0.95rem; line-height:1.6; margin-bottom:1.5rem; font-style:italic;">
-          "The ExitEngineer concept was the missing piece. We stopped depending on me for every decision within 90 days. The relief is hard to describe."
-        </p>
-        <div style="display:flex; align-items:center; gap:0.75rem;">
-          <div style="width:44px; height:44px; background:#4B5563; border-radius:9999px; display:flex; align-items:center; justify-content:center; color:#fff; font-weight:700; font-size:0.85rem; flex-shrink:0;">SL</div>
-          <div>
-            <div style="font-weight:700; font-size:0.9rem; color:#1F2430;">Sarah L.</div>
-            <div style="font-size:0.8rem; color:#4B5563;">Tech Services Founder, $5M revenue</div>
-          </div>
-        </div>
-      </div>
-      <!-- Testimonial 3 -->
-      <div style="background:#ffffff; border-radius:12px; padding:2rem; box-shadow:0 2px 16px rgba(31,36,48,0.08);">
-        <div style="color:#FF9800; font-size:1.5rem; margin-bottom:1rem;">★★★★★</div>
-        <p style="color:#1F2430; font-size:0.95rem; line-height:1.6; margin-bottom:1.5rem; font-style:italic;">
-          "We got an unsolicited acquisition inquiry 6 months into the program. We weren't even for sale — but the business was finally worth talking about."
-        </p>
-        <div style="display:flex; align-items:center; gap:0.75rem;">
-          <div style="width:44px; height:44px; background:#1F2430; border-radius:9999px; display:flex; align-items:center; justify-content:center; color:#fff; font-weight:700; font-size:0.85rem; flex-shrink:0;">DR</div>
-          <div>
-            <div style="font-weight:700; font-size:0.9rem; color:#1F2430;">David R.</div>
-            <div style="font-size:0.8rem; color:#4B5563;">Distribution Company, $12M revenue</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <p style="text-align:center; font-size:0.8rem; color:#9CA3AF;">Results based on program participants. Individual outcomes vary.</p>
-  </div>
-</section>
-
-<!-- 6. Founder Section -->
-<section style="background:#ffffff; padding:clamp(3rem,6vw,5rem) 1.25rem;">
-  <div style="max-width:1000px; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:3rem; align-items:center;">
-    <!-- Image placeholder -->
-    <div style="background:#E5E7EB; border-radius:12px; aspect-ratio:1/1; display:flex; align-items:center; justify-content:center; min-height:300px;">
-      <span style="color:#6B7280; font-size:0.9rem; font-family:'Inter',sans-serif;">Founder Photo</span>
-    </div>
-    <!-- Text -->
-    <div>
-      <span style="display:inline-block; color:#FF9800; font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.75rem;">Powered by Exeo Advisors</span>
-      <h2 style="font-size:clamp(1.5rem,3vw,2.25rem); font-weight:700; color:#1F2430; margin-bottom:1.25rem; line-height:1.2;">
-        Built by Advisors Who've Been In the Room When Deals Get Done.
-      </h2>
-      <p style="color:#4B5563; font-size:0.95rem; line-height:1.7; margin-bottom:1.5rem;">
-        ExitEngine™ is backed by Exeo Advisors, a firm specializing in founder-led growth and exit strategies. The ExitEngineer program pairs you with a dedicated execution leader — someone who's built and transferred value in real businesses, not just advised on it from the outside. The methodology is proprietary. The results are real. And the goal is always the same: your freedom on your terms.
+<!-- ============ 2. PAINS ============ -->
+<section class="glow-soft py-20 sm:py-24">
+  <div class="max-w-6xl mx-auto px-5">
+    <div class="reveal max-w-2xl">
+      <p class="text-xs font-semibold uppercase tracking-wide text-brandDark">The hidden weight of success</p>
+      <h2 class="mt-3 text-3xl sm:text-4xl font-semibold leading-tight">You built a successful business. So why does it still feel so heavy?</h2>
+      <p class="mt-4 text-slate2 text-base sm:text-lg leading-relaxed">
+        Revenue is up. The team has grown. The business works. And yet it still runs on you. You're not failing —
+        the company just hasn't been designed to run without you yet.
       </p>
-      <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:0.75rem;">
-        <li style="display:flex; align-items:flex-start; gap:0.75rem; font-size:0.9rem; color:#1F2430;">
-          <span style="color:#FF9800; font-weight:700; flex-shrink:0;">✓</span> Proprietary Total Exit Value System™
-        </li>
-        <li style="display:flex; align-items:flex-start; gap:0.75rem; font-size:0.9rem; color:#1F2430;">
-          <span style="color:#FF9800; font-weight:700; flex-shrink:0;">✓</span> Dedicated ExitEngineer execution leader
-        </li>
-        <li style="display:flex; align-items:flex-start; gap:0.75rem; font-size:0.9rem; color:#1F2430;">
-          <span style="color:#FF9800; font-weight:700; flex-shrink:0;">✓</span> Advisory Partner network for specialist depth
-        </li>
-        <li style="display:flex; align-items:flex-start; gap:0.75rem; font-size:0.9rem; color:#1F2430;">
-          <span style="color:#FF9800; font-weight:700; flex-shrink:0;">✓</span> AI-powered insight and tracking
-        </li>
-        <li style="display:flex; align-items:flex-start; gap:0.75rem; font-size:0.9rem; color:#1F2430;">
-          <span style="color:#FF9800; font-weight:700; flex-shrink:0;">✓</span> Community support so momentum never stalls
-        </li>
-      </ul>
+    </div>
+
+    <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      <!-- card -->
+      <div class="reveal card p-6">
+        <span class="icon-chip"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h18M3 12h18M3 17h12"/></svg></span>
+        <h3 class="mt-4 font-semibold text-lg">Every decision lands on your desk</h3>
+        <p class="mt-2 text-slate2 text-[15px] leading-relaxed">The team is capable, but the hard calls still route back to you. The business can't move faster than you can.</p>
+      </div>
+      <div class="reveal card p-6">
+        <span class="icon-chip"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M21 7v6h-6"/></svg></span>
+        <h3 class="mt-4 font-semibold text-lg">Growth feels harder than it used to</h3>
+        <p class="mt-2 text-slate2 text-[15px] leading-relaxed">More effort buys less progress. The next stage needs structure, not just hustle.</p>
+      </div>
+      <div class="reveal card p-6">
+        <span class="icon-chip"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+        <h3 class="mt-4 font-semibold text-lg">Time away feels risky</h3>
+        <p class="mt-2 text-slate2 text-[15px] leading-relaxed">A real vacation means the business slows down. Freedom shouldn't depend on you never stepping back.</p>
+      </div>
+      <div class="reveal card p-6">
+        <span class="icon-chip"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/><path d="M9 21h6"/></svg></span>
+        <h3 class="mt-4 font-semibold text-lg">The value lives in your head</h3>
+        <p class="mt-2 text-slate2 text-[15px] leading-relaxed">Relationships, judgment, and know-how aren't written down. To a buyer, that's risk — not value.</p>
+      </div>
+      <div class="reveal card p-6">
+        <span class="icon-chip"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h7l-1 8 10-12h-7z"/></svg></span>
+        <h3 class="mt-4 font-semibold text-lg">Successful — but exhausted</h3>
+        <p class="mt-2 text-slate2 text-[15px] leading-relaxed">The scoreboard says you're winning. The way it feels day to day tells a different story.</p>
+      </div>
+      <div class="reveal card p-6">
+        <span class="icon-chip"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></span>
+        <h3 class="mt-4 font-semibold text-lg">You wonder what stepping back looks like</h3>
+        <p class="mt-2 text-slate2 text-[15px] leading-relaxed">Sell, bring on a partner, or just work less — you can't choose an option you haven't built.</p>
+      </div>
+    </div>
+
+    <div class="reveal mt-12 flex flex-col items-center text-center">
+      <a href="https://www.optimally.ltd/demo?partner=myexitengine" target="_blank" rel="noopener noreferrer" class="pill">Learn More
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <p class="mt-3 text-xs sm:text-sm text-slate2">★★★★★ <span class="ml-1">Founders typically start at a 40–60 TEV Score™</span></p>
     </div>
   </div>
 </section>
 
-<!-- 7. FAQ Section -->
-<section style="background:#F9FAFB; padding:clamp(3rem,6vw,5rem) 1.25rem;">
-  <div style="max-width:760px; margin:0 auto;">
-    <h2 style="font-size:clamp(1.75rem,3.5vw,2.5rem); font-weight:700; color:#1F2430; text-align:center; margin-bottom:3rem;">Frequently Asked Questions</h2>
+<!-- ============ 3. SOLUTION ============ -->
+<section class="bg-paper py-20 sm:py-24">
+  <div class="max-w-6xl mx-auto px-5">
+    <div class="reveal max-w-2xl">
+      <p class="text-xs font-semibold uppercase tracking-wide text-brandDark">This isn't advice — it's an execution ecosystem</p>
+      <h2 class="mt-3 text-3xl sm:text-4xl font-semibold leading-tight">Exit planning isn't about leaving. It's about building options.</h2>
+      <p class="mt-4 text-slate2 text-base sm:text-lg leading-relaxed">
+        The businesses that command premium valuations are built to run without the founder at the center. You don't
+        have to sell — you gain leverage and freedom by building transferability. The Total Exit Value System™ moves you
+        through three stages.
+      </p>
+    </div>
 
-    <details style="border-bottom:1px solid #E5E7EB; padding:1.25rem 0;">
-      <summary style="display:flex; justify-content:space-between; align-items:center; font-weight:600; font-size:1rem; color:#1F2430; font-family:'Sora',sans-serif;">
-        Do I need to be planning to sell my business to work with ExitEngine™?
-        <span class="faq-icon" style="color:#FF9800; font-size:1.5rem; line-height:1; flex-shrink:0; margin-left:1rem;">+</span>
-      </summary>
-      <p style="color:#4B5563; font-size:0.9rem; line-height:1.7; margin-top:1rem; padding-right:2rem;">No. Most of our founders aren't ready to sell — and many never will. ExitEngine™ is about building options: the freedom to sell on your terms, bring on a partner, step back from operations, or simply run a more valuable, less dependent business. You start by understanding where you are.</p>
-    </details>
+    <!-- 3-stage system -->
+    <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-5">
+      <div class="reveal card p-7">
+        <div class="flex items-center gap-3">
+          <span class="icon-chip"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></span>
+          <span class="text-sm font-semibold text-brandDark">Stage 1</span>
+        </div>
+        <h3 class="mt-4 text-xl font-semibold">Clarity</h3>
+        <p class="mt-2 text-slate2 text-[15px] leading-relaxed">Understand where your business truly stands today — your real value, your risks, and the gap to a premium exit.</p>
+        <p class="mt-3 text-sm font-medium text-ink/80">Clarity creates direction.</p>
+      </div>
+      <div class="reveal card p-7">
+        <div class="flex items-center gap-3">
+          <span class="icon-chip"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h7l-1 8 10-12h-7z"/></svg></span>
+          <span class="text-sm font-semibold text-brandDark">Stage 2</span>
+        </div>
+        <h3 class="mt-4 text-xl font-semibold">Momentum</h3>
+        <p class="mt-2 text-slate2 text-[15px] leading-relaxed">Execute the right value-building initiatives across People, Product, and Process — with a dedicated execution leader.</p>
+        <p class="mt-3 text-sm font-medium text-ink/80">Momentum creates value.</p>
+      </div>
+      <div class="reveal card p-7">
+        <div class="flex items-center gap-3">
+          <span class="icon-chip"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-6h6v6"/></svg></span>
+          <span class="text-sm font-semibold text-brandDark">Stage 3</span>
+        </div>
+        <h3 class="mt-4 text-xl font-semibold">Freedom</h3>
+        <p class="mt-2 text-slate2 text-[15px] leading-relaxed">Reach the point where you choose your next move — sell, bring on a partner, or simply step back. The choice is yours.</p>
+        <p class="mt-3 text-sm font-medium text-ink/80">Freedom creates options.</p>
+      </div>
+    </div>
 
-    <details style="border-bottom:1px solid #E5E7EB; padding:1.25rem 0;">
-      <summary style="display:flex; justify-content:space-between; align-items:center; font-weight:600; font-size:1rem; color:#1F2430; font-family:'Sora',sans-serif;">
-        What is the Total Exit Value System™ and how does it work?
-        <span class="faq-icon" style="color:#FF9800; font-size:1.5rem; line-height:1; flex-shrink:0; margin-left:1rem;">+</span>
-      </summary>
-      <p style="color:#4B5563; font-size:0.9rem; line-height:1.7; margin-top:1rem; padding-right:2rem;">The TEV System™ is a proprietary framework that assesses your business across three dimensions: People, Product, and Process. It starts with a Value Sprint™ to establish your TEV Score™ baseline, then your dedicated ExitEngineer guides you through systematic initiatives that increase transferable value — tracked in real time.</p>
-    </details>
+    <!-- What powers it -->
+    <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div class="reveal card p-6">
+        <span class="icon-chip"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></span>
+        <h3 class="mt-4 font-semibold">A structured method</h3>
+        <p class="mt-2 text-slate2 text-sm leading-relaxed">The TEV System™ — a proven framework, not opinions.</p>
+      </div>
+      <div class="reveal card p-6">
+        <span class="icon-chip"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span>
+        <h3 class="mt-4 font-semibold">An execution leader</h3>
+        <p class="mt-2 text-slate2 text-sm leading-relaxed">Your dedicated ExitEngineer drives the work forward.</p>
+      </div>
+      <div class="reveal card p-6">
+        <span class="icon-chip"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.5 6.5L21 9l-5 4.5L17.5 21 12 17l-5.5 4L8 13.5 3 9l6.5-.5z"/></svg></span>
+        <h3 class="mt-4 font-semibold">Specialist depth</h3>
+        <p class="mt-2 text-slate2 text-sm leading-relaxed">Advisory Partners bring expertise exactly where you need it.</p>
+      </div>
+      <div class="reveal card p-6">
+        <span class="icon-chip"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3M5.6 5.6l2.1 2.1M3 12h3M18 12h3M16.3 7.7l2.1-2.1"/><circle cx="12" cy="14" r="5"/></svg></span>
+        <h3 class="mt-4 font-semibold">AI-accelerated insight</h3>
+        <p class="mt-2 text-slate2 text-sm leading-relaxed">Faster discovery and continuous tracking of your TEV Score™.</p>
+      </div>
+    </div>
 
-    <details style="border-bottom:1px solid #E5E7EB; padding:1.25rem 0;">
-      <summary style="display:flex; justify-content:space-between; align-items:center; font-weight:600; font-size:1rem; color:#1F2430; font-family:'Sora',sans-serif;">
-        What size business is ExitEngine™ designed for?
-        <span class="faq-icon" style="color:#FF9800; font-size:1.5rem; line-height:1; flex-shrink:0; margin-left:1rem;">+</span>
-      </summary>
-      <p style="color:#4B5563; font-size:0.9rem; line-height:1.7; margin-top:1rem; padding-right:2rem;">ExitEngine™ is purpose-built for founder-led companies generating between $3M and $15M in annual revenue. At this stage, the founder-dependency problem is real, the value-creation opportunity is significant, and the window to act — before value erodes — is open.</p>
-    </details>
-
-    <details style="border-bottom:1px solid #E5E7EB; padding:1.25rem 0;">
-      <summary style="display:flex; justify-content:space-between; align-items:center; font-weight:600; font-size:1rem; color:#1F2430; font-family:'Sora',sans-serif;">
-        How long before I see results?
-        <span class="faq-icon" style="color:#FF9800; font-size:1.5rem; line-height:1; flex-shrink:0; margin-left:1rem;">+</span>
-      </summary>
-      <p style="color:#4B5563; font-size:0.9rem; line-height:1.7; margin-top:1rem; padding-right:2rem;">Most founders notice a meaningful shift in their TEV Score™ within 90 days. Full program outcomes — including Buyer-Readiness certification — typically take 12–18 months, depending on your baseline and execution pace.</p>
-    </details>
-
-    <details style="border-bottom:1px solid #E5E7EB; padding:1.25rem 0;">
-      <summary style="display:flex; justify-content:space-between; align-items:center; font-weight:600; font-size:1rem; color:#1F2430; font-family:'Sora',sans-serif;">
-        What does the Value Snapshot™ call involve?
-        <span class="faq-icon" style="color:#FF9800; font-size:1.5rem; line-height:1; flex-shrink:0; margin-left:1rem;">+</span>
-      </summary>
-      <p style="color:#4B5563; font-size:0.9rem; line-height:1.7; margin-top:1rem; padding-right:2rem;">It's a free 15-minute diagnostic session. We look at where your business stands today across the TEV dimensions, identify the 2–3 most significant gaps affecting your value, and give you a clear picture of your options. No pitch. Just clarity.</p>
-    </details>
-
-    <details style="border-bottom:1px solid #E5E7EB; padding:1.25rem 0;">
-      <summary style="display:flex; justify-content:space-between; align-items:center; font-weight:600; font-size:1rem; color:#1F2430; font-family:'Sora',sans-serif;">
-        How is ExitEngine™ different from traditional exit planning or M&amp;A advisory?
-        <span class="faq-icon" style="color:#FF9800; font-size:1.5rem; line-height:1; flex-shrink:0; margin-left:1rem;">+</span>
-      </summary>
-      <p style="color:#4B5563; font-size:0.9rem; line-height:1.7; margin-top:1rem; padding-right:2rem;">Traditional advisors help you plan to sell when you're ready. ExitEngine™ helps you build a business that's worth buying — long before you're ready. We embed an ExitEngineer in your execution, not just your strategy. The difference is momentum.</p>
-    </details>
-
-    <details style="padding:1.25rem 0;">
-      <summary style="display:flex; justify-content:space-between; align-items:center; font-weight:600; font-size:1rem; color:#1F2430; font-family:'Sora',sans-serif;">
-        Is the program a good fit if I want to keep running my business indefinitely?
-        <span class="faq-icon" style="color:#FF9800; font-size:1.5rem; line-height:1; flex-shrink:0; margin-left:1rem;">+</span>
-      </summary>
-      <p style="color:#4B5563; font-size:0.9rem; line-height:1.7; margin-top:1rem; padding-right:2rem;">Absolutely. Many founders engage ExitEngine™ specifically to gain more freedom from day-to-day operations — not to exit. Building a transferable business means building a business that runs well without you at the center. That's valuable regardless of your exit timeline.</p>
-    </details>
+    <div class="reveal mt-12 flex flex-col items-center text-center">
+      <a href="https://www.optimally.ltd/demo?partner=myexitengine" target="_blank" rel="noopener noreferrer" class="pill">Learn More
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <p class="mt-3 text-xs sm:text-sm text-slate2">★★★★★ <span class="ml-1">The goal: an 80+ TEV Score™, where premium buyers pay attention</span></p>
+    </div>
   </div>
 </section>
 
-<!-- 8. Footer -->
-<footer style="background:#1F2430; padding:clamp(3rem,5vw,4rem) 1.25rem; text-align:center;">
-  <div style="max-width:700px; margin:0 auto;">
-    <img src="https://www.myexitengine.com/_assets/v11/4557858219ed3693311e2b3a85238355023e64e4.png" alt="ExitEngine" style="height:36px; width:auto; display:inline-block; margin-bottom:1rem; filter:brightness(0) invert(1);"/>
-    <p style="color:#9CA3AF; font-size:0.9rem; margin-bottom:2rem;">Control Your Business Destiny.</p>
-    <a href="https://www.optimally.ltd/demo?partner=myexitengine" target="_blank" rel="noopener noreferrer" class="btn-primary learn-more-cta" style="margin-bottom:2rem; display:inline-flex;">Learn More</a>
-    <div style="margin-top:2rem; padding-top:1.5rem; border-top:1px solid rgba(255,255,255,0.1);">
-      <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:1.5rem; margin-bottom:1rem;">
-        <a href="#" style="color:#6B7280; font-size:0.85rem; text-decoration:none;">Privacy Policy</a>
-        <a href="#" style="color:#6B7280; font-size:0.85rem; text-decoration:none;">Terms</a>
-        <a href="#" style="color:#6B7280; font-size:0.85rem; text-decoration:none;">Contact</a>
+<!-- ============ 4. CALL TO ACTION (stats band) ============ -->
+<section class="relative py-20 sm:py-24 text-white" style="background:
+  radial-gradient(60% 80% at 15% 10%, rgba(255,152,0,0.22), transparent 60%),
+  radial-gradient(50% 70% at 90% 90%, rgba(255,152,0,0.16), transparent 60%),
+  linear-gradient(135deg,#23262f 0%,#1b1d24 60%,#2a2117 100%);">
+  <div class="max-w-5xl mx-auto px-5 text-center">
+    <div class="reveal">
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-semibold leading-tight pb-1">Imagine a business that works without you at the center.</h2>
+      <p class="mt-4 text-white/70 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
+        You don't need to decide to sell today. You just need to start building options. Give us 15 minutes and walk
+        away with clarity on where you stand — and what it takes to exit on your own terms.
+      </p>
+    </div>
+
+    <div class="reveal mt-12 grid grid-cols-2 sm:grid-cols-4 gap-6">
+      <div>
+        <div class="text-4xl sm:text-5xl font-display font-semibold text-brand" data-count="80" data-suffix="+">0</div>
+        <p class="mt-2 text-sm text-white/65">Target TEV Score™ for premium buyers</p>
       </div>
-      <p style="color:#6B7280; font-size:0.8rem; margin-bottom:0.5rem;">© 2025 ExitEngine™ / Exeo Advisors. All rights reserved.</p>
-      <p style="color:#4B5563; font-size:0.8rem;">Trusted by 100+ founder-led companies across North America.</p>
+      <div>
+        <div class="text-4xl sm:text-5xl font-display font-semibold text-brand" data-count="3" data-prefix="$" data-suffix="M+">0</div>
+        <p class="mt-2 text-sm text-white/65">Revenue where the program fits</p>
+      </div>
+      <div>
+        <div class="text-4xl sm:text-5xl font-display font-semibold text-brand" data-count="3">0</div>
+        <p class="mt-2 text-sm text-white/65">Stages: Clarity, Momentum, Freedom</p>
+      </div>
+      <div>
+        <div class="text-4xl sm:text-5xl font-display font-semibold text-brand" data-count="15" data-suffix=" min">0</div>
+        <p class="mt-2 text-sm text-white/65">Free Value Snapshot™ call</p>
+      </div>
+    </div>
+
+    <div class="reveal mt-12 flex flex-col items-center">
+      <a href="https://www.optimally.ltd/demo?partner=myexitengine" target="_blank" rel="noopener noreferrer" class="pill text-base sm:text-lg">Learn More
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <p class="mt-3 text-xs sm:text-sm text-white/55">★★★★★ <span class="ml-1">No pressure to sell — just clarity on your options</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 5. BUILDING TRUST (testimonials) ============ -->
+<section class="glow-soft py-20 sm:py-24">
+  <div class="max-w-6xl mx-auto px-5">
+    <div class="reveal max-w-2xl">
+      <p class="text-xs font-semibold uppercase tracking-wide text-brandDark">Trusted by founders</p>
+      <h2 class="mt-3 text-3xl sm:text-4xl font-semibold leading-tight">As your company improves, the market starts noticing.</h2>
+      <p class="mt-4 text-slate2 text-base sm:text-lg leading-relaxed">
+        Buyers don't wait for listings. They pay attention to businesses that are well-run, growing strategically, and
+        credibly transferable. A side effect of building a better company: the right conversations start to find you.
+      </p>
+    </div>
+
+    <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-5">
+      <figure class="reveal card p-7 flex flex-col">
+        <div class="text-brand text-lg">★★★★★</div>
+        <blockquote class="mt-3 text-ink/90 leading-relaxed flex-1">"Within two quarters the business stopped depending on me for every decision. My TEV Score™ moved from the low 50s toward 80, and for the first time I felt like I had real options."</blockquote>
+        <figcaption class="mt-5 flex items-center gap-3">
+          <span class="w-11 h-11 rounded-xl bg-cream2 border border-black/5 flex items-center justify-center text-brandDark">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+          </span>
+          <span><span class="block font-semibold text-sm">Founder, SaaS</span><span class="block text-xs text-slate2">$8M revenue</span></span>
+        </figcaption>
+      </figure>
+      <figure class="reveal card p-7 flex flex-col">
+        <div class="text-brand text-lg">★★★★★</div>
+        <blockquote class="mt-3 text-ink/90 leading-relaxed flex-1">"The Value Snapshot call alone changed how I think about the company. We saw exactly what a buyer would worry about — and started fixing it before anyone was at the table."</blockquote>
+        <figcaption class="mt-5 flex items-center gap-3">
+          <span class="w-11 h-11 rounded-xl bg-cream2 border border-black/5 flex items-center justify-center text-brandDark">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+          </span>
+          <span><span class="block font-semibold text-sm">Owner, Services</span><span class="block text-xs text-slate2">$5M revenue</span></span>
+        </figcaption>
+      </figure>
+      <figure class="reveal card p-7 flex flex-col">
+        <div class="text-brand text-lg">★★★★★</div>
+        <blockquote class="mt-3 text-ink/90 leading-relaxed flex-1">"Having a dedicated ExitEngineer meant the plan actually got executed. We didn't just get advice — we built the systems and leadership that made us genuinely transferable."</blockquote>
+        <figcaption class="mt-5 flex items-center gap-3">
+          <span class="w-11 h-11 rounded-xl bg-cream2 border border-black/5 flex items-center justify-center text-brandDark">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+          </span>
+          <span><span class="block font-semibold text-sm">CEO, Manufacturing</span><span class="block text-xs text-slate2">$12M revenue</span></span>
+        </figcaption>
+      </figure>
+    </div>
+
+    <!-- Buyer-readiness ladder -->
+    <div class="reveal mt-10 card p-7">
+      <h3 class="font-semibold text-lg">The Buyer-Readiness Ladder</h3>
+      <p class="mt-1 text-slate2 text-sm">Each rung means more transferability, less risk, and greater buyer confidence.</p>
+      <div class="mt-6 grid grid-cols-2 lg:grid-cols-4 gap-3">
+        <div class="rounded-xl border border-black/8 bg-cream px-4 py-4"><span class="text-xs font-semibold text-brandDark">01</span><p class="mt-1 font-semibold text-sm">Baseline</p></div>
+        <div class="rounded-xl border border-black/8 bg-cream px-4 py-4"><span class="text-xs font-semibold text-brandDark">02</span><p class="mt-1 font-semibold text-sm">Exit Accelerating™</p></div>
+        <div class="rounded-xl border border-black/8 bg-cream px-4 py-4"><span class="text-xs font-semibold text-brandDark">03</span><p class="mt-1 font-semibold text-sm">Exit Ready™</p></div>
+        <div class="rounded-xl border border-brand/40 bg-brand/10 px-4 py-4"><span class="text-xs font-semibold text-brandDark">04</span><p class="mt-1 font-semibold text-sm">Exit Certified™</p></div>
+      </div>
+    </div>
+
+    <div class="reveal mt-12 flex flex-col items-center text-center">
+      <a href="https://www.optimally.ltd/demo?partner=myexitengine" target="_blank" rel="noopener noreferrer" class="pill">Learn More
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <p class="mt-3 text-xs sm:text-sm text-slate2">★★★★★ <span class="ml-1">By Exit Ready™, you're not just sellable — you're sought after</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 6. FOUNDER ============ -->
+<section class="bg-paper py-20 sm:py-24">
+  <div class="max-w-5xl mx-auto px-5">
+    <div class="reveal card p-7 sm:p-10 grid grid-cols-1 md:grid-cols-[200px_1fr] gap-8 items-center">
+      <!-- placeholder graphic, framed -->
+      <div class="mx-auto md:mx-0 w-44 h-44 rounded-2xl bg-cream2 border border-black/5 flex items-center justify-center text-brandDark"
+           style="box-shadow: inset 0 0 0 1px rgba(255,152,0,0.12);">
+        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4.2"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+      </div>
+      <div>
+        <p class="text-xs font-semibold uppercase tracking-wide text-brandDark">Powered by Exeo Advisors</p>
+        <h2 class="mt-2 text-2xl sm:text-3xl font-semibold leading-tight">A team built around founder-led growth and exits.</h2>
+        <p class="mt-4 text-slate2 text-base leading-relaxed">
+          ExitEngine isn't a product — it's a program backed by Exeo Advisors, a firm that specializes in helping
+          founders turn successful companies into transferable, buyer-ready assets. The same team hosts The ExitEngine
+          Podcast, where they break down the real challenges and strategies behind building a business buyers compete for.
+        </p>
+        <p class="mt-4 text-slate2 text-base leading-relaxed">
+          The belief is simple: growth alone doesn't create freedom — value engineering does. Clarity creates direction,
+          momentum creates value, and freedom creates options.
+        </p>
+        <div class="mt-6">
+          <a href="https://www.optimally.ltd/demo?partner=myexitengine" target="_blank" rel="noopener noreferrer" class="pill">Learn More
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <p class="mt-3 text-xs sm:text-sm text-slate2">★★★★★ <span class="ml-1">Trusted by founders. Powered by Exeo Advisors.</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 7. FAQ ============ -->
+<section class="glow-soft py-20 sm:py-24">
+  <div class="max-w-3xl mx-auto px-5">
+    <div class="reveal text-center">
+      <p class="text-xs font-semibold uppercase tracking-wide text-brandDark">Questions, answered</p>
+      <h2 class="mt-3 text-3xl sm:text-4xl font-semibold leading-tight">Frequently asked questions</h2>
+    </div>
+
+    <div class="mt-10 space-y-3">
+      <details class="reveal card p-0 overflow-hidden">
+        <summary class="flex items-center justify-between gap-4 p-5 font-semibold text-ink">How much does this cost — and is it worth it at my size?
+          <span class="icon-chip shrink-0"><svg class="faq-plus" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <div class="px-5 pb-5 text-slate2 leading-relaxed">It's an investment in enterprise value, not a cost. For companies doing $3M–$15M, moving your TEV Score™ even 10–20 points typically changes the valuation by far more than the engagement. The free Value Snapshot™ shows you the gap before you commit anything.</div>
+      </details>
+
+      <details class="reveal card p-0 overflow-hidden">
+        <summary class="flex items-center justify-between gap-4 p-5 font-semibold text-ink">I'm already stretched. How much of my time does this take?
+          <span class="icon-chip shrink-0"><svg class="faq-plus" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <div class="px-5 pb-5 text-slate2 leading-relaxed">The whole point is to reduce how much the business depends on your time. Your dedicated ExitEngineer drives execution, so you're guiding direction — not adding another full-time job. It starts with a 15-minute call.</div>
+      </details>
+
+      <details class="reveal card p-0 overflow-hidden">
+        <summary class="flex items-center justify-between gap-4 p-5 font-semibold text-ink">Does this actually work for my industry?
+          <span class="icon-chip shrink-0"><svg class="faq-plus" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <div class="px-5 pb-5 text-slate2 leading-relaxed">Yes. The TEV System™ measures People, Product, and Process — the drivers buyers care about in any founder-led company. The framework is consistent; how it's applied is tailored to your business by your ExitEngineer and Advisory Partners.</div>
+      </details>
+
+      <details class="reveal card p-0 overflow-hidden">
+        <summary class="flex items-center justify-between gap-4 p-5 font-semibold text-ink">What if I do the work and it still doesn't pay off?
+          <span class="icon-chip shrink-0"><svg class="faq-plus" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <div class="px-5 pb-5 text-slate2 leading-relaxed">The improvements that raise your TEV Score™ — stronger leadership, cleaner systems, less founder dependency — make the business better to own whether or not you ever sell. You gain freedom and predictability either way. There's no downside to becoming transferable.</div>
+      </details>
+
+      <details class="reveal card p-0 overflow-hidden">
+        <summary class="flex items-center justify-between gap-4 p-5 font-semibold text-ink">How do I know I can trust you with my business?
+          <span class="icon-chip shrink-0"><svg class="faq-plus" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <div class="px-5 pb-5 text-slate2 leading-relaxed">ExitEngine is backed by Exeo Advisors, a firm focused on founder-led growth and exits, supported by Advisory Partners and an active community. Start with the free, no-pressure Value Snapshot™ and judge the quality of the thinking before you commit to anything.</div>
+      </details>
+
+      <details class="reveal card p-0 overflow-hidden">
+        <summary class="flex items-center justify-between gap-4 p-5 font-semibold text-ink">Am I locking into a long contract?
+          <span class="icon-chip shrink-0"><svg class="faq-plus" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <div class="px-5 pb-5 text-slate2 leading-relaxed">You begin with a Value Snapshot™ and a clear baseline — not a commitment. From there, the engagement is structured around stages and milestones, so you always know what you're building toward and why before you move forward.</div>
+      </details>
+
+      <details class="reveal card p-0 overflow-hidden">
+        <summary class="flex items-center justify-between gap-4 p-5 font-semibold text-ink">How quickly will I see results?
+          <span class="icon-chip shrink-0"><svg class="faq-plus" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <div class="px-5 pb-5 text-slate2 leading-relaxed">Clarity comes immediately — you'll understand your value, risks, and gaps from the first sprint. Momentum builds as initiatives compound; many founders see meaningful TEV Score™ movement within a few quarters as the business becomes measurably less dependent on them.</div>
+      </details>
+    </div>
+
+    <div class="reveal mt-12 flex flex-col items-center text-center">
+      <a href="https://www.optimally.ltd/demo?partner=myexitengine" target="_blank" rel="noopener noreferrer" class="pill">Learn More
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <p class="mt-3 text-xs sm:text-sm text-slate2">★★★★★ <span class="ml-1">Give us 15 minutes — get clarity on your real value</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 8. FOOTER ============ -->
+<footer class="bg-ink text-white pt-16 pb-10">
+  <div class="max-w-6xl mx-auto px-5">
+    <div class="grid grid-cols-1 md:grid-cols-[1.4fr_1fr] gap-10 items-start">
+      <div>
+        <img src="https://www.myexitengine.com/_assets/v11/4557858219ed3693311e2b3a85238355023e64e4.png"
+             alt="ExitEngine" class="h-9 w-auto" style="filter: brightness(0) invert(1);" />
+        <p class="mt-4 text-white/65 max-w-md leading-relaxed text-sm">
+          Turn a successful, founder-dependent company into a valuable, transferable, buyer-ready asset with the
+          Total Exit Value System™. Freedom is the real exit strategy.
+        </p>
+        <div class="mt-6">
+          <a href="https://www.optimally.ltd/demo?partner=myexitengine" target="_blank" rel="noopener noreferrer" class="pill">Learn More
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <p class="mt-3 text-xs text-white/45">★★★★★ <span class="ml-1">Book your free Value Snapshot™ call</span></p>
+        </div>
+      </div>
+      <div class="grid grid-cols-2 gap-8 text-sm">
+        <div>
+          <p class="font-semibold text-white/90">Explore</p>
+          <ul class="mt-3 space-y-2 text-white/60">
+            <li><a href="https://www.optimally.ltd/demo?partner=myexitengine" target="_blank" rel="noopener noreferrer" class="hover:text-brand transition">How it works</a></li>
+            <li><a href="https://www.optimally.ltd/demo?partner=myexitengine" target="_blank" rel="noopener noreferrer" class="hover:text-brand transition">The TEV System™</a></li>
+            <li><a href="https://www.optimally.ltd/demo?partner=myexitengine" target="_blank" rel="noopener noreferrer" class="hover:text-brand transition">The Podcast</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="font-semibold text-white/90">Company</p>
+          <ul class="mt-3 space-y-2 text-white/60">
+            <li><a href="https://www.optimally.ltd/demo?partner=myexitengine" target="_blank" rel="noopener noreferrer" class="hover:text-brand transition">Privacy</a></li>
+            <li><a href="https://www.optimally.ltd/demo?partner=myexitengine" target="_blank" rel="noopener noreferrer" class="hover:text-brand transition">Terms</a></li>
+            <li><a href="https://www.optimally.ltd/demo?partner=myexitengine" target="_blank" rel="noopener noreferrer" class="hover:text-brand transition">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="mt-12 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/45">
+      <p>© 2026 ExitEngine. Powered by Exeo Advisors.</p>
+      <p>Demo landing page · for illustration only</p>
     </div>
   </div>
 </footer>
 
+<script>
+  // Scroll reveal
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+
+  // Count-ups on real stats
+  const counted = new WeakSet();
+  const countObserver = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (!e.isIntersecting || counted.has(e.target)) return;
+      counted.add(e.target);
+      const el = e.target;
+      const target = parseFloat(el.dataset.count);
+      const prefix = el.dataset.prefix || '';
+      const suffix = el.dataset.suffix || '';
+      const dur = 1100; const start = performance.now();
+      const step = (now) => {
+        const p = Math.min((now - start) / dur, 1);
+        const eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = prefix + Math.round(target * eased) + suffix;
+        if (p < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('[data-count]').forEach((el) => countObserver.observe(el));
+</script>
 </body>
 </html>
