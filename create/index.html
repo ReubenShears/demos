@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en" class="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Optimally · Generate a Demo</title>
+<meta name="robots" content="noindex,nofollow" />
+<link rel="icon" href="https://framerusercontent.com/images/MK4JLp1ygZpQ2qGOdpiSnwQOhog.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#0a0b0a; --card:#121512; --line:#23271f; --text:#f4f5f1; --muted:#9aa093;
+    --accent:#8fae52; --accent-strong:#728C41; --danger:#e2756a;
+  }
+  *{box-sizing:border-box} html,body{margin:0;height:100%;overflow-x:hidden}
+  body{
+    background:var(--bg); color:var(--text); font-family:Inter,system-ui,sans-serif;
+    -webkit-font-smoothing:antialiased; display:flex; align-items:center; justify-content:center;
+    min-height:100dvh; padding:24px;
+    background-image:
+      radial-gradient(60% 50% at 50% 0%, rgba(114,140,65,.18), transparent 70%),
+      radial-gradient(40% 40% at 85% 100%, rgba(114,140,65,.10), transparent 70%);
+  }
+  .wrap{width:100%; max-width:560px; animation:rise .6s cubic-bezier(.2,.8,.2,1) both}
+  @keyframes rise{from{opacity:0; transform:translateY(14px)}to{opacity:1; transform:none}}
+  .logo{display:block; height:30px; margin:0 auto 30px; opacity:.95}
+  .card{
+    background:linear-gradient(180deg, rgba(255,255,255,.025), rgba(255,255,255,0));
+    border:1px solid var(--line); border-radius:22px; padding:30px 26px;
+    box-shadow:0 30px 80px -40px rgba(0,0,0,.8), inset 0 1px 0 rgba(255,255,255,.03);
+    backdrop-filter:blur(6px);
+  }
+  h1{font-size:25px; font-weight:700; letter-spacing:-.02em; margin:0 0 6px; text-align:center}
+  .sub{color:var(--muted); font-size:15px; text-align:center; margin:0 0 26px; line-height:1.5}
+  .field{position:relative; margin-bottom:14px}
+  input,textarea{
+    width:100%; background:#0e110d; border:1px solid var(--line); color:var(--text);
+    border-radius:14px; padding:16px 16px; font:inherit; font-size:16px; outline:none;
+    transition:border-color .18s, box-shadow .18s; resize:none;
+  }
+  textarea{min-height:60px; line-height:1.45}
+  input:focus,textarea:focus{border-color:var(--accent-strong); box-shadow:0 0 0 4px rgba(114,140,65,.16)}
+  input::placeholder,textarea::placeholder{color:#5d6356}
+  button{
+    width:100%; border:0; cursor:pointer; color:#0b0d08; font:inherit; font-weight:700; font-size:16px;
+    padding:15px; border-radius:14px; margin-top:6px;
+    background:linear-gradient(180deg,var(--accent),var(--accent-strong));
+    box-shadow:0 10px 30px -10px rgba(114,140,65,.7); transition:transform .12s, box-shadow .12s, opacity .2s;
+  }
+  button:hover{transform:translateY(-1px); box-shadow:0 14px 34px -10px rgba(114,140,65,.8)}
+  button:active{transform:translateY(0)}
+  button:disabled{opacity:.55; cursor:default; transform:none; box-shadow:none}
+  .msg{font-size:14px; margin-top:14px; text-align:center; min-height:18px}
+  .msg.err{color:var(--danger)} .msg.ok{color:var(--accent)}
+  .hide{display:none}
+  .spin{display:inline-block;width:15px;height:15px;border:2px solid rgba(11,13,8,.35);border-top-color:#0b0d08;border-radius:50%;animation:s .7s linear infinite;vertical-align:-2px;margin-right:8px}
+  @keyframes s{to{transform:rotate(360deg)}}
+  .done{text-align:center}
+  .done .tick{font-size:42px}
+  .done a{color:var(--accent); font-weight:600; word-break:break-all; text-decoration:none}
+  .done a:hover{text-decoration:underline}
+  .foot{color:#54594c; font-size:12px; text-align:center; margin-top:22px}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <img class="logo" src="https://framerusercontent.com/images/hUMFc5uZTevF0122Bkpv9kgZDI.png?width=10432&height=4221" alt="Optimally" />
+    <div class="card">
+
+      <!-- Lock screen -->
+      <section id="lock">
+        <h1>Generate a demo</h1>
+        <p class="sub">Enter the access password to continue.</p>
+        <div class="field">
+          <input id="pw" type="password" placeholder="Password" autocomplete="current-password" />
+        </div>
+        <button id="unlock">Unlock</button>
+        <div id="lockMsg" class="msg"></div>
+      </section>
+
+      <!-- Prompt screen -->
+      <section id="prompt" class="hide">
+        <h1>Build a demo funnel</h1>
+        <p class="sub">Paste a company's website URL. We'll scrape it, design a VSL funnel, and deploy it.</p>
+        <div class="field">
+          <textarea id="url" placeholder="https://theircompany.com" inputmode="url" autocapitalize="off" spellcheck="false"></textarea>
+        </div>
+        <button id="build">Build demo</button>
+        <div id="buildMsg" class="msg"></div>
+      </section>
+
+      <!-- Done screen -->
+      <section id="done" class="hide done">
+        <div class="tick">🚀</div>
+        <h1>Building your demo</h1>
+        <p class="sub" id="doneText"></p>
+        <button id="another" style="background:#1a1e16;color:var(--text);box-shadow:none">Build another</button>
+      </section>
+
+    </div>
+    <p class="foot">Optimally · internal demo generator</p>
+  </div>
+
+<script>
+  const $ = s => document.querySelector(s);
+  let PW = '';
+
+  async function api(payload){
+    const r = await fetch('/api/create', {
+      method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(payload)
+    });
+    const data = await r.json().catch(()=>({}));
+    return { ok:r.ok, status:r.status, data };
+  }
+
+  // Unlock
+  $('#unlock').addEventListener('click', unlock);
+  $('#pw').addEventListener('keydown', e => { if(e.key==='Enter') unlock(); });
+  async function unlock(){
+    const pw = $('#pw').value.trim();
+    const msg = $('#lockMsg'); msg.className='msg'; msg.textContent='';
+    if(!pw){ msg.className='msg err'; msg.textContent='Enter the password.'; return; }
+    const btn = $('#unlock'); btn.disabled=true; btn.innerHTML='<span class="spin"></span>Checking…';
+    const { ok, data } = await api({ action:'verify', password:pw });
+    btn.disabled=false; btn.textContent='Unlock';
+    if(ok){ PW = pw; $('#lock').classList.add('hide'); $('#prompt').classList.remove('hide'); $('#url').focus(); }
+    else { msg.className='msg err'; msg.textContent = data.error || 'Wrong password.'; }
+  }
+
+  // Build
+  $('#build').addEventListener('click', build);
+  $('#url').addEventListener('keydown', e => { if(e.key==='Enter' && (e.metaKey||e.ctrlKey)) build(); });
+  async function build(){
+    let url = $('#url').value.trim();
+    const msg = $('#buildMsg'); msg.className='msg'; msg.textContent='';
+    if(!url){ msg.className='msg err'; msg.textContent='Paste a website URL.'; return; }
+    if(!/^https?:\/\//i.test(url)) url = 'https://' + url;
+    const btn = $('#build'); btn.disabled=true; btn.innerHTML='<span class="spin"></span>Firing…';
+    const { ok, data } = await api({ password:PW, url });
+    btn.disabled=false; btn.textContent='Build demo';
+    if(ok){
+      $('#prompt').classList.add('hide');
+      const live = data.liveUrl || '';
+      $('#doneText').innerHTML = 'On its way — live in ~2–3 min at<br><a href="'+live+'" target="_blank" rel="noopener">'+live.replace('https://','')+'</a><br><span style="color:#54594c">and posted to #5-asset-generation.</span>';
+      $('#done').classList.remove('hide');
+    } else {
+      msg.className='msg err'; msg.textContent = data.error || 'Something went wrong.';
+    }
+  }
+
+  $('#another').addEventListener('click', ()=>{
+    $('#url').value=''; $('#buildMsg').textContent='';
+    $('#done').classList.add('hide'); $('#prompt').classList.remove('hide'); $('#url').focus();
+  });
+</script>
+</body>
+</html>
