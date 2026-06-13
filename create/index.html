@@ -1,18 +1,20 @@
 <!doctype html>
-<html lang="en" class="dark">
+<html lang="en">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <title>Optimally · Generate a Demo</title>
 <meta name="robots" content="noindex,nofollow" />
+<meta name="theme-color" content="#ffffff" />
 <link rel="icon" href="https://framerusercontent.com/images/MK4JLp1ygZpQ2qGOdpiSnwQOhog.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 <style>
   :root{
-    --bg:#0a0b0a; --card:#121512; --line:#23271f; --text:#f4f5f1; --muted:#9aa093;
-    --accent:#8fae52; --accent-strong:#728C41; --danger:#e2756a;
+    --bg:#ffffff; --panel:#ffffff; --line:#e8e9e2; --soft:#f5f7f0; --input:#fafbf7;
+    --text:#1a1a1a; --muted:#737373; --accent:#728C41; --accent-deep:#5f7635; --teal:#365555;
+    --danger:#c0492f;
   }
   *{box-sizing:border-box} html,body{margin:0;height:100%;overflow-x:hidden}
   body{
@@ -20,48 +22,48 @@
     -webkit-font-smoothing:antialiased; display:flex; align-items:center; justify-content:center;
     min-height:100dvh; padding:24px;
     background-image:
-      radial-gradient(60% 50% at 50% 0%, rgba(114,140,65,.18), transparent 70%),
-      radial-gradient(40% 40% at 85% 100%, rgba(114,140,65,.10), transparent 70%);
+      radial-gradient(55% 45% at 50% -5%, rgba(114,140,65,.10), transparent 70%),
+      radial-gradient(40% 40% at 90% 105%, rgba(54,85,85,.07), transparent 70%);
   }
-  .wrap{width:100%; max-width:560px; animation:rise .6s cubic-bezier(.2,.8,.2,1) both}
+  .wrap{width:100%; max-width:540px; animation:rise .6s cubic-bezier(.2,.8,.2,1) both}
   @keyframes rise{from{opacity:0; transform:translateY(14px)}to{opacity:1; transform:none}}
-  .logo{display:block; height:30px; margin:0 auto 30px; opacity:.95}
+  .logo{display:block; height:28px; margin:0 auto 28px}
   .card{
-    background:linear-gradient(180deg, rgba(255,255,255,.025), rgba(255,255,255,0));
-    border:1px solid var(--line); border-radius:22px; padding:30px 26px;
-    box-shadow:0 30px 80px -40px rgba(0,0,0,.8), inset 0 1px 0 rgba(255,255,255,.03);
-    backdrop-filter:blur(6px);
+    background:var(--panel); border:1px solid var(--line); border-radius:20px; padding:32px 28px;
+    box-shadow:0 1px 2px rgba(16,24,16,.04), 0 24px 60px -36px rgba(54,85,85,.28);
   }
-  h1{font-size:25px; font-weight:700; letter-spacing:-.02em; margin:0 0 6px; text-align:center}
-  .sub{color:var(--muted); font-size:15px; text-align:center; margin:0 0 26px; line-height:1.5}
-  .field{position:relative; margin-bottom:14px}
+  h1{font-size:26px; font-weight:700; letter-spacing:-.02em; margin:0 0 6px; text-align:center; color:#171a16}
+  .sub{color:var(--muted); font-size:15px; text-align:center; margin:0 0 26px; line-height:1.55}
+  .field{margin-bottom:14px}
   input,textarea{
-    width:100%; background:#0e110d; border:1px solid var(--line); color:var(--text);
-    border-radius:14px; padding:16px 16px; font:inherit; font-size:16px; outline:none;
-    transition:border-color .18s, box-shadow .18s; resize:none;
+    width:100%; background:var(--input); border:1px solid var(--line); color:var(--text);
+    border-radius:12px; padding:15px 16px; font:inherit; font-size:16px; outline:none;
+    transition:border-color .18s, box-shadow .18s, background .18s; resize:none;
   }
-  textarea{min-height:60px; line-height:1.45}
-  input:focus,textarea:focus{border-color:var(--accent-strong); box-shadow:0 0 0 4px rgba(114,140,65,.16)}
-  input::placeholder,textarea::placeholder{color:#5d6356}
+  textarea{min-height:58px; line-height:1.45}
+  input:focus,textarea:focus{background:#fff; border-color:var(--accent); box-shadow:0 0 0 4px rgba(114,140,65,.14)}
+  input::placeholder,textarea::placeholder{color:#a6aa9c}
   button{
-    width:100%; border:0; cursor:pointer; color:#0b0d08; font:inherit; font-weight:700; font-size:16px;
-    padding:15px; border-radius:14px; margin-top:6px;
-    background:linear-gradient(180deg,var(--accent),var(--accent-strong));
-    box-shadow:0 10px 30px -10px rgba(114,140,65,.7); transition:transform .12s, box-shadow .12s, opacity .2s;
+    width:100%; border:0; cursor:pointer; color:#fff; font:inherit; font-weight:600; font-size:16px;
+    padding:15px; border-radius:10px; margin-top:6px;
+    background:linear-gradient(180deg,var(--accent),var(--accent-deep));
+    box-shadow:0 10px 24px -12px rgba(114,140,65,.7); transition:transform .12s, box-shadow .12s, opacity .2s;
   }
-  button:hover{transform:translateY(-1px); box-shadow:0 14px 34px -10px rgba(114,140,65,.8)}
+  button:hover{transform:translateY(-1px); box-shadow:0 14px 28px -12px rgba(114,140,65,.8)}
   button:active{transform:translateY(0)}
   button:disabled{opacity:.55; cursor:default; transform:none; box-shadow:none}
+  button.ghost{background:var(--soft); color:var(--teal); box-shadow:none; border:1px solid var(--line)}
+  button.ghost:hover{background:#eef1e8}
   .msg{font-size:14px; margin-top:14px; text-align:center; min-height:18px}
-  .msg.err{color:var(--danger)} .msg.ok{color:var(--accent)}
+  .msg.err{color:var(--danger)} .msg.ok{color:var(--accent-deep)}
   .hide{display:none}
-  .spin{display:inline-block;width:15px;height:15px;border:2px solid rgba(11,13,8,.35);border-top-color:#0b0d08;border-radius:50%;animation:s .7s linear infinite;vertical-align:-2px;margin-right:8px}
+  .spin{display:inline-block;width:15px;height:15px;border:2px solid rgba(255,255,255,.45);border-top-color:#fff;border-radius:50%;animation:s .7s linear infinite;vertical-align:-2px;margin-right:8px}
   @keyframes s{to{transform:rotate(360deg)}}
   .done{text-align:center}
-  .done .tick{font-size:42px}
-  .done a{color:var(--accent); font-weight:600; word-break:break-all; text-decoration:none}
+  .done .tick{font-size:40px}
+  .done a{color:var(--accent-deep); font-weight:600; word-break:break-all; text-decoration:none}
   .done a:hover{text-decoration:underline}
-  .foot{color:#54594c; font-size:12px; text-align:center; margin-top:22px}
+  .foot{color:#a6aa9c; font-size:12px; text-align:center; margin-top:22px}
 </style>
 </head>
 <body>
@@ -96,7 +98,7 @@
         <div class="tick">🚀</div>
         <h1>Building your demo</h1>
         <p class="sub" id="doneText"></p>
-        <button id="another" style="background:#1a1e16;color:var(--text);box-shadow:none">Build another</button>
+        <button id="another" class="ghost">Build another</button>
       </section>
 
     </div>
@@ -115,7 +117,6 @@
     return { ok:r.ok, status:r.status, data };
   }
 
-  // Unlock
   $('#unlock').addEventListener('click', unlock);
   $('#pw').addEventListener('keydown', e => { if(e.key==='Enter') unlock(); });
   async function unlock(){
@@ -129,7 +130,6 @@
     else { msg.className='msg err'; msg.textContent = data.error || 'Wrong password.'; }
   }
 
-  // Build
   $('#build').addEventListener('click', build);
   $('#url').addEventListener('keydown', e => { if(e.key==='Enter' && (e.metaKey||e.ctrlKey)) build(); });
   async function build(){
@@ -143,7 +143,7 @@
     if(ok){
       $('#prompt').classList.add('hide');
       const live = data.liveUrl || '';
-      $('#doneText').innerHTML = 'On its way — live in ~2–3 min at<br><a href="'+live+'" target="_blank" rel="noopener">'+live.replace('https://','')+'</a><br><span style="color:#54594c">and posted to #5-asset-generation.</span>';
+      $('#doneText').innerHTML = 'On its way — live in ~2–3 min at<br><a href="'+live+'" target="_blank" rel="noopener">'+live.replace('https://','')+'</a><br><span style="color:#a6aa9c">and posted to #5-asset-generation.</span>';
       $('#done').classList.remove('hide');
     } else {
       msg.className='msg err'; msg.textContent = data.error || 'Something went wrong.';
