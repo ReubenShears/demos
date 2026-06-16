@@ -35,6 +35,7 @@ partner CTA. Conventions also live in the user's memory files (source of truth; 
 | CTA tracking base | `https://www.optimally.ltd/demo?partner=<slug>` (opens new tab) |
 | Baserow database / table | `Backend` (id `453125`) / `Demo Landing Page Data` (id `1024310`) |
 | Slack channel | `#5-asset-generation` (id `C0AN653QCF2`) |
+| CRM (GoHighLevel) | LeadConnector MCP server `2a59a55b-bfd6-44e2-bc09-85d430112b39` (via ghl-proxy). Custom field **Demo Landing Page URL** id `6dtdKnKMkB659ZVlsRof` |
 | Build spec | `references/build-spec.md` — the premium design + structure rules Claude follows |
 
 ## Workflow
@@ -119,7 +120,21 @@ Source URL, Live Demo URL (`https://demos.optimally.ltd/<slug>`), CTA Tracking U
 Headline, ICP, Primary Colour, Secondary Colour, Logo URL, Date Generated (today). Only send fields that
 exist. (Stitch Project ID/URL no longer apply — leave blank or skip.)
 
-### 7. Announce in Slack
+### 7. Attach the demo link to the CRM lead (GoHighLevel — conditional, best-effort)
+Try to find the prospect in the Optimally GHL CRM and write the live demo URL into their **Demo Landing
+Page URL** custom field. This is BEST-EFFORT and silent on miss: if no lead matches, do nothing (do not
+error, do not create a contact, do not block the run). Use the LeadConnector/GHL MCP (server
+`2a59a55b-bfd6-44e2-bc09-85d430112b39`, via the ghl-proxy):
+1. **Find:** `contacts_get-contacts` with `query=<demo domain>` (e.g. `trustrelations.agency`).
+2. **Pick:** if one or more contacts return, take the best match — prefer an exact email-domain match;
+   if several, the most recently updated. If zero return, STOP this step silently and continue to Slack.
+3. **Write:** `contacts_update-contact` with `path_contactId=<id>` and
+   `body_customFields=[{"id":"6dtdKnKMkB659ZVlsRof","field_value":"https://demos.optimally.ltd/<slug>"}]`.
+   **CRITICAL: use the field ID `6dtdKnKMkB659ZVlsRof`, NOT the field key
+   `contact.demo_landing_page_url`** — the key returns `succeeded: true` but silently fails to persist
+   (`customFields` stays `[]`). Confirm the returned `customFields` array shows the URL, then continue.
+
+### 8. Announce in Slack
 Post to `C0AN653QCF2` with `slack_send_message` using **Slack mrkdwn** (single-asterisk `*bold*`,
 `<url|label>` links, `>` quote groups, NO em dashes, valid emoji shortcodes — `:frame_with_picture:`
 not `:framed_picture:`):
@@ -139,15 +154,18 @@ not `:framed_picture:`):
 > :white_check_mark:  *Status:*  Deployed  ·  Logged to Baserow
 ```
 
-### 8. Report back
+### 9. Report back
 Live link first and biggest, then a compact recap (brand colours, CTA tracking param, Baserow + Slack
-confirmations). Flag anything that needed a fallback.
+confirmations, and whether the CRM lead was found + updated or not matched). Flag anything that needed a fallback.
 
 ## Failure handling
 - **Firecrawl map/deep-scrape thin:** fall back to the homepage scrape; still build all sections from it.
 - **Deploy 403:** ensure you used the git CLI (not GitHub MCP) and the token/permission; report the real error.
 - **Live URL 404 after push:** confirm `<slug>/index.html` exists and the push landed on `main`; allow build time.
 - **Baserow field mismatch:** log what you can; note skipped fields. Don't abort the run over a logging field.
+- **GHL lead not found / write fails:** skip silently — the CRM step is best-effort and must never block the
+  deploy/Baserow/Slack steps. If the write returns success but `customFields` is empty, you used the field
+  key instead of the ID `6dtdKnKMkB659ZVlsRof` — retry with the ID. (Needs the GHL connector enabled.)
 
 ## Notes on scope / side effects
 Deploys a real page, writes a Baserow row, posts to Slack on every run. One URL in → one real demo out.
