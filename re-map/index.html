@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Re-Map — Lead from the Inside Out</title>
+<meta name="description" content="Executive coaching and consulting for founders and CEOs. Scale your leadership through clarity, not more effort — with the Three Self-Leadership Dimensions." />
+<link rel="icon" href="https://framerusercontent.com/images/BqyF5mAjXj5nRu0arQszBpxwpOk.png" />
+<meta property="og:title" content="Re-Map — Lead from the Inside Out" />
+<meta property="og:description" content="Leadership that scales through clarity, not more effort. Executive coaching for founders, CEOs and their leadership teams." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://demos.optimally.ltd/re-map" />
+<meta property="og:image" content="https://framerusercontent.com/assets/2PyKbXIWJJ2LMPkQbEwvu9fbhc.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Re-Map — Lead from the Inside Out" />
+<meta name="twitter:description" content="Leadership that scales through clarity, not more effort. Executive coaching for founders and CEOs." />
+<meta name="twitter:image" content="https://framerusercontent.com/assets/2PyKbXIWJJ2LMPkQbEwvu9fbhc.jpg" />
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          brand: '#F9CD46',
+          teal: '#466C61',
+          sage: '#84B098',
+          cream: '#FDF8F2',
+          ink: '#2D2D2D',
+        },
+        fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+      },
+    },
+  };
+</script>
+<style>
+  html, body { overflow-x: hidden; max-width: 100%; }
+  body { background-color: #FDF8F2; color: #2D2D2D; font-family: 'Inter', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+  .headline { line-height: 1.12; padding-bottom: 0.08em; }
+  .mesh {
+    background:
+      radial-gradient(60% 55% at 18% 12%, rgba(249,205,70,0.28), transparent 60%),
+      radial-gradient(55% 50% at 85% 8%, rgba(132,176,152,0.30), transparent 60%),
+      radial-gradient(70% 60% at 50% 100%, rgba(70,108,97,0.16), transparent 65%);
+  }
+  .mesh-soft {
+    background:
+      radial-gradient(50% 45% at 90% 20%, rgba(249,205,70,0.18), transparent 60%),
+      radial-gradient(45% 45% at 5% 80%, rgba(132,176,152,0.20), transparent 62%);
+  }
+  .reveal { opacity: 0; transform: translateY(26px); transition: opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1); }
+  .reveal.in { opacity: 1; transform: none; }
+  .cta {
+    display: inline-flex; align-items: center; gap: .55rem; white-space: nowrap;
+    background: #F9CD46; color: #2D2D2D; font-weight: 600;
+    padding: .95rem 2rem; border-radius: 50px;
+    box-shadow: 0 12px 30px -10px rgba(249,205,70,0.7);
+    transition: transform .25s ease, box-shadow .25s ease;
+  }
+  .cta:hover { transform: translateY(-2px) scale(1.02); box-shadow: 0 18px 40px -10px rgba(249,205,70,0.85); }
+  .card { background: #ffffff; border: 1px solid rgba(70,108,97,0.12); border-radius: 18px; }
+  .play-btn { transition: transform .3s ease, box-shadow .3s ease; }
+  .play-wrap:hover .play-btn { transform: scale(1.06); box-shadow: 0 0 0 14px rgba(249,205,70,0.18); }
+  .marquee { display: flex; gap: 3rem; width: max-content; animation: slide 32s linear infinite; }
+  @keyframes slide { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .marquee { animation: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- 0. BANNER (not sticky) -->
+<div class="w-full bg-teal text-cream text-center text-sm sm:text-[15px] py-2.5 px-4 font-medium tracking-wide">
+  New: discover your Self-Leadership Score — watch the short film below to see how it works.
+</div>
+
+<!-- 1. HERO -->
+<header class="relative mesh overflow-hidden">
+  <div class="max-w-5xl mx-auto px-5 pt-7 pb-16 sm:pt-9 sm:pb-20 flex flex-col items-center text-center">
+    <img src="https://framerusercontent.com/images/zzdktHoT45vxiSBD9YKOxhJ0lg.png?width=1395&height=1003"
+         alt="Re-Map" class="h-14 sm:h-16 w-auto object-contain mb-5" />
+
+    <p class="text-teal font-semibold text-xs sm:text-sm tracking-[0.18em] uppercase mb-4">
+      Attention: Founders &amp; CEOs carrying more than they should
+    </p>
+
+    <h1 class="headline font-semibold text-3xl sm:text-5xl lg:text-6xl max-w-3xl text-ink">
+      Lead from the <span class="text-teal">inside out</span> — scale through <span class="px-1 rounded-md" style="background:rgba(249,205,70,0.45)">clarity</span>, not more effort.
+    </h1>
+
+    <p class="mt-5 text-base sm:text-lg text-ink/70 max-w-2xl">
+      Built around you, not another framework to bolt on — clarity you can feel in the first few sessions.
+    </p>
+
+    <p class="mt-3 text-sm sm:text-base text-ink/60 max-w-2xl">
+      Executive coaching &amp; consulting that removes the mental noise and invisible load, so leadership spreads beyond you.
+    </p>
+
+    <!-- VSL placeholder -->
+    <div class="play-wrap group mt-9 w-full max-w-3xl">
+      <div class="relative w-full rounded-2xl overflow-hidden mesh-soft border border-teal/15 shadow-xl" style="aspect-ratio:16/9; background-color:#1f2d29;">
+        <div class="absolute inset-0 mesh"></div>
+        <div class="absolute inset-0 flex flex-col items-center justify-center">
+          <button aria-label="Play video" class="play-btn w-20 h-20 rounded-full bg-brand flex items-center justify-center shadow-2xl">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="#2D2D2D"><path d="M8 5v14l11-7z"/></svg>
+          </button>
+          <p class="mt-4 text-cream/90 text-sm font-medium tracking-wide">Watch: how leaders scale without carrying it all</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="mt-6 italic text-teal/90 text-base sm:text-lg">"Lead and scale, your own way."</p>
+
+    <a href="https://www.optimally.ltd/demo?partner=re-map" target="_blank" rel="noopener noreferrer" class="cta mt-6">
+      Learn More
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+    <div class="mt-4 flex items-center justify-center gap-3 text-sm text-ink/60">
+      <div class="flex -space-x-2">
+        <span class="w-7 h-7 rounded-full bg-teal/20 border-2 border-cream flex items-center justify-center text-teal text-[11px] font-semibold">LO</span>
+        <span class="w-7 h-7 rounded-full bg-sage/30 border-2 border-cream flex items-center justify-center text-teal text-[11px] font-semibold">JM</span>
+        <span class="w-7 h-7 rounded-full bg-brand/40 border-2 border-cream flex items-center justify-center text-ink text-[11px] font-semibold">JZ</span>
+      </div>
+      <span>Trusted by 500+ founders, CEOs &amp; leadership teams</span>
+    </div>
+  </div>
+</header>
+
+<!-- Trust strip / marquee -->
+<section class="py-7 border-y border-teal/10 bg-cream overflow-hidden">
+  <p class="text-center text-xs uppercase tracking-[0.2em] text-ink/40 mb-5">Leaders &amp; companies we've supported</p>
+  <div class="relative">
+    <div class="marquee text-teal/70 font-semibold text-lg whitespace-nowrap">
+      <span>Stayforlong</span><span>Bridge for Billions</span><span>Sonosuite</span><span>Aervio</span><span>EMESA</span><span>Silversea</span><span>Dozen Investments</span><span>Maximeyes Group</span>
+      <span>Stayforlong</span><span>Bridge for Billions</span><span>Sonosuite</span><span>Aervio</span><span>EMESA</span><span>Silversea</span><span>Dozen Investments</span><span>Maximeyes Group</span>
+    </div>
+  </div>
+</section>
+
+<!-- 2. PAINS -->
+<section class="relative py-20 sm:py-24 px-5">
+  <div class="max-w-5xl mx-auto">
+    <div class="reveal text-center max-w-2xl mx-auto mb-14">
+      <p class="text-teal font-semibold text-xs tracking-[0.18em] uppercase mb-3">Sound familiar?</p>
+      <h2 class="font-semibold text-3xl sm:text-4xl text-ink">You've tried hiring, frameworks, AI and tools. Some of it helps — but the load still lands on you.</h2>
+      <p class="mt-4 text-ink/65 text-lg">The bottleneck isn't your strategy. It's the invisible effort of being constantly "on".</p>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div class="reveal card p-7">
+        <div class="w-11 h-11 rounded-xl bg-teal/10 flex items-center justify-center mb-4">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#466C61" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a7 7 0 0 0-7 7c0 2 1 3.5 2 5l1 2h8l1-2c1-1.5 2-3 2-5a7 7 0 0 0-7-7z"/><path d="M9 22h6"/></svg>
+        </div>
+        <h3 class="font-semibold text-lg text-ink mb-2">Always "on"</h3>
+        <p class="text-ink/65 text-[15px]">The business can't move forward without you in the room — so you never truly switch off.</p>
+      </div>
+      <div class="reveal card p-7">
+        <div class="w-11 h-11 rounded-xl bg-teal/10 flex items-center justify-center mb-4">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#466C61" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg>
+        </div>
+        <h3 class="font-semibold text-lg text-ink mb-2">Decision bottleneck</h3>
+        <p class="text-ink/65 text-[15px]">Every call routes through you. Growth adds weight to your plate instead of lifting it.</p>
+      </div>
+      <div class="reveal card p-7">
+        <div class="w-11 h-11 rounded-xl bg-teal/10 flex items-center justify-center mb-4">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#466C61" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        </div>
+        <h3 class="font-semibold text-lg text-ink mb-2">Mental noise</h3>
+        <p class="text-ink/65 text-[15px]">Reactions, pressure and second-guessing crowd out the clear thinking the role needs.</p>
+      </div>
+      <div class="reveal card p-7">
+        <div class="w-11 h-11 rounded-xl bg-teal/10 flex items-center justify-center mb-4">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#466C61" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 18v-2a4 4 0 0 0-4-4H6"/><path d="M9 9 6 12l3 3"/><circle cx="18" cy="6" r="3"/></svg>
+        </div>
+        <h3 class="font-semibold text-lg text-ink mb-2">Team won't fully own it</h3>
+        <p class="text-ink/65 text-[15px]">Your leadership team is functional, not bonded — accountability keeps drifting back to you.</p>
+      </div>
+      <div class="reveal card p-7">
+        <div class="w-11 h-11 rounded-xl bg-teal/10 flex items-center justify-center mb-4">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#466C61" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7 9 18l-5-5"/></svg>
+        </div>
+        <h3 class="font-semibold text-lg text-ink mb-2">Stepping back feels risky</h3>
+        <p class="text-ink/65 text-[15px]">You'd delegate more — but you worry quality and momentum will quietly slip.</p>
+      </div>
+      <div class="reveal card p-7">
+        <div class="w-11 h-11 rounded-xl bg-teal/10 flex items-center justify-center mb-4">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#466C61" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/></svg>
+        </div>
+        <h3 class="font-semibold text-lg text-ink mb-2">Wellbeing pays the price</h3>
+        <p class="text-ink/65 text-[15px]">High performance shouldn't cost your health, presence and the life outside the role.</p>
+      </div>
+    </div>
+    <div class="reveal text-center mt-12">
+      <a href="https://www.optimally.ltd/demo?partner=re-map" target="_blank" rel="noopener noreferrer" class="cta">Learn More
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <p class="mt-3 text-sm text-ink/55">Join 500+ leaders who've lightened the load with Re-Map.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 3. SOLUTION -->
+<section id="approach" class="relative mesh-soft py-20 sm:py-24 px-5 border-y border-teal/10">
+  <div class="max-w-5xl mx-auto">
+    <div class="reveal text-center max-w-2xl mx-auto mb-14">
+      <p class="text-teal font-semibold text-xs tracking-[0.18em] uppercase mb-3">Our Approach</p>
+      <h2 class="font-semibold text-3xl sm:text-4xl text-ink">Leadership begins with you. We don't add complexity — we catalyse your leadership genius.</h2>
+      <p class="mt-4 text-ink/65 text-lg">By replacing willpower with clarity, resilience and presence, three self-leadership dimensions turn pressure into stronger decisions and better outcomes.</p>
+    </div>
+    <div class="grid lg:grid-cols-3 gap-6">
+      <div class="reveal card p-8">
+        <span class="text-xs font-semibold tracking-[0.16em] uppercase text-sage">Dimension 01 · State of Mind</span>
+        <div class="w-12 h-12 rounded-xl bg-brand/30 flex items-center justify-center my-4">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#466C61" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0-4 10.5V17a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-3.5A6 6 0 0 0 12 3z"/><path d="M9 22h6"/></svg>
+        </div>
+        <h3 class="font-semibold text-xl text-ink mb-2">Cultivate the inner state for clarity</h3>
+        <p class="text-ink/65 text-[15px] mb-4">Move from stress to clarity to calm. Step back without worrying quality or momentum will drop — and trust your judgement again.</p>
+        <ul class="text-sm text-teal font-medium space-y-1.5">
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand"></span> Stress → Clarity → Calm</li>
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand"></span> Steadier under pressure</li>
+        </ul>
+      </div>
+      <div class="reveal card p-8">
+        <span class="text-xs font-semibold tracking-[0.16em] uppercase text-sage">Dimension 02 · Decision Making</span>
+        <div class="w-12 h-12 rounded-xl bg-brand/30 flex items-center justify-center my-4">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#466C61" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3M12 18v3"/><circle cx="12" cy="12" r="3"/><path d="M5 7l2 2M17 15l2 2M5 17l2-2M17 9l2-2"/></svg>
+        </div>
+        <h3 class="font-semibold text-xl text-ink mb-2">Develop insight-driven decisions</h3>
+        <p class="text-ink/65 text-[15px] mb-4">Lighter decision-making as the business grows. Clear the bottlenecks and focus on the things only you can do.</p>
+        <ul class="text-sm text-teal font-medium space-y-1.5">
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand"></span> Fewer bottlenecks</li>
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand"></span> Higher productivity &amp; goal achievement</li>
+        </ul>
+      </div>
+      <div class="reveal card p-8">
+        <span class="text-xs font-semibold tracking-[0.16em] uppercase text-sage">Dimension 03 · Relating to Others</span>
+        <div class="w-12 h-12 rounded-xl bg-brand/30 flex items-center justify-center my-4">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#466C61" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="10" r="2.5"/><path d="M3 20a6 6 0 0 1 12 0M15 20a5 5 0 0 1 6 0"/></svg>
+        </div>
+        <h3 class="font-semibold text-xl text-ink mb-2">Unlock team collective intelligence</h3>
+        <p class="text-ink/65 text-[15px] mb-4">Move faster without you in the weeds, as your leadership team takes full ownership of outcomes.</p>
+        <ul class="text-sm text-teal font-medium space-y-1.5">
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand"></span> Ownership &amp; engagement</li>
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand"></span> Stronger retention</li>
+        </ul>
+      </div>
+    </div>
+    <div class="reveal text-center mt-12">
+      <a href="https://www.optimally.ltd/demo?partner=re-map" target="_blank" rel="noopener noreferrer" class="cta">Learn More
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <p class="mt-3 text-sm text-ink/55">Discover your Self-Leadership Score and see where to start.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 4. CALL TO ACTION (mid) -->
+<section class="relative py-20 px-5">
+  <div class="reveal max-w-4xl mx-auto rounded-3xl mesh border border-teal/15 px-6 sm:px-12 py-14 text-center shadow-lg">
+    <h2 class="font-semibold text-3xl sm:text-4xl text-ink max-w-2xl mx-auto">Step back without dropping the ball — and let your leadership spread beyond you.</h2>
+    <p class="mt-4 text-ink/70 text-lg max-w-xl mx-auto">Book a 30-minute clarity call and map the one shift that would lift the most weight.</p>
+    <a href="https://www.optimally.ltd/demo?partner=re-map" target="_blank" rel="noopener noreferrer" class="cta mt-7">Learn More
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <p class="mt-3 text-sm text-ink/55">A decade of work with 500+ founders, CEOs and leaders.</p>
+  </div>
+</section>
+
+<!-- 5. BUILDING TRUST -->
+<section id="proof" class="relative mesh-soft py-20 sm:py-24 px-5 border-y border-teal/10">
+  <div class="max-w-6xl mx-auto">
+    <div class="reveal text-center max-w-2xl mx-auto mb-14">
+      <p class="text-teal font-semibold text-xs tracking-[0.18em] uppercase mb-3">Proof it works</p>
+      <h2 class="font-semibold text-3xl sm:text-4xl text-ink">Leaders and companies we've supported to achieve real, measurable results.</h2>
+    </div>
+
+    <!-- Case study stat cards -->
+    <div class="grid md:grid-cols-3 gap-6 mb-12">
+      <div class="reveal card p-7">
+        <p class="text-sm font-semibold text-teal mb-1">Stayforlong</p>
+        <p class="text-ink/60 text-sm mb-5">Luis Osorio Sole · CEO &amp; Founder</p>
+        <div class="space-y-4">
+          <div><span class="count text-3xl font-bold text-ink" data-target="300" data-suffix="%">0%</span><p class="text-sm text-ink/60">Growth in revenue per employee</p></div>
+          <div><span class="count text-3xl font-bold text-ink" data-target="26" data-suffix="%">0%</span><p class="text-sm text-ink/60">Reduction in HR costs</p></div>
+          <div><span class="text-3xl font-bold text-ink">8/10</span><p class="text-sm text-ink/60">Founder wellbeing, up from 4/10</p></div>
+        </div>
+        <p class="mt-5 text-[15px] text-ink/75 italic">"I'm more balanced, energetic and I think more clearly — a total change for me as CEO."</p>
+      </div>
+      <div class="reveal card p-7">
+        <p class="text-sm font-semibold text-teal mb-1">Bridge</p>
+        <p class="text-ink/60 text-sm mb-5">Julie Murat · COO &amp; Co-founder</p>
+        <div class="space-y-4">
+          <div><span class="count text-3xl font-bold text-ink" data-target="300" data-suffix="%">0%</span><p class="text-sm text-ink/60">Revenue growth in 3 years</p></div>
+          <div><span class="text-3xl font-bold text-ink">4.5/5</span><p class="text-sm text-ink/60">Employee thriving index</p></div>
+          <div><span class="text-3xl font-bold text-ink">2.5×</span><p class="text-sm text-ink/60">Impact metrics increase</p></div>
+        </div>
+        <p class="mt-5 text-[15px] text-ink/75 italic">"We wouldn't be leaping ahead without Re-Map — in people, impact and numbers."</p>
+      </div>
+      <div class="reveal card p-7">
+        <p class="text-sm font-semibold text-teal mb-1">Sonosuite</p>
+        <p class="text-ink/60 text-sm mb-5">Jose Luis Zagazeta · CEO &amp; Co-founder</p>
+        <div class="space-y-4">
+          <div><span class="text-3xl font-bold text-ink">5.2×</span><p class="text-sm text-ink/60">Revenue in 3 years</p></div>
+          <div><span class="count text-3xl font-bold text-ink" data-target="33" data-suffix="%">0%</span><p class="text-sm text-ink/60">Reduction in client churn</p></div>
+          <div><span class="count text-3xl font-bold text-ink" data-target="80" data-suffix="%">0%</span><p class="text-sm text-ink/60">Internal NPS, up from 43%</p></div>
+        </div>
+        <p class="mt-5 text-[15px] text-ink/75 italic">"Re-Map helped us build a high-performing executive team with greater clarity and alignment."</p>
+      </div>
+    </div>
+
+    <!-- Testimonials -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div class="reveal card p-6">
+        <div class="flex text-brand mb-3">★★★★★</div>
+        <p class="text-[15px] text-ink/80 mb-4">"In a few short months our executive team has gone from 'functional' to bonded and operating as a high-performing team."</p>
+        <div class="flex items-center gap-3">
+          <span class="w-9 h-9 rounded-lg bg-teal/12 flex items-center justify-center text-teal font-semibold text-sm">SM</span>
+          <div><p class="text-sm font-semibold text-ink">Santiago Montero de Quadras</p><p class="text-xs text-ink/55">Founder &amp; CEO, Aervio</p></div>
+        </div>
+      </div>
+      <div class="reveal card p-6">
+        <div class="flex text-brand mb-3">★★★★★</div>
+        <p class="text-[15px] text-ink/80 mb-4">"Such a valuable experience for EMESA. We're truly grateful to the team at Re-Map for guiding us through this transformative process."</p>
+        <div class="flex items-center gap-3">
+          <span class="w-9 h-9 rounded-lg bg-sage/25 flex items-center justify-center text-teal font-semibold text-sm">IC</span>
+          <div><p class="text-sm font-semibold text-ink">Ines Cuatrecasas</p><p class="text-xs text-ink/55">Vice President, EMESA</p></div>
+        </div>
+      </div>
+      <div class="reveal card p-6">
+        <div class="flex text-brand mb-3">★★★★★</div>
+        <p class="text-[15px] text-ink/80 mb-4">"Nash has had a profound impact on my professional and personal life — a game-changer for myself and our team."</p>
+        <div class="flex items-center gap-3">
+          <span class="w-9 h-9 rounded-lg bg-brand/35 flex items-center justify-center text-ink font-semibold text-sm">PS</span>
+          <div><p class="text-sm font-semibold text-ink">Pablo Santaeufemia</p><p class="text-xs text-ink/55">CEO &amp; Co-Founder, Bridge for Billions</p></div>
+        </div>
+      </div>
+      <div class="reveal card p-6">
+        <div class="flex text-brand mb-3">★★★★★</div>
+        <p class="text-[15px] text-ink/80 mb-4">"Re-Map really is re-mapping our company. If you're looking for a profound change, I encourage you to talk to Nash."</p>
+        <div class="flex items-center gap-3">
+          <span class="w-9 h-9 rounded-lg bg-teal/12 flex items-center justify-center text-teal font-semibold text-sm">GP</span>
+          <div><p class="text-sm font-semibold text-ink">Guillermo Portela</p><p class="text-xs text-ink/55">CEO &amp; Founder, Silversea</p></div>
+        </div>
+      </div>
+      <div class="reveal card p-6">
+        <div class="flex text-brand mb-3">★★★★★</div>
+        <p class="text-[15px] text-ink/80 mb-4">"Constant great support to our firm in organisational and leadership performance — helping align our strategy to our purpose."</p>
+        <div class="flex items-center gap-3">
+          <span class="w-9 h-9 rounded-lg bg-sage/25 flex items-center justify-center text-teal font-semibold text-sm">AM</span>
+          <div><p class="text-sm font-semibold text-ink">Alex Martinez-Comin</p><p class="text-xs text-ink/55">Managing Partner, Martinez-Comin</p></div>
+        </div>
+      </div>
+      <div class="reveal card p-6">
+        <div class="flex text-brand mb-3">★★★★★</div>
+        <p class="text-[15px] text-ink/80 mb-4">"Nash has been instrumental in the growth of our business — a rapid transformation, plus the social impact we're now having."</p>
+        <div class="flex items-center gap-3">
+          <span class="w-9 h-9 rounded-lg bg-brand/35 flex items-center justify-center text-ink font-semibold text-sm">SJ</span>
+          <div><p class="text-sm font-semibold text-ink">Shamir Jiwa</p><p class="text-xs text-ink/55">CEO &amp; Founder, The Maximeyes Group</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal text-center mt-12">
+      <a href="https://www.optimally.ltd/demo?partner=re-map" target="_blank" rel="noopener noreferrer" class="cta">Learn More
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <p class="mt-3 text-sm text-ink/55">Real leaders. Real numbers. Real change.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 6. FOUNDER -->
+<section id="team" class="relative py-20 sm:py-24 px-5">
+  <div class="max-w-5xl mx-auto">
+    <div class="reveal text-center max-w-2xl mx-auto mb-14">
+      <p class="text-teal font-semibold text-xs tracking-[0.18em] uppercase mb-3">Our Team</p>
+      <h2 class="font-semibold text-3xl sm:text-4xl text-ink">The people unlocking your personal and business potential.</h2>
+    </div>
+
+    <div class="reveal card p-8 sm:p-10 mb-6">
+      <div class="flex flex-col sm:flex-row gap-7 items-start">
+        <div class="shrink-0 w-24 h-24 rounded-2xl bg-teal/10 border border-teal/15 flex items-center justify-center">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#466C61" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+        </div>
+        <div>
+          <h3 class="font-semibold text-2xl text-ink">Nash Billimoria</h3>
+          <p class="text-teal font-medium text-sm mb-4">Executive Coach &amp; Consultant</p>
+          <p class="text-ink/70 text-[15px] mb-3">After a decade in business change inside top-tier investment banks, Nash left corporate life to work alongside founders and CEOs. Over 10+ years he's worked with more than 500 leaders — inside their organisations — as they navigate culture change, market disruption and strategic pivots.</p>
+          <p class="text-ink/70 text-[15px]">He's a Professor of Leadership and Management at Barcelona Technology School. His ongoing exploration of yoga, meditation and big ski adventures informs a deeper understanding of how the human mind works — and how lasting change actually happens.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid sm:grid-cols-2 gap-6">
+      <div class="reveal card p-7">
+        <div class="flex items-center gap-4 mb-4">
+          <div class="shrink-0 w-16 h-16 rounded-xl bg-sage/20 border border-teal/15 flex items-center justify-center">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#466C61" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+          </div>
+          <div><h3 class="font-semibold text-lg text-ink">Franziska Oelte</h3><p class="text-teal font-medium text-sm">Executive Coach &amp; Consultant</p></div>
+        </div>
+        <p class="text-ink/70 text-[15px]">Two decades with C-level leaders — former corporate lawyer, Head of Legal and General Counsel, now Chairwoman of a listed software company's supervisory board. She helps leaders make sound decisions and sustain high performance with greater ease.</p>
+      </div>
+      <div class="reveal card p-7">
+        <div class="flex items-center gap-4 mb-4">
+          <div class="shrink-0 w-16 h-16 rounded-xl bg-brand/25 border border-teal/15 flex items-center justify-center">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#466C61" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+          </div>
+          <div><h3 class="font-semibold text-lg text-ink">Priti Billimoria</h3><p class="text-teal font-medium text-sm">Delivery &amp; Experience Partner</p></div>
+        </div>
+        <p class="text-ink/70 text-[15px]">A background in economics, strategy and delivery — senior economist in government and senior programme roles in financial services. Priti ensures every programme, offsite and leadership session runs as a seamless, high-quality experience.</p>
+      </div>
+    </div>
+
+    <div class="reveal text-center mt-12">
+      <a href="https://www.optimally.ltd/demo?partner=re-map" target="_blank" rel="noopener noreferrer" class="cta">Learn More
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <p class="mt-3 text-sm text-ink/55">Get to know the team before your clarity call.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 7. FAQ -->
+<section class="relative mesh-soft py-20 sm:py-24 px-5 border-t border-teal/10">
+  <div class="max-w-3xl mx-auto">
+    <div class="reveal text-center mb-12">
+      <p class="text-teal font-semibold text-xs tracking-[0.18em] uppercase mb-3">Questions</p>
+      <h2 class="font-semibold text-3xl sm:text-4xl text-ink">Honest answers before you book.</h2>
+    </div>
+    <div class="space-y-3">
+      <details class="reveal card p-6 group" open>
+        <summary class="flex justify-between items-center cursor-pointer font-semibold text-ink list-none">Is coaching worth the investment for a busy CEO?<span class="text-teal text-xl group-open:rotate-45 transition-transform">+</span></summary>
+        <p class="mt-3 text-ink/70 text-[15px]">Our clients measure it in numbers — 300% revenue-per-employee growth, 26% lower HR costs, churn down a third. When clarity replaces invisible effort, the return shows up in the business and in how the role feels.</p>
+      </details>
+      <details class="reveal card p-6 group">
+        <summary class="flex justify-between items-center cursor-pointer font-semibold text-ink list-none">I don't have time to add one more thing.<span class="text-teal text-xl group-open:rotate-45 transition-transform">+</span></summary>
+        <p class="mt-3 text-ink/70 text-[15px]">We don't add complexity — we remove it. The work strips out mental noise and decision bottlenecks, so you get time and headspace back rather than another framework to manage.</p>
+      </details>
+      <details class="reveal card p-6 group">
+        <summary class="flex justify-between items-center cursor-pointer font-semibold text-ink list-none">Will this work for my company and my niche?<span class="text-teal text-xl group-open:rotate-45 transition-transform">+</span></summary>
+        <p class="mt-3 text-ink/70 text-[15px]">We've worked with 500+ founders, CEOs and leaders across tech, financial services, social enterprise and SMEs. The inside-out approach is grounded in how the human mind works, so it adapts to your context rather than imposing a template.</p>
+      </details>
+      <details class="reveal card p-6 group">
+        <summary class="flex justify-between items-center cursor-pointer font-semibold text-ink list-none">What if it doesn't work for me?<span class="text-teal text-xl group-open:rotate-45 transition-transform">+</span></summary>
+        <p class="mt-3 text-ink/70 text-[15px]">Change becomes natural rather than forced once you understand the mechanisms behind your reactions. Most leaders feel a shift in clarity within the first few sessions — and the 30-minute clarity call lets you test the fit before committing.</p>
+      </details>
+      <details class="reveal card p-6 group">
+        <summary class="flex justify-between items-center cursor-pointer font-semibold text-ink list-none">Is this just another leadership framework?<span class="text-teal text-xl group-open:rotate-45 transition-transform">+</span></summary>
+        <p class="mt-3 text-ink/70 text-[15px]">No. Frameworks add to your load. We work from the inside out — your state of mind, your decisions, and how your team relates — so leadership spreads beyond you instead of routing through you.</p>
+      </details>
+      <details class="reveal card p-6 group">
+        <summary class="flex justify-between items-center cursor-pointer font-semibold text-ink list-none">Do I need a long contract?<span class="text-teal text-xl group-open:rotate-45 transition-transform">+</span></summary>
+        <p class="mt-3 text-ink/70 text-[15px]">It starts with a single 30-minute clarity call — no commitment. From there we scope the engagement around the outcomes you want, whether that's you, your senior leaders, or the whole leadership team.</p>
+      </details>
+      <details class="reveal card p-6 group">
+        <summary class="flex justify-between items-center cursor-pointer font-semibold text-ink list-none">How soon will I see results?<span class="text-teal text-xl group-open:rotate-45 transition-transform">+</span></summary>
+        <p class="mt-3 text-ink/70 text-[15px]">Leaders often report clearer thinking and calmer decisions within the first weeks. Deeper shifts — team ownership, lighter decision-making, sustained performance — compound over the engagement, as the case studies show.</p>
+      </details>
+    </div>
+    <div class="reveal text-center mt-12">
+      <a href="https://www.optimally.ltd/demo?partner=re-map" target="_blank" rel="noopener noreferrer" class="cta">Learn More
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <p class="mt-3 text-sm text-ink/55">Still deciding? Book the clarity call and bring your questions.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 8. FOOTER -->
+<footer class="bg-teal text-cream pt-16 pb-10 px-5">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center max-w-2xl mx-auto">
+      <img src="https://framerusercontent.com/images/zzdktHoT45vxiSBD9YKOxhJ0lg.png?width=1395&height=1003"
+           alt="Re-Map" class="h-9 w-auto object-contain mx-auto mb-6" style="filter: brightness(0) invert(1);" />
+      <h2 class="font-semibold text-2xl sm:text-3xl">Lead and scale, your own way.</h2>
+      <p class="mt-3 text-cream/75">Restore clarity, lighten the load, and let your leadership spread beyond you.</p>
+      <a href="https://www.optimally.ltd/demo?partner=re-map" target="_blank" rel="noopener noreferrer" class="cta mt-7">Learn More
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <p class="mt-3 text-sm text-cream/60">A 30-minute clarity call is the simplest place to start.</p>
+    </div>
+    <div class="mt-14 pt-8 border-t border-cream/15 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-cream/65">
+      <p>© 2026 Re-Map. All rights reserved.</p>
+      <div class="flex items-center gap-6">
+        <a href="https://www.optimally.ltd/demo?partner=re-map" target="_blank" rel="noopener noreferrer" class="hover:text-cream transition-colors">Privacy</a>
+        <a href="https://www.optimally.ltd/demo?partner=re-map" target="_blank" rel="noopener noreferrer" class="hover:text-cream transition-colors">Accessibility</a>
+        <a href="https://www.optimally.ltd/demo?partner=re-map" target="_blank" rel="noopener noreferrer" class="hover:text-cream transition-colors">Contact</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+
+  // Count-up on real stats
+  const cio = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (!e.isIntersecting) return;
+      const el = e.target;
+      const target = +el.dataset.target;
+      const suffix = el.dataset.suffix || '';
+      let cur = 0;
+      const step = Math.max(1, Math.round(target / 40));
+      const tick = () => {
+        cur += step;
+        if (cur >= target) { el.textContent = target + suffix; }
+        else { el.textContent = cur + suffix; requestAnimationFrame(tick); }
+      };
+      tick();
+      cio.unobserve(el);
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('.count').forEach((el) => cio.observe(el));
+</script>
+</body>
+</html>
