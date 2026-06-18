@@ -462,5 +462,147 @@ tailwind.config = {
   }, { threshold: 0.5 });
   countEls.forEach((el) => cio.observe(el));
 </script>
+
+<!-- ============ OPTIMALLY DEMO INTERSTITIAL (auto @10s + CTA midpoint) ============ -->
+<div id="om-modal" aria-hidden="true">
+  <div class="om-card" role="dialog" aria-modal="true" aria-labelledby="om-title">
+    <button class="om-x" data-om-close aria-label="Close">&times;</button>
+    <div class="om-head">
+      <span class="om-badge"><span class="om-dot"></span> Live demo</span>
+      <img class="om-logo" src="https://framerusercontent.com/images/hUMFc5uZTevF0122Bkpv9kgZDI.png" alt="Optimally" />
+    </div>
+    <h2 id="om-title" class="om-title">Like what you see, <span class="om-accent">Trust Relations</span>?</h2>
+    <p class="om-body">
+      This is a <strong>live demo, custom-built by Optimally</strong> to show what's possible for Trust Relations.
+      If you haven't booked your walkthrough yet, tap below — we'll walk you through the strategy behind this page
+      and exactly how it slots into a full funnel built to bring <strong>Trust Relations a steady flow of new clients</strong>.
+    </p>
+    <div class="om-urgency">
+      <span class="om-pill" id="om-days">Expires in 7 days</span>
+      <span class="om-urgency-text">This demo stays live for 7 days from when it was built — it comes down on <strong id="om-expiry">soon</strong>, so it's worth booking this week.</span>
+    </div>
+    <a id="om-book" class="om-cta" href="https://www.optimally.ltd/demo?partner=trustrelations" target="_blank" rel="noopener noreferrer">Book my free walkthrough &rarr;</a>
+    <button class="om-later" data-om-close>Maybe later</button>
+  </div>
+</div>
+<style>
+  #om-modal{
+    --om-brand:#462E7F; --om-accent:#7B41B8;
+    position:fixed; inset:0; z-index:9999; display:none;
+    align-items:center; justify-content:center; padding:20px;
+    background:rgba(20,12,40,.55); backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px);
+    font-family:'Inter',system-ui,sans-serif;
+  }
+  #om-modal.open{display:flex; animation:om-fade .25s ease both}
+  @keyframes om-fade{from{opacity:0}to{opacity:1}}
+  #om-modal .om-card{
+    position:relative; width:100%; max-width:440px; background:#fff; border-radius:22px;
+    padding:30px 28px 26px; text-align:center;
+    box-shadow:0 30px 80px -20px rgba(20,12,40,.6); border:1px solid rgba(70,46,127,.10);
+    animation:om-rise .35s cubic-bezier(.2,.8,.2,1) both;
+  }
+  @keyframes om-rise{from{opacity:0; transform:translateY(18px) scale(.98)}to{opacity:1; transform:none}}
+  #om-modal .om-x{
+    position:absolute; top:12px; right:14px; width:34px; height:34px; border:0; cursor:pointer;
+    background:transparent; color:#9b93ad; font-size:26px; line-height:1; border-radius:9px; transition:.15s;
+  }
+  #om-modal .om-x:hover{background:#f3f0fa; color:#5b5470}
+  #om-modal .om-head{display:flex; align-items:center; justify-content:center; gap:12px; margin-bottom:16px}
+  #om-modal .om-badge{
+    display:inline-flex; align-items:center; gap:7px; font-size:11px; font-weight:700; letter-spacing:.08em;
+    text-transform:uppercase; color:var(--om-brand); background:rgba(70,46,127,.09);
+    padding:6px 12px; border-radius:999px;
+  }
+  #om-modal .om-dot{width:7px; height:7px; border-radius:50%; background:#3fbf6a; box-shadow:0 0 0 0 rgba(63,191,106,.5); animation:om-blink 1.8s ease-in-out infinite}
+  @keyframes om-blink{0%,100%{box-shadow:0 0 0 0 rgba(63,191,106,.5)}50%{box-shadow:0 0 0 5px rgba(63,191,106,0)}}
+  #om-modal .om-logo{height:20px; width:auto; opacity:.9}
+  #om-modal .om-title{font-family:'Sora','Inter',sans-serif; font-size:24px; font-weight:700; line-height:1.2; margin:0 0 12px; color:#1B1230}
+  #om-modal .om-accent{color:var(--om-accent)}
+  #om-modal .om-body{font-size:15px; line-height:1.6; color:#4a4360; margin:0 0 18px}
+  #om-modal .om-body strong{color:#1B1230}
+  #om-modal .om-urgency{
+    display:flex; align-items:flex-start; gap:11px; text-align:left; background:#F6F4FB;
+    border:1px solid rgba(70,46,127,.10); border-radius:14px; padding:13px 14px; margin-bottom:22px;
+  }
+  #om-modal .om-pill{
+    flex:0 0 auto; font-size:11.5px; font-weight:700; color:#fff; background:var(--om-brand);
+    padding:5px 10px; border-radius:999px; white-space:nowrap; margin-top:1px;
+  }
+  #om-modal .om-urgency-text{font-size:12.5px; line-height:1.5; color:#5b5470}
+  #om-modal .om-urgency-text strong{color:var(--om-brand)}
+  #om-modal .om-cta{
+    display:block; width:100%; background:var(--om-brand); color:#fff; font-weight:600; font-size:16px;
+    text-decoration:none; padding:15px; border-radius:999px; transition:.18s;
+    box-shadow:0 12px 30px -8px rgba(70,46,127,.5);
+  }
+  #om-modal .om-cta:hover{background:var(--om-accent); transform:translateY(-1px); box-shadow:0 16px 38px -8px rgba(123,65,184,.6)}
+  #om-modal .om-later{
+    display:block; width:100%; margin-top:10px; background:transparent; border:0; cursor:pointer;
+    color:#9b93ad; font-size:13.5px; font-weight:500; padding:8px; border-radius:8px; transition:.15s;
+  }
+  #om-modal .om-later:hover{color:#5b5470}
+  @media (max-width:420px){
+    #om-modal .om-card{padding:26px 20px 22px}
+    #om-modal .om-title{font-size:21px}
+  }
+</style>
+<script>
+(function(){
+  var CREATED  = "2026-06-16";                                              // demo build date (set per demo)
+  var LIVE_DAYS = 7;
+  var BOOK_URL = "https://www.optimally.ltd/demo?partner=trustrelations";   // same target as every CTA
+  var modal = document.getElementById('om-modal');
+  if(!modal) return;
+  var book = document.getElementById('om-book');
+  var seen = false;
+
+  function refreshUrgency(){
+    var created = new Date(CREATED + "T00:00:00");
+    var expiry  = new Date(created.getTime() + LIVE_DAYS*86400000);
+    var left    = Math.ceil((expiry - new Date())/86400000);
+    var pill = document.getElementById('om-days');
+    var exp  = document.getElementById('om-expiry');
+    if(exp)  exp.textContent  = expiry.toLocaleDateString(undefined,{month:'long', day:'numeric'});
+    if(pill) pill.textContent = left > 1 ? ("Expires in "+left+" days") : (left === 1 ? "Expires tomorrow" : "Final day");
+  }
+  function open(){
+    if(modal.classList.contains('open')) return;
+    refreshUrgency();
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden','false');
+    document.body.style.overflow = 'hidden';
+    seen = true;
+    if(book) book.focus();
+  }
+  function close(){
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden','true');
+    document.body.style.overflow = '';
+  }
+
+  // Dismiss: backdrop, X, "Maybe later", Esc
+  modal.addEventListener('click', function(e){
+    if(e.target === modal || (e.target.closest && e.target.closest('[data-om-close]'))){ e.preventDefault(); close(); }
+  });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && modal.classList.contains('open')) close(); });
+
+  // Book button: let it navigate (new tab), then tidy up
+  if(book) book.addEventListener('click', function(){ setTimeout(close, 120); });
+
+  // Intercept EVERY CTA + button → modal is the contextual midpoint before booking
+  document.addEventListener('click', function(e){
+    var el = e.target.closest('a, button');
+    if(!el || modal.contains(el)) return;                                   // ignore modal's own controls
+    var isCta = el.matches('a[href*="optimally.ltd/demo?partner"]') || el.tagName === 'BUTTON';
+    if(!isCta) return;
+    e.preventDefault();
+    e.stopPropagation();
+    open();
+  }, true);
+
+  // Auto-surface once after 10s (skipped if they already opened it via a button)
+  setTimeout(function(){ if(!seen) open(); }, 10000);
+})();
+</script>
 </body>
 </html>
