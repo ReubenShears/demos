@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ROI Calculator — Optimally</title>
+<meta name="description" content="Model the return on your Optimally engagement." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green:#10B981; --green-dark:#0B7A53; --green-soft:#E7F7F0;
+    --ink:#0E1726; --muted:#5B6472; --hint:#8A93A0;
+    --bg:#F4F7F6; --card:#FFFFFF; --line:#E6EAE8; --track:#EAEDEB;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:var(--bg);color:var(--ink);font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  body{padding:28px 18px 56px}
+  .wrap{max-width:1080px;margin:0 auto}
+
+  .topbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:26px}
+  .brand{display:flex;align-items:center;gap:9px;font-weight:800;font-size:19px;letter-spacing:-.02em}
+  .brand .dot{width:11px;height:11px;border-radius:50%;background:var(--green)}
+  .brand span{color:var(--green-dark)}
+  .cur{display:flex;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:3px;gap:2px}
+  .cur button{border:0;background:transparent;font:inherit;font-weight:600;font-size:14px;color:var(--muted);padding:6px 13px;border-radius:7px;cursor:pointer;line-height:1}
+  .cur button.on{background:var(--green);color:#fff}
+
+  .head{text-align:center;margin-bottom:22px}
+  .head .ey{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--green-dark);font-weight:700}
+  .head h1{font-size:30px;font-weight:800;letter-spacing:-.02em;margin:7px 0 4px}
+  .head p{color:var(--muted);font-size:15px}
+
+  /* hero output */
+  .hero{background:var(--ink);border-radius:22px;padding:34px 28px;text-align:center;margin-bottom:14px;position:relative;overflow:hidden}
+  .hero .lab{color:#9DE7CC;font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:700}
+  .hero .big{color:#fff;font-size:clamp(46px,9vw,84px);font-weight:800;letter-spacing:-.03em;line-height:1.02;margin:8px 0 4px}
+  .hero .sub{color:#AEB8C4;font-size:15px}
+  .hero .sub b{color:#fff;font-weight:600}
+  .nudge{margin-top:16px;display:none;background:#222B38;border:1px solid #313C4B;color:#C9D2DC;font-size:13.5px;line-height:1.5;border-radius:12px;padding:12px 16px;text-align:left}
+  .nudge.show{display:block}
+  .nudge b{color:#fff;font-weight:600}
+
+  /* inputs */
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:8px 22px 18px}
+  .row{padding:20px 0;border-bottom:1px solid var(--line)}
+  .row:last-child{border-bottom:0}
+  .rtop{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:13px}
+  .rtop .l{font-size:16px;font-weight:600}
+  .rtop .h{font-size:12.5px;color:var(--hint);margin-top:3px;max-width:560px;line-height:1.45}
+  .val{display:flex;align-items:center;border:1px solid var(--line);border-radius:10px;background:#fff;padding:0 4px 0 11px;height:42px;flex-shrink:0}
+  .val .pre{color:var(--muted);font-weight:600;font-size:15px}
+  .val input{border:0;outline:0;font:inherit;font-weight:700;font-size:17px;color:var(--ink);width:96px;text-align:right;padding:0 6px;background:transparent}
+  .val .suf{color:var(--muted);font-weight:600;font-size:15px;padding-right:6px}
+  .val input::-webkit-outer-spin-button,.val input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+  .val input[type=number]{-moz-appearance:textfield}
+
+  input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:8px;border-radius:8px;background:var(--track);outline:0;cursor:pointer;margin-top:2px}
+  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:22px;height:22px;border-radius:50%;background:var(--green);border:3px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.18);cursor:pointer}
+  input[type=range]::-moz-range-thumb{width:19px;height:19px;border-radius:50%;background:var(--green);border:3px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.18);cursor:pointer}
+
+  .foot{text-align:center;color:var(--hint);font-size:12px;margin-top:22px;line-height:1.6}
+  @media(max-width:560px){
+    .rtop{flex-direction:column}
+    .val{align-self:flex-start}
+    .hero{padding:28px 18px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>Optimal<span>ly</span></div>
+    <div class="cur" id="cur">
+      <button data-c="$" class="on">$</button>
+      <button data-c="£">£</button>
+    </div>
+  </div>
+
+  <div class="head">
+    <div class="ey">ROI Calculator</div>
+    <h1>What this could be worth to you</h1>
+    <p>Drag the sliders or type your own numbers. The output updates live.</p>
+  </div>
+
+  <div class="hero">
+    <div class="lab">Projected revenue</div>
+    <div class="big" id="out">$15,000</div>
+    <div class="sub" id="breakdown"></div>
+    <div class="nudge" id="nudge"></div>
+  </div>
+
+  <div class="panel">
+
+    <div class="row">
+      <div class="rtop">
+        <div>
+          <div class="l">Average customer LTV</div>
+          <div class="h">The total revenue one client is worth to you over their lifetime.</div>
+        </div>
+        <div class="val"><span class="pre" data-cur>$</span><input id="ltv_n" type="number" min="0" max="100000" step="500" value="5000"></div>
+      </div>
+      <input id="ltv_s" type="range" min="0" max="50000" step="500" value="5000">
+    </div>
+
+    <div class="row">
+      <div class="rtop">
+        <div>
+          <div class="l">Estimated booked calls per month</div>
+          <div class="h">Defaulted to 5 — the lower end of what our clients see across a 90-day period. Many get 500+ leads and 100+ bookings a month, so this is deliberately conservative.</div>
+        </div>
+        <div class="val"><input id="calls_n" type="number" min="0" max="200" step="1" value="5"><span class="suf">/mo</span></div>
+      </div>
+      <input id="calls_s" type="range" min="0" max="100" step="1" value="5">
+    </div>
+
+    <div class="row">
+      <div class="rtop">
+        <div>
+          <div class="l">Engagement length</div>
+          <div class="h">How many months we're modelling. Defaults to 3 (the 90-day intro engagement).</div>
+        </div>
+        <div class="val"><input id="months_n" type="number" min="1" max="36" step="1" value="3"><span class="suf">mo</span></div>
+      </div>
+      <input id="months_s" type="range" min="1" max="24" step="1" value="3">
+    </div>
+
+    <div class="row">
+      <div class="rtop">
+        <div>
+          <div class="l">Estimated close rate</div>
+          <div class="h">The percentage of booked calls you turn into paying clients. Defaults to 20%.</div>
+        </div>
+        <div class="val"><input id="close_n" type="number" min="0" max="100" step="1" value="20"><span class="suf">%</span></div>
+      </div>
+      <input id="close_s" type="range" min="0" max="100" step="1" value="20">
+    </div>
+
+  </div>
+
+  <div class="foot">A projection based on the figures you enter. Actual results vary by business.<br>© 2026 Optimally Ltd · demos.optimally.ltd/calculator</div>
+
+</div>
+
+<script>
+(function(){
+  var cur = "$";
+  var fields = {
+    ltv:    {n:document.getElementById('ltv_n'),    s:document.getElementById('ltv_s'),    max:50000},
+    calls:  {n:document.getElementById('calls_n'),  s:document.getElementById('calls_s'),  max:100},
+    months: {n:document.getElementById('months_n'), s:document.getElementById('months_s'), max:24},
+    close:  {n:document.getElementById('close_n'),  s:document.getElementById('close_s'),  max:100}
+  };
+  var out = document.getElementById('out');
+  var breakdown = document.getElementById('breakdown');
+  var nudge = document.getElementById('nudge');
+
+  function fmt(v){ return cur + Math.round(v).toLocaleString('en-US'); }
+  function fillSlider(s){
+    var pct = (s.value - s.min) / (s.max - s.min) * 100;
+    if(pct<0)pct=0; if(pct>100)pct=100;
+    s.style.background = 'linear-gradient(to right, var(--green) 0%, var(--green) '+pct+'%, var(--track) '+pct+'%, var(--track) 100%)';
+  }
+  function clientsLabel(n){
+    var r = Math.round(n*10)/10;
+    return (r % 1 === 0 ? r.toFixed(0) : r.toFixed(1));
+  }
+
+  function recalc(){
+    var ltv = +fields.ltv.n.value || 0;
+    var calls = +fields.calls.n.value || 0;
+    var months = +fields.months.n.value || 0;
+    var close = +fields.close.n.value || 0;
+    var clients = calls * months * (close/100);
+    var cash = clients * ltv;
+
+    out.textContent = fmt(cash);
+    breakdown.innerHTML = '<b>'+clientsLabel(clients)+' new clients</b> over '+months+' month'+(months==1?'':'s')+'  ·  '+calls+' calls/mo × '+months+'mo × '+close+'% close × '+fmt(ltv)+' LTV';
+
+    if(cash < 5000){
+      nudge.classList.add('show');
+      nudge.innerHTML = '<b>That figure looks conservative.</b> It’s the real output of the numbers you entered — but it’s well below what we typically see. Try modelling with more realistic figures for your business (most clients book far more than this).';
+    } else {
+      nudge.classList.remove('show');
+    }
+  }
+
+  Object.keys(fields).forEach(function(k){
+    var f = fields[k];
+    f.s.addEventListener('input', function(){ f.n.value = f.s.value; fillSlider(f.s); recalc(); });
+    f.n.addEventListener('input', function(){
+      var v = +f.n.value || 0;
+      f.s.value = Math.min(v, f.max);
+      fillSlider(f.s); recalc();
+    });
+    fillSlider(f.s);
+  });
+
+  document.getElementById('cur').addEventListener('click', function(e){
+    var b = e.target.closest('button'); if(!b) return;
+    cur = b.getAttribute('data-c');
+    [].forEach.call(this.querySelectorAll('button'), function(x){ x.classList.toggle('on', x===b); });
+    [].forEach.call(document.querySelectorAll('[data-cur]'), function(x){ x.textContent = cur; });
+    recalc();
+  });
+
+  recalc();
+})();
+</script>
+</body>
+</html>
