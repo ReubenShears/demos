@@ -80,16 +80,31 @@ Write it to a temp file, e.g. `/tmp/<slug>.html`. (In a routine, fetch the build
 Self-check before placing: all 9 sections present; headline ≤3 lines; logo prominent; every CTA tracked;
 `© 2026`; renders mobile/tablet/desktop; no letter clipping; no lorem where real content existed.
 
-### 3. Place + safety net
+### 3. Place + safety net (also injects the Optimally interstitial)
 Run the bundled script — it's now a SAFETY NET (Claude already baked CTAs/logo/year, but this guarantees
-them and places the file):
+them and places the file) AND it injects the standard Optimally demo interstitial modal. ALWAYS pass the
+modal's parameters explicitly so it personalises and themes correctly:
 ```bash
-FAVICON_URL="<favicon-url>" OG_IMAGE_URL="<og-image-url>" node "<skill-dir>/scripts/place_demo.mjs" /tmp/<slug>.html <slug> "<deploy-root>" "<logo-url>"
+FAVICON_URL="<favicon-url>" OG_IMAGE_URL="<og-image-url>" \
+COMPANY_NAME="<short brand, e.g. Trust Relations>" \
+BRAND_COLOR="<scraped primary hex>" ACCENT_COLOR="<scraped secondary/accent hex>" \
+node "<skill-dir>/scripts/place_demo.mjs" /tmp/<slug>.html <slug> "<deploy-root>" "<logo-url>"
 ```
 `<deploy-root>` = `D:/Claude Cowork/demos` locally, or the cloned/working repo root remotely. `<logo-url>`,
-`<favicon-url>`, `<og-image-url>` come from step 1 (`branding.images.logo` / `.favicon` / `.ogImage`). The
-script re-asserts tracked "Learn More" CTAs, forces the real logo, injects the favicon + og:image if Claude
-missed them, normalizes the footer year to 2026, and writes `<slug>/index.html`. Confirm the printed CTA count is > 0.
+`<favicon-url>`, `<og-image-url>` come from step 1 (`branding.images.logo` / `.favicon` / `.ogImage`).
+`COMPANY_NAME` = the SHORT brand (nicer in the modal copy). `BRAND_COLOR`/`ACCENT_COLOR` = the scraped
+palette (primary + secondary/accent) — the modal tints itself from these via `color-mix`. The script
+re-asserts tracked "Learn More" CTAs, forces the real logo, injects favicon + og:image if Claude missed
+them, normalizes the footer year to 2026, **injects the interstitial modal**, and writes `<slug>/index.html`.
+Confirm the printed CTA count is > 0 and the `Interstitial injected:` line shows the right company + colours.
+
+**The interstitial (don't author it yourself — the script owns it):** a dismissable popup that auto-surfaces
+after 10s AND intercepts every CTA/button as a contextual midpoint before booking. It tells the visitor this
+is a live demo by Optimally, invites them to book a walkthrough to see the strategy + how it fits a full
+client-generating funnel for THEIR business (personalised with `COMPANY_NAME`), and injects 7-day urgency
+(live countdown from the build date; after 7 days it softens to "live for a limited time, about to expire —
+act now" since demos aren't actually taken down). Its button points to the same partner CTA as the page.
+`CREATED_DATE` defaults to today (the build date) — only override if back-dating.
 
 ### 4. Deploy to Vercel (git push to ReubenShears/demos)
 Deploy = commit `<slug>/index.html` and push to `main`; Vercel auto-builds → `demos.optimally.ltd/<slug>`.

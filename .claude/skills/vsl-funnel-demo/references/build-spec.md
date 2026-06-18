@@ -107,6 +107,13 @@ controlled headline length and logo size, real animations.
 ## Footer
 - Real logo, final "Learn More" CTA, basic links (privacy/terms/contact), copyright **"© 2026 <Company>"**.
 
+## Interstitial popup — do NOT author it (the place step owns it)
+Do not write any popup/modal/overlay yourself. `place_demo.mjs` deterministically injects the standard
+Optimally interstitial after you write the page: a dismissable modal that auto-surfaces after 10s and
+intercepts every CTA/button as a contextual midpoint before booking, personalised to the company, themed
+from the brand palette, with 7-day urgency. Just author the page normally — keep your CTAs as the tracked
+"Learn More" anchors and leave the popup to the script.
+
 ## Social share / SEO — the link must unfurl beautifully when sent to a prospect
 The demo link gets pasted into iMessage / Slack / WhatsApp / email, so the `<head>` must produce a rich
 preview card:
