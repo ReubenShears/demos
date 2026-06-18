@@ -472,14 +472,10 @@ tailwind.config = {
       <img class="om-logo" src="https://framerusercontent.com/images/hUMFc5uZTevF0122Bkpv9kgZDI.png" alt="Optimally" />
     </div>
     <h2 id="om-title" class="om-title">Like what you see, <span class="om-accent">Trust Relations</span>?</h2>
-    <p class="om-body">
-      This is a <strong>live demo, custom-built by Optimally</strong> to show what's possible for Trust Relations.
-      If you haven't booked your walkthrough yet, tap below — we'll walk you through the strategy behind this page
-      and exactly how it slots into a full funnel built to bring <strong>Trust Relations a steady flow of new clients</strong>.
-    </p>
+    <p class="om-body">A live demo <strong>Optimally</strong> built for Trust Relations. Book a quick walkthrough to see the strategy behind it — and how it powers a full funnel that brings <strong>Trust Relations</strong> new clients.</p>
     <div class="om-urgency">
-      <span class="om-pill" id="om-days">Expires in 7 days</span>
-      <span class="om-urgency-text">This demo stays live for 7 days from when it was built — it comes down on <strong id="om-expiry">soon</strong>, so it's worth booking this week.</span>
+      <span class="om-pill" id="om-days">7 days left</span>
+      <span class="om-urgency-text" id="om-utext"></span>
     </div>
     <a id="om-book" class="om-cta" href="https://www.optimally.ltd/demo?partner=trustrelations" target="_blank" rel="noopener noreferrer">Book my free walkthrough &rarr;</a>
     <button class="om-later" data-om-close>Maybe later</button>
@@ -498,6 +494,7 @@ tailwind.config = {
   #om-modal .om-card{
     position:relative; width:100%; max-width:440px; background:#fff; border-radius:22px;
     padding:30px 28px 26px; text-align:center;
+    max-height:92vh; max-height:92dvh; overflow-y:auto; -webkit-overflow-scrolling:touch;
     box-shadow:0 30px 80px -20px rgba(20,12,40,.6); border:1px solid rgba(70,46,127,.10);
     animation:om-rise .35s cubic-bezier(.2,.8,.2,1) both;
   }
@@ -561,9 +558,14 @@ tailwind.config = {
     var expiry  = new Date(created.getTime() + LIVE_DAYS*86400000);
     var left    = Math.ceil((expiry - new Date())/86400000);
     var pill = document.getElementById('om-days');
-    var exp  = document.getElementById('om-expiry');
-    if(exp)  exp.textContent  = expiry.toLocaleDateString(undefined,{month:'long', day:'numeric'});
-    if(pill) pill.textContent = left > 1 ? ("Expires in "+left+" days") : (left === 1 ? "Expires tomorrow" : "Final day");
+    var txt  = document.getElementById('om-utext');
+    if(left > 0){
+      if(pill) pill.textContent = left === 1 ? "1 day left" : left + " days left";
+      if(txt)  txt.innerHTML = "Only live for 7 days — book before <strong>" + expiry.toLocaleDateString(undefined,{month:'long', day:'numeric'}) + "</strong>.";
+    } else {
+      if(pill) pill.textContent = "Expiring soon";
+      if(txt)  txt.innerHTML = "Live for a limited time and about to expire — <strong>act now</strong>.";
+    }
   }
   function open(){
     if(modal.classList.contains('open')) return;
