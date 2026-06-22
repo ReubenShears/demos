@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>System Fresh — Strategy, Executed</title>
+<meta name="description" content="System Fresh is a New York consulting firm that bridges strategy, technology, and execution — turning insight into measurable growth for SMEs and startups." />
+<link rel="icon" href="https://systemfreshconsulting.com/wp-content/uploads/2021/01/cropped-favicon-32x32.png" />
+<meta property="og:title" content="System Fresh — Strategy, Executed" />
+<meta property="og:description" content="We don't just advise. We execute measurable growth — a plug-and-play team that assesses, strategizes, and delivers." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://demos.optimally.ltd/systemfreshconsulting" />
+<meta property="og:image" content="https://systemfreshconsulting.com/wp-content/uploads/2020/11/logo6.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="System Fresh — Strategy, Executed" />
+<meta name="twitter:description" content="A plug-and-play team that assesses, strategizes, and executes — measurable growth for SMEs and startups." />
+<meta name="twitter:image" content="https://systemfreshconsulting.com/wp-content/uploads/2020/11/logo6.png" />
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          brand: '#FE9F18',
+          branddeep: '#E07F00',
+          ink: '#1b1d24',
+          body: '#3a3a40',
+          warm: '#FBF7F0',
+          charcoal: '#16181d',
+        },
+        fontFamily: {
+          display: ['Sora', 'system-ui', 'sans-serif'],
+          sans: ['Inter', 'system-ui', 'sans-serif'],
+        },
+      },
+    },
+  };
+</script>
+<style>
+  html, body { overflow-x: hidden; max-width: 100%; }
+  body { font-family: 'Inter', system-ui, sans-serif; color: #3a3a40; background: #ffffff; -webkit-font-smoothing: antialiased; }
+  h1, h2, h3, .font-display { font-family: 'Sora', system-ui, sans-serif; }
+  .headline { line-height: 1.12; padding-bottom: 0.08em; }
+  .accent { color: #FE9F18; }
+  /* atmospheric glows built from brand orange on light */
+  .mesh-hero {
+    background:
+      radial-gradient(60% 55% at 78% 8%, rgba(254,159,24,0.16) 0%, rgba(254,159,24,0) 60%),
+      radial-gradient(50% 50% at 12% 30%, rgba(254,159,24,0.10) 0%, rgba(254,159,24,0) 55%),
+      linear-gradient(180deg, #ffffff 0%, #FBF7F0 100%);
+  }
+  .mesh-warm { background: linear-gradient(180deg, #FBF7F0 0%, #ffffff 100%); }
+  .mesh-dark {
+    background:
+      radial-gradient(55% 60% at 85% 0%, rgba(254,159,24,0.22) 0%, rgba(254,159,24,0) 60%),
+      radial-gradient(45% 50% at 5% 100%, rgba(254,159,24,0.12) 0%, rgba(254,159,24,0) 55%),
+      #16181d;
+  }
+  .reveal { opacity: 0; transform: translateY(26px); transition: opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1); }
+  .reveal.in { opacity: 1; transform: none; }
+  .cta {
+    display: inline-flex; align-items: center; gap: .55rem; white-space: nowrap;
+    background: #FE9F18; color: #16181d; font-weight: 600; letter-spacing: .01em;
+    padding: .95rem 1.9rem; border-radius: 999px; text-decoration: none;
+    box-shadow: 0 14px 34px -12px rgba(254,159,24,0.75); transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+  }
+  .cta:hover { transform: translateY(-2px) scale(1.015); background: #ffb347; box-shadow: 0 20px 46px -12px rgba(254,159,24,0.85); }
+  .cta-ghost {
+    display: inline-flex; align-items: center; gap: .55rem; white-space: nowrap;
+    background: rgba(255,255,255,0.06); color: #fff; font-weight: 600; border: 1px solid rgba(255,255,255,0.18);
+    padding: .95rem 1.9rem; border-radius: 999px; text-decoration: none; transition: .2s ease;
+  }
+  .cta-ghost:hover { background: rgba(255,255,255,0.12); transform: translateY(-2px); }
+  .proof { display: inline-flex; align-items: center; gap: .6rem; font-size: .8rem; color: #6b6b73; }
+  .av { width: 26px; height: 26px; border-radius: 999px; border: 2px solid #fff; display: inline-flex; align-items: center; justify-content: center; color: #fff; font-size: 11px; font-weight: 700; margin-left: -8px; box-shadow: 0 2px 6px rgba(0,0,0,.12); }
+  .av:first-child { margin-left: 0; }
+  .stars { color: #FE9F18; letter-spacing: 1px; }
+  .card { background: #fff; border: 1px solid rgba(27,29,36,0.08); border-radius: 18px; box-shadow: 0 1px 0 rgba(27,29,36,0.02), 0 18px 40px -28px rgba(27,29,36,0.25); transition: transform .25s ease, box-shadow .25s ease; }
+  .card:hover { transform: translateY(-4px); box-shadow: 0 26px 60px -30px rgba(254,159,24,0.45); }
+  .icobox { width: 50px; height: 50px; border-radius: 14px; display: inline-flex; align-items: center; justify-content: center; background: rgba(254,159,24,0.12); color: #c9760a; }
+  .marquee { display: flex; gap: 3rem; width: max-content; animation: scroll 32s linear infinite; }
+  @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  .marquee span { font-family: 'Sora'; font-weight: 600; font-size: 1.05rem; color: rgba(255,255,255,0.55); white-space: nowrap; letter-spacing: .02em; }
+  details.faq { border-bottom: 1px solid rgba(27,29,36,0.1); }
+  details.faq summary { list-style: none; cursor: pointer; padding: 1.25rem 0; display: flex; justify-content: space-between; align-items: center; gap: 1rem; font-family: 'Sora'; font-weight: 600; color: #1b1d24; font-size: 1.05rem; }
+  details.faq summary::-webkit-details-marker { display: none; }
+  details.faq .plus { flex: 0 0 auto; width: 26px; height: 26px; border-radius: 999px; background: rgba(254,159,24,0.14); color: #c9760a; display: inline-flex; align-items: center; justify-content: center; transition: transform .25s ease; font-weight: 700; }
+  details.faq[open] .plus { transform: rotate(45deg); }
+  details.faq p { padding: 0 0 1.4rem; color: #56565e; line-height: 1.65; max-width: 60ch; }
+  .play { width: 86px; height: 86px; border-radius: 999px; background: #FE9F18; display: flex; align-items: center; justify-content: center; box-shadow: 0 18px 50px -10px rgba(254,159,24,0.7); transition: transform .25s ease; }
+  .vsl:hover .play { transform: scale(1.06); }
+  .vsl-mesh { background: radial-gradient(80% 90% at 50% 0%, rgba(254,159,24,0.30) 0%, rgba(254,159,24,0) 60%), linear-gradient(135deg, #1f2128 0%, #16181d 55%, #23262e 100%); }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1 !important; transform: none !important; transition: none; }
+    .marquee { animation: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- 0. BANNER (not sticky, scrolls away) -->
+<div class="mesh-dark text-white text-center text-[13px] sm:text-sm py-2.5 px-4 font-medium tracking-wide">
+  <span class="accent">●</span>&nbsp; New York based · Strategy, technology & execution under one roof — <span class="text-white/80">watch the 60-second video below</span>
+</div>
+
+<!-- 1. HERO -->
+<header class="mesh-hero">
+  <div class="max-w-5xl mx-auto px-5 sm:px-8 pt-7 sm:pt-9 pb-16 sm:pb-20">
+    <!-- logo -->
+    <div class="flex justify-center">
+      <img src="https://systemfreshconsulting.com/wp-content/uploads/2020/11/logo6.png" alt="System Fresh" class="h-14 sm:h-16 w-auto" />
+    </div>
+
+    <div class="text-center mt-7 sm:mt-9">
+      <p class="text-[11px] sm:text-xs font-semibold uppercase tracking-[0.18em] text-branddeep">
+        Attention: SMEs, startups &amp; emerging businesses ready to scale
+      </p>
+      <h1 class="headline text-3xl sm:text-5xl lg:text-6xl font-semibold text-ink mt-4 max-w-3xl mx-auto">
+        Bridge vision and <span class="accent">execution.</span><br class="hidden sm:block" />
+        Drive <span class="accent">measurable growth,</span> almost overnight.
+      </h1>
+      <p class="mt-5 text-base sm:text-lg text-body max-w-2xl mx-auto">
+        Senior strategy <span class="text-ink font-medium">and</span> hands-on execution, on demand — no bloated retainers, no slide decks that gather dust.
+      </p>
+      <p class="mt-3 text-sm sm:text-base text-body/80 max-w-2xl mx-auto">
+        Consulting, brand strategy, data analytics &amp; software — one plug-and-play team that assesses, strategizes, and executes.
+      </p>
+    </div>
+
+    <!-- VSL placeholder -->
+    <div class="vsl relative mt-9 sm:mt-11 max-w-3xl mx-auto rounded-2xl overflow-hidden vsl-mesh aspect-video flex flex-col items-center justify-center cursor-pointer ring-1 ring-black/5 shadow-2xl">
+      <div class="play">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="#16181d" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+      </div>
+      <p class="text-white/85 text-sm mt-5 font-medium">Watch: how System Fresh turns strategy into executed results</p>
+      <span class="absolute bottom-3 right-4 text-white/45 text-xs font-mono">1:06</span>
+    </div>
+
+    <p class="text-center mt-6 font-display text-lg sm:text-xl text-ink font-medium">We are not just consultants. <span class="accent">We Execute.</span></p>
+
+    <!-- CTA below video -->
+    <div class="flex flex-col items-center mt-6">
+      <a href="https://www.optimally.ltd/demo?partner=systemfreshconsulting" target="_blank" rel="noopener noreferrer" class="cta">Learn More
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <div class="proof mt-4">
+        <span class="flex"><span class="av" style="background:#FE9F18">O</span><span class="av" style="background:#1b1d24">K</span><span class="av" style="background:#c9760a">H</span></span>
+        <span>Trusted by teams at Ogilvy, Kaiser Permanente, Horizon Media &amp; more</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- client trust marquee -->
+  <div class="mesh-dark py-5 overflow-hidden">
+    <div class="marquee px-6">
+      <span>Ogilvy</span><span>Kaiser Permanente</span><span>Horizon Media</span><span>Serato DJ Pro</span><span>Madwell</span><span>Windpact</span><span>NYC</span><span>Newman</span><span>Wonder Works</span><span>Corso Marketing</span>
+      <span>Ogilvy</span><span>Kaiser Permanente</span><span>Horizon Media</span><span>Serato DJ Pro</span><span>Madwell</span><span>Windpact</span><span>NYC</span><span>Newman</span><span>Wonder Works</span><span>Corso Marketing</span>
+    </div>
+  </div>
+</header>
+
+<!-- 2. PAINS -->
+<section class="bg-white">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8 py-16 sm:py-24">
+    <div class="reveal text-center max-w-2xl mx-auto">
+      <p class="text-xs font-semibold uppercase tracking-[0.18em] text-branddeep">The problem</p>
+      <h2 class="text-2xl sm:text-4xl font-semibold text-ink mt-3">Big consultancies sell deliverables. You needed the result.</h2>
+      <p class="mt-4 text-body">Don't let an expensive firm add to the problem with decks that never ship. Here's where growth usually stalls.</p>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-12">
+      <div class="reveal card p-6">
+        <span class="icobox"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
+        <h3 class="font-display font-semibold text-ink mt-4 text-lg">Expensive, with no execution</h3>
+        <p class="mt-2 text-sm text-body leading-relaxed">You get a polished deck and a big invoice — then the actual doing is left to you.</p>
+      </div>
+      <div class="reveal card p-6">
+        <span class="icobox"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 8v4l3 2"/><circle cx="12" cy="12" r="9"/></svg></span>
+        <h3 class="font-display font-semibold text-ink mt-4 text-lg">Strategy that never ships</h3>
+        <p class="mt-2 text-sm text-body leading-relaxed">Plans stall because there's no team to turn the insight into action and outcomes.</p>
+      </div>
+      <div class="reveal card p-6">
+        <span class="icobox"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M3 7h18M3 12h18M3 17h12"/></svg></span>
+        <h3 class="font-display font-semibold text-ink mt-4 text-lg">Overhead you don't need</h3>
+        <p class="mt-2 text-sm text-body leading-relaxed">Bloated retainers and layers of consultants inflate the cost without adding value.</p>
+      </div>
+      <div class="reveal card p-6">
+        <span class="icobox"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/></svg></span>
+        <h3 class="font-display font-semibold text-ink mt-4 text-lg">No bandwidth or specialists</h3>
+        <p class="mt-2 text-sm text-body leading-relaxed">Your team is stretched thin and lacks the niche talent to move fast on the hard stuff.</p>
+      </div>
+    </div>
+    <div class="reveal flex flex-col items-center mt-12">
+      <a href="https://www.optimally.ltd/demo?partner=systemfreshconsulting" target="_blank" rel="noopener noreferrer" class="cta">Learn More
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <div class="proof mt-4"><span class="stars">★★★★★</span><span>“They provided precisely what we needed.”</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. SOLUTION -->
+<section class="mesh-warm">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8 py-16 sm:py-24">
+    <div class="reveal text-center max-w-2xl mx-auto">
+      <p class="text-xs font-semibold uppercase tracking-[0.18em] text-branddeep">Our approach</p>
+      <h2 class="text-2xl sm:text-4xl font-semibold text-ink mt-3">Assess. Strategize. <span class="accent">Execute.</span></h2>
+      <p class="mt-4 text-body">We uniquely bridge strategy, technology, and execution — integrating as a plug-and-play extension of your team to deliver real, measurable results.</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-5 mt-12">
+      <div class="reveal card p-7">
+        <div class="flex items-center gap-3"><span class="icobox"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="m21 21-4.3-4.3"/><circle cx="11" cy="11" r="8"/></svg></span><span class="font-mono text-sm text-branddeep">01</span></div>
+        <h3 class="font-display font-semibold text-ink mt-4 text-xl">Assess</h3>
+        <p class="mt-2 text-sm text-body leading-relaxed">Business assessment, deep research, and data analytics to find what's really holding growth back.</p>
+      </div>
+      <div class="reveal card p-7">
+        <div class="flex items-center gap-3"><span class="icobox"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M2 12h4l3 8 4-16 3 8h4"/></svg></span><span class="font-mono text-sm text-branddeep">02</span></div>
+        <h3 class="font-display font-semibold text-ink mt-4 text-xl">Strategize</h3>
+        <p class="mt-2 text-sm text-body leading-relaxed">Smart strategy across consulting, brand, and technology — built around measurable outcomes, not theory.</p>
+      </div>
+      <div class="reveal card p-7">
+        <div class="flex items-center gap-3"><span class="icobox"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9z"/></svg></span><span class="font-mono text-sm text-branddeep">03</span></div>
+        <h3 class="font-display font-semibold text-ink mt-4 text-xl">Execute</h3>
+        <p class="mt-2 text-sm text-body leading-relaxed">A team that does the heavy lifting — software, BPO, digital marketing — driving impact almost overnight.</p>
+      </div>
+    </div>
+
+    <p class="reveal text-center font-display font-semibold text-ink mt-16 text-lg">One team. Every capability you need to grow.</p>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
+      <div class="reveal card p-5 flex items-start gap-4"><span class="icobox shrink-0"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="m7 14 4-4 3 3 5-6"/></svg></span><div><h4 class="font-display font-semibold text-ink">Business Consulting</h4><p class="text-sm text-body mt-1">Thought leadership and strategic insight for SMEs and emerging businesses.</p></div></div>
+      <div class="reveal card p-5 flex items-start gap-4"><span class="icobox shrink-0"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 2 2 7l10 5 10-5z"/><path d="m2 17 10 5 10-5M2 12l10 5 10-5"/></svg></span><div><h4 class="font-display font-semibold text-ink">Brand Strategy</h4><p class="text-sm text-body mt-1">A unique identity through creative ideas, compelling content, and clear messaging.</p></div></div>
+      <div class="reveal card p-5 flex items-start gap-4"><span class="icobox shrink-0"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="m8 6-6 6 6 6M16 6l6 6-6 6"/></svg></span><div><h4 class="font-display font-semibold text-ink">Software Development</h4><p class="text-sm text-body mt-1">Design and delivery of advanced technologies that drive real innovation.</p></div></div>
+      <div class="reveal card p-5 flex items-start gap-4"><span class="icobox shrink-0"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20"/></svg></span><div><h4 class="font-display font-semibold text-ink">Offshore Outsourcing</h4><p class="text-sm text-body mt-1">Managed BPO and specialized talent on demand, with quick turnaround.</p></div></div>
+      <div class="reveal card p-5 flex items-start gap-4"><span class="icobox shrink-0"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M3 3v18h18"/><rect x="7" y="10" width="3" height="7"/><rect x="12" y="6" width="3" height="11"/><rect x="17" y="13" width="3" height="4"/></svg></span><div><h4 class="font-display font-semibold text-ink">Research &amp; Data Analytics</h4><p class="text-sm text-body mt-1">Business research and analytics that turn information into confident decisions.</p></div></div>
+      <div class="reveal card p-5 flex items-start gap-4"><span class="icobox shrink-0"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg></span><div><h4 class="font-display font-semibold text-ink">Digital Marketing</h4><p class="text-sm text-body mt-1">Reach your audience and tell your story with content that performs.</p></div></div>
+    </div>
+
+    <div class="reveal flex flex-col items-center mt-12">
+      <a href="https://www.optimally.ltd/demo?partner=systemfreshconsulting" target="_blank" rel="noopener noreferrer" class="cta">Learn More
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <div class="proof mt-4"><span class="stars">★★★★★</span><span>Strategy, technology &amp; execution — under one roof</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. CALL TO ACTION (dark band) -->
+<section class="mesh-dark">
+  <div class="max-w-4xl mx-auto px-5 sm:px-8 py-16 sm:py-20 text-center">
+    <h2 class="reveal text-2xl sm:text-4xl font-semibold text-white">From insight to impact — <span class="accent">we execute.</span></h2>
+    <p class="reveal mt-4 text-white/70 max-w-xl mx-auto">Get specialized talent and senior expertise on demand, integrated as a plug-and-play extension of your team. Enhance performance, accelerate output, and drive measurable impact.</p>
+    <div class="reveal flex flex-col items-center mt-8">
+      <a href="https://www.optimally.ltd/demo?partner=systemfreshconsulting" target="_blank" rel="noopener noreferrer" class="cta">Learn More
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <div class="proof mt-4 text-white/55"><span class="stars">★★★★★</span><span class="text-white/55">Capable, experienced, and highly trustworthy</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. BUILDING TRUST -->
+<section class="bg-white">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8 py-16 sm:py-24">
+    <div class="reveal text-center max-w-2xl mx-auto">
+      <p class="text-xs font-semibold uppercase tracking-[0.18em] text-branddeep">Building trust</p>
+      <h2 class="text-2xl sm:text-4xl font-semibold text-ink mt-3">A transformational impact on our clients' business</h2>
+      <p class="mt-4 text-body">We help leaders build agile organizations fit for fast-paced markets — more effective in their markets, more profitable in sales and operations.</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-5 mt-12">
+      <div class="reveal card p-7 flex flex-col">
+        <div class="stars text-lg">★★★★★</div>
+        <p class="mt-4 text-body leading-relaxed text-[15px]">“An exceptional consulting model — capable, experienced, and highly trustworthy. What stood out was their integrity: no excessive overhead, no push for unnecessary services. They provided precisely what we needed.”</p>
+        <div class="flex items-center gap-3 mt-6 pt-5 border-t border-black/5">
+          <span class="w-11 h-11 rounded-xl bg-warm border border-brand/30 flex items-center justify-center text-branddeep"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="8" r="4"/></svg></span>
+          <div><p class="font-display font-semibold text-ink text-sm">Matthew Courtier</p><p class="text-xs text-body/70">CEO, Large Technology Firm</p></div>
+        </div>
+      </div>
+      <div class="reveal card p-7 flex flex-col">
+        <div class="stars text-lg">★★★★★</div>
+        <p class="mt-4 text-body leading-relaxed text-[15px]">“They didn't just hand us a strategy — they rolled up their sleeves and executed it with us. We saw movement in weeks, not quarters, and the team felt like our own.”</p>
+        <div class="flex items-center gap-3 mt-6 pt-5 border-t border-black/5">
+          <span class="w-11 h-11 rounded-xl bg-warm border border-brand/30 flex items-center justify-center text-branddeep"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="8" r="4"/></svg></span>
+          <div><p class="font-display font-semibold text-ink text-sm">Operations Lead</p><p class="text-xs text-body/70">Healthcare Group</p></div>
+        </div>
+      </div>
+      <div class="reveal card p-7 flex flex-col">
+        <div class="stars text-lg">★★★★★</div>
+        <p class="mt-4 text-body leading-relaxed text-[15px]">“As an early-stage company we needed senior expertise without the senior overhead. System Fresh gave us exactly that — strategy, data, and the technology to back it up.”</p>
+        <div class="flex items-center gap-3 mt-6 pt-5 border-t border-black/5">
+          <span class="w-11 h-11 rounded-xl bg-warm border border-brand/30 flex items-center justify-center text-branddeep"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="8" r="4"/></svg></span>
+          <div><p class="font-display font-semibold text-ink text-sm">Founder</p><p class="text-xs text-body/70">Startup Technology Company</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="reveal flex flex-col items-center mt-12">
+      <a href="https://www.optimally.ltd/demo?partner=systemfreshconsulting" target="_blank" rel="noopener noreferrer" class="cta">Learn More
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <div class="proof mt-4"><span class="stars">★★★★★</span><span>Healthcare · Technology · Media · Wellness · Startups</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. FOUNDER -->
+<section class="mesh-warm">
+  <div class="max-w-5xl mx-auto px-5 sm:px-8 py-16 sm:py-24">
+    <div class="grid md:grid-cols-5 gap-10 items-center">
+      <div class="reveal md:col-span-2">
+        <div class="relative rounded-2xl bg-charcoal vsl-mesh aspect-[4/5] flex items-center justify-center ring-1 ring-black/5 shadow-2xl overflow-hidden">
+          <svg width="92" height="92" fill="none" stroke="#FE9F18" stroke-width="1.4" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span class="absolute bottom-4 left-0 right-0 text-center text-white/80 text-sm font-display">Khalil Abdul Karim</span>
+        </div>
+      </div>
+      <div class="reveal md:col-span-3">
+        <p class="text-xs font-semibold uppercase tracking-[0.18em] text-branddeep">Meet the founder</p>
+        <h2 class="text-2xl sm:text-4xl font-semibold text-ink mt-3">Khalil Abdul Karim</h2>
+        <p class="text-branddeep font-medium mt-1">Visionary &amp; Chief Executive Officer</p>
+        <p class="mt-5 text-body leading-relaxed">For over a decade, Khalil has transformed start-up and small-cap businesses into highly effective, very profitable enterprises. His passion is architecting brand strategies for monetization and growth.</p>
+        <p class="mt-4 text-body leading-relaxed">He served as Business Development lead at The McGraw-Hill Companies, providing analytic support services to large investment banks and Fortune 500 companies. That blend of enterprise rigor and entrepreneurial drive is the engine behind System Fresh.</p>
+        <p class="mt-5 text-ink font-display font-medium italic">“We don't just adapt to change. We thrive in it.”</p>
+        <div class="flex flex-col items-start mt-7">
+          <a href="https://www.optimally.ltd/demo?partner=systemfreshconsulting" target="_blank" rel="noopener noreferrer" class="cta">Learn More
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <div class="proof mt-4"><span class="stars">★★★★★</span><span>Backed by a senior team — ex-McKinsey &amp; McGraw-Hill</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. FAQ -->
+<section class="bg-white">
+  <div class="max-w-3xl mx-auto px-5 sm:px-8 py-16 sm:py-24">
+    <div class="reveal text-center">
+      <p class="text-xs font-semibold uppercase tracking-[0.18em] text-branddeep">Questions, answered</p>
+      <h2 class="text-2xl sm:text-4xl font-semibold text-ink mt-3">You're probably wondering…</h2>
+    </div>
+    <div class="mt-10">
+      <details class="faq reveal" open><summary>Isn't consulting like this expensive?<span class="plus">+</span></summary><p>We're built lean — no excessive overhead and no padded retainers. You pay for execution and outcomes, not a roster of consultants. Many clients find our plug-and-play model costs less than a single senior hire.</p></details>
+      <details class="faq reveal"><summary>I don't have time to manage another vendor.<span class="plus">+</span></summary><p>We integrate as a plug-and-play extension of your team and handle the heavy lifting. You get specialized talent on demand without the management burden — we amplify your effort, not add to it.</p></details>
+      <details class="faq reveal"><summary>Does this work for my industry?<span class="plus">+</span></summary><p>We've delivered across healthcare, technology, media, wellness, and early-stage startups. Our Assess → Strategize → Execute method adapts to your market and your goals — never a one-size template.</p></details>
+      <details class="faq reveal"><summary>What if the strategy doesn't deliver?<span class="plus">+</span></summary><p>We're outcome-focused and measure success in your numbers, not our deliverables. We stay accountable to results and keep iterating with you until the impact is real and measurable.</p></details>
+      <details class="faq reveal"><summary>Why should I trust an outside firm?<span class="plus">+</span></summary><p>Integrity is our differentiator. We don't push unnecessary services or inflate scope. As one client put it: we are "capable, experienced, and highly trustworthy" — and we provide "precisely what you need."</p></details>
+      <details class="faq reveal"><summary>Am I locked into a long contract?<span class="plus">+</span></summary><p>No. Engage us for a single project or ongoing support. Our model flexes to your needs and scales up or down as your priorities change.</p></details>
+      <details class="faq reveal"><summary>How fast will we see results?<span class="plus">+</span></summary><p>Because we execute rather than just advise, many clients see measurable impact almost overnight, with quick turnaround built into how we work. Speed and agility are core to the model.</p></details>
+    </div>
+    <div class="reveal flex flex-col items-center mt-12">
+      <a href="https://www.optimally.ltd/demo?partner=systemfreshconsulting" target="_blank" rel="noopener noreferrer" class="cta">Learn More
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <div class="proof mt-4"><span class="stars">★★★★★</span><span>Smart strategies. Proven delivery.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 8. FOOTER -->
+<footer class="mesh-dark text-white">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8 py-14">
+    <div class="grid md:grid-cols-3 gap-10">
+      <div>
+        <span class="inline-flex bg-white rounded-lg px-3 py-2">
+          <img src="https://systemfreshconsulting.com/wp-content/uploads/2020/11/logo6.png" alt="System Fresh" class="h-9 w-auto" />
+        </span>
+        <p class="mt-4 text-sm text-white/60 leading-relaxed max-w-xs">A New York based strategic business management consulting firm bridging the gap between vision and execution.</p>
+      </div>
+      <div>
+        <p class="font-display font-semibold text-white/90">Capabilities</p>
+        <ul class="mt-3 space-y-2 text-sm text-white/60">
+          <li>Business Consulting</li>
+          <li>Brand Strategy</li>
+          <li>Software Development</li>
+          <li>Offshore Outsourcing</li>
+        </ul>
+      </div>
+      <div>
+        <p class="font-display font-semibold text-white/90">Get in touch</p>
+        <ul class="mt-3 space-y-2 text-sm text-white/60">
+          <li>info@systemfresh.com</li>
+          <li>+1 888 809 0109</li>
+          <li>433 Broadway, New York, NY 10013</li>
+        </ul>
+        <a href="https://www.optimally.ltd/demo?partner=systemfreshconsulting" target="_blank" rel="noopener noreferrer" class="cta mt-5">Learn More
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="mt-12 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/45">
+      <p>© 2026 System Fresh, LLC. All rights reserved.</p>
+      <div class="flex gap-5">
+        <a href="https://www.optimally.ltd/demo?partner=systemfreshconsulting" target="_blank" rel="noopener noreferrer" class="hover:text-white/80">Privacy</a>
+        <a href="https://www.optimally.ltd/demo?partner=systemfreshconsulting" target="_blank" rel="noopener noreferrer" class="hover:text-white/80">Terms</a>
+        <a href="https://www.optimally.ltd/demo?partner=systemfreshconsulting" target="_blank" rel="noopener noreferrer" class="hover:text-white/80">Contact</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var els = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) { els.forEach(function (e) { e.classList.add('in'); }); return; }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+    }, { threshold: 0.12 });
+    els.forEach(function (e) { io.observe(e); });
+  })();
+</script>
+
+<!-- ============ OPTIMALLY DEMO INTERSTITIAL (auto @10s + CTA midpoint) ============ -->
+<div id="om-modal" aria-hidden="true">
+  <div class="om-card" role="dialog" aria-modal="true" aria-labelledby="om-title">
+    <button class="om-x" data-om-close aria-label="Close">&times;</button>
+    <div class="om-head">
+      <span class="om-badge"><span class="om-dot"></span> Live demo</span>
+      <img class="om-logo" src="https://framerusercontent.com/images/hUMFc5uZTevF0122Bkpv9kgZDI.png" alt="Optimally" />
+    </div>
+    <h2 id="om-title" class="om-title">Like what you see, <span class="om-accent">System Fresh</span>?</h2>
+    <p class="om-body">A live demo <strong>Optimally</strong> built for System Fresh. Book a quick walkthrough to see the strategy behind it &mdash; and how it powers a full funnel that brings <strong>System Fresh</strong> new clients.</p>
+    <div class="om-urgency">
+      <span class="om-pill" id="om-days">7 days left</span>
+      <span class="om-urgency-text" id="om-utext"></span>
+    </div>
+    <a id="om-book" class="om-cta" href="https://www.optimally.ltd/demo?partner=systemfreshconsulting" target="_blank" rel="noopener noreferrer">Book my free walkthrough &rarr;</a>
+    <button class="om-later" data-om-close>Maybe later</button>
+  </div>
+</div>
+<style>
+  #om-modal{
+    --om-brand:#FE9F18; --om-accent:#E07F00;
+    position:fixed; inset:0; z-index:9999; display:none;
+    align-items:center; justify-content:center; padding:20px;
+    background:rgba(18,14,28,.55); backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px);
+    font-family:inherit;
+  }
+  #om-modal.open{display:flex; animation:om-fade .25s ease both}
+  @keyframes om-fade{from{opacity:0}to{opacity:1}}
+  #om-modal .om-card{
+    position:relative; width:100%; max-width:440px; background:#fff; border-radius:22px;
+    padding:30px 28px 26px; text-align:center;
+    max-height:92vh; max-height:92dvh; overflow-y:auto; -webkit-overflow-scrolling:touch;
+    box-shadow:0 30px 80px -20px rgba(18,14,28,.6); border:1px solid color-mix(in srgb, var(--om-brand) 12%, transparent);
+    animation:om-rise .35s cubic-bezier(.2,.8,.2,1) both;
+  }
+  @keyframes om-rise{from{opacity:0; transform:translateY(18px) scale(.98)}to{opacity:1; transform:none}}
+  #om-modal .om-x{position:absolute; top:12px; right:14px; width:34px; height:34px; border:0; cursor:pointer; background:transparent; color:#9b96a8; font-size:26px; line-height:1; border-radius:9px; transition:.15s;}
+  #om-modal .om-x:hover{background:color-mix(in srgb, var(--om-brand) 8%, transparent); color:#5b5668}
+  #om-modal .om-head{display:flex; align-items:center; justify-content:center; gap:12px; margin-bottom:16px}
+  #om-modal .om-badge{display:inline-flex; align-items:center; gap:7px; font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--om-brand); background:color-mix(in srgb, var(--om-brand) 10%, transparent); padding:6px 12px; border-radius:999px;}
+  #om-modal .om-dot{width:7px; height:7px; border-radius:50%; background:#3fbf6a; box-shadow:0 0 0 0 rgba(63,191,106,.5); animation:om-blink 1.8s ease-in-out infinite}
+  @keyframes om-blink{0%,100%{box-shadow:0 0 0 0 rgba(63,191,106,.5)}50%{box-shadow:0 0 0 5px rgba(63,191,106,0)}}
+  #om-modal .om-logo{height:20px; width:auto; opacity:.9}
+  #om-modal .om-title{font-size:24px; font-weight:700; line-height:1.2; margin:0 0 12px; color:#16151f}
+  #om-modal .om-accent{color:var(--om-accent)}
+  #om-modal .om-body{font-size:15px; line-height:1.6; color:#4a4658; margin:0 0 18px}
+  #om-modal .om-body strong{color:#16151f}
+  #om-modal .om-urgency{display:flex; align-items:flex-start; gap:11px; text-align:left; background:color-mix(in srgb, var(--om-brand) 6%, #fff); border:1px solid color-mix(in srgb, var(--om-brand) 12%, transparent); border-radius:14px; padding:13px 14px; margin-bottom:22px;}
+  #om-modal .om-pill{flex:0 0 auto; font-size:11.5px; font-weight:700; color:#fff; background:var(--om-brand); padding:5px 10px; border-radius:999px; white-space:nowrap; margin-top:1px;}
+  #om-modal .om-urgency-text{font-size:12.5px; line-height:1.5; color:#5b5668}
+  #om-modal .om-urgency-text strong{color:var(--om-brand)}
+  #om-modal .om-cta{display:block; width:100%; background:var(--om-brand); color:#fff; font-weight:600; font-size:16px; text-decoration:none; padding:15px; border-radius:999px; transition:.18s; box-shadow:0 12px 30px -8px color-mix(in srgb, var(--om-brand) 55%, transparent);}
+  #om-modal .om-cta:hover{background:var(--om-accent); transform:translateY(-1px); box-shadow:0 16px 38px -8px color-mix(in srgb, var(--om-accent) 60%, transparent)}
+  #om-modal .om-later{display:block; width:100%; margin-top:10px; background:transparent; border:0; cursor:pointer; color:#9b96a8; font-size:13.5px; font-weight:500; padding:8px; border-radius:8px; transition:.15s;}
+  #om-modal .om-later:hover{color:#5b5668}
+  @media (max-width:420px){ #om-modal .om-card{padding:26px 20px 22px} #om-modal .om-title{font-size:21px} }
+</style>
+<script>
+(function(){
+  var CREATED = "2026-06-22";
+  var LIVE_DAYS = 7;
+  var BOOK_URL = "https://www.optimally.ltd/demo?partner=systemfreshconsulting";
+  var modal = document.getElementById('om-modal');
+  if(!modal) return;
+  var book = document.getElementById('om-book');
+  var seen = false;
+  function refreshUrgency(){
+    var created = new Date(CREATED + "T00:00:00");
+    var expiry  = new Date(created.getTime() + LIVE_DAYS*86400000);
+    var left    = Math.ceil((expiry - new Date())/86400000);
+    var pill = document.getElementById('om-days');
+    var txt  = document.getElementById('om-utext');
+    if(left > 0){
+      if(pill) pill.textContent = left === 1 ? "1 day left" : left + " days left";
+      if(txt)  txt.innerHTML = "Only live for 7 days \u2014 book before <strong>" + expiry.toLocaleDateString(undefined,{month:'long', day:'numeric'}) + "</strong>.";
+    } else {
+      if(pill) pill.textContent = "Expiring soon";
+      if(txt)  txt.innerHTML = "Live for a limited time and about to expire \u2014 <strong>act now</strong>.";
+    }
+  }
+  function open(){
+    if(modal.classList.contains('open')) return;
+    refreshUrgency();
+    modal.classList.add('open'); modal.setAttribute('aria-hidden','false');
+    document.body.style.overflow = 'hidden'; seen = true;
+    if(book) book.focus();
+  }
+  function close(){
+    modal.classList.remove('open'); modal.setAttribute('aria-hidden','true');
+    document.body.style.overflow = '';
+  }
+  modal.addEventListener('click', function(e){
+    if(e.target === modal || (e.target.closest && e.target.closest('[data-om-close]'))){ e.preventDefault(); close(); }
+  });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && modal.classList.contains('open')) close(); });
+  if(book) book.addEventListener('click', function(){ setTimeout(close, 120); });
+  document.addEventListener('click', function(e){
+    var el = e.target.closest('a, button');
+    if(!el || modal.contains(el)) return;
+    var isCta = el.matches('a[href*="optimally.ltd/demo?partner"]') || el.tagName === 'BUTTON';
+    if(!isCta) return;
+    e.preventDefault(); e.stopPropagation(); open();
+  }, true);
+  setTimeout(function(){ if(!seen) open(); }, 10000);
+})();
+</script>
+
+</body>
+</html>
