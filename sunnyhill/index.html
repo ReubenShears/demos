@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Sunnyhill Church — Find faith, friendship and a place to belong in Dorset</title>
+<meta name="description" content="A warm welcome at Sunnyhill Church. Two Dorset campuses in Poole and Ferndown, the Alpha course, small groups and Nxt Gen for kids — explore faith and find real community this Sunday." />
+
+<!-- Open Graph -->
+<meta property="og:title" content="Sunnyhill Church — Find faith, friendship and a place to belong" />
+<meta property="og:description" content="Two welcoming Dorset campuses, Alpha, small groups and Nxt Gen for kids. Come exactly as you are this Sunday." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://demos.optimally.ltd/sunnyhill" />
+<meta property="og:image" content="https://static1.squarespace.com/static/5efc931b07a10e59c4224daf/t/5efca2cb3c37c309af098854/1593615052188/Sunnyhill-logo.png?format=1500w" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Sunnyhill Church — Find faith, friendship and a place to belong" />
+<meta name="twitter:description" content="Two welcoming Dorset campuses, Alpha, small groups and Nxt Gen for kids. Come exactly as you are this Sunday." />
+<meta name="twitter:image" content="https://static1.squarespace.com/static/5efc931b07a10e59c4224daf/t/5efca2cb3c37c309af098854/1593615052188/Sunnyhill-logo.png?format=1500w" />
+<link rel="icon" href="https://images.squarespace-cdn.com/content/v1/5efc931b07a10e59c4224daf/1593615005579-DQW4RG4HOJTDX259IQPX/favicon.ico?format=100w" />
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --brand:#EF4625; --brand-deep:#c9381a; --brand-soft:#fff0eb;
+    --green:#3fae12; --ink:#1c140f; --muted:#6b5e55; --bg:#fffaf7; --card:#ffffff; --line:#f0e3da;
+  }
+  html,body{overflow-x:hidden;max-width:100%}
+  body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased;}
+  h1,h2,h3,.font-head{font-family:'Sora','Inter',sans-serif;}
+  .accent{color:var(--brand);}
+  .eyebrow{letter-spacing:.14em;text-transform:uppercase;font-size:12.5px;font-weight:600;}
+  .logo-chip{background:linear-gradient(135deg,var(--brand),var(--brand-deep));border-radius:18px;box-shadow:0 18px 40px -16px rgba(239,70,37,.55);}
+  .btn{display:inline-flex;align-items:center;gap:.5rem;font-weight:600;font-family:'Sora',sans-serif;white-space:nowrap;border-radius:999px;transition:transform .18s ease, box-shadow .18s ease, background .18s ease;}
+  .btn-primary{background:linear-gradient(135deg,var(--brand),var(--brand-deep));color:#fff;padding:.95rem 2rem;font-size:1.02rem;box-shadow:0 16px 34px -12px rgba(239,70,37,.6);}
+  .btn-primary:hover{transform:translateY(-2px) scale(1.015);box-shadow:0 22px 46px -12px rgba(239,70,37,.7);}
+  .proof{font-size:12.5px;color:var(--muted);margin-top:.7rem;display:flex;align-items:center;justify-content:center;gap:.45rem;flex-wrap:wrap;}
+  .stars{color:#f5a623;letter-spacing:1px;}
+  .ava{display:inline-flex;margin-right:-8px;width:26px;height:26px;border-radius:50%;border:2px solid #fff;align-items:center;justify-content:center;color:#fff;font-size:11px;font-weight:600;box-shadow:0 2px 6px rgba(0,0,0,.12);}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:20px;}
+  .glow{position:absolute;border-radius:50%;filter:blur(70px);opacity:.5;pointer-events:none;z-index:0;}
+  .icon-box{width:50px;height:50px;border-radius:14px;display:flex;align-items:center;justify-content:center;background:var(--brand-soft);color:var(--brand);flex:0 0 auto;}
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);}
+  .reveal.in{opacity:1;transform:none;}
+  .play-btn{width:84px;height:84px;border-radius:50%;background:rgba(255,255,255,.95);display:flex;align-items:center;justify-content:center;box-shadow:0 18px 50px -10px rgba(0,0,0,.45);transition:transform .2s ease;}
+  .vsl:hover .play-btn{transform:scale(1.06);}
+  .faq-q{cursor:pointer;list-style:none;}
+  details summary::-webkit-details-marker{display:none;}
+  details[open] .faq-chev{transform:rotate(180deg);}
+  @media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none;transition:none;}}
+</style>
+</head>
+<body>
+
+<!-- ===== 0. BANNER (slim, not sticky) ===== -->
+<div style="background:linear-gradient(90deg,var(--brand-deep),var(--brand));color:#fff;" class="w-full text-center py-2.5 px-4 text-[13px] font-medium tracking-wide">
+  <span class="inline-flex items-center gap-2 justify-center">
+    <span class="inline-block w-2 h-2 rounded-full" style="background:#7CFC4A;box-shadow:0 0 0 0 rgba(124,252,74,.6);animation:pulse 1.8s infinite;"></span>
+    Watch the welcome video below — see what a Sunday at Sunnyhill is really like
+  </span>
+</div>
+<style>@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(124,252,74,.6)}50%{box-shadow:0 0 0 6px rgba(124,252,74,0)}}</style>
+
+<!-- ===== 1. HERO ===== -->
+<header class="relative overflow-hidden px-5 pt-7 pb-16 sm:pt-9">
+  <div class="glow" style="width:480px;height:480px;background:#ffb59f;top:-160px;left:-120px;"></div>
+  <div class="glow" style="width:420px;height:420px;background:#ffd9cb;top:40px;right:-140px;opacity:.45;"></div>
+  <div class="relative z-10 max-w-3xl mx-auto text-center flex flex-col items-center">
+
+    <!-- logo on contrasting chip (logo art is white) -->
+    <div class="logo-chip inline-flex px-6 py-3.5 mb-5">
+      <img src="https://images.squarespace-cdn.com/content/v1/5efc931b07a10e59c4224daf/1593622229453-QNG41MJFKY85196P2QFD/Sunnyhill+logo+white+border+no+background+white+text.png?format=1500w" alt="Sunnyhill Church" class="h-12 sm:h-14 w-auto" style="max-width:100%;" />
+    </div>
+
+    <p class="eyebrow accent mb-3">Attention: anyone in Poole, Ferndown &amp; wider Dorset</p>
+
+    <h1 class="font-head font-semibold leading-[1.12] text-[2rem] sm:text-5xl lg:text-6xl mb-4" style="padding-bottom:.06em;">
+      Find <span class="accent">faith</span>, <span class="accent">friendship</span> and a place to <span class="accent">belong</span>
+    </h1>
+
+    <p class="text-[15px] sm:text-base font-medium mb-2" style="color:var(--muted);">
+      Come exactly as you are. No cost, no pressure, a genuine welcome every single Sunday.
+    </p>
+    <p class="text-[15px] sm:text-[17px] mb-7 max-w-xl mx-auto" style="color:var(--muted);">
+      Two welcoming Dorset campuses, the <strong style="color:var(--ink)">Alpha course</strong>, real <strong style="color:var(--ink)">small groups</strong> and <strong style="color:var(--ink)">Nxt Gen</strong> for the kids — everything you need to explore faith and find community.
+    </p>
+
+    <!-- VSL placeholder -->
+    <div class="vsl relative w-full max-w-2xl mx-auto rounded-2xl overflow-hidden cursor-pointer mb-3" style="aspect-ratio:16/9;background:radial-gradient(120% 120% at 30% 20%, #ff6a47 0%, #d83a1c 55%, #8f2410 100%);box-shadow:0 30px 70px -24px rgba(200,56,26,.55);">
+      <div class="absolute inset-0 opacity-30" style="background-image:radial-gradient(circle at 80% 70%, rgba(255,255,255,.5), transparent 40%);"></div>
+      <div class="absolute inset-0 flex flex-col items-center justify-center gap-3">
+        <div class="play-btn"><svg width="30" height="30" viewBox="0 0 24 24" fill="var(--brand)"><path d="M8 5v14l11-7z"/></svg></div>
+        <span class="text-white/90 text-sm font-medium tracking-wide">Watch the 2-minute welcome from the Sunnyhill family</span>
+      </div>
+    </div>
+
+    <!-- CTA below video -->
+    <div class="mt-3">
+      <a href="https://www.optimally.ltd/demo?partner=sunnyhill" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Learn More</a>
+      <p class="proof">
+        <span class="flex items-center" style="padding-right:6px;">
+          <span class="ava" style="background:#EF4625;">P</span><span class="ava" style="background:#3fae12;">F</span><span class="ava" style="background:#f5a623;">N</span>
+        </span>
+        <span class="stars">★★★★★</span> Loved by families across Poole &amp; Ferndown
+      </p>
+    </div>
+  </div>
+</header>
+
+<!-- trust strip -->
+<div class="border-y" style="border-color:var(--line);background:#fff;">
+  <div class="max-w-4xl mx-auto px-5 py-4 grid grid-cols-3 gap-3 text-center">
+    <div><div class="font-head font-700 text-xl sm:text-2xl accent" data-count="2">2</div><div class="text-[11px] sm:text-xs" style="color:var(--muted);letter-spacing:.04em;">Dorset campuses</div></div>
+    <div><div class="font-head font-700 text-xl sm:text-2xl accent">10:30am</div><div class="text-[11px] sm:text-xs" style="color:var(--muted);letter-spacing:.04em;">Every Sunday</div></div>
+    <div><div class="font-head font-700 text-xl sm:text-2xl accent">All</div><div class="text-[11px] sm:text-xs" style="color:var(--muted);letter-spacing:.04em;">Ages welcome</div></div>
+  </div>
+</div>
+
+<!-- ===== 2. PAINS ===== -->
+<section class="relative px-5 py-16 sm:py-20">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center max-w-2xl mx-auto mb-12 reveal">
+      <p class="eyebrow accent mb-2">Sound familiar?</p>
+      <h2 class="font-head font-semibold text-3xl sm:text-4xl leading-tight">Sundays can feel <span class="accent">empty</span> when you're doing life alone</h2>
+      <p class="mt-3 text-[15px] sm:text-base" style="color:var(--muted);">If any of these ring true, you're exactly who we built a welcome for.</p>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      <!-- card -->
+      <div class="card p-6 reveal">
+        <div class="icon-box mb-4"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l8-4 8 4v14M9 9h0M9 13h0M9 17h0"/></svg></div>
+        <h3 class="font-head font-600 text-lg mb-1.5">New to the area</h3>
+        <p class="text-[14.5px] leading-relaxed" style="color:var(--muted);">You've moved to Poole or Ferndown and don't yet know a single soul.</p>
+      </div>
+      <div class="card p-6 reveal">
+        <div class="icon-box mb-4"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 17v.01M12 13a3 3 0 1 0-3-3"/><circle cx="12" cy="12" r="9"/></svg></div>
+        <h3 class="font-head font-600 text-lg mb-1.5">Big questions, no safe space</h3>
+        <p class="text-[14.5px] leading-relaxed" style="color:var(--muted);">You're curious about faith but church feels intimidating or "not for you".</p>
+      </div>
+      <div class="card p-6 reveal">
+        <div class="icon-box mb-4"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="3"/><path d="M2 21a7 7 0 0 1 14 0M16 3.1a4 4 0 0 1 0 7.8M22 21a7 7 0 0 0-5-6.7"/></svg></div>
+        <h3 class="font-head font-600 text-lg mb-1.5">Friendships that stay shallow</h3>
+        <p class="text-[14.5px] leading-relaxed" style="color:var(--muted);">You want real connection, not another round of polite small talk.</p>
+      </div>
+      <div class="card p-6 reveal">
+        <div class="icon-box mb-4"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.4-9.5-8.3C.5 9 2.5 5 6 5c2 0 3 1 4 2.5C11 6 12 5 14 5c3.5 0 5.5 4 3.5 7.7C19 16.6 12 21 12 21z"/></svg></div>
+        <h3 class="font-head font-600 text-lg mb-1.5">Somewhere for the kids</h3>
+        <p class="text-[14.5px] leading-relaxed" style="color:var(--muted);">You want a place that's genuinely fun and safe for your children too.</p>
+      </div>
+      <div class="card p-6 reveal">
+        <div class="icon-box mb-4"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/></svg></div>
+        <h3 class="font-head font-600 text-lg mb-1.5">Searching for purpose</h3>
+        <p class="text-[14.5px] leading-relaxed" style="color:var(--muted);">Life is busy yet somehow hollow — you sense there's more to it.</p>
+      </div>
+      <div class="card p-6 reveal">
+        <div class="icon-box mb-4"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.5 9 9 0 0 1-4-1L3 21l1.9-5A8.5 8.5 0 1 1 21 11.5z"/></svg></div>
+        <h3 class="font-head font-600 text-lg mb-1.5">Wanting to give back</h3>
+        <p class="text-[14.5px] leading-relaxed" style="color:var(--muted);">You'd love to serve your community but don't know where to start.</p>
+      </div>
+    </div>
+    <div class="text-center mt-11 reveal">
+      <a href="https://www.optimally.ltd/demo?partner=sunnyhill" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Learn More</a>
+      <p class="proof"><span class="stars">★★★★★</span> "I walked in a stranger and left with friends" — a first-time guest</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 3. SOLUTION ===== -->
+<section class="relative px-5 py-16 sm:py-20" style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+  <div class="glow" style="width:360px;height:360px;background:#ffd9cb;bottom:-100px;left:-80px;opacity:.4;"></div>
+  <div class="relative z-10 max-w-5xl mx-auto">
+    <div class="text-center max-w-2xl mx-auto mb-12 reveal">
+      <p class="eyebrow accent mb-2">The Sunnyhill Welcome</p>
+      <h2 class="font-head font-semibold text-3xl sm:text-4xl leading-tight">A simple path from <span class="accent">first visit</span> to feeling at home</h2>
+      <p class="mt-3 text-[15px] sm:text-base" style="color:var(--muted);">Four easy steps — go at your own pace, there's never any pressure.</p>
+    </div>
+    <div class="grid sm:grid-cols-2 gap-5">
+      <div class="card p-7 reveal" style="border-left:3px solid var(--brand);">
+        <div class="flex items-center gap-3 mb-2"><div class="icon-box"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5 12 3l9 6.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg></div><span class="font-head font-700 text-sm accent">STEP ONE</span></div>
+        <h3 class="font-head font-600 text-xl mb-1.5">Visit a Sunday service</h3>
+        <p class="text-[14.5px] leading-relaxed" style="color:var(--muted);">Join us at <strong style="color:var(--ink)">Poole</strong> (Magna Academy) or <strong style="color:var(--ink)">Ferndown</strong> (Village Hall), 10:30am. Great music, a real welcome, coffee on us.</p>
+      </div>
+      <div class="card p-7 reveal" style="border-left:3px solid var(--brand);">
+        <div class="flex items-center gap-3 mb-2"><div class="icon-box"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><span class="font-head font-700 text-sm accent">STEP TWO</span></div>
+        <h3 class="font-head font-600 text-xl mb-1.5">Explore your questions on Alpha</h3>
+        <p class="text-[14.5px] leading-relaxed" style="color:var(--muted);">A relaxed, no-judgement course over food where every question about life and faith is welcome.</p>
+      </div>
+      <div class="card p-7 reveal" style="border-left:3px solid var(--brand);">
+        <div class="flex items-center gap-3 mb-2"><div class="icon-box"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="3"/><path d="M2 21a7 7 0 0 1 14 0M16 3.1a4 4 0 0 1 0 7.8M22 21a7 7 0 0 0-5-6.7"/></svg></div><span class="font-head font-700 text-sm accent">STEP THREE</span></div>
+        <h3 class="font-head font-600 text-xl mb-1.5">Find your people in a Small Group</h3>
+        <p class="text-[14.5px] leading-relaxed" style="color:var(--muted);">Midweek and small groups across Dorset where friendships actually go deep and life is shared.</p>
+      </div>
+      <div class="card p-7 reveal" style="border-left:3px solid var(--brand);">
+        <div class="flex items-center gap-3 mb-2"><div class="icon-box"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 6v6c0 5 3.5 8 8 10 4.5-2 8-5 8-10V6z"/><path d="m9 12 2 2 4-4"/></svg></div><span class="font-head font-700 text-sm accent">STEP FOUR</span></div>
+        <h3 class="font-head font-600 text-xl mb-1.5">Grow, serve &amp; belong</h3>
+        <p class="text-[14.5px] leading-relaxed" style="color:var(--muted);"><strong style="color:var(--ink)">Nxt Gen</strong> for kids &amp; youth, join a team, become a Dream Builder — there's a place here for everyone.</p>
+      </div>
+    </div>
+    <div class="text-center mt-11 reveal">
+      <a href="https://www.optimally.ltd/demo?partner=sunnyhill" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Learn More</a>
+      <p class="proof"><span class="stars">★★★★★</span> Hundreds have found their home through the Sunnyhill Welcome</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 4. CALL TO ACTION band ===== -->
+<section class="relative px-5 py-16 sm:py-20 overflow-hidden" style="background:radial-gradient(120% 130% at 50% 0%, #ff6a47 0%, #d83a1c 55%, #a82c12 100%);">
+  <div class="glow" style="width:400px;height:400px;background:#ff8a6b;top:-120px;right:-100px;opacity:.4;"></div>
+  <div class="relative z-10 max-w-2xl mx-auto text-center text-white">
+    <h2 class="font-head font-semibold text-3xl sm:text-4xl leading-tight mb-3" style="padding-bottom:.05em;">This Sunday could be the one you finally feel at home</h2>
+    <p class="text-white/85 text-[15px] sm:text-lg mb-7">Whether you've been to church a hundred times or never once, there's a seat with your name on it at Poole and Ferndown. Come and see.</p>
+    <a href="https://www.optimally.ltd/demo?partner=sunnyhill" target="_blank" rel="noopener noreferrer" class="btn" style="background:#fff;color:var(--brand-deep);padding:.95rem 2rem;box-shadow:0 16px 34px -12px rgba(0,0,0,.35);">Learn More</a>
+    <p class="proof" style="color:rgba(255,255,255,.85);"><span class="stars">★★★★★</span> "The warmest welcome we've ever had walking into a church"</p>
+  </div>
+</section>
+
+<!-- ===== 5. BUILDING TRUST (testimonials) ===== -->
+<section class="relative px-5 py-16 sm:py-20">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center max-w-2xl mx-auto mb-12 reveal">
+      <p class="eyebrow accent mb-2">Building trust</p>
+      <h2 class="font-head font-semibold text-3xl sm:text-4xl leading-tight">Real people. <span class="accent">Real belonging.</span></h2>
+      <p class="mt-3 text-[15px] sm:text-base" style="color:var(--muted);">Stories from across our Poole and Ferndown family.</p>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div class="card p-6 reveal">
+        <div class="stars text-lg mb-3">★★★★★</div>
+        <p class="text-[14.5px] leading-relaxed mb-5">"We moved to Poole knowing nobody. Within a few weeks at Sunnyhill we had a small group that felt like family. It changed everything for us."</p>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background:var(--brand-soft);color:var(--brand);"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="6" r="3.2"/><path d="M3.5 18a6.5 6.5 0 0 1 13 0"/></svg></div>
+          <div><div class="font-head font-600 text-sm">Hannah &amp; Tom</div><div class="text-xs" style="color:var(--muted);">Poole campus</div></div>
+        </div>
+      </div>
+      <div class="card p-6 reveal">
+        <div class="stars text-lg mb-3">★★★★★</div>
+        <p class="text-[14.5px] leading-relaxed mb-5">"I came with a hundred doubts and a lot of questions. Alpha gave me space to ask all of them. No pressure, just honest conversation and good food."</p>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background:var(--brand-soft);color:var(--brand);"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="6" r="3.2"/><path d="M3.5 18a6.5 6.5 0 0 1 13 0"/></svg></div>
+          <div><div class="font-head font-600 text-sm">James</div><div class="text-xs" style="color:var(--muted);">Alpha guest</div></div>
+        </div>
+      </div>
+      <div class="card p-6 reveal">
+        <div class="stars text-lg mb-3">★★★★★</div>
+        <p class="text-[14.5px] leading-relaxed mb-5">"Our kids actually beg to come on Sundays. Nxt Gen is brilliant — fun, safe and so well run. As parents that means the world to us."</p>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background:var(--brand-soft);color:var(--brand);"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="6" r="3.2"/><path d="M3.5 18a6.5 6.5 0 0 1 13 0"/></svg></div>
+          <div><div class="font-head font-600 text-sm">The Okafor family</div><div class="text-xs" style="color:var(--muted);">Ferndown campus</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="text-center mt-11 reveal">
+      <a href="https://www.optimally.ltd/demo?partner=sunnyhill" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Learn More</a>
+      <p class="proof"><span class="stars">★★★★★</span> A genuine welcome for every age and stage</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 6. FOUNDER / TEAM ===== -->
+<section class="relative px-5 py-16 sm:py-20" style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+  <div class="max-w-4xl mx-auto">
+    <div class="grid md:grid-cols-[260px,1fr] gap-8 items-center">
+      <div class="reveal">
+        <div class="rounded-2xl flex items-center justify-center" style="aspect-ratio:1/1;background:linear-gradient(135deg,var(--brand-soft),#fff);border:1px solid var(--line);">
+          <svg width="92" height="92" fill="none" stroke="var(--brand)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="46" cy="34" r="18"/><path d="M14 80a32 32 0 0 1 64 0"/></svg>
+        </div>
+      </div>
+      <div class="reveal">
+        <p class="eyebrow accent mb-2">Meet the team</p>
+        <h2 class="font-head font-semibold text-3xl sm:text-4xl leading-tight mb-3">The people behind the welcome</h2>
+        <p class="text-[15px] leading-relaxed mb-3" style="color:var(--muted);">Sunnyhill is led by a team of pastors and hundreds of volunteers who genuinely believe church should feel like family. For years they've made it their mission to build a generous, warm community across Poole and Ferndown where anyone — whatever their background or beliefs — can belong.</p>
+        <p class="text-[15px] leading-relaxed mb-6" style="color:var(--muted);">Their heart is simple: help people find faith, friendship and purpose, and to keep God and generosity at the centre of everything Sunnyhill does as a registered charity serving Dorset.</p>
+        <a href="https://www.optimally.ltd/demo?partner=sunnyhill" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Learn More</a>
+        <p class="proof" style="justify-content:flex-start;"><span class="stars">★★★★★</span> Led by people who'll know your name</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 7. FAQ ===== -->
+<section class="relative px-5 py-16 sm:py-20">
+  <div class="max-w-3xl mx-auto">
+    <div class="text-center mb-11 reveal">
+      <p class="eyebrow accent mb-2">Questions, answered</p>
+      <h2 class="font-head font-semibold text-3xl sm:text-4xl leading-tight">Everything you might be wondering</h2>
+    </div>
+    <div class="space-y-3.5">
+      <details class="card p-5 reveal">
+        <summary class="faq-q flex items-center justify-between gap-4"><span class="font-head font-600 text-[16px]">I'm not religious and I have doubts. Is Sunnyhill still for me?</span><svg class="faq-chev flex-none transition-transform" width="20" height="20" fill="none" stroke="var(--brand)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <p class="mt-3 text-[14.5px] leading-relaxed" style="color:var(--muted);">Absolutely. Plenty of people who come have never been to church or aren't sure what they believe — that's genuinely welcome here. The Alpha course exists precisely so you can ask any question with no pressure to agree.</p>
+      </details>
+      <details class="card p-5 reveal">
+        <summary class="faq-q flex items-center justify-between gap-4"><span class="font-head font-600 text-[16px]">What do I wear, and what is a service actually like?</span><svg class="faq-chev flex-none transition-transform" width="20" height="20" fill="none" stroke="var(--brand)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <p class="mt-3 text-[14.5px] leading-relaxed" style="color:var(--muted);">Come exactly as you are — jeans and a coffee are perfect. Services last around 90 minutes with modern music, a down-to-earth talk and friendly people. No awkward rituals, no spotlight on guests.</p>
+      </details>
+      <details class="card p-5 reveal">
+        <summary class="faq-q flex items-center justify-between gap-4"><span class="font-head font-600 text-[16px]">I have children — is there something for them?</span><svg class="faq-chev flex-none transition-transform" width="20" height="20" fill="none" stroke="var(--brand)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <p class="mt-3 text-[14.5px] leading-relaxed" style="color:var(--muted);">Yes — Nxt Gen runs age-appropriate, fun and fully safeguarded groups for kids and youth every Sunday, so you can relax knowing they're cared for while you enjoy the service.</p>
+      </details>
+      <details class="card p-5 reveal">
+        <summary class="faq-q flex items-center justify-between gap-4"><span class="font-head font-600 text-[16px]">I'm new to the area and don't know anyone. Will I fit in?</span><svg class="faq-chev flex-none transition-transform" width="20" height="20" fill="none" stroke="var(--brand)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <p class="mt-3 text-[14.5px] leading-relaxed" style="color:var(--muted);">That's one of the best reasons to come. Our welcome team will look after you on day one, and small groups and midweek gatherings make it easy to build real friendships fast.</p>
+      </details>
+      <details class="card p-5 reveal">
+        <summary class="faq-q flex items-center justify-between gap-4"><span class="font-head font-600 text-[16px]">Does it cost anything to come?</span><svg class="faq-chev flex-none transition-transform" width="20" height="20" fill="none" stroke="var(--brand)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <p class="mt-3 text-[14.5px] leading-relaxed" style="color:var(--muted);">Nothing at all. Sunday services, Alpha and groups are completely free. Giving is something our members choose to do to support the community, but there's never any expectation on guests.</p>
+      </details>
+      <details class="card p-5 reveal">
+        <summary class="faq-q flex items-center justify-between gap-4"><span class="font-head font-600 text-[16px]">Do I have to commit or sign up to anything?</span><svg class="faq-chev flex-none transition-transform" width="20" height="20" fill="none" stroke="var(--brand)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <p class="mt-3 text-[14.5px] leading-relaxed" style="color:var(--muted);">No commitment whatsoever. Come once, come occasionally, or make it home — it's entirely your pace. You can simply turn up on a Sunday with zero strings attached.</p>
+      </details>
+      <details class="card p-5 reveal">
+        <summary class="faq-q flex items-center justify-between gap-4"><span class="font-head font-600 text-[16px]">Where exactly are you and when do you meet?</span><svg class="faq-chev flex-none transition-transform" width="20" height="20" fill="none" stroke="var(--brand)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8l5 5 5-5"/></svg></summary>
+        <p class="mt-3 text-[14.5px] leading-relaxed" style="color:var(--muted);">Two campuses, both at 10:30am every Sunday: <strong style="color:var(--ink)">Poole</strong> at Magna Academy, Ashdown Close, BH17 8RE, and <strong style="color:var(--ink)">Ferndown</strong> at Ferndown Village Hall, Church Road, BH22 9ET. Just turn up — we'll be looking out for you.</p>
+      </details>
+    </div>
+    <div class="text-center mt-11 reveal">
+      <a href="https://www.optimally.ltd/demo?partner=sunnyhill" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Learn More</a>
+      <p class="proof"><span class="stars">★★★★★</span> Still wondering? We'd love to say hello in person</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 8. FOOTER ===== -->
+<footer class="relative px-5 pt-14 pb-9 text-white overflow-hidden" style="background:#1c140f;">
+  <div class="glow" style="width:360px;height:360px;background:#7a2a12;top:-120px;left:50%;transform:translateX(-50%);opacity:.5;"></div>
+  <div class="relative z-10 max-w-4xl mx-auto text-center">
+    <img src="https://images.squarespace-cdn.com/content/v1/5efc931b07a10e59c4224daf/1593622229453-QNG41MJFKY85196P2QFD/Sunnyhill+logo+white+border+no+background+white+text.png?format=1500w" alt="Sunnyhill Church" class="h-9 w-auto mx-auto mb-5" style="max-width:100%;" />
+    <h3 class="font-head font-semibold text-2xl sm:text-3xl mb-3">A place to belong is waiting for you</h3>
+    <a href="https://www.optimally.ltd/demo?partner=sunnyhill" target="_blank" rel="noopener noreferrer" class="btn btn-primary mb-3">Learn More</a>
+    <p class="proof" style="color:rgba(255,255,255,.6);"><span class="stars">★★★★★</span> See you this Sunday in Poole or Ferndown</p>
+
+    <div class="grid sm:grid-cols-2 gap-6 mt-10 text-left max-w-2xl mx-auto text-[14px]" style="color:rgba(255,255,255,.75);">
+      <div>
+        <div class="font-head font-600 text-white mb-1.5">Poole campus</div>
+        <p>Magna Academy, Ashdown Close,<br/>Poole, BH17 8RE — 10:30am Sundays</p>
+      </div>
+      <div>
+        <div class="font-head font-600 text-white mb-1.5">Ferndown campus</div>
+        <p>Ferndown Village Hall, Church Road,<br/>Ferndown, BH22 9ET — 10:30am Sundays</p>
+      </div>
+    </div>
+
+    <div class="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 mt-8 text-[13.5px]" style="color:rgba(255,255,255,.7);">
+      <a href="https://www.optimally.ltd/demo?partner=sunnyhill" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">Contact</a>
+      <span class="opacity-30">·</span>
+      <a href="https://www.optimally.ltd/demo?partner=sunnyhill" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">Privacy</a>
+      <span class="opacity-30">·</span>
+      <a href="https://www.optimally.ltd/demo?partner=sunnyhill" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">Safeguarding</a>
+      <span class="opacity-30">·</span>
+      <a href="https://www.optimally.ltd/demo?partner=sunnyhill" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">Giving</a>
+    </div>
+    <p class="mt-4 text-[12.5px]" style="color:rgba(255,255,255,.45);">office@sunnyhill.church &nbsp;·&nbsp; +44 (0)1202 805683 &nbsp;·&nbsp; Registered Charity No. 1161294</p>
+    <p class="mt-2 text-[12.5px]" style="color:rgba(255,255,255,.4);">© 2026 Sunnyhill Church. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  // scroll reveal
+  (function(){
+    var els = document.querySelectorAll('.reveal');
+    if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return;}
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target);} });
+    },{threshold:.12, rootMargin:'0px 0px -40px 0px'});
+    els.forEach(function(e){io.observe(e);});
+  })();
+  // count-up on real stat (campuses = 2)
+  (function(){
+    var el = document.querySelector('[data-count]');
+    if(!el) return;
+    var done=false, target=parseInt(el.getAttribute('data-count'),10);
+    var io=new IntersectionObserver(function(en){
+      if(en[0].isIntersecting && !done){done=true; var n=0; var t=setInterval(function(){n++; el.textContent=n; if(n>=target)clearInterval(t);},180);}
+    },{threshold:.5});
+    io.observe(el);
+  })();
+</script>
+
+<!-- ============ OPTIMALLY DEMO INTERSTITIAL (auto @10s + CTA midpoint) ============ -->
+<div id="om-modal" aria-hidden="true">
+  <div class="om-card" role="dialog" aria-modal="true" aria-labelledby="om-title">
+    <button class="om-x" data-om-close aria-label="Close">&times;</button>
+    <div class="om-head">
+      <span class="om-badge"><span class="om-dot"></span> Live demo</span>
+      <img class="om-logo" src="https://framerusercontent.com/images/hUMFc5uZTevF0122Bkpv9kgZDI.png" alt="Optimally" />
+    </div>
+    <h2 id="om-title" class="om-title">Like what you see, <span class="om-accent">Sunnyhill</span>?</h2>
+    <p class="om-body">A live demo <strong>Optimally</strong> built for Sunnyhill. Book a quick walkthrough to see the strategy behind it &mdash; and how it powers a full funnel that brings <strong>Sunnyhill</strong> new clients.</p>
+    <div class="om-urgency">
+      <span class="om-pill" id="om-days">7 days left</span>
+      <span class="om-urgency-text" id="om-utext"></span>
+    </div>
+    <a id="om-book" class="om-cta" href="https://www.optimally.ltd/demo?partner=sunnyhill" target="_blank" rel="noopener noreferrer">Book my free walkthrough &rarr;</a>
+    <button class="om-later" data-om-close>Maybe later</button>
+  </div>
+</div>
+<style>
+  #om-modal{
+    --om-brand:#EF4625; --om-accent:#c9381a;
+    position:fixed; inset:0; z-index:9999; display:none;
+    align-items:center; justify-content:center; padding:20px;
+    background:rgba(18,14,28,.55); backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px);
+    font-family:inherit;
+  }
+  #om-modal.open{display:flex; animation:om-fade .25s ease both}
+  @keyframes om-fade{from{opacity:0}to{opacity:1}}
+  #om-modal .om-card{
+    position:relative; width:100%; max-width:440px; background:#fff; border-radius:22px;
+    padding:30px 28px 26px; text-align:center;
+    max-height:92vh; max-height:92dvh; overflow-y:auto; -webkit-overflow-scrolling:touch;
+    box-shadow:0 30px 80px -20px rgba(18,14,28,.6); border:1px solid color-mix(in srgb, var(--om-brand) 12%, transparent);
+    animation:om-rise .35s cubic-bezier(.2,.8,.2,1) both;
+  }
+  @keyframes om-rise{from{opacity:0; transform:translateY(18px) scale(.98)}to{opacity:1; transform:none}}
+  #om-modal .om-x{position:absolute; top:12px; right:14px; width:34px; height:34px; border:0; cursor:pointer; background:transparent; color:#9b96a8; font-size:26px; line-height:1; border-radius:9px; transition:.15s;}
+  #om-modal .om-x:hover{background:color-mix(in srgb, var(--om-brand) 8%, transparent); color:#5b5668}
+  #om-modal .om-head{display:flex; align-items:center; justify-content:center; gap:12px; margin-bottom:16px}
+  #om-modal .om-badge{display:inline-flex; align-items:center; gap:7px; font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--om-brand); background:color-mix(in srgb, var(--om-brand) 10%, transparent); padding:6px 12px; border-radius:999px;}
+  #om-modal .om-dot{width:7px; height:7px; border-radius:50%; background:#3fbf6a; box-shadow:0 0 0 0 rgba(63,191,106,.5); animation:om-blink 1.8s ease-in-out infinite}
+  @keyframes om-blink{0%,100%{box-shadow:0 0 0 0 rgba(63,191,106,.5)}50%{box-shadow:0 0 0 5px rgba(63,191,106,0)}}
+  #om-modal .om-logo{height:20px; width:auto; opacity:.9}
+  #om-modal .om-title{font-size:24px; font-weight:700; line-height:1.2; margin:0 0 12px; color:#16151f}
+  #om-modal .om-accent{color:var(--om-accent)}
+  #om-modal .om-body{font-size:15px; line-height:1.6; color:#4a4658; margin:0 0 18px}
+  #om-modal .om-body strong{color:#16151f}
+  #om-modal .om-urgency{display:flex; align-items:flex-start; gap:11px; text-align:left; background:color-mix(in srgb, var(--om-brand) 6%, #fff); border:1px solid color-mix(in srgb, var(--om-brand) 12%, transparent); border-radius:14px; padding:13px 14px; margin-bottom:22px;}
+  #om-modal .om-pill{flex:0 0 auto; font-size:11.5px; font-weight:700; color:#fff; background:var(--om-brand); padding:5px 10px; border-radius:999px; white-space:nowrap; margin-top:1px;}
+  #om-modal .om-urgency-text{font-size:12.5px; line-height:1.5; color:#5b5668}
+  #om-modal .om-urgency-text strong{color:var(--om-brand)}
+  #om-modal .om-cta{display:block; width:100%; background:var(--om-brand); color:#fff; font-weight:600; font-size:16px; text-decoration:none; padding:15px; border-radius:999px; transition:.18s; box-shadow:0 12px 30px -8px color-mix(in srgb, var(--om-brand) 55%, transparent);}
+  #om-modal .om-cta:hover{background:var(--om-accent); transform:translateY(-1px); box-shadow:0 16px 38px -8px color-mix(in srgb, var(--om-accent) 60%, transparent)}
+  #om-modal .om-later{display:block; width:100%; margin-top:10px; background:transparent; border:0; cursor:pointer; color:#9b96a8; font-size:13.5px; font-weight:500; padding:8px; border-radius:8px; transition:.15s;}
+  #om-modal .om-later:hover{color:#5b5668}
+  @media (max-width:420px){ #om-modal .om-card{padding:26px 20px 22px} #om-modal .om-title{font-size:21px} }
+</style>
+<script>
+(function(){
+  var CREATED = "2026-06-24";
+  var LIVE_DAYS = 7;
+  var BOOK_URL = "https://www.optimally.ltd/demo?partner=sunnyhill";
+  var modal = document.getElementById('om-modal');
+  if(!modal) return;
+  var book = document.getElementById('om-book');
+  var seen = false;
+  function refreshUrgency(){
+    var created = new Date(CREATED + "T00:00:00");
+    var expiry  = new Date(created.getTime() + LIVE_DAYS*86400000);
+    var left    = Math.ceil((expiry - new Date())/86400000);
+    var pill = document.getElementById('om-days');
+    var txt  = document.getElementById('om-utext');
+    if(left > 0){
+      if(pill) pill.textContent = left === 1 ? "1 day left" : left + " days left";
+      if(txt)  txt.innerHTML = "Only live for 7 days \u2014 book before <strong>" + expiry.toLocaleDateString(undefined,{month:'long', day:'numeric'}) + "</strong>.";
+    } else {
+      if(pill) pill.textContent = "Expiring soon";
+      if(txt)  txt.innerHTML = "Live for a limited time and about to expire \u2014 <strong>act now</strong>.";
+    }
+  }
+  function open(){
+    if(modal.classList.contains('open')) return;
+    refreshUrgency();
+    modal.classList.add('open'); modal.setAttribute('aria-hidden','false');
+    document.body.style.overflow = 'hidden'; seen = true;
+    if(book) book.focus();
+  }
+  function close(){
+    modal.classList.remove('open'); modal.setAttribute('aria-hidden','true');
+    document.body.style.overflow = '';
+  }
+  modal.addEventListener('click', function(e){
+    if(e.target === modal || (e.target.closest && e.target.closest('[data-om-close]'))){ e.preventDefault(); close(); }
+  });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && modal.classList.contains('open')) close(); });
+  if(book) book.addEventListener('click', function(){ setTimeout(close, 120); });
+  document.addEventListener('click', function(e){
+    var el = e.target.closest('a, button');
+    if(!el || modal.contains(el)) return;
+    var isCta = el.matches('a[href*="optimally.ltd/demo?partner"]') || el.tagName === 'BUTTON';
+    if(!isCta) return;
+    e.preventDefault(); e.stopPropagation(); open();
+  }, true);
+  setTimeout(function(){ if(!seen) open(); }, 10000);
+})();
+</script>
+
+</body>
+</html>
