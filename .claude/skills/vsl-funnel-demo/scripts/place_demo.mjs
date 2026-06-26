@@ -266,6 +266,7 @@ if (!/id=["']om-beacon["']/.test(html)) {
 <!-- ============ OPTIMALLY ENGAGEMENT BEACON (posts to same-origin /api/track) ============ -->
 <script id="om-beacon">
 (function(){
+  try{ if(navigator.webdriver) return; if(document.visibilityState === 'prerender' || document.prerendering) return; }catch(e){}
   var WEBHOOK = "/api/track";
   var COMPANY = ${omCompanyJs};
   var SLUG = ${omSlugJs};
@@ -293,7 +294,7 @@ if (!/id=["']om-beacon["']/.test(html)) {
     var t = h ? (h.textContent || '').replace(/\\s+/g, ' ').trim() : '';
     return t.slice(0, 60);
   }
-  if (visits === 1) send('page_open', '', '');                                  // first view only
+  send('page_open', '', '');                                                    // every load (visit count); bots filtered at /api/track, visitNumber tracks returns
   document.addEventListener('click', function(e){
     var t = e.target;
     if(!t || !t.closest) return;

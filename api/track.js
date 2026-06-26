@@ -17,15 +17,23 @@ export default async function handler(req, res) {
 
   if (!WEBHOOK) return res.status(204).end();
 
+  // Drop bots / link-preview crawlers / prefetches — they must not count as visits.
+  // (Most preview bots don't run JS so never reach here; this catches JS-rendering ones + scripts.)
+  const ua = req.headers['user-agent'] || '';
+  const purpose = req.headers['sec-purpose'] || req.headers['purpose'] || '';
+  const BOT = /facebookexternalhit|facebot|slackbot|twitterbot|whatsapp|linkedinbot|telegrambot|discordbot|embedly|pinterest|redditbot|applebot|googlebot|bingbot|bingpreview|duckduckbot|yandex|baidu|petalbot|bytespider|gptbot|ccbot|claudebot|anthropic|google-inspectiontool|mediapartners|adsbot|lighthouse|headlesschrome|headless|prerender|phantomjs|puppeteer|playwright|selenium|crawler|spider|slurp|skypeuripreview|vkshare|node-fetch|axios|python-requests|go-http-client|okhttp|curl\/|wget|libwww|w3c_validator/i;
+  if (BOT.test(ua) || /prefetch|prerender/i.test(purpose)) return res.status(204).end();
+
   // Body: sendBeacon sends text/plain, fetch may send JSON — handle both.
   let body = req.body;
   if (typeof body === 'string') { try { body = JSON.parse(body); } catch { body = {}; } }
   if (!body || typeof body !== 'object') body = {};
 
-  // Real visitor IP (the function-to-n8n hop would otherwise mask it as Vercel's IP).
+  // Real visitor IP + UA (the function-to-n8n hop would otherwise mask both as Vercel's).
   const xff = (req.headers['x-forwarded-for'] || '').split(',')[0].trim();
   const ip = xff || req.headers['x-real-ip'] || '';
   if (ip) body.ip = ip;
+  if (ua) body.ua = ua;
 
   try {
     await fetch(WEBHOOK, {
