@@ -532,40 +532,16 @@
     return t.slice(0, 60);
   }
 
-  // 1) page open
-  send('page_open', '', '');
+  // page open — FIRST VIEW ONLY (dedupes refreshes + return visits per browser)
+  if (visits === 1) send('page_open', '', '');
 
-  // 2) FAQ expands
-  document.querySelectorAll('details').forEach(function(d){
-    d.addEventListener('toggle', function(){
-      if(d.open){
-        var q = d.querySelector('summary');
-        var t = q ? (q.textContent || '').replace(/\s+/g, ' ').trim() : '';
-        send('faq_expand', 'faq', t.slice(0, 140));
-      }
-    });
-  });
-
-  // 3) modal shown (observe #om-modal opening)
-  var modal = document.getElementById('om-modal');
-  if(modal){
-    var mo = new MutationObserver(function(){
-      var open = modal.classList.contains('open');
-      if(open && !modal.__omSeen){ modal.__omSeen = true; send('modal_shown', '', ''); }
-      if(!open){ modal.__omSeen = false; }
-    });
-    mo.observe(modal, {attributes:true, attributeFilter:['class']});
-  }
-
-  // 4) unified click classifier (precedence matters)
+  // click classifier — only the two CTAs that signal intent
   document.addEventListener('click', function(e){
     var t = e.target;
     if(!t || !t.closest) return;
-    if(t.closest('#om-book')){ send('book_click', 'popup', ''); return; }
-    if(modal && (t === modal || t.closest('[data-om-close]'))){ send('modal_dismiss', '', ''); return; }
-    if(t.closest('.play-btn')){ send('vsl_play', 'hero', ''); return; }
+    if(t.closest('#om-book')){ send('book_click', 'popup', ''); return; }   // Book a Walkthrough (popup)
     var cta = t.closest('a[href*="optimally.ltd/demo?partner"]');
-    if(cta){ send('cta_click', sectionLabel(cta), ''); return; }
+    if(cta){ send('cta_click', sectionLabel(cta), ''); return; }             // Learn More
   }, true);
 })();
 </script>
