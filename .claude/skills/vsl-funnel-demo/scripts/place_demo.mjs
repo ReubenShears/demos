@@ -271,12 +271,17 @@ if (!/id=["']om-beacon["']/.test(html)) {
   var COMPANY = ${omCompanyJs};
   var SLUG = ${omSlugJs};
   function uid(){ try{ if(window.crypto && crypto.randomUUID) return crypto.randomUUID(); }catch(e){} return 'v-' + Date.now() + '-' + Math.random().toString(16).slice(2); }
-  var vid = '', visits = 1;
+  var vid = '', visits = 1, newSession = true;
   try{
     vid = localStorage.getItem('om_vid') || '';
     if(!vid){ vid = uid(); localStorage.setItem('om_vid', vid); }
-    visits = (parseInt(localStorage.getItem('om_visits') || '0', 10) || 0) + 1;
-    localStorage.setItem('om_visits', String(visits));
+    var now = Date.now();
+    var last = parseInt(localStorage.getItem('om_lastopen') || '0', 10) || 0;
+    visits = parseInt(localStorage.getItem('om_visits') || '0', 10) || 0;
+    newSession = !last || (now - last) >= 1800000;          // 30 min inactivity = a new visit
+    if(newSession){ visits = visits + 1; localStorage.setItem('om_visits', String(visits)); }
+    if(visits < 1) visits = 1;
+    localStorage.setItem('om_lastopen', String(now));
   }catch(e){ if(!vid) vid = uid(); }
   function send(event, loc, detail){
     try{ if(window.omPixel) window.omPixel(event); }catch(e){}
@@ -294,7 +299,7 @@ if (!/id=["']om-beacon["']/.test(html)) {
     var t = h ? (h.textContent || '').replace(/\\s+/g, ' ').trim() : '';
     return t.slice(0, 60);
   }
-  send('page_open', '', '');                                                    // every load (visit count); bots filtered at /api/track, visitNumber tracks returns
+  if (newSession) send('page_open', '', '');                                    // one per 30-min session (dedupes refreshes -> fewer n8n runs); visitNumber tracks returns
   document.addEventListener('click', function(e){
     var t = e.target;
     if(!t || !t.closest) return;
