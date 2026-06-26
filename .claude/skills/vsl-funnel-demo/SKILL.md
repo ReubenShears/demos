@@ -37,6 +37,7 @@ partner CTA. Conventions also live in the user's memory files (source of truth; 
 | Slack channel | `#5-asset-generation` (id `C0AN653QCF2`) |
 | CRM (GoHighLevel) | LeadConnector MCP server `2a59a55b-bfd6-44e2-bc09-85d430112b39` (via ghl-proxy). Custom field **Demo Landing Page URL** id `6dtdKnKMkB659ZVlsRof` |
 | Engagement tracking | Beacon → same-origin `/api/track` (`api/track.js` proxy, env `TRACK_WEBHOOK_URL`/`TRACK_SECRET`) → n8n **Demo Engagement Tracker** (`mkjbBhNAh3HHHH3U`, webhook `demo-event`) → Baserow **Demo Engagement Data** (id `1047489`) + Slack **#6-demo-notifications** (`C0B0NGYQ71P`). Microsoft Clarity id `xd2h3tb6o4`. All universal — injected by `place_demo.mjs`, no per-demo setup. |
+| Meta Pixel | Central loader `api/pixel.js` served at `/api/pixel`; pixel ID in env `META_PIXEL_ID` (NEVER in the page). Change the env var + redeploy `demos` to swap the pixel across every active demo — no page edits. Fires PageView + ViewContent + maps beacon actions (`book_click`→`Lead`, rest custom). |
 | Build spec | `references/build-spec.md` — the premium design + structure rules Claude follows |
 
 ## Workflow
@@ -115,6 +116,12 @@ never appears in page source). Five events fire — `page_open` (first view only
 and pinged to **#6-demo-notifications**. Nothing per-demo to configure: the proxy, env vars, and n8n
 workflow are universal (see the Engagement tracking row above). Just ensure the page has the VSL play
 control as `.play-btn` so `vsl_play` registers.
+
+**Meta Pixel (also injected — don't author it):** the script injects a central pixel loader
+(`<script async src="/api/pixel">`) plus an inline `window.OM_PIXEL={slug,company}`. The pixel ID lives
+ONLY in the `META_PIXEL_ID` env var (never in the page), so the pixel can be swapped across every demo by
+changing that one env var + redeploying — no page edits. It fires PageView + ViewContent and mirrors the
+beacon's actions to Meta (`book_click`→standard `Lead`, others custom) for retargeting.
 
 ### 4. Deploy to Vercel (git push to ReubenShears/demos)
 Deploy = commit `<slug>/index.html` and push to `main`; Vercel auto-builds → `demos.optimally.ltd/<slug>`.

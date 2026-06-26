@@ -119,6 +119,10 @@ injects all of it after you write the page:
   `vsl_play`, `scroll_50`, `book_click`. The beacon hooks `#om-book` (popup CTA), `.play-btn` (VSL),
   partner-link CTAs, and a 50% scroll-depth trigger — so just keep your CTAs as the tracked "Learn More"
   anchors and the VSL play control as `.play-btn`, and leave everything else to the script.
+- **Meta Pixel** — a central loader (`/api/pixel`) is injected; the pixel ID lives server-side (env
+  `META_PIXEL_ID`), never in the page, so it can be swapped across every demo at once. It fires PageView +
+  ViewContent and mirrors the beacon's action events to Meta (`book_click` → standard `Lead`, the rest
+  custom: `DemoLearnMore` / `DemoVSLPlay` / `DemoScroll50`) for retargeting. Nothing to author.
 
 ## Social share / SEO — the link must unfurl beautifully when sent to a prospect
 The demo link gets pasted into iMessage / Slack / WhatsApp / email, so the `<head>` must produce a rich
