@@ -621,6 +621,9 @@
   #om-chat .oc-b{ max-width:84%; padding:10px 13px; border-radius:14px; font-size:13.5px; line-height:1.5; white-space:pre-wrap; word-wrap:break-word; }
   #om-chat .oc-b.bot{ align-self:flex-start; background:#f5f1ec; color:#2a2722; border-bottom-left-radius:5px; }
   #om-chat .oc-b.me{ align-self:flex-end; background:var(--oc-brand); color:#fff; border-bottom-right-radius:5px; }
+  #om-chat .oc-sugg{ display:flex; flex-direction:column; align-items:flex-end; gap:7px; margin-top:2px; }
+  #om-chat .oc-sugg button{ border:1px solid var(--oc-brand); background:#fff; color:var(--oc-brand); font:inherit; font-size:13px; font-weight:600; line-height:1.35; padding:9px 14px; border-radius:14px; border-bottom-right-radius:5px; cursor:pointer; max-width:90%; text-align:left; transition:.15s; }
+  #om-chat .oc-sugg button:hover{ background:color-mix(in srgb, var(--oc-brand) 8%, #fff); }
   #om-chat .oc-typing{ display:inline-flex; gap:5px; align-items:center; padding:14px 15px; }
   #om-chat .oc-typing span{ width:7px; height:7px; border-radius:50%; background:#b8b1a8; animation:oc-bounce 1.2s infinite ease-in-out; }
   #om-chat .oc-typing span:nth-child(2){ animation-delay:.16s; }
@@ -671,10 +674,21 @@
       setTimeout(step, 14);
     })();
   }
+  function removeSugg(){ var s = document.getElementById('oc-sugg'); if(s) s.remove(); }
+  function suggest(){
+    var qs = ["What exactly do you do?", "How would this work for " + COMPANY + "?", "How does this get me more clients?"];
+    var wrap = document.createElement('div'); wrap.className = 'oc-sugg'; wrap.id = 'oc-sugg';
+    qs.forEach(function(q){
+      var btn = document.createElement('button'); btn.type = 'button'; btn.textContent = q;
+      btn.addEventListener('click', function(){ if(busy) return; input.value = q; removeSugg(); form.dispatchEvent(new Event('submit', {cancelable:true, bubbles:true})); });
+      wrap.appendChild(btn);
+    });
+    msgsEl.appendChild(wrap); msgsEl.scrollTop = msgsEl.scrollHeight;
+  }
   function open(){
     window.__omChatEngaged = true;                 // pauses the auto-popup modal so it can't interrupt
     root.setAttribute('data-state','open');
-    if(!greeted){ greeted = true; bubble("Hi! I'm the Optimally team's assistant. I can explain how a funnel like this would work for " + COMPANY + ", or get you booked in for a quick walkthrough. What would you like to know?", 'bot'); }
+    if(!greeted){ greeted = true; bubble("Hi! I'm the Optimally team's assistant. I can explain how a funnel like this would work for " + COMPANY + ", or get you booked in for a quick walkthrough. What would you like to know?", 'bot'); suggest(); }
     setTimeout(function(){ input.focus(); }, 60);
   }
   function close(){ root.setAttribute('data-state','closed'); }
@@ -685,6 +699,7 @@
     e.preventDefault();
     var text = (input.value||'').trim();
     if(!text || busy) return;
+    removeSugg();
     input.value = '';
     bubble(text, 'me');
     history.push({ role:'user', content:text });
