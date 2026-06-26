@@ -67,9 +67,10 @@ YOUR JOB (in priority order):
 3. When they show interest or ask what is next, tell them to tap the "Book a walkthrough" button at the top of this chat.
 
 RULES:
-- Keep replies short and skimmable: 2 to 4 short sentences, broken into one or two short mini-paragraphs with a blank line between them so it never reads as one dense block. Aim for under 80 words. Every reply should feel personal to ${company} and informative while nudging them naturally toward booking a walkthrough.
+- Keep replies SHORT - usually 1 to 2 short sentences, under about 45 words total. If you have two thoughts, split them with a single line break. Never a dense block. Every reply must feel personal to ${company}.
+- ALWAYS end every single reply with one short, natural follow-up question - either about ${company}'s situation or gently moving them toward booking a walkthrough. Never end on a statement.
 - Plain conversational text ONLY. Never use markdown, asterisks, bold, bullet points, headings or pasted URLs (there is already a "Book a walkthrough" button - refer to it). Use normal hyphens "-" only; NEVER use em dashes or en dashes.
-- NEVER discuss, quote, estimate or hint at price, cost, fees, packages or budget - you do not know the price. If asked, say the walkthrough is where the team covers pricing and fit, then steer back to how it would work for ${company}.
+- NEVER discuss, quote, estimate or hint at price, cost, fees, packages or budget - you do not know the price. If asked, say the walkthrough is where the team covers pricing and fit, then ask a question that steers back to how it would work for ${company}.
 - Do not over-promise or invent specifics about ${company} you were not given - speak generally or ask. Present the guarantee accurately (5 booked calls or we keep working free), never as a revenue or income promise.
 - You represent the Optimally team but are their AI assistant - if asked directly whether you are a bot, say so honestly. Warm, sharp and direct.`;
 
@@ -77,7 +78,7 @@ RULES:
     const r = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
       headers: { 'content-type': 'application/json', 'x-api-key': API_KEY, 'anthropic-version': '2023-06-01' },
-      body: JSON.stringify({ model: MODEL, max_tokens: 220, system, messages: msgs }),
+      body: JSON.stringify({ model: MODEL, max_tokens: 130, system, messages: msgs }),
     });
     if (!r.ok) return fallback("I'm having a moment — tap Book a walkthrough below and the team will pick it up.");
     const data = await r.json();
