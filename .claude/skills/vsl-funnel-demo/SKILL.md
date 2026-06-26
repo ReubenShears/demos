@@ -138,7 +138,9 @@ Backend `api/chat.js` (`/api/chat`) calls the Anthropic API and needs the Vercel
 not know the price), keeps replies short and always ends on a question, knows the on-page video IS the VSL,
 pushes the walkthrough quickly, and if the visitor isn't interested it pivots to asking for a Trustpilot
 review. Every exchange fires a `bot_message` engagement event (the user's question + the reply are logged in
-the Detail field). Themed from the brand palette; goes fullscreen on mobile.
+the Detail field). On open it shows 3 tappable suggested-question chips (one personalised to the company)
+that prime the conversation and vanish once the visitor sends anything. Themed from the brand palette; goes
+fullscreen on mobile.
 
 `page_open` fires **once per 30-min session** (a refresh within 30 min is deduped client-side, so it never
 hits the proxy or n8n — real execution savings); bots, link-preview crawlers, and prefetches are filtered

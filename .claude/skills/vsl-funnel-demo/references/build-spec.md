@@ -127,7 +127,8 @@ injects all of it after you write the page:
   custom: `DemoLearnMore` / `DemoVSLPlay` / `DemoScroll50` / `DemoChat`) for retargeting. Nothing to author.
 - **Concierge chat** — "The Optimally Team" AI chat FAB is injected (bottom-right, brand-themed, fullscreen
   on mobile), backed by `/api/chat`. It books walkthroughs, offers a Trustpilot review, and answers questions
-  about Optimally + this demo. Do not build any chat/widget yourself - just author the page normally.
+  about Optimally + this demo, and opens with personalised suggested-question chips. Do not build any
+  chat/widget yourself - just author the page normally.
 
 ## Social share / SEO — the link must unfurl beautifully when sent to a prospect
 The demo link gets pasted into iMessage / Slack / WhatsApp / email, so the `<head>` must produce a rich
