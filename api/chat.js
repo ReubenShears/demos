@@ -6,6 +6,17 @@ const ALLOWED_HOST = 'demos.optimally.ltd';
 const MODEL = process.env.CHAT_MODEL || 'claude-haiku-4-5';  // cheap + fast; the system prompt does the heavy lifting. Swap via env, no code edit.
 const API_KEY = process.env.ANTHROPIC_API_KEY;
 
+// Scrub anything that reads as "AI": em/en dashes -> hyphens, strip stray markdown.
+function clean(s){
+  return (s || '')
+    .replace(/[—–]/g, '-')      // em / en dash -> hyphen (dead giveaway otherwise)
+    .replace(/\*\*?/g, '')                // strip ** bold / * italic markers
+    .replace(/^#{1,6}\s+/gm, '')          // strip markdown headings
+    .replace(/^\s*[-*•]\s+/gm, '')   // strip leading bullet markers
+    .replace(/\n{3,}/g, '\n\n')           // cap runs of blank lines
+    .trim();
+}
+
 export default async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
@@ -51,15 +62,16 @@ This page is a free, live preview Optimally built for ${company} — a vision of
 The next step is a free walkthrough where the team shows the strategy behind it and exactly how the full system would run for ${company}.
 
 YOUR JOB (in priority order):
-1. Be genuinely helpful and concise.
-2. Speak to ${company}'s specific situation; explain how this would work for them.
-3. When they show interest or ask what's next, tell them to tap the "Book a walkthrough" button at the top of this chat.
+1. Be genuinely helpful, personal and concise.
+2. Speak to ${company}'s specific situation; explain how this would actually work for them.
+3. When they show interest or ask what is next, tell them to tap the "Book a walkthrough" button at the top of this chat.
 
 RULES:
-- Reply in ONE short paragraph — never more than ~70 words. Plain conversational text only: NO markdown, asterisks, bold, bullet points, line breaks, or pasted URLs (there's already a "Book a walkthrough" button — refer to it).
-- NEVER discuss, quote, estimate, or hint at price, cost, fees, packages or budget — you do not know the price. If asked, say the walkthrough is where the team covers pricing and fit, then steer back to how it would work for ${company}.
-- Don't over-promise or invent specifics about ${company} you weren't given — speak generally or ask. Present the guarantee accurately (5 booked calls or we keep working free), never as a revenue or income promise.
-- You represent the Optimally team but are their AI assistant — if asked directly whether you're a bot, say so honestly. Warm, sharp, direct. Stay on topic and gently steer back if it drifts.`;
+- Keep replies short and skimmable: 2 to 4 short sentences, broken into one or two short mini-paragraphs with a blank line between them so it never reads as one dense block. Aim for under 80 words. Every reply should feel personal to ${company} and informative while nudging them naturally toward booking a walkthrough.
+- Plain conversational text ONLY. Never use markdown, asterisks, bold, bullet points, headings or pasted URLs (there is already a "Book a walkthrough" button - refer to it). Use normal hyphens "-" only; NEVER use em dashes or en dashes.
+- NEVER discuss, quote, estimate or hint at price, cost, fees, packages or budget - you do not know the price. If asked, say the walkthrough is where the team covers pricing and fit, then steer back to how it would work for ${company}.
+- Do not over-promise or invent specifics about ${company} you were not given - speak generally or ask. Present the guarantee accurately (5 booked calls or we keep working free), never as a revenue or income promise.
+- You represent the Optimally team but are their AI assistant - if asked directly whether you are a bot, say so honestly. Warm, sharp and direct.`;
 
   try {
     const r = await fetch('https://api.anthropic.com/v1/messages', {
@@ -72,10 +84,10 @@ RULES:
     if (data.stop_reason === 'refusal') {
       return fallback("Let's keep it to the demo and how Optimally can help " + company + '. Want to book a quick walkthrough?');
     }
-    const text = Array.isArray(data.content)
-      ? data.content.filter((b) => b.type === 'text').map((b) => b.text).join('').trim()
-      : '';
-    return fallback(text || ('Happy to help — what would you like to know about how this would work for ' + company + '?'));
+    const text = clean(Array.isArray(data.content)
+      ? data.content.filter((b) => b.type === 'text').map((b) => b.text).join('')
+      : '');
+    return fallback(text || ('Happy to help - what would you like to know about how this would work for ' + company + '?'));
   } catch (e) {
     return fallback("I'm having trouble connecting right now. Tap Book a walkthrough below and we'll take it from there.");
   }
