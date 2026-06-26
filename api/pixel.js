@@ -21,6 +21,7 @@ export default function handler(req, res) {
       if (ev === 'cta_click') fbq('trackCustom', 'DemoLearnMore', BASE);
       else if (ev === 'vsl_play') fbq('trackCustom', 'DemoVSLPlay', BASE);
       else if (ev === 'scroll_50') fbq('trackCustom', 'DemoScroll50', BASE);
+      else if (ev === 'bot_message') fbq('trackCustom', 'DemoChat', BASE);
       else if (ev === 'book_click') fbq('track', 'Lead', BASE);
     } catch (e) {}
   };

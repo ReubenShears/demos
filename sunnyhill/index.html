@@ -564,6 +564,8 @@
     var dh = document.documentElement.scrollHeight;
     if(dh > vh && (st + vh) / dh >= 0.5){ passed50 = true; send('scroll_50', '', ''); }
   }, {passive:true});
+
+  window.omTrack = function(event, loc, detail){ try{ send(event, loc, detail); }catch(e){} };  // lets the chat widget log events through this beacon
 })();
 </script>
 
@@ -701,6 +703,7 @@
         clearTyping();
         var reply = (d && d.reply) ? d.reply : "Tap Book a walkthrough above and the team will help you directly.";
         history.push({ role:'assistant', content: reply });
+        try{ if(window.omTrack) window.omTrack('bot_message', 'chat', ('Q: ' + text + '\nA: ' + reply).slice(0, 1200)); }catch(e){}
         typeOut(bubble('', 'bot'), reply, done);              // animate the reply in
       })
       .catch(function(){
