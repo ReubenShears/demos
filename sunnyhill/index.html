@@ -492,7 +492,7 @@
     if(!isCta) return;
     e.preventDefault(); e.stopPropagation(); open();
   }, true);
-  setTimeout(function(){ if(!seen) open(); }, 10000);
+  setTimeout(function(){ if(!seen && !window.__omChatEngaged) open(); }, 10000);
 })();
 </script>
 
@@ -649,9 +649,19 @@
     var b = document.createElement('div'); b.className = 'oc-b ' + who; b.textContent = text;
     msgsEl.appendChild(b); msgsEl.scrollTop = msgsEl.scrollHeight; return b;
   }
+  function typeOut(el, text, done){
+    el.textContent = ''; var i = 0;
+    (function step(){
+      if(i >= text.length){ if(done) done(); return; }
+      el.textContent += text.slice(i, i + 2); i += 2;
+      msgsEl.scrollTop = msgsEl.scrollHeight;
+      setTimeout(step, 14);
+    })();
+  }
   function open(){
+    window.__omChatEngaged = true;                 // pauses the auto-popup modal so it can't interrupt
     root.setAttribute('data-state','open');
-    if(!greeted){ greeted = true; bubble("Hi! I'm Optimally's assistant. I can explain how a funnel like this would work for " + COMPANY + ", or get you booked in for a quick walkthrough. What would you like to know?", 'bot'); }
+    if(!greeted){ greeted = true; bubble("Hi! I'm the Optimally team's assistant. I can explain how a funnel like this would work for " + COMPANY + ", or get you booked in for a quick walkthrough. What would you like to know?", 'bot'); }
     setTimeout(function(){ input.focus(); }, 60);
   }
   function close(){ root.setAttribute('data-state','closed'); }
@@ -667,19 +677,19 @@
     history.push({ role:'user', content:text });
     busy = true; sendBtn.disabled = true;
     var typing = bubble('typing...', 'bot'); typing.classList.add('typing');
+    var done = function(){ busy = false; sendBtn.disabled = false; input.focus(); };
     fetch('/api/chat', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ messages: history, context: ctx() }) })
       .then(function(r){ return r.json(); })
       .then(function(d){
         typing.remove();
         var reply = (d && d.reply) ? d.reply : "Tap Book a walkthrough above and the team will help you directly.";
-        bubble(reply, 'bot');
         history.push({ role:'assistant', content: reply });
+        typeOut(bubble('', 'bot'), reply, done);              // animate the reply in
       })
       .catch(function(){
         typing.remove();
-        bubble("I'm having trouble connecting. Tap Book a walkthrough above and we'll take it from there.", 'bot');
-      })
-      .finally(function(){ busy = false; sendBtn.disabled = false; input.focus(); });
+        typeOut(bubble('', 'bot'), "I'm having trouble connecting. Tap Book a walkthrough above and we'll take it from there.", done);
+      });
   });
 })();
 </script>
