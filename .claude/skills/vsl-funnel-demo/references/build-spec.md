@@ -95,7 +95,8 @@ controlled headline length and logo size, real animations.
   never an AI face, never a plain coloured circle. Testimonials = quote cards (real wording if scraped, else
   neutral lorem). 5-star rating is fine where the element's job is reviews.
 - VSL "video" = a styled 16:9 placeholder: gradient/mesh background + large centered play button + a small
-  caption — not a real embed.
+  caption — not a real embed. **Give the play control `class="play-btn"`** so engagement tracking can hook
+  the play click (the beacon also falls back to `aria-label*="play"`, but `play-btn` is the reliable hook).
 
 ## Copy
 - Write every section from the BUSINESS BRIEF in specific, confident, active, 8th-grade copy — real
@@ -107,12 +108,17 @@ controlled headline length and logo size, real animations.
 ## Footer
 - Real logo, final "Learn More" CTA, basic links (privacy/terms/contact), copyright **"© 2026 <Company>"**.
 
-## Interstitial popup — do NOT author it (the place step owns it)
-Do not write any popup/modal/overlay yourself. `place_demo.mjs` deterministically injects the standard
-Optimally interstitial after you write the page: a dismissable modal that auto-surfaces after 10s and
-intercepts every CTA/button as a contextual midpoint before booking, personalised to the company, themed
-from the brand palette, with 7-day urgency. Just author the page normally — keep your CTAs as the tracked
-"Learn More" anchors and leave the popup to the script.
+## Interstitial popup + engagement tracking — do NOT author these (the place step owns them)
+Do not write any popup/modal/overlay, analytics, or tracking yourself. `place_demo.mjs` deterministically
+injects all of it after you write the page:
+- **Interstitial modal** — a dismissable popup that auto-surfaces after 10s and intercepts every CTA/button
+  as a contextual midpoint before booking, personalised to the company, themed from the brand palette, with
+  7-day urgency.
+- **Microsoft Clarity** (universal) + an **engagement beacon** that posts to the same-origin `/api/track`
+  proxy (never the webhook directly). It fires five events: `page_open` (first view only), `cta_click`,
+  `vsl_play`, `scroll_50`, `book_click`. The beacon hooks `#om-book` (popup CTA), `.play-btn` (VSL),
+  partner-link CTAs, and a 50% scroll-depth trigger — so just keep your CTAs as the tracked "Learn More"
+  anchors and the VSL play control as `.play-btn`, and leave everything else to the script.
 
 ## Social share / SEO — the link must unfurl beautifully when sent to a prospect
 The demo link gets pasted into iMessage / Slack / WhatsApp / email, so the `<head>` must produce a rich

@@ -36,6 +36,7 @@ partner CTA. Conventions also live in the user's memory files (source of truth; 
 | Baserow database / table | `Backend` (id `453125`) / `Demo Landing Page Data` (id `1024310`) |
 | Slack channel | `#5-asset-generation` (id `C0AN653QCF2`) |
 | CRM (GoHighLevel) | LeadConnector MCP server `2a59a55b-bfd6-44e2-bc09-85d430112b39` (via ghl-proxy). Custom field **Demo Landing Page URL** id `6dtdKnKMkB659ZVlsRof` |
+| Engagement tracking | Beacon → same-origin `/api/track` (`api/track.js` proxy, env `TRACK_WEBHOOK_URL`/`TRACK_SECRET`) → n8n **Demo Engagement Tracker** (`mkjbBhNAh3HHHH3U`, webhook `demo-event`) → Baserow **Demo Engagement Data** (id `1047489`) + Slack **#6-demo-notifications** (`C0B0NGYQ71P`). Microsoft Clarity id `xd2h3tb6o4`. All universal — injected by `place_demo.mjs`, no per-demo setup. |
 | Build spec | `references/build-spec.md` — the premium design + structure rules Claude follows |
 
 ## Workflow
@@ -95,8 +96,9 @@ node "<skill-dir>/scripts/place_demo.mjs" /tmp/<slug>.html <slug> "<deploy-root>
 `COMPANY_NAME` = the SHORT brand (nicer in the modal copy). `BRAND_COLOR`/`ACCENT_COLOR` = the scraped
 palette (primary + secondary/accent) — the modal tints itself from these via `color-mix`. The script
 re-asserts tracked "Learn More" CTAs, forces the real logo, injects favicon + og:image if Claude missed
-them, normalizes the footer year to 2026, **injects the interstitial modal**, and writes `<slug>/index.html`.
-Confirm the printed CTA count is > 0 and the `Interstitial injected:` line shows the right company + colours.
+them, normalizes the footer year to 2026, **injects the interstitial modal + Microsoft Clarity + the
+engagement beacon**, and writes `<slug>/index.html`. Confirm the printed CTA count is > 0 and the
+`Interstitial injected:` / `Clarity injected.` / `Beacon injected:` lines show the right company + colours.
 
 **The interstitial (don't author it yourself — the script owns it):** a dismissable popup that auto-surfaces
 after 10s AND intercepts every CTA/button as a contextual midpoint before booking. It tells the visitor this
@@ -105,6 +107,14 @@ client-generating funnel for THEIR business (personalised with `COMPANY_NAME`), 
 (live countdown from the build date; after 7 days it softens to "live for a limited time, about to expire —
 act now" since demos aren't actually taken down). Its button points to the same partner CTA as the page.
 `CREATED_DATE` defaults to today (the build date) — only override if back-dating.
+
+**Engagement tracking (also injected by the script — don't author it):** Clarity (universal id) for session
+replay/heatmaps, plus a beacon that posts to the same-origin `/api/track` proxy (the real n8n webhook URL
+never appears in page source). Five events fire — `page_open` (first view only), `cta_click`, `vsl_play`,
+`scroll_50`, `book_click` — each logged to Baserow **Demo Engagement Data** with IP-geo (city/region/ISP)
+and pinged to **#6-demo-notifications**. Nothing per-demo to configure: the proxy, env vars, and n8n
+workflow are universal (see the Engagement tracking row above). Just ensure the page has the VSL play
+control as `.play-btn` so `vsl_play` registers.
 
 ### 4. Deploy to Vercel (git push to ReubenShears/demos)
 Deploy = commit `<slug>/index.html` and push to `main`; Vercel auto-builds → `demos.optimally.ltd/<slug>`.

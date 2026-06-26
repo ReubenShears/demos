@@ -223,6 +223,87 @@ if (!/id=["']om-modal["']/.test(html)) {
   console.log('Interstitial already present — skipped.');
 }
 
+// --- Microsoft Clarity (universal) + engagement beacon (per-demo, posts to same-origin /api/track) ---
+// The beacon NEVER contains the n8n webhook URL — it posts to /api/track (api/track.js proxy), which
+// holds the real webhook + secret in Vercel env. Events: page_open (first view), cta_click, vsl_play,
+// scroll_50, book_click. Both injections are idempotent.
+const CLARITY_ID = 'xd2h3tb6o4';
+const omCompanyJs = JSON.stringify(companyName());
+const omSlugJs = JSON.stringify(slug);
+
+if (!/clarity\.ms\/tag/i.test(html)) {
+  const clarity = `
+<!-- Microsoft Clarity (universal) -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "${CLARITY_ID}");
+    try{ if(window.clarity){ window.clarity("identify", ${omSlugJs}); window.clarity("set", "slug", ${omSlugJs}); } }catch(e){}
+</script>`;
+  html = /<head[^>]*>/i.test(html) ? html.replace(/<head[^>]*>/i, (m) => m + clarity) : (clarity + html);
+  console.log('Clarity injected.');
+} else {
+  console.log('Clarity already present — skipped.');
+}
+
+if (!/id=["']om-beacon["']/.test(html)) {
+  const beacon = `
+<!-- ============ OPTIMALLY ENGAGEMENT BEACON (posts to same-origin /api/track) ============ -->
+<script id="om-beacon">
+(function(){
+  var WEBHOOK = "/api/track";
+  var COMPANY = ${omCompanyJs};
+  var SLUG = ${omSlugJs};
+  function uid(){ try{ if(window.crypto && crypto.randomUUID) return crypto.randomUUID(); }catch(e){} return 'v-' + Date.now() + '-' + Math.random().toString(16).slice(2); }
+  var vid = '', visits = 1;
+  try{
+    vid = localStorage.getItem('om_vid') || '';
+    if(!vid){ vid = uid(); localStorage.setItem('om_vid', vid); }
+    visits = (parseInt(localStorage.getItem('om_visits') || '0', 10) || 0) + 1;
+    localStorage.setItem('om_visits', String(visits));
+  }catch(e){ if(!vid) vid = uid(); }
+  function send(event, loc, detail){
+    var payload = { company: COMPANY, slug: SLUG, event: event, location: loc || '', detail: detail || '', visitorId: vid, visitNumber: visits, referrer: document.referrer || '', pageUrl: window.location.href, ts: new Date().toISOString() };
+    var body = JSON.stringify(payload);
+    try{ if(navigator.sendBeacon){ navigator.sendBeacon(WEBHOOK, new Blob([body], {type:'text/plain'})); return; } }catch(e){}
+    try{ fetch(WEBHOOK, {method:'POST', body:body, keepalive:true, mode:'no-cors', headers:{'Content-Type':'text/plain'}}); }catch(e){}
+  }
+  function sectionLabel(el){
+    var sec = el.closest ? el.closest('section, header, footer') : null;
+    if(!sec) return '';
+    if(sec.tagName === 'HEADER') return 'hero';
+    if(sec.tagName === 'FOOTER') return 'footer';
+    var h = sec.querySelector('h1, h2, h3');
+    var t = h ? (h.textContent || '').replace(/\\s+/g, ' ').trim() : '';
+    return t.slice(0, 60);
+  }
+  if (visits === 1) send('page_open', '', '');                                  // first view only
+  document.addEventListener('click', function(e){
+    var t = e.target;
+    if(!t || !t.closest) return;
+    if(t.closest('#om-book')){ send('book_click', 'popup', ''); return; }        // Book a Walkthrough (popup)
+    if(t.closest('.play-btn, [class~="play"], [aria-label*="Play"], [aria-label*="play"]')){ send('vsl_play', 'hero', ''); return; }
+    var cta = t.closest('a[href*="optimally.ltd/demo?partner"]');
+    if(cta){ send('cta_click', sectionLabel(cta), ''); return; }                 // Learn More
+  }, true);
+  var passed50 = false;
+  window.addEventListener('scroll', function(){
+    if(passed50) return;
+    var st = window.scrollY || document.documentElement.scrollTop || 0;
+    var vh = window.innerHeight || document.documentElement.clientHeight;
+    var dh = document.documentElement.scrollHeight;
+    if(dh > vh && (st + vh) / dh >= 0.5){ passed50 = true; send('scroll_50', '', ''); }
+  }, {passive:true});
+})();
+</script>`;
+  html = /<\/body>/i.test(html) ? html.replace(/<\/body>/i, () => beacon + '\n</body>') : (html + beacon);
+  console.log(`Beacon injected: company="${companyName()}", slug=${slug}`);
+} else {
+  console.log('Beacon already present — skipped.');
+}
+
 const outDir = path.join(outRoot, slug);
 fs.mkdirSync(outDir, { recursive: true });
 const outFile = path.join(outDir, 'index.html');
