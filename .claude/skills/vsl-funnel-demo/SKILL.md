@@ -45,6 +45,14 @@ partner CTA. Conventions also live in the user's memory files (source of truth; 
 
 Work in order; short status lines as you go. Total run ~1–3 min (no Stitch generation wait).
 
+> **Be patient for the input URL (cloud routine).** The routine that fires this skill sometimes starts a
+> moment *before* the company URL has actually arrived in your input/trigger context — the URL can come
+> through a little after the routine fires (timing race). **If the URL you need is missing or empty when you
+> begin, do NOT abort.** Wait ~30 seconds (`sleep 30`) and re-check your input/trigger payload (and any
+> source you were told to read it from, e.g. the latest relevant Baserow row), and keep retrying for up to
+> ~5 minutes. Only report "no URL provided" if it is still absent after ~5 minutes. Never fail the run on a
+> missing URL the instant you start.
+
 ### 0. Derive identifiers from the URL
 - **slug** (king): first domain label after removing a leading `www.`, lowercased.
   `www.unorthodox.digital` → `unorthodox`; `getacme.io` → `getacme`. Drops the TLD entirely (never
