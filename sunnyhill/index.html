@@ -496,7 +496,7 @@
 <!-- ============ OPTIMALLY ENGAGEMENT BEACON (single endpoint, self-labelling) ============ -->
 <script>
 (function(){
-  var WEBHOOK = "https://optimally.app.n8n.cloud/webhook/demo-event";
+  var WEBHOOK = "/api/track";
   var COMPANY = "Sunnyhill Church";
   var SLUG = "sunnyhill";
 
@@ -535,14 +535,25 @@
   // page open — FIRST VIEW ONLY (dedupes refreshes + return visits per browser)
   if (visits === 1) send('page_open', '', '');
 
-  // click classifier — only the two CTAs that signal intent
+  // click classifier — CTAs that signal intent + the VSL play
   document.addEventListener('click', function(e){
     var t = e.target;
     if(!t || !t.closest) return;
     if(t.closest('#om-book')){ send('book_click', 'popup', ''); return; }   // Book a Walkthrough (popup)
+    if(t.closest('.play-btn')){ send('vsl_play', 'hero', ''); return; }      // VSL play
     var cta = t.closest('a[href*="optimally.ltd/demo?partner"]');
     if(cta){ send('cta_click', sectionLabel(cta), ''); return; }             // Learn More
   }, true);
+
+  // scroll depth — fire once when the visitor passes the halfway point
+  var passed50 = false;
+  window.addEventListener('scroll', function(){
+    if(passed50) return;
+    var st = window.scrollY || document.documentElement.scrollTop || 0;
+    var vh = window.innerHeight || document.documentElement.clientHeight;
+    var dh = document.documentElement.scrollHeight;
+    if(dh > vh && (st + vh) / dh >= 0.5){ passed50 = true; send('scroll_50', '', ''); }
+  }, {passive:true});
 })();
 </script>
 
