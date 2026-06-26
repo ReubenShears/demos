@@ -124,7 +124,10 @@ injects all of it after you write the page:
 - **Meta Pixel** — a central loader (`/api/pixel`) is injected; the pixel ID lives server-side (env
   `META_PIXEL_ID`), never in the page, so it can be swapped across every demo at once. It fires PageView +
   ViewContent and mirrors the beacon's action events to Meta (`book_click` → standard `Lead`, the rest
-  custom: `DemoLearnMore` / `DemoVSLPlay` / `DemoScroll50`) for retargeting. Nothing to author.
+  custom: `DemoLearnMore` / `DemoVSLPlay` / `DemoScroll50` / `DemoChat`) for retargeting. Nothing to author.
+- **Concierge chat** — "The Optimally Team" AI chat FAB is injected (bottom-right, brand-themed, fullscreen
+  on mobile), backed by `/api/chat`. It books walkthroughs, offers a Trustpilot review, and answers questions
+  about Optimally + this demo. Do not build any chat/widget yourself - just author the page normally.
 
 ## Social share / SEO — the link must unfurl beautifully when sent to a prospect
 The demo link gets pasted into iMessage / Slack / WhatsApp / email, so the `<head>` must produce a rich
