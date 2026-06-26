@@ -123,9 +123,10 @@ ONLY in the `META_PIXEL_ID` env var (never in the page), so the pixel can be swa
 changing that one env var + redeploying — no page edits. It fires PageView + ViewContent and mirrors the
 beacon's actions to Meta (`book_click`→standard `Lead`, others custom) for retargeting.
 
-`page_open` fires on **every load** (visit counting); bots, link-preview crawlers, and prefetches are
-filtered server-side at `/api/track` (centralized bot list), and the proxy forwards the real visitor UA so
-`Device` logs correctly. `visitNumber` (localStorage) tracks how many times a visitor has returned.
+`page_open` fires **once per 30-min session** (a refresh within 30 min is deduped client-side, so it never
+hits the proxy or n8n — real execution savings); bots, link-preview crawlers, and prefetches are filtered
+server-side at `/api/track` (centralized bot list), and the proxy forwards the real visitor UA so `Device`
+logs correctly. `visitNumber` (localStorage) tracks how many sessions a visitor has had.
 
 ### 4. Deploy to Vercel (git push to ReubenShears/demos)
 Deploy = commit `<slug>/index.html` and push to `main`; Vercel auto-builds → `demos.optimally.ltd/<slug>`.

@@ -115,8 +115,9 @@ injects all of it after you write the page:
   as a contextual midpoint before booking, personalised to the company, themed from the brand palette, with
   7-day urgency.
 - **Microsoft Clarity** (universal) + an **engagement beacon** that posts to the same-origin `/api/track`
-  proxy (never the webhook directly). It fires five events: `page_open` (every load, for visit counts —
-  bots/prefetches filtered server-side at `/api/track`; `visitNumber` tracks returns), `cta_click`,
+  proxy (never the webhook directly). It fires five events: `page_open` (once per 30-min session — refreshes
+  within 30 min are deduped client-side so they never hit n8n; bots/prefetches filtered server-side at
+  `/api/track`; `visitNumber` tracks returns), `cta_click`,
   `vsl_play`, `scroll_50`, `book_click`. The beacon hooks `#om-book` (popup CTA), `.play-btn` (VSL),
   partner-link CTAs, and a 50% scroll-depth trigger — so just keep your CTAs as the tracked "Learn More"
   anchors and the VSL play control as `.play-btn`, and leave everything else to the script.
