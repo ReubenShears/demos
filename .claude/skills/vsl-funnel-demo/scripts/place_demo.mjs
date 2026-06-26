@@ -248,6 +248,19 @@ if (!/clarity\.ms\/tag/i.test(html)) {
   console.log('Clarity already present — skipped.');
 }
 
+// Meta Pixel — central loader. The ID lives ONLY in /api/pixel (env META_PIXEL_ID); the page carries
+// just its slug/company. Swap the pixel across every active demo by changing that one env var — no page edits.
+if (!/src=["']\/api\/pixel["']/.test(html)) {
+  const pixel = `
+<!-- Meta Pixel (central loader — ID swappable via /api/pixel, no page edits) -->
+<script>window.OM_PIXEL={slug:${omSlugJs},company:${omCompanyJs}};</script>
+<script async src="/api/pixel"></script>`;
+  html = /<head[^>]*>/i.test(html) ? html.replace(/<head[^>]*>/i, (m) => m + pixel) : (pixel + html);
+  console.log('Meta Pixel loader injected.');
+} else {
+  console.log('Meta Pixel loader already present — skipped.');
+}
+
 if (!/id=["']om-beacon["']/.test(html)) {
   const beacon = `
 <!-- ============ OPTIMALLY ENGAGEMENT BEACON (posts to same-origin /api/track) ============ -->
@@ -265,6 +278,7 @@ if (!/id=["']om-beacon["']/.test(html)) {
     localStorage.setItem('om_visits', String(visits));
   }catch(e){ if(!vid) vid = uid(); }
   function send(event, loc, detail){
+    try{ if(window.omPixel) window.omPixel(event); }catch(e){}
     var payload = { company: COMPANY, slug: SLUG, event: event, location: loc || '', detail: detail || '', visitorId: vid, visitNumber: visits, referrer: document.referrer || '', pageUrl: window.location.href, ts: new Date().toISOString() };
     var body = JSON.stringify(payload);
     try{ if(navigator.sendBeacon){ navigator.sendBeacon(WEBHOOK, new Blob([body], {type:'text/plain'})); return; } }catch(e){}

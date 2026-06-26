@@ -11,6 +11,9 @@
     })(window, document, "clarity", "script", "xd2h3tb6o4");
     try{ window.clarity && window.clarity("identify", "sunnyhill"); window.clarity && window.clarity("set", "slug", "sunnyhill"); }catch(e){}
 </script>
+<!-- Meta Pixel (central loader — ID swappable via /api/pixel, no page edits) -->
+<script>window.OM_PIXEL={slug:"sunnyhill",company:"Sunnyhill Church"};</script>
+<script async src="/api/pixel"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Sunnyhill Church — Find faith, friendship and a place to belong in Dorset</title>
 <meta name="description" content="A warm welcome at Sunnyhill Church. Two Dorset campuses in Poole and Ferndown, the Alpha course, small groups and Nxt Gen for kids — explore faith and find real community this Sunday." />
@@ -510,6 +513,7 @@
   }catch(e){ if(!vid) vid = uid(); }
 
   function send(event, loc, detail){
+    try{ if(window.omPixel) window.omPixel(event); }catch(e){}
     var payload = {
       company: COMPANY, slug: SLUG, event: event,
       location: loc || '', detail: detail || '',
