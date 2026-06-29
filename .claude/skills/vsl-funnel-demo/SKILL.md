@@ -45,13 +45,16 @@ partner CTA. Conventions also live in the user's memory files (source of truth; 
 
 Work in order; short status lines as you go. Total run ~1–3 min (no Stitch generation wait).
 
-> **Be patient for the input URL (cloud routine).** The routine that fires this skill sometimes starts a
-> moment *before* the company URL has actually arrived in your input/trigger context — the URL can come
-> through a little after the routine fires (timing race). **If the URL you need is missing or empty when you
-> begin, do NOT abort.** Wait ~30 seconds (`sleep 30`) and re-check your input/trigger payload (and any
-> source you were told to read it from, e.g. the latest relevant Baserow row), and keep retrying for up to
-> ~5 minutes. Only report "no URL provided" if it is still absent after ~5 minutes. Never fail the run on a
-> missing URL the instant you start.
+> **Be patient for the input URL (cloud routine) — wait up to 10 minutes before giving up.** The routine
+> that fires this skill very often starts a moment *before* the company URL has actually arrived in your
+> input/trigger context — the URL routinely lands a little after the routine fires (timing race). **If the
+> URL is missing or empty when you begin, do NOT abort and do NOT post anything to Slack yet.** Poll for it:
+> wait ~30 seconds (`sleep 30`), re-check your input/trigger payload (and any source you were told to read
+> it from, e.g. the latest relevant Baserow row), and repeat — keep doing this for a **FULL 10 minutes**
+> before concluding the URL is genuinely absent. **Posting the "no URL provided" failure to Slack before
+> the full 10 minutes has elapsed is a bug — never do it.** Only after ~10 minutes of polling with still no
+> URL should you post the short failure note to Slack and stop. Never fail the run on a missing URL the
+> instant you start.
 
 > **⚠️ You are running AUTONOMOUSLY — finish the job, never just narrate the next step.** No human is
 > watching this run, so nothing will nudge you to continue. **NEVER end a turn with a plan or a statement of
