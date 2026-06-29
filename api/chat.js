@@ -44,7 +44,11 @@ export default async function handler(req, res) {
     .filter((m) => m && (m.role === 'user' || m.role === 'assistant') && typeof m.content === 'string' && m.content.trim())
     .map((m) => ({ role: m.role, content: m.content.slice(0, 2000) }))
     .slice(-12);
-  if (!msgs.length || msgs[0].role !== 'user') {
+  // The window MUST start on a user turn. Slicing the last 12 can leave an assistant message first
+  // (happens once a chat runs long) — that used to bail to a canned line WITHOUT calling the model,
+  // so the bot looked stuck repeating itself. Drop leading assistant turns instead of bailing.
+  while (msgs.length && msgs[0].role !== 'user') msgs.shift();
+  if (!msgs.length) {
     return fallback('Ask me anything about this demo, how it would work for ' + company + ', or tap Book a walkthrough below.');
   }
 
