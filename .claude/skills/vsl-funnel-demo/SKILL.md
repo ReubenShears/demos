@@ -53,6 +53,17 @@ Work in order; short status lines as you go. Total run ~1–3 min (no Stitch gen
 > ~5 minutes. Only report "no URL provided" if it is still absent after ~5 minutes. Never fail the run on a
 > missing URL the instant you start.
 
+> **⚠️ You are running AUTONOMOUSLY — finish the job, never just narrate the next step.** No human is
+> watching this run, so nothing will nudge you to continue. **NEVER end a turn with a plan or a statement of
+> intent** like "Now I'll author the page", "Let me write the index.html", or "Now authoring the page" —
+> that is exactly where past runs silently died. When you say you are about to do something, **do it in the
+> SAME turn with the actual tool call.** The two MUST-COMPLETE deliverables are (1) the written
+> `index.html` and (2) the `git push` that deploys it; do not stop until BOTH are done (then Baserow +
+> Slack + CRM). If you ever notice your latest message is a plan rather than an action, execute that action
+> immediately instead of ending the turn. Work economically so you reach the authoring step with budget to
+> spare: minimise narration, don't re-read files you've already read, and do **NOT** `curl`/verify image
+> URLs (the network proxy blocks them and the scraped URLs render fine in the browser anyway).
+
 ### 0. Derive identifiers from the URL
 - **slug** (king): first domain label after removing a leading `www.`, lowercased.
   `www.unorthodox.digital` → `unorthodox`; `getacme.io` → `getacme`. Drops the TLD entirely (never
@@ -81,7 +92,9 @@ EFFICIENCY — do NOT bloat this step (this is important — it was over-running
   plausible objections for this offer) rather than fetching more pages.
 
 ### 2. Write the page (Claude authors it — the core step)
-Read `references/build-spec.md` and follow it exactly to write ONE self-contained `index.html`:
+**Do this as your VERY NEXT action after the scrape — actually write the file now, in one `Write` call.
+Do not stop to plan, summarise the brand brief, or "prepare" first; the run dies here if you narrate
+instead of writing.** Read `references/build-spec.md` and follow it exactly to write ONE self-contained `index.html`:
 the 9-section premium VSL funnel, brand colours/fonts/logo, real copy from the business brief, headline
 2–3 lines max, prominent logo, atmospheric design + subtle scroll motion, every CTA a tracked
 **"Learn More"** anchor (`href="https://www.optimally.ltd/demo?partner=<slug>"`, new tab), `© 2026`.
