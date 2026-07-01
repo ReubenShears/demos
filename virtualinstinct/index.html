@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Meta Pixel (central loader — ID swappable via /api/pixel, no page edits) -->
+<script>window.OM_PIXEL={slug:"virtualinstinct",company:"Virtual Instinct"};</script>
+<script async src="/api/pixel"></script>
+<!-- Microsoft Clarity (universal) -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "xd2h3tb6o4");
+    try{ if(window.clarity){ window.clarity("identify", "virtualinstinct"); window.clarity("set", "slug", "virtualinstinct"); } }catch(e){}
+</script>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Virtual Instinct — Sales Practice That Builds Instinct</title>
+<meta name="description" content="Improv-based sales practice: rehearse high-stakes moments with professional actors playing your ideal client, and build the instinct to close." />
+<meta property="og:title" content="Virtual Instinct — Sales Practice That Builds Instinct" />
+<meta property="og:description" content="Rehearse your toughest sales moments with pro actors as your ideal client, then sharpen instinct with improv built for salespeople." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://demos.optimally.ltd/virtualinstinct" />
+<meta property="og:image" content="https://www.virtualinstinct.ai/hs-fs/hubfs/Virtual%20Instinct-03.png?width=4803&height=1359&name=Virtual%20Instinct-03.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Virtual Instinct — Sales Practice That Builds Instinct" />
+<meta name="twitter:description" content="Rehearse your toughest sales moments with pro actors as your ideal client, then sharpen instinct with improv built for salespeople." />
+<meta name="twitter:image" content="https://www.virtualinstinct.ai/hs-fs/hubfs/Virtual%20Instinct-03.png?width=4803&height=1359&name=Virtual%20Instinct-03.png" />
+<link rel="icon" href="https://www.virtualinstinct.ai/hubfs/Virtual%20Instinct-01-1-1.png" />
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Abel&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        brand: '#3D85C6',
+        amber: '#FFAF03',
+        green: '#69A84F',
+        ink: '#16283a',
+        slate2: '#4a5b6b',
+      },
+      fontFamily: {
+        display: ['Abel', 'sans-serif'],
+        body: ['Inter', 'system-ui', 'sans-serif'],
+      },
+    },
+  },
+};
+</script>
+<style>
+  html, body { overflow-x: hidden; max-width: 100%; }
+  body { font-family: 'Inter', system-ui, sans-serif; color: #16283a; background: #ffffff; }
+  h1, h2, h3, .font-display { font-family: 'Abel', sans-serif; letter-spacing: .2px; }
+  h1, h2 { line-height: 1.12; padding-bottom: .06em; }
+  .headline-accent { color: #3D85C6; }
+  .mesh {
+    background:
+      radial-gradient(60% 55% at 12% 8%, rgba(61,133,198,.16), transparent 60%),
+      radial-gradient(55% 50% at 92% 4%, rgba(255,175,3,.14), transparent 60%),
+      radial-gradient(70% 60% at 78% 96%, rgba(105,168,79,.16), transparent 62%),
+      linear-gradient(180deg, #ffffff 0%, #f5f9fd 100%);
+  }
+  .mesh-soft {
+    background:
+      radial-gradient(50% 45% at 8% 12%, rgba(61,133,198,.08), transparent 60%),
+      radial-gradient(50% 45% at 95% 90%, rgba(105,168,79,.09), transparent 60%),
+      #ffffff;
+  }
+  .card { background: #ffffff; border: 1px solid rgba(22,40,58,.08); box-shadow: 0 12px 30px -18px rgba(22,40,58,.28); }
+  .card-glow { box-shadow: 0 18px 45px -20px rgba(61,133,198,.4); }
+  .pill {
+    display: inline-flex; align-items: center; gap: .5rem; white-space: nowrap;
+    background: #3D85C6; color: #fff; font-weight: 600; letter-spacing: .3px;
+    padding: .85rem 1.9rem; border-radius: 999px;
+    box-shadow: 0 14px 30px -10px rgba(61,133,198,.6);
+    transition: transform .2s ease, box-shadow .2s ease;
+  }
+  .pill:hover { transform: translateY(-2px) scale(1.02); box-shadow: 0 20px 40px -10px rgba(61,133,198,.7); }
+  .logo-hero { height: 66px; width: auto; }
+  .logo-foot { height: 36px; width: auto; }
+  @media (max-width: 640px){ .logo-hero { height: 48px; } }
+  .reveal { opacity: 0; transform: translateY(26px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+  .play-btn {
+    width: 88px; height: 88px; border-radius: 999px; cursor: pointer;
+    background: rgba(255,255,255,.92); border: 1px solid rgba(255,255,255,.7);
+    box-shadow: 0 20px 50px -12px rgba(22,40,58,.5);
+    display: flex; align-items: center; justify-content: center;
+    transition: transform .2s ease;
+  }
+  .play-btn:hover { transform: scale(1.07); }
+  .stars { color: #FFAF03; letter-spacing: 2px; }
+  .avatar { width: 30px; height: 30px; border-radius: 999px; background: linear-gradient(135deg,#3D85C6,#69A84F); border: 2px solid #fff; margin-left: -8px; display:inline-block; }
+  .fbox { display:flex; align-items:center; justify-content:center; border-radius: 16px; background: linear-gradient(135deg, rgba(61,133,198,.12), rgba(105,168,79,.12)); border:1px solid rgba(22,40,58,.08); }
+  @media (prefers-reduced-motion: reduce){ .reveal{ opacity:1; transform:none; transition:none; } }
+</style>
+</head>
+<body class="font-body antialiased">
+
+<!-- 0. BANNER (not sticky) -->
+<div class="w-full bg-ink text-white text-center text-sm py-2.5 px-4">
+  <span class="font-medium tracking-wide">Watch the 2-minute video below to see how improv turns sales reps into instinct.</span>
+</div>
+
+<!-- 1. HERO -->
+<header class="mesh">
+  <div class="max-w-6xl mx-auto px-5 pt-7 pb-16 sm:pt-9 sm:pb-20">
+    <div class="flex justify-center">
+      <img src="https://www.virtualinstinct.ai/hs-fs/hubfs/Virtual%20Instinct-03.png?width=4803&height=1359&name=Virtual%20Instinct-03.png" alt="Virtual Instinct" class="logo-hero" />
+    </div>
+
+    <p class="text-center mt-6 text-sm sm:text-base font-semibold tracking-wide text-green uppercase">
+      Attention: B2B Sales Teams &amp; Sales Leaders
+    </p>
+
+    <h1 class="text-center mt-3 text-4xl sm:text-5xl lg:text-6xl font-normal max-w-4xl mx-auto text-ink">
+      Sharpen Your Sales Instincts With <span class="headline-accent">Live Improv Practice</span>
+    </h1>
+
+    <p class="text-center mt-4 text-slate2 text-base sm:text-lg max-w-2xl mx-auto">
+      Rehearse your highest-stakes sales moments with professional actors playing your ideal client — no lost deals, just reps.
+    </p>
+
+    <p class="text-center mt-2 text-sm text-slate2 max-w-2xl mx-auto">
+      Virtual role-play sessions plus in-person improv workshops, tailored to your exact sales methodology.
+    </p>
+
+    <!-- VSL placeholder -->
+    <div class="relative mt-9 max-w-3xl mx-auto">
+      <div class="relative rounded-2xl overflow-hidden card-glow" style="aspect-ratio:16/9; background:linear-gradient(135deg,#16283a 0%,#26496b 55%,#3D85C6 100%);">
+        <div class="absolute inset-0 flex flex-col items-center justify-center">
+          <div class="play-btn" role="button" aria-label="Play video">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="#3D85C6"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+          <p class="text-white/85 text-sm mt-4 tracking-wide">Watch: How improv builds sales instinct (2 min)</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="text-center mt-6 text-slate2 italic text-sm sm:text-base max-w-xl mx-auto">
+      "Conversation intelligence in its purest form — the reps that make instinct automatic."
+    </p>
+
+    <!-- CTA under video -->
+    <div class="flex flex-col items-center mt-6">
+      <a href="https://www.optimally.ltd/demo?partner=virtualinstinct" target="_blank" rel="noopener noreferrer" class="pill">Learn More</a>
+      <div class="flex items-center mt-4">
+        <span class="flex"><span class="avatar"></span><span class="avatar"></span><span class="avatar"></span><span class="avatar"></span></span>
+        <span class="ml-3 text-sm text-slate2"><span class="stars">★★★★★</span> &nbsp;Trusted by sales teams sharpening their edge</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- 2. PAINS -->
+<section class="mesh-soft py-16 sm:py-20">
+  <div class="max-w-6xl mx-auto px-5">
+    <div class="reveal max-w-3xl">
+      <p class="text-sm font-semibold uppercase tracking-wide text-brand">The gap most sellers never close</p>
+      <h2 class="mt-2 text-3xl sm:text-4xl lg:text-5xl text-ink">Experience takes years. Your quota does not wait.</h2>
+      <p class="mt-4 text-slate2 text-lg">Great sellers read the room, stay mentally sharp under pressure, and trust their gut to close. Those instincts usually take years of live deals to build — and every rep learned on a real prospect is a deal you can lose.</p>
+    </div>
+
+    <div class="grid gap-5 mt-10 sm:grid-cols-2 lg:grid-cols-3">
+      <div class="reveal card rounded-2xl p-6">
+        <div class="fbox w-11 h-11 mb-4"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3D85C6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v12H5.5L4 18z"/></svg></div>
+        <h3 class="text-xl text-ink">Frozen by surprises</h3>
+        <p class="mt-2 text-slate2 text-sm leading-relaxed">A curveball objection lands and the rep reaches for a script instead of reacting like a person. The moment — and often the deal — slips.</p>
+      </div>
+      <div class="reveal card rounded-2xl p-6">
+        <div class="fbox w-11 h-11 mb-4"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#69A84F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M5 8l7-5 7 5"/></svg></div>
+        <h3 class="text-xl text-ink">Practice on live prospects</h3>
+        <p class="mt-2 text-slate2 text-sm leading-relaxed">Reps get their reps on real buyers, so every mistake carries a price tag. There is no low-stakes room to try a bolder approach.</p>
+      </div>
+      <div class="reveal card rounded-2xl p-6">
+        <div class="fbox w-11 h-11 mb-4"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFAF03" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+        <h3 class="text-xl text-ink">Flat, virtual conversations</h3>
+        <p class="mt-2 text-slate2 text-sm leading-relaxed">On camera, rapport is harder and reads are thinner. Sellers talk at prospects instead of building the connection that moves a buying journey.</p>
+      </div>
+      <div class="reveal card rounded-2xl p-6">
+        <div class="fbox w-11 h-11 mb-4"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3D85C6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg></div>
+        <h3 class="text-xl text-ink">Confidence that wobbles</h3>
+        <p class="mt-2 text-slate2 text-sm leading-relaxed">Without a safe place to fail and grow, hesitation shows up in the pitch. Buyers feel it, and it costs trust at the exact wrong moment.</p>
+      </div>
+      <div class="reveal card rounded-2xl p-6">
+        <div class="fbox w-11 h-11 mb-4"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#69A84F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9.5" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/></svg></div>
+        <h3 class="text-xl text-ink">Teams out of sync</h3>
+        <p class="mt-2 text-slate2 text-sm leading-relaxed">In team-based deals, reps step on each other instead of building on one another. Nobody shares the "group mind" that closes complex sales.</p>
+      </div>
+      <div class="reveal card rounded-2xl p-6">
+        <div class="fbox w-11 h-11 mb-4"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFAF03" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.3h6c0-1 .4-1.8 1-2.3A7 7 0 0 0 12 2z"/></svg></div>
+        <h3 class="text-xl text-ink">Coaching that fades fast</h3>
+        <p class="mt-2 text-slate2 text-sm leading-relaxed">Slide-deck training doesn't stick. Without repetition, new skills never become instinct — and reps default to old habits within a week.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. SOLUTION -->
+<section class="py-16 sm:py-24 mesh">
+  <div class="max-w-6xl mx-auto px-5">
+    <div class="reveal max-w-3xl">
+      <p class="text-sm font-semibold uppercase tracking-wide text-green">Here's how we do it</p>
+      <h2 class="mt-2 text-3xl sm:text-4xl lg:text-5xl text-ink">Improv is the fastest way to make good selling <span class="headline-accent">instinctive</span>.</h2>
+      <p class="mt-4 text-slate2 text-lg">Virtual Instinct blends the fundamentals of improvisational acting with proven sales strategy. You get high-repetition practice in a judgment-free room, then apply it against realistic scenarios built around your buyers — so the right move becomes automatic.</p>
+    </div>
+
+    <!-- three offerings -->
+    <div class="grid gap-6 mt-10 lg:grid-cols-3">
+      <div class="reveal card rounded-2xl p-7">
+        <span class="text-xs font-semibold uppercase tracking-widest text-brand">Virtual role-playing</span>
+        <h3 class="mt-2 text-2xl text-ink">Situational Sales Practice</h3>
+        <p class="mt-3 text-slate2 text-sm leading-relaxed">Experienced professionals and actors play the role of your ideal client and simulate your real-world sales challenges. Targeted exercises refine your persuasion where it actually matters.</p>
+      </div>
+      <div class="reveal card rounded-2xl p-7 card-glow">
+        <span class="text-xs font-semibold uppercase tracking-widest text-green">Corporate workshops</span>
+        <h3 class="mt-2 text-2xl text-ink">Four-Week Team Engagement</h3>
+        <p class="mt-3 text-slate2 text-sm leading-relaxed">We teach improv fundamentals in a corporate setting, then tailor every exercise and role-play to your sales methodology across four weeks — enough reps to make new skills instinctive.</p>
+      </div>
+      <div class="reveal card rounded-2xl p-7">
+        <span class="text-xs font-semibold uppercase tracking-widest text-amber" style="color:#c98a00;">Individual classes</span>
+        <h3 class="mt-2 text-2xl text-ink">Weekly Peer Sessions</h3>
+        <p class="mt-3 text-slate2 text-sm leading-relaxed">Early-morning improv classes for salespeople of every level. Practice alongside peers from other companies with a curriculum of exercises translatable straight to selling.</p>
+      </div>
+    </div>
+
+    <!-- 6 skills bento -->
+    <h3 class="reveal mt-14 text-2xl sm:text-3xl text-ink">Six instincts your reps build with practice</h3>
+    <div class="grid gap-5 mt-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div class="reveal card rounded-2xl p-6">
+        <div class="fbox w-11 h-11 mb-4"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3D85C6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></div>
+        <h4 class="text-lg text-ink">Deeper connections</h4>
+        <p class="mt-2 text-slate2 text-sm leading-relaxed">Build genuine rapport fast, in cold outbound or a group virtual meeting.</p>
+      </div>
+      <div class="reveal card rounded-2xl p-6">
+        <div class="fbox w-11 h-11 mb-4"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFAF03" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.3h6c0-1 .4-1.8 1-2.3A7 7 0 0 0 12 2z"/></svg></div>
+        <h4 class="text-lg text-ink">More creativity</h4>
+        <p class="mt-2 text-slate2 text-sm leading-relaxed">Open cold and guide buyers through a journey with spontaneity, not scripts.</p>
+      </div>
+      <div class="reveal card rounded-2xl p-6">
+        <div class="fbox w-11 h-11 mb-4"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#69A84F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4L12 14.9 7.2 17l.9-5.4L4.2 7.7l5.4-.8z"/></svg></div>
+        <h4 class="text-lg text-ink">Build confidence</h4>
+        <p class="mt-2 text-slate2 text-sm leading-relaxed">A safe room where bold choices are celebrated and failure is just growth.</p>
+      </div>
+      <div class="reveal card rounded-2xl p-6">
+        <div class="fbox w-11 h-11 mb-4"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3D85C6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9.5" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/></svg></div>
+        <h4 class="text-lg text-ink">Group mind</h4>
+        <p class="mt-2 text-slate2 text-sm leading-relaxed">Get in sync in team-based deals — a shared vision that buyers can feel.</p>
+      </div>
+      <div class="reveal card rounded-2xl p-6">
+        <div class="fbox w-11 h-11 mb-4"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#69A84F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg></div>
+        <h4 class="text-lg text-ink">Mental clarity</h4>
+        <p class="mt-2 text-slate2 text-sm leading-relaxed">React honestly to what you see and hear, without overthinking the moment.</p>
+      </div>
+      <div class="reveal card rounded-2xl p-6">
+        <div class="fbox w-11 h-11 mb-4"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFAF03" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 10v12M15 5.9 14 10h5.6a2 2 0 0 1 2 2.3l-1.4 8A2 2 0 0 1 18.2 22H7V10l4-8a2.5 2.5 0 0 1 4 2z"/></svg></div>
+        <h4 class="text-lg text-ink">Team selling</h4>
+        <p class="mt-2 text-slate2 text-sm leading-relaxed">Master "Yes, And" — agree, build, and expand the idea with prospect and peers.</p>
+      </div>
+    </div>
+
+    <div class="flex flex-col items-center mt-12">
+      <a href="https://www.optimally.ltd/demo?partner=virtualinstinct" target="_blank" rel="noopener noreferrer" class="pill">Learn More</a>
+      <p class="mt-3 text-sm text-slate2"><span class="stars">★★★★★</span> &nbsp;Skills that translate straight to your pipeline</p>
+    </div>
+  </div>
+</section>
+
+<!-- 4. CALL TO ACTION -->
+<section class="py-16 sm:py-20">
+  <div class="max-w-5xl mx-auto px-5">
+    <div class="reveal rounded-3xl p-9 sm:p-14 text-center relative overflow-hidden" style="background:linear-gradient(135deg,#16283a 0%,#26496b 60%,#3D85C6 120%);">
+      <div class="absolute inset-0" style="background:radial-gradient(50% 60% at 85% 10%, rgba(255,175,3,.22), transparent 60%), radial-gradient(50% 60% at 10% 100%, rgba(105,168,79,.25), transparent 60%);"></div>
+      <div class="relative">
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl text-white">Ready to take your sales ability to the next level?</h2>
+        <p class="mt-4 text-white/85 text-lg max-w-2xl mx-auto">Give your team the reps to build instinct — before the next big deal is on the line.</p>
+        <div class="flex flex-col items-center mt-8">
+          <a href="https://www.optimally.ltd/demo?partner=virtualinstinct" target="_blank" rel="noopener noreferrer" class="pill" style="background:#FFAF03;color:#16283a;box-shadow:0 14px 30px -10px rgba(255,175,3,.6);">Learn More</a>
+          <p class="mt-4 text-sm text-white/80"><span class="stars">★★★★★</span> &nbsp;Book a walkthrough tailored to your sales methodology</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. BUILDING TRUST -->
+<section class="py-16 sm:py-20 mesh-soft">
+  <div class="max-w-6xl mx-auto px-5">
+    <div class="reveal max-w-3xl">
+      <p class="text-sm font-semibold uppercase tracking-wide text-brand">Building trust</p>
+      <h2 class="mt-2 text-3xl sm:text-4xl lg:text-5xl text-ink">Sellers who practiced, then closed.</h2>
+    </div>
+    <div class="grid gap-6 mt-10 lg:grid-cols-3">
+      <div class="reveal card rounded-2xl p-7">
+        <p class="stars text-lg">★★★★★</p>
+        <p class="mt-3 text-slate2 leading-relaxed">"The role-play with actors as our buyers felt uncomfortably real — which is exactly why it worked. My team stopped freezing on hard objections."</p>
+        <div class="flex items-center gap-3 mt-5">
+          <div class="fbox w-11 h-11"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3D85C6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+          <div><p class="text-sm font-semibold text-ink">VP of Sales</p><p class="text-xs text-slate2">B2B SaaS team of 14</p></div>
+        </div>
+      </div>
+      <div class="reveal card rounded-2xl p-7 card-glow">
+        <p class="stars text-lg">★★★★★</p>
+        <p class="mt-3 text-slate2 leading-relaxed">"I've done plenty of sales training. This is the first that stuck, because we actually repped it until it was instinct instead of theory."</p>
+        <div class="flex items-center gap-3 mt-5">
+          <div class="fbox w-11 h-11"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#69A84F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+          <div><p class="text-sm font-semibold text-ink">Account Executive</p><p class="text-xs text-slate2">Enterprise field sales</p></div>
+        </div>
+      </div>
+      <div class="reveal card rounded-2xl p-7">
+        <p class="stars text-lg">★★★★★</p>
+        <p class="mt-3 text-slate2 leading-relaxed">"The improv fundamentals changed how our team works a room together. 'Yes, And' turned three reps talking over each other into one clear story."</p>
+        <div class="flex items-center gap-3 mt-5">
+          <div class="fbox w-11 h-11"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFAF03" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+          <div><p class="text-sm font-semibold text-ink">Sales Enablement Lead</p><p class="text-xs text-slate2">Team-based selling</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="flex flex-col items-center mt-11">
+      <a href="https://www.optimally.ltd/demo?partner=virtualinstinct" target="_blank" rel="noopener noreferrer" class="pill">Learn More</a>
+      <p class="mt-3 text-sm text-slate2"><span class="stars">★★★★★</span> &nbsp;Trusted by teams who practice before it counts</p>
+    </div>
+  </div>
+</section>
+
+<!-- 6. FOUNDER -->
+<section class="py-16 sm:py-24 mesh">
+  <div class="max-w-5xl mx-auto px-5">
+    <div class="reveal card rounded-3xl p-8 sm:p-12 grid gap-8 md:grid-cols-[220px,1fr] items-center">
+      <div class="fbox w-full mx-auto" style="max-width:220px;aspect-ratio:1/1;">
+        <svg width="86" height="86" viewBox="0 0 24 24" fill="none" stroke="#3D85C6" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </div>
+      <div>
+        <p class="text-sm font-semibold uppercase tracking-wide text-green">Meet the founder</p>
+        <h2 class="mt-2 text-3xl sm:text-4xl text-ink">Michael, Founder &amp; Head Coach</h2>
+        <p class="mt-4 text-slate2 leading-relaxed">Michael built Virtual Instinct after years at the intersection of the stage and the sales floor — watching the same instincts that make a great improviser make a great seller. The premise is simple: improv is conversation intelligence in its purest form, and salespeople who practice it stop reciting and start reacting.</p>
+        <p class="mt-3 text-slate2 leading-relaxed">Today he and a team of professional actors run virtual role-play and in-person workshops that turn deliberate reps into instinct your team can use on the very next call.</p>
+        <div class="mt-6">
+          <a href="https://www.optimally.ltd/demo?partner=virtualinstinct" target="_blank" rel="noopener noreferrer" class="pill">Learn More</a>
+          <p class="mt-3 text-sm text-slate2"><span class="stars">★★★★★</span> &nbsp;Practice designed by people who've done both</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. FAQ -->
+<section class="py-16 sm:py-20 mesh-soft">
+  <div class="max-w-3xl mx-auto px-5">
+    <div class="reveal">
+      <p class="text-sm font-semibold uppercase tracking-wide text-brand">Questions, answered</p>
+      <h2 class="mt-2 text-3xl sm:text-4xl lg:text-5xl text-ink">Before you book</h2>
+    </div>
+    <div class="mt-8 space-y-3" id="faq">
+      <details class="reveal card rounded-2xl p-5 group">
+        <summary class="flex justify-between items-center cursor-pointer list-none text-lg text-ink font-medium">Isn't this just an acting class? How does it help sales?<span class="text-brand text-2xl leading-none group-open:rotate-45 transition-transform">+</span></summary>
+        <p class="mt-3 text-slate2 text-sm leading-relaxed">Every exercise is chosen because it maps directly to selling — rapport, spontaneity, reading the room, "Yes, And" collaboration. We teach the fundamentals, then tailor the role-play to your actual sales methodology, so the reps translate to your pipeline.</p>
+      </details>
+      <details class="reveal card rounded-2xl p-5 group">
+        <summary class="flex justify-between items-center cursor-pointer list-none text-lg text-ink font-medium">How much time does my team have to commit?<span class="text-brand text-2xl leading-none group-open:rotate-45 transition-transform">+</span></summary>
+        <p class="mt-3 text-slate2 text-sm leading-relaxed">Corporate workshops run as a focused four-week engagement, and individual classes are weekly early-morning sessions built around a seller's schedule. Situational practice sessions are scheduled around your team, not the other way around.</p>
+      </details>
+      <details class="reveal card rounded-2xl p-5 group">
+        <summary class="flex justify-between items-center cursor-pointer list-none text-lg text-ink font-medium">Will this work for my specific niche and buyers?<span class="text-brand text-2xl leading-none group-open:rotate-45 transition-transform">+</span></summary>
+        <p class="mt-3 text-slate2 text-sm leading-relaxed">Yes. Our actors play the role of your ideal client and simulate your real-world scenarios, and workshops are tailored to your methodology. The fundamentals are universal; the practice is built around your market.</p>
+      </details>
+      <details class="reveal card rounded-2xl p-5 group">
+        <summary class="flex justify-between items-center cursor-pointer list-none text-lg text-ink font-medium">What if my reps are uncomfortable with improv?<span class="text-brand text-2xl leading-none group-open:rotate-45 transition-transform">+</span></summary>
+        <p class="mt-3 text-slate2 text-sm leading-relaxed">That's the point of a judgment-free room. Failure is celebrated as growth, bold choices are encouraged, and reps build confidence among peers — not on a live prospect. Most sellers who dread the first session ask for more by the second.</p>
+      </details>
+      <details class="reveal card rounded-2xl p-5 group">
+        <summary class="flex justify-between items-center cursor-pointer list-none text-lg text-ink font-medium">How do I know it's actually working?<span class="text-brand text-2xl leading-none group-open:rotate-45 transition-transform">+</span></summary>
+        <p class="mt-3 text-slate2 text-sm leading-relaxed">The engagement is built for repetition, so improvement is visible in the room — reps handle objections faster, connect sooner, and stay composed under surprises. You'll see the change in live calls, not just a survey.</p>
+      </details>
+      <details class="reveal card rounded-2xl p-5 group">
+        <summary class="flex justify-between items-center cursor-pointer list-none text-lg text-ink font-medium">Do we have to sign a long contract?<span class="text-brand text-2xl leading-none group-open:rotate-45 transition-transform">+</span></summary>
+        <p class="mt-3 text-slate2 text-sm leading-relaxed">No. Start with a single four-week corporate engagement or drop into individual weekly classes. Many teams continue because the reps compound — but that's a choice, not a lock-in.</p>
+      </details>
+      <details class="reveal card rounded-2xl p-5 group">
+        <summary class="flex justify-between items-center cursor-pointer list-none text-lg text-ink font-medium">How fast will we see results?<span class="text-brand text-2xl leading-none group-open:rotate-45 transition-transform">+</span></summary>
+        <p class="mt-3 text-slate2 text-sm leading-relaxed">Reps feel more present and adaptive after the first sessions, and the four-week cadence is designed so newly learned skills become instinctive rather than fading. The goal is change your team keeps, not a one-day high.</p>
+      </details>
+    </div>
+    <div class="flex flex-col items-center mt-11">
+      <a href="https://www.optimally.ltd/demo?partner=virtualinstinct" target="_blank" rel="noopener noreferrer" class="pill">Learn More</a>
+      <p class="mt-3 text-sm text-slate2"><span class="stars">★★★★★</span> &nbsp;Still deciding? Book a quick walkthrough</p>
+    </div>
+  </div>
+</section>
+
+<!-- 8. FOOTER -->
+<footer class="bg-ink text-white/80 pt-14 pb-9">
+  <div class="max-w-6xl mx-auto px-5">
+    <div class="grid gap-8 md:grid-cols-[1.4fr,1fr] items-start">
+      <div>
+        <img src="https://www.virtualinstinct.ai/hs-fs/hubfs/Virtual%20Instinct-03.png?width=4803&height=1359&name=Virtual%20Instinct-03.png" alt="Virtual Instinct" class="logo-foot" style="filter:brightness(0) invert(1);" />
+        <p class="mt-4 text-sm text-white/70 max-w-md">Sharpen your sales skills with virtual role-play and in-person improv built for salespeople. Practice the reps that make instinct automatic.</p>
+        <a href="https://www.optimally.ltd/demo?partner=virtualinstinct" target="_blank" rel="noopener noreferrer" class="pill mt-6">Learn More</a>
+        <p class="mt-3 text-xs text-white/60"><span class="stars">★★★★★</span> &nbsp;Book a walkthrough for your team</p>
+      </div>
+      <div class="grid grid-cols-2 gap-6 text-sm">
+        <div>
+          <p class="font-semibold text-white mb-3">Practice</p>
+          <ul class="space-y-2 text-white/70">
+            <li><a href="https://www.optimally.ltd/demo?partner=virtualinstinct" target="_blank" rel="noopener noreferrer" class="hover:text-white">Situational Sales Practice</a></li>
+            <li><a href="https://www.optimally.ltd/demo?partner=virtualinstinct" target="_blank" rel="noopener noreferrer" class="hover:text-white">Corporate Workshops</a></li>
+            <li><a href="https://www.optimally.ltd/demo?partner=virtualinstinct" target="_blank" rel="noopener noreferrer" class="hover:text-white">Individual Classes</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="font-semibold text-white mb-3">Company</p>
+          <ul class="space-y-2 text-white/70">
+            <li><a href="https://www.optimally.ltd/demo?partner=virtualinstinct" target="_blank" rel="noopener noreferrer" class="hover:text-white">Why Improv?</a></li>
+            <li><a href="https://www.optimally.ltd/demo?partner=virtualinstinct" target="_blank" rel="noopener noreferrer" class="hover:text-white">Privacy</a></li>
+            <li><a href="https://www.optimally.ltd/demo?partner=virtualinstinct" target="_blank" rel="noopener noreferrer" class="hover:text-white">Terms</a></li>
+            <li><a href="https://www.optimally.ltd/demo?partner=virtualinstinct" target="_blank" rel="noopener noreferrer" class="hover:text-white">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-white/10 mt-10 pt-6 text-center text-xs text-white/55">
+      © 2026 Virtual Instinct, Inc. · All rights reserved.
+    </div>
+  </div>
+</footer>
+
+<script>
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach((el) => obs.observe(el));
+</script>
+
+<!-- ============ OPTIMALLY DEMO INTERSTITIAL (auto @10s + CTA midpoint) ============ -->
+<div id="om-modal" aria-hidden="true">
+  <div class="om-card" role="dialog" aria-modal="true" aria-labelledby="om-title">
+    <button class="om-x" data-om-close aria-label="Close">&times;</button>
+    <div class="om-head">
+      <span class="om-badge"><span class="om-dot"></span> Live demo</span>
+      <img class="om-logo" src="https://framerusercontent.com/images/hUMFc5uZTevF0122Bkpv9kgZDI.png" alt="Optimally" />
+    </div>
+    <h2 id="om-title" class="om-title">Like what you see, <span class="om-accent">Virtual Instinct</span>?</h2>
+    <p class="om-body">A live demo <strong>Optimally</strong> built for Virtual Instinct. Book a quick walkthrough to see the strategy behind it &mdash; and how it powers a full funnel that brings <strong>Virtual Instinct</strong> new clients.</p>
+    <div class="om-urgency">
+      <span class="om-pill" id="om-days">7 days left</span>
+      <span class="om-urgency-text" id="om-utext"></span>
+    </div>
+    <a id="om-book" class="om-cta" href="https://www.optimally.ltd/demo?partner=virtualinstinct" target="_blank" rel="noopener noreferrer">Book my free walkthrough &rarr;</a>
+    <button class="om-later" data-om-close>Maybe later</button>
+  </div>
+</div>
+<style>
+  #om-modal{
+    --om-brand:#3D85C6; --om-accent:#FFAF03;
+    position:fixed; inset:0; z-index:9999; display:none;
+    align-items:center; justify-content:center; padding:20px;
+    background:rgba(18,14,28,.55); backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px);
+    font-family:inherit;
+  }
+  #om-modal.open{display:flex; animation:om-fade .25s ease both}
+  @keyframes om-fade{from{opacity:0}to{opacity:1}}
+  #om-modal .om-card{
+    position:relative; width:100%; max-width:440px; background:#fff; border-radius:22px;
+    padding:30px 28px 26px; text-align:center;
+    max-height:92vh; max-height:92dvh; overflow-y:auto; -webkit-overflow-scrolling:touch;
+    box-shadow:0 30px 80px -20px rgba(18,14,28,.6); border:1px solid color-mix(in srgb, var(--om-brand) 12%, transparent);
+    animation:om-rise .35s cubic-bezier(.2,.8,.2,1) both;
+  }
+  @keyframes om-rise{from{opacity:0; transform:translateY(18px) scale(.98)}to{opacity:1; transform:none}}
+  #om-modal .om-x{position:absolute; top:12px; right:14px; width:34px; height:34px; border:0; cursor:pointer; background:transparent; color:#9b96a8; font-size:26px; line-height:1; border-radius:9px; transition:.15s;}
+  #om-modal .om-x:hover{background:color-mix(in srgb, var(--om-brand) 8%, transparent); color:#5b5668}
+  #om-modal .om-head{display:flex; align-items:center; justify-content:center; gap:12px; margin-bottom:16px}
+  #om-modal .om-badge{display:inline-flex; align-items:center; gap:7px; font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--om-brand); background:color-mix(in srgb, var(--om-brand) 10%, transparent); padding:6px 12px; border-radius:999px;}
+  #om-modal .om-dot{width:7px; height:7px; border-radius:50%; background:#3fbf6a; box-shadow:0 0 0 0 rgba(63,191,106,.5); animation:om-blink 1.8s ease-in-out infinite}
+  @keyframes om-blink{0%,100%{box-shadow:0 0 0 0 rgba(63,191,106,.5)}50%{box-shadow:0 0 0 5px rgba(63,191,106,0)}}
+  #om-modal .om-logo{height:20px; width:auto; opacity:.9}
+  #om-modal .om-title{font-size:24px; font-weight:700; line-height:1.2; margin:0 0 12px; color:#16151f}
+  #om-modal .om-accent{color:var(--om-accent)}
+  #om-modal .om-body{font-size:15px; line-height:1.6; color:#4a4658; margin:0 0 18px}
+  #om-modal .om-body strong{color:#16151f}
+  #om-modal .om-urgency{display:flex; align-items:flex-start; gap:11px; text-align:left; background:color-mix(in srgb, var(--om-brand) 6%, #fff); border:1px solid color-mix(in srgb, var(--om-brand) 12%, transparent); border-radius:14px; padding:13px 14px; margin-bottom:22px;}
+  #om-modal .om-pill{flex:0 0 auto; font-size:11.5px; font-weight:700; color:#fff; background:var(--om-brand); padding:5px 10px; border-radius:999px; white-space:nowrap; margin-top:1px;}
+  #om-modal .om-urgency-text{font-size:12.5px; line-height:1.5; color:#5b5668}
+  #om-modal .om-urgency-text strong{color:var(--om-brand)}
+  #om-modal .om-cta{display:block; width:100%; background:var(--om-brand); color:#fff; font-weight:600; font-size:16px; text-decoration:none; padding:15px; border-radius:999px; transition:.18s; box-shadow:0 12px 30px -8px color-mix(in srgb, var(--om-brand) 55%, transparent);}
+  #om-modal .om-cta:hover{background:var(--om-accent); transform:translateY(-1px); box-shadow:0 16px 38px -8px color-mix(in srgb, var(--om-accent) 60%, transparent)}
+  #om-modal .om-later{display:block; width:100%; margin-top:10px; background:transparent; border:0; cursor:pointer; color:#9b96a8; font-size:13.5px; font-weight:500; padding:8px; border-radius:8px; transition:.15s;}
+  #om-modal .om-later:hover{color:#5b5668}
+  @media (max-width:420px){ #om-modal .om-card{padding:26px 20px 22px} #om-modal .om-title{font-size:21px} }
+</style>
+<script>
+(function(){
+  var CREATED = "2026-07-01";
+  var LIVE_DAYS = 7;
+  var BOOK_URL = "https://www.optimally.ltd/demo?partner=virtualinstinct";
+  var modal = document.getElementById('om-modal');
+  if(!modal) return;
+  var book = document.getElementById('om-book');
+  var seen = false;
+  function refreshUrgency(){
+    var created = new Date(CREATED + "T00:00:00");
+    var expiry  = new Date(created.getTime() + LIVE_DAYS*86400000);
+    var left    = Math.ceil((expiry - new Date())/86400000);
+    var pill = document.getElementById('om-days');
+    var txt  = document.getElementById('om-utext');
+    if(left > 0){
+      if(pill) pill.textContent = left === 1 ? "1 day left" : left + " days left";
+      if(txt)  txt.innerHTML = "Only live for 7 days \u2014 book before <strong>" + expiry.toLocaleDateString(undefined,{month:'long', day:'numeric'}) + "</strong>.";
+    } else {
+      if(pill) pill.textContent = "Expiring soon";
+      if(txt)  txt.innerHTML = "Live for a limited time and about to expire \u2014 <strong>act now</strong>.";
+    }
+  }
+  function open(){
+    if(modal.classList.contains('open')) return;
+    refreshUrgency();
+    modal.classList.add('open'); modal.setAttribute('aria-hidden','false');
+    document.body.style.overflow = 'hidden'; seen = true;
+    if(book) book.focus();
+  }
+  function close(){
+    modal.classList.remove('open'); modal.setAttribute('aria-hidden','true');
+    document.body.style.overflow = '';
+  }
+  modal.addEventListener('click', function(e){
+    if(e.target === modal || (e.target.closest && e.target.closest('[data-om-close]'))){ e.preventDefault(); close(); }
+  });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && modal.classList.contains('open')) close(); });
+  if(book) book.addEventListener('click', function(){ setTimeout(close, 120); });
+  document.addEventListener('click', function(e){
+    var el = e.target.closest('a, button');
+    if(!el || modal.contains(el) || el.closest('#om-chat')) return;
+    var isCta = el.matches('a[href*="optimally.ltd/demo?partner"]') || el.tagName === 'BUTTON';
+    if(!isCta) return;
+    e.preventDefault(); e.stopPropagation(); open();
+  }, true);
+  setTimeout(function(){ if(!seen && !window.__omChatEngaged) open(); }, 10000);
+})();
+</script>
+
+
+<!-- ============ OPTIMALLY ENGAGEMENT BEACON (posts to same-origin /api/track) ============ -->
+<script id="om-beacon">
+(function(){
+  try{ if(navigator.webdriver) return; if(document.visibilityState === 'prerender' || document.prerendering) return; }catch(e){}
+  var WEBHOOK = "/api/track";
+  var COMPANY = "Virtual Instinct";
+  var SLUG = "virtualinstinct";
+  function uid(){ try{ if(window.crypto && crypto.randomUUID) return crypto.randomUUID(); }catch(e){} return 'v-' + Date.now() + '-' + Math.random().toString(16).slice(2); }
+  var vid = '', visits = 1, newSession = true;
+  try{
+    vid = localStorage.getItem('om_vid') || '';
+    if(!vid){ vid = uid(); localStorage.setItem('om_vid', vid); }
+    var now = Date.now();
+    var last = parseInt(localStorage.getItem('om_lastopen') || '0', 10) || 0;
+    visits = parseInt(localStorage.getItem('om_visits') || '0', 10) || 0;
+    newSession = !last || (now - last) >= 1800000;          // 30 min inactivity = a new visit
+    if(newSession){ visits = visits + 1; localStorage.setItem('om_visits', String(visits)); }
+    if(visits < 1) visits = 1;
+    localStorage.setItem('om_lastopen', String(now));
+  }catch(e){ if(!vid) vid = uid(); }
+  function send(event, loc, detail){
+    try{ if(window.omPixel) window.omPixel(event); }catch(e){}
+    var payload = { company: COMPANY, slug: SLUG, event: event, location: loc || '', detail: detail || '', visitorId: vid, visitNumber: visits, referrer: document.referrer || '', pageUrl: window.location.href, ts: new Date().toISOString() };
+    var body = JSON.stringify(payload);
+    try{ if(navigator.sendBeacon){ navigator.sendBeacon(WEBHOOK, new Blob([body], {type:'text/plain'})); return; } }catch(e){}
+    try{ fetch(WEBHOOK, {method:'POST', body:body, keepalive:true, mode:'no-cors', headers:{'Content-Type':'text/plain'}}); }catch(e){}
+  }
+  function sectionLabel(el){
+    var sec = el.closest ? el.closest('section, header, footer') : null;
+    if(!sec) return '';
+    if(sec.tagName === 'HEADER') return 'hero';
+    if(sec.tagName === 'FOOTER') return 'footer';
+    var h = sec.querySelector('h1, h2, h3');
+    var t = h ? (h.textContent || '').replace(/\s+/g, ' ').trim() : '';
+    return t.slice(0, 60);
+  }
+  if (newSession) send('page_open', '', '');                                    // one per 30-min session (dedupes refreshes -> fewer n8n runs); visitNumber tracks returns
+  document.addEventListener('click', function(e){
+    var t = e.target;
+    if(!t || !t.closest) return;
+    if(t.closest('#om-book')){ send('book_click', 'popup', ''); return; }        // Book a Walkthrough (popup)
+    if(t.closest('.play-btn, [class~="play"], [aria-label*="Play"], [aria-label*="play"]')){ send('vsl_play', 'hero', ''); return; }
+    var cta = t.closest('a[href*="optimally.ltd/demo?partner"]');
+    if(cta){ send('cta_click', sectionLabel(cta), ''); return; }                 // Learn More
+  }, true);
+  var passed50 = false;
+  window.addEventListener('scroll', function(){
+    if(passed50) return;
+    var st = window.scrollY || document.documentElement.scrollTop || 0;
+    var vh = window.innerHeight || document.documentElement.clientHeight;
+    var dh = document.documentElement.scrollHeight;
+    if(dh > vh && (st + vh) / dh >= 0.5){ passed50 = true; send('scroll_50', '', ''); }
+  }, {passive:true});
+
+  window.omTrack = function(event, loc, detail){ try{ send(event, loc, detail); }catch(e){} };  // lets the chat concierge log events through this beacon
+})();
+</script>
+
+<!-- ============ OPTIMALLY DEMO CONCIERGE (AI chat + book + review) ============ -->
+<div id="om-chat" data-state="closed">
+  <button class="oc-fab" aria-label="Chat with Optimally">
+    <svg class="oc-fab-ic" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.4 8.5 8.5 0 0 1-3.6-.8L3 21l1.9-5.7a8.38 8.38 0 0 1-.8-3.6A8.5 8.5 0 0 1 12.5 3 8.38 8.38 0 0 1 21 11.5z"/></svg>
+    <span class="oc-fab-dot"></span>
+  </button>
+  <div class="oc-panel" role="dialog" aria-label="Optimally demo assistant">
+    <div class="oc-head">
+      <img class="oc-logo" src="https://assets.cdn.filesafe.space/pQhFS1dPlI6DlNuTjOdQ/media/69fd30913f4447300c0bce45.png" alt="Optimally" />
+      <div class="oc-head-t"><span class="oc-title">The Optimally Team</span><span class="oc-sub"><span class="oc-on"></span> Usually replies instantly</span></div>
+      <button class="oc-x" aria-label="Close">&times;</button>
+    </div>
+    <div class="oc-actions">
+      <a class="oc-chip oc-chip-go" href="https://www.optimally.ltd/demo?partner=virtualinstinct" target="_blank" rel="noopener noreferrer">&#128197; Book a walkthrough</a>
+      <a class="oc-chip" href="https://www.trustpilot.com/evaluate/optimally.ltd" target="_blank" rel="noopener noreferrer">&#11088; Leave a review</a>
+    </div>
+    <div class="oc-msgs" id="oc-msgs"></div>
+    <form class="oc-input" id="oc-form">
+      <input id="oc-text" type="text" autocomplete="off" placeholder="Ask how this would work for you..." />
+      <button type="submit" class="oc-send" aria-label="Send">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+      </button>
+    </form>
+  </div>
+</div>
+<style>
+  #om-chat{ --oc-brand:#3D85C6; --oc-accent:#FFAF03; position:fixed; right:20px; bottom:20px; z-index:9000; font-family:inherit; }
+  #om-chat .oc-fab{ width:60px; height:60px; border-radius:50%; border:0; cursor:pointer; position:relative; display:flex; align-items:center; justify-content:center; background:linear-gradient(180deg,var(--oc-brand),var(--oc-accent)); box-shadow:0 14px 34px -8px color-mix(in srgb, var(--oc-brand) 65%, transparent); transition:transform .16s ease, box-shadow .16s ease; }
+  #om-chat .oc-fab:hover{ transform:translateY(-2px) scale(1.04); }
+  #om-chat .oc-fab-dot{ position:absolute; top:11px; right:11px; width:11px; height:11px; border-radius:50%; background:#3fbf6a; border:2px solid #fff; }
+  #om-chat[data-state="open"] .oc-fab{ transform:scale(.9); opacity:.92; }
+  #om-chat .oc-panel{ position:absolute; right:0; bottom:78px; width:404px; max-width:calc(100vw - 32px); height:660px; max-height:calc(100dvh - 96px); background:#fff; border-radius:20px; overflow:hidden; display:none; flex-direction:column; box-shadow:0 30px 80px -20px rgba(20,12,8,.5); border:1px solid color-mix(in srgb, var(--oc-brand) 12%, #e7e2dc); animation:oc-rise .28s cubic-bezier(.2,.8,.2,1) both; }
+  #om-chat[data-state="open"] .oc-panel{ display:flex; }
+  @keyframes oc-rise{ from{opacity:0; transform:translateY(16px)} to{opacity:1; transform:none} }
+  @keyframes oc-fade{ from{opacity:0} to{opacity:1} }
+  #om-chat .oc-head{ display:flex; align-items:center; gap:11px; padding:14px 16px; border-bottom:1px solid #efeae4; }
+  #om-chat .oc-logo{ width:28px; height:28px; border-radius:7px; object-fit:cover; flex:0 0 auto; }
+  #om-chat .oc-head-t{ display:flex; flex-direction:column; line-height:1.25; margin-right:auto; }
+  #om-chat .oc-title{ font-size:14px; font-weight:700; color:#1c1a18; }
+  #om-chat .oc-sub{ font-size:11.5px; color:#8a847c; display:flex; align-items:center; gap:5px; }
+  #om-chat .oc-on{ width:7px; height:7px; border-radius:50%; background:#3fbf6a; display:inline-block; }
+  #om-chat .oc-x{ border:0; background:transparent; cursor:pointer; font-size:24px; line-height:1; color:#b3aca3; padding:2px 4px; border-radius:8px; }
+  #om-chat .oc-x:hover{ background:#f4f0eb; color:#6b655d; }
+  #om-chat .oc-actions{ display:flex; gap:8px; padding:12px 14px 4px; flex-wrap:wrap; }
+  #om-chat .oc-chip{ font-size:12.5px; font-weight:600; text-decoration:none; color:var(--oc-brand); background:color-mix(in srgb, var(--oc-brand) 8%, #fff); border:1px solid color-mix(in srgb, var(--oc-brand) 22%, transparent); padding:7px 11px; border-radius:999px; transition:.15s; }
+  #om-chat .oc-chip:hover{ background:color-mix(in srgb, var(--oc-brand) 14%, #fff); }
+  #om-chat .oc-chip-go{ color:#fff; background:var(--oc-brand); border-color:var(--oc-brand); }
+  #om-chat .oc-chip-go:hover{ background:var(--oc-accent); }
+  #om-chat .oc-msgs{ flex:1; overflow-y:auto; padding:14px; display:flex; flex-direction:column; gap:10px; }
+  #om-chat .oc-b{ max-width:84%; padding:10px 13px; border-radius:14px; font-size:13.5px; line-height:1.5; white-space:pre-wrap; word-wrap:break-word; }
+  #om-chat .oc-b.bot{ align-self:flex-start; background:#f5f1ec; color:#2a2722; border-bottom-left-radius:5px; }
+  #om-chat .oc-b.me{ align-self:flex-end; background:var(--oc-brand); color:#fff; border-bottom-right-radius:5px; }
+  #om-chat .oc-sugg{ display:flex; flex-direction:column; align-items:flex-end; gap:7px; margin-top:2px; }
+  #om-chat .oc-sugg button{ border:1px solid var(--oc-brand); background:#fff; color:var(--oc-brand); font:inherit; font-size:13px; font-weight:600; line-height:1.35; padding:9px 14px; border-radius:14px; border-bottom-right-radius:5px; cursor:pointer; max-width:90%; text-align:left; transition:.15s; }
+  #om-chat .oc-sugg button:hover{ background:color-mix(in srgb, var(--oc-brand) 8%, #fff); }
+  #om-chat .oc-typing{ display:inline-flex; gap:5px; align-items:center; padding:14px 15px; }
+  #om-chat .oc-typing span{ width:7px; height:7px; border-radius:50%; background:#b8b1a8; animation:oc-bounce 1.2s infinite ease-in-out; }
+  #om-chat .oc-typing span:nth-child(2){ animation-delay:.16s; }
+  #om-chat .oc-typing span:nth-child(3){ animation-delay:.32s; }
+  @keyframes oc-bounce{ 0%,60%,100%{ transform:translateY(0); opacity:.45 } 30%{ transform:translateY(-5px); opacity:1 } }
+  #om-chat .oc-input{ display:flex; gap:8px; padding:12px 14px; border-top:1px solid #efeae4; }
+  #om-chat .oc-input input{ flex:1; border:1px solid #e3ddd6; background:#faf8f5; border-radius:999px; padding:12px 16px; font:inherit; font-size:16px; outline:none; transition:.15s; }
+  #om-chat .oc-input input:focus{ border-color:var(--oc-brand); background:#fff; box-shadow:0 0 0 3px color-mix(in srgb, var(--oc-brand) 14%, transparent); }
+  #om-chat .oc-send{ flex:0 0 auto; width:42px; height:42px; border:0; border-radius:50%; cursor:pointer; background:var(--oc-brand); display:flex; align-items:center; justify-content:center; transition:.15s; }
+  #om-chat .oc-send:hover{ background:var(--oc-accent); }
+  #om-chat .oc-send:disabled{ opacity:.5; cursor:default; }
+  @media (max-width:560px){
+    #om-chat{ right:14px; bottom:14px; }
+    #om-chat .oc-panel{ position:fixed; inset:0; right:0; bottom:0; width:100%; max-width:100%; height:100dvh; max-height:100dvh; border-radius:0; border:0; animation:oc-fade .2s ease both; }
+    #om-chat[data-state="open"] .oc-fab{ display:none; }
+    #om-chat .oc-msgs{ padding:16px; }
+    #om-chat .oc-b{ font-size:15px; }
+  }
+</style>
+<script>
+(function(){
+  var COMPANY = "Virtual Instinct";
+  var SLUG = "virtualinstinct";
+  var BOOK_URL = "https://www.optimally.ltd/demo?partner=virtualinstinct";
+  var root = document.getElementById('om-chat'); if(!root) return;
+  var fab = root.querySelector('.oc-fab');
+  var msgsEl = document.getElementById('oc-msgs');
+  var form = document.getElementById('oc-form');
+  var input = document.getElementById('oc-text');
+  var sendBtn = root.querySelector('.oc-send');
+  var history = [];
+  var greeted = false, busy = false;
+  function ctx(){
+    var d = (document.querySelector('meta[name="description"]')||{}).content || '';
+    return { company: COMPANY, slug: SLUG, title: document.title || '', description: d, bookingUrl: BOOK_URL };
+  }
+  function bubble(text, who){
+    var b = document.createElement('div'); b.className = 'oc-b ' + who; b.textContent = text;
+    msgsEl.appendChild(b); msgsEl.scrollTop = msgsEl.scrollHeight; return b;
+  }
+  function typeOut(el, text, done){
+    el.textContent = ''; var i = 0;
+    (function step(){
+      if(i >= text.length){ if(done) done(); return; }
+      el.textContent += text.slice(i, i + 2); i += 2;
+      msgsEl.scrollTop = msgsEl.scrollHeight;
+      setTimeout(step, 14);
+    })();
+  }
+  function removeSugg(){ var s = document.getElementById('oc-sugg'); if(s) s.remove(); }
+  function suggest(){
+    var qs = ["What exactly do you do?", "How would this work for " + COMPANY + "?", "How does this get me more clients?"];
+    var wrap = document.createElement('div'); wrap.className = 'oc-sugg'; wrap.id = 'oc-sugg';
+    qs.forEach(function(q){
+      var btn = document.createElement('button'); btn.type = 'button'; btn.textContent = q;
+      btn.addEventListener('click', function(){ if(busy) return; input.value = q; removeSugg(); form.dispatchEvent(new Event('submit', {cancelable:true, bubbles:true})); });
+      wrap.appendChild(btn);
+    });
+    msgsEl.appendChild(wrap); msgsEl.scrollTop = msgsEl.scrollHeight;
+  }
+  function open(){
+    window.__omChatEngaged = true;
+    root.setAttribute('data-state','open');
+    if(!greeted){ greeted = true; bubble("Hi! I'm the Optimally team's assistant. I can explain how a funnel like this would work for " + COMPANY + ", or get you booked in for a quick walkthrough. What would you like to know?", 'bot'); suggest(); }
+    setTimeout(function(){ input.focus(); }, 60);
+  }
+  function close(){ root.setAttribute('data-state','closed'); }
+  fab.addEventListener('click', function(){ root.getAttribute('data-state')==='open' ? close() : open(); });
+  root.querySelector('.oc-x').addEventListener('click', close);
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var text = (input.value||'').trim();
+    if(!text || busy) return;
+    removeSugg();
+    input.value = '';
+    bubble(text, 'me');
+    history.push({ role:'user', content:text });
+    busy = true; sendBtn.disabled = true;
+    var typingEl = null;
+    var showT = setTimeout(function(){
+      typingEl = document.createElement('div'); typingEl.className = 'oc-b bot oc-typing';
+      typingEl.innerHTML = '<span></span><span></span><span></span>';
+      msgsEl.appendChild(typingEl); msgsEl.scrollTop = msgsEl.scrollHeight;
+    }, 500);
+    var clearTyping = function(){ clearTimeout(showT); if(typingEl){ typingEl.remove(); typingEl = null; } };
+    var done = function(){ busy = false; sendBtn.disabled = false; input.focus(); };
+    fetch('/api/chat', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ messages: history, context: ctx() }) })
+      .then(function(r){ return r.json(); })
+      .then(function(d){
+        clearTyping();
+        var reply = (d && d.reply) ? d.reply : "Tap Book a walkthrough above and the team will help you directly.";
+        history.push({ role:'assistant', content: reply });
+        try{ if(window.omTrack) window.omTrack('bot_message', 'chat', ('Q: ' + text + '\nA: ' + reply).slice(0, 1200)); }catch(e){}
+        typeOut(bubble('', 'bot'), reply, done);
+      })
+      .catch(function(){
+        clearTyping();
+        typeOut(bubble('', 'bot'), "I'm having trouble connecting. Tap Book a walkthrough above and we'll take it from there.", done);
+      });
+  });
+})();
+</script>
+</body>
+</html>
