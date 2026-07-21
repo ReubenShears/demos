@@ -1,0 +1,779 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Meta Pixel (central loader — ID swappable via /api/pixel, no page edits) -->
+<script>window.OM_PIXEL={slug:"ai1up",company:"AI1Up"};</script>
+<script async src="/api/pixel"></script>
+<!-- Microsoft Clarity (universal) -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "xd2h3tb6o4");
+    try{ if(window.clarity){ window.clarity("identify", "ai1up"); window.clarity("set", "slug", "ai1up"); } }catch(e){}
+</script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>AI1Up — The AI Funnel Builder That Pays 100% Commissions</title>
+<meta name="description" content="One $100 payment for a lifetime AI marketing stack: unlimited funnels, AI-built pages, email & SMS, AI calling, and 100% commissions on every sale you refer." />
+<meta property="og:title" content="AI1Up — The AI Funnel Builder That Pays 100% Commissions" />
+<meta property="og:description" content="A full AI marketing stack in one platform. Pay once, own it forever, earn 100% commissions." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://demos.optimally.ltd/ai1up" />
+<meta property="og:image" content="https://ai1up.com/storage/01KX280TE8XF713KMQ20PRRX5F.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="AI1Up — The AI Funnel Builder That Pays 100% Commissions" />
+<meta name="twitter:description" content="A full AI marketing stack in one platform. Pay once, own it forever, earn 100% commissions." />
+<meta name="twitter:image" content="https://ai1up.com/storage/01KX280TE8XF713KMQ20PRRX5F.png" />
+<link rel="icon" href="https://ai1up.com/storage/01KT9P00E5DXDGECG1TXW6GRRY.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        ink: '#0A0A0A',
+        ink2: '#111010',
+        ink3: '#161514',
+        gold: '#D4AF37',
+        goldsoft: '#E8CE7A',
+        brownd: '#1A0E00',
+      },
+      fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+    }
+  }
+}
+</script>
+<style>
+  html, body { overflow-x: hidden; max-width: 100%; }
+  body { background: #0A0A0A; color: #EDE8DE; font-family: 'Inter', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+  .grad-hero {
+    background:
+      radial-gradient(1100px 620px at 50% -8%, rgba(212,175,55,.18), transparent 60%),
+      radial-gradient(760px 520px at 88% 12%, rgba(212,175,55,.10), transparent 62%),
+      radial-gradient(680px 480px at 8% 40%, rgba(61,51,21,.30), transparent 60%),
+      #0A0A0A;
+  }
+  .grad-band { background: linear-gradient(180deg, #0A0A0A 0%, #100E0A 55%, #0A0A0A 100%); }
+  .grad-gold { background: linear-gradient(180deg,#E8CE7A 0%,#D4AF37 55%,#B8922B 100%); }
+  .text-gold-grad { background: linear-gradient(90deg,#F0DB93,#D4AF37 55%,#B8922B); -webkit-background-clip: text; background-clip: text; color: transparent; padding-bottom: .08em; }
+  .cardline { border: 1px solid rgba(212,175,55,.16); background: linear-gradient(180deg, rgba(255,255,255,.028), rgba(255,255,255,.006)); }
+  .cardline:hover { border-color: rgba(212,175,55,.42); box-shadow: 0 24px 60px -30px rgba(212,175,55,.5); }
+  .chip { border: 1px solid rgba(212,175,55,.22); background: rgba(212,175,55,.06); }
+  .cta {
+    display: inline-flex; align-items: center; gap: .55rem; white-space: nowrap;
+    background: linear-gradient(180deg,#E8CE7A,#D4AF37); color: #1A0E00; font-weight: 700;
+    padding: .95rem 2rem; border-radius: 999px; letter-spacing: .01em;
+    box-shadow: 0 16px 40px -14px rgba(212,175,55,.65); transition: transform .16s ease, box-shadow .16s ease, filter .16s ease;
+  }
+  .cta:hover { transform: translateY(-2px) scale(1.015); box-shadow: 0 22px 52px -14px rgba(212,175,55,.8); filter: brightness(1.04); }
+  .proof-av { width: 26px; height: 26px; border-radius: 999px; border: 2px solid #0A0A0A; background: linear-gradient(135deg,#3D3315,#D4AF37); display:inline-flex; align-items:center; justify-content:center; }
+  .reveal { opacity: 0; transform: translateY(26px); transition: opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1); }
+  .reveal.in { opacity: 1; transform: none; }
+  .marquee { display:flex; gap:2.5rem; white-space:nowrap; animation: scrollx 32s linear infinite; }
+  @keyframes scrollx { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  .play-btn { cursor: pointer; }
+  .ico { width: 26px; height: 26px; stroke: #D4AF37; stroke-width: 1.7; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+  details.faq { border-bottom: 1px solid rgba(212,175,55,.14); }
+  details.faq summary { list-style: none; cursor: pointer; }
+  details.faq summary::-webkit-details-marker { display: none; }
+  details.faq[open] .faq-plus { transform: rotate(45deg); }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .marquee { animation: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- 0. BANNER (not sticky) -->
+<div class="grad-gold text-brownd text-center text-[12.5px] sm:text-sm font-semibold tracking-wide py-2 px-4">
+  JUST LAUNCHED · Watch the short video below to see how it works
+</div>
+
+<!-- 1. HERO -->
+<header class="grad-hero relative">
+  <div class="max-w-6xl mx-auto px-5 pt-7 pb-16 sm:pb-20">
+    <!-- logo -->
+    <div class="flex justify-center">
+      <img src="https://ai1up.com/storage/branding/01KTB0X9EKA2N2GQ3MZMQ3YWDH.png" alt="AI1Up Logo" class="h-14 sm:h-[68px] w-auto" />
+    </div>
+
+    <div class="text-center mt-6">
+      <p class="text-gold text-xs sm:text-sm font-semibold tracking-[.14em] uppercase">Attention: Online marketers &amp; entrepreneurs</p>
+
+      <h1 class="mt-4 mx-auto max-w-4xl font-extrabold leading-[1.12] text-3xl sm:text-5xl lg:text-6xl text-white">
+        The AI Funnel Builder That Pays You <span class="text-gold-grad">100% Commissions</span>
+      </h1>
+
+      <p class="mt-4 inline-flex items-center gap-2 chip rounded-full px-4 py-1.5 text-[13px] sm:text-sm text-goldsoft font-medium">
+        <svg class="ico" style="width:16px;height:16px" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>
+        One $100 payment · Lifetime access · No monthly fees ever
+      </p>
+
+      <p class="mt-4 mx-auto max-w-2xl text-base sm:text-lg text-white/70 leading-relaxed">
+        Build unlimited funnels, let AI design your pages, write your emails &amp; SMS, and call your leads &mdash; all from a single platform you own forever.
+      </p>
+
+      <!-- VSL placeholder -->
+      <div class="mt-9 mx-auto max-w-3xl">
+        <div class="relative rounded-2xl overflow-hidden cardline aspect-video flex items-center justify-center"
+             style="background: radial-gradient(600px 340px at 50% 30%, rgba(212,175,55,.22), transparent 60%), linear-gradient(160deg,#161514,#0A0A0A);">
+          <button class="play-btn group relative z-10 flex items-center justify-center h-20 w-20 rounded-full grad-gold shadow-[0_18px_50px_-12px_rgba(212,175,55,.75)] transition-transform hover:scale-105" aria-label="Play video">
+            <svg viewBox="0 0 24 24" width="30" height="30" fill="#1A0E00" class="ml-1"><path d="M8 5v14l11-7z"/></svg>
+          </button>
+          <span class="absolute bottom-3 left-1/2 -translate-x-1/2 text-[11px] sm:text-xs tracking-wide text-white/55 uppercase">Watch: How AI1Up works in 90 seconds</span>
+        </div>
+      </div>
+
+      <p class="mt-6 text-white/60 text-sm">Pay once. Own it. Earn every time someone joins through you.</p>
+
+      <!-- CTA below video -->
+      <div class="mt-5 flex flex-col items-center">
+        <a href="https://www.optimally.ltd/demo?partner=ai1up" target="_blank" rel="noopener noreferrer" class="cta">Learn More
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#1A0E00" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <div class="mt-3 flex items-center gap-2">
+          <div class="flex -space-x-2">
+            <span class="proof-av"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="#0A0A0A" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M5 20a7 7 0 0 1 14 0"/></svg></span>
+            <span class="proof-av"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="#0A0A0A" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M5 20a7 7 0 0 1 14 0"/></svg></span>
+            <span class="proof-av"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="#0A0A0A" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M5 20a7 7 0 0 1 14 0"/></svg></span>
+          </div>
+          <span class="text-white/55 text-[13px]">Members earning $5k&ndash;$15k in their first weeks</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- marquee trust strip -->
+  <div class="border-y border-white/5 py-3 overflow-hidden">
+    <div class="marquee text-white/35 text-sm font-medium tracking-wide">
+      <span class="flex gap-10 pr-10"><span>Unlimited Sales Funnels</span><span>◆</span><span>AI Page Generation</span><span>◆</span><span>AI Calls Your Leads</span><span>◆</span><span>Unlimited AI Chatbots</span><span>◆</span><span>Email &amp; SMS Sequences</span><span>◆</span><span>100% Commissions</span><span>◆</span><span>Lifetime Access</span><span>◆</span></span>
+      <span class="flex gap-10 pr-10" aria-hidden="true"><span>Unlimited Sales Funnels</span><span>◆</span><span>AI Page Generation</span><span>◆</span><span>AI Calls Your Leads</span><span>◆</span><span>Unlimited AI Chatbots</span><span>◆</span><span>Email &amp; SMS Sequences</span><span>◆</span><span>100% Commissions</span><span>◆</span><span>Lifetime Access</span><span>◆</span></span>
+    </div>
+  </div>
+</header>
+
+<!-- 2. PAINS -->
+<section class="grad-band py-20">
+  <div class="max-w-6xl mx-auto px-5">
+    <div class="text-center reveal">
+      <p class="text-gold text-xs font-semibold tracking-[.16em] uppercase">The problem</p>
+      <h2 class="mt-3 text-2xl sm:text-4xl font-bold text-white max-w-3xl mx-auto leading-tight">Paying $500+/month for tools that still don't talk to each other</h2>
+      <p class="mt-4 text-white/60 max-w-2xl mx-auto">You're stitching together a dozen subscriptions &mdash; spending more time managing software than actually selling, and bleeding money every month for the privilege.</p>
+    </div>
+
+    <div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      <div class="reveal cardline rounded-2xl p-6 transition">
+        <svg class="ico" viewBox="0 0 24 24"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        <h3 class="mt-4 font-semibold text-white text-lg">Overpriced subscriptions</h3>
+        <p class="mt-2 text-white/60 text-sm leading-relaxed">ClickFunnels, GoHighLevel, Kajabi &mdash; $97 to $500+ every month just to host your funnels and list.</p>
+      </div>
+      <div class="reveal cardline rounded-2xl p-6 transition">
+        <svg class="ico" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+        <h3 class="mt-4 font-semibold text-white text-lg">Tool overload</h3>
+        <p class="mt-2 text-white/60 text-sm leading-relaxed">One tool builds pages, another sends email, another chats, another calls. Nothing connects.</p>
+      </div>
+      <div class="reveal cardline rounded-2xl p-6 transition">
+        <svg class="ico" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 6v6l4 2"/><path d="M16 4l4 4"/></svg>
+        <h3 class="mt-4 font-semibold text-white text-lg">Zero AI built in</h3>
+        <p class="mt-2 text-white/60 text-sm leading-relaxed">Your builder can't write copy, can't call leads, can't chat with visitors. It just sits there.</p>
+      </div>
+      <div class="reveal cardline rounded-2xl p-6 transition">
+        <svg class="ico" viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 14l3-3 3 3 5-6"/><path d="M18 5h3v3"/></svg>
+        <h3 class="mt-4 font-semibold text-white text-lg">Commissions capped</h3>
+        <p class="mt-2 text-white/60 text-sm leading-relaxed">Most platforms pay 20&ndash;40% after a long delay. You do the work; they keep most of your money.</p>
+      </div>
+      <div class="reveal cardline rounded-2xl p-6 transition">
+        <svg class="ico" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 11l-3 3-2-2"/></svg>
+        <h3 class="mt-4 font-semibold text-white text-lg">Leads left behind</h3>
+        <p class="mt-2 text-white/60 text-sm leading-relaxed">Without 24/7 follow-up, most leads go cold long before you ever get the chance to close them.</p>
+      </div>
+      <div class="reveal cardline rounded-2xl p-6 transition">
+        <svg class="ico" viewBox="0 0 24 24"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/><path d="M3 3l18 18"/></svg>
+        <h3 class="mt-4 font-semibold text-white text-lg">Hidden markups</h3>
+        <p class="mt-2 text-white/60 text-sm leading-relaxed">AI usage fees, email sending costs, storage fees &mdash; quietly marked up on everything you touch.</p>
+      </div>
+    </div>
+
+    <div class="mt-12 text-center reveal">
+      <a href="https://www.optimally.ltd/demo?partner=ai1up" target="_blank" rel="noopener noreferrer" class="cta">Learn More
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#1A0E00" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <p class="mt-3 text-white/45 text-[13px]">Trusted by early members already earning five figures</p>
+    </div>
+  </div>
+</section>
+
+<!-- 3. SOLUTION -->
+<section class="py-20 bg-ink">
+  <div class="max-w-6xl mx-auto px-5">
+    <div class="text-center reveal">
+      <p class="text-gold text-xs font-semibold tracking-[.16em] uppercase">The solution</p>
+      <h2 class="mt-3 text-2xl sm:text-4xl font-bold text-white max-w-3xl mx-auto leading-tight">A full AI marketing stack &mdash; built into <span class="text-gold-grad">one platform</span></h2>
+      <p class="mt-4 text-white/60 max-w-2xl mx-auto">AI1Up replaces every tool in your stack with one system that builds, writes, chats, and calls &mdash; so you spend your time scaling, not stitching.</p>
+    </div>
+
+    <div class="mt-12 grid gap-5 lg:grid-cols-2">
+      <div class="reveal cardline rounded-2xl p-7 transition">
+        <svg class="ico" style="width:30px;height:30px" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 4v5"/></svg>
+        <h3 class="mt-4 text-xl font-semibold text-white">Unlimited funnels &amp; website pages</h3>
+        <p class="mt-2 text-white/60 text-sm leading-relaxed">Launch as many funnels and pages as you need &mdash; no per-funnel pricing, no throttling. Clone any page or let AI generate one. You own everything, forever.</p>
+      </div>
+      <div class="reveal cardline rounded-2xl p-7 transition">
+        <svg class="ico" style="width:30px;height:30px" viewBox="0 0 24 24"><path d="M12 3l1.9 4.6L18.5 9l-3.7 3.1L15.9 17 12 14.5 8.1 17l1.1-4.9L5.5 9l4.6-1.4z"/></svg>
+        <h3 class="mt-4 text-xl font-semibold text-white">AI page generation &amp; copywriting</h3>
+        <p class="mt-2 text-white/60 text-sm leading-relaxed">Describe your offer in plain English and AI builds a fully designed, copy-written landing page in under 5 minutes &mdash; optimized to convert, no designer required.</p>
+      </div>
+      <div class="reveal cardline rounded-2xl p-7 transition">
+        <svg class="ico" style="width:30px;height:30px" viewBox="0 0 24 24"><path d="M4 4h16v12H5.2L4 17.2z"/><path d="M8 9h8M8 12h5"/></svg>
+        <h3 class="mt-4 text-xl font-semibold text-white">AI email &amp; SMS autoresponders</h3>
+        <p class="mt-2 text-white/60 text-sm leading-relaxed">AI writes and schedules your entire follow-up so every lead is nurtured 24/7. Set your own timing, send with Amazon SES or any SMTP, and sell on autopilot.</p>
+      </div>
+      <div class="reveal cardline rounded-2xl p-7 transition">
+        <svg class="ico" style="width:30px;height:30px" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
+        <h3 class="mt-4 text-xl font-semibold text-white">AI calling &amp; unlimited chatbots</h3>
+        <p class="mt-2 text-white/60 text-sm leading-relaxed">AI places real phone calls to qualify your leads, while AI chatbots answer questions and capture data on every page &mdash; converting visitors around the clock with Vapi or ElevenLabs.</p>
+      </div>
+      <div class="reveal cardline rounded-2xl p-7 transition">
+        <svg class="ico" style="width:30px;height:30px" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9.5 9.5c0-1.4 1.1-2 2.5-2s2.5.7 2.5 2-1.1 2-2.5 2-2.5.7-2.5 2 1.1 2 2.5 2 2.5-.6 2.5-2"/></svg>
+        <h3 class="mt-4 text-xl font-semibold text-white">100% commissions &amp; pass-up sales</h3>
+        <p class="mt-2 text-white/60 text-sm leading-relaxed">Earn the full $100 on every referral &mdash; paid directly to you in real time &mdash; using the same done-for-you funnels you're seeing right now. Plus pass-up sales from your whole team.</p>
+      </div>
+      <div class="reveal cardline rounded-2xl p-7 transition">
+        <svg class="ico" style="width:30px;height:30px" viewBox="0 0 24 24"><path d="M3 5h18v14H3z"/><path d="M7 5v14M12 5v14M12 9h9M12 14h9"/></svg>
+        <h3 class="mt-4 text-xl font-semibold text-white">Unlimited leads &amp; built-in CRM</h3>
+        <p class="mt-2 text-white/60 text-sm leading-relaxed">Store as many leads as you want in one clean kanban CRM pipeline. Track every lead from opt-in to sale &mdash; unlimited campaigns, no storage limits, no throttling, ever.</p>
+      </div>
+    </div>
+
+    <div class="mt-12 text-center reveal">
+      <a href="https://www.optimally.ltd/demo?partner=ai1up" target="_blank" rel="noopener noreferrer" class="cta">Learn More
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#1A0E00" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <p class="mt-3 text-white/45 text-[13px]">One platform. One payment. Everything included.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 4. CALL TO ACTION -->
+<section class="grad-band py-20">
+  <div class="max-w-5xl mx-auto px-5">
+    <div class="text-center reveal">
+      <p class="text-gold text-xs font-semibold tracking-[.16em] uppercase">Get paid in 3 steps</p>
+      <h2 class="mt-3 text-2xl sm:text-4xl font-bold text-white leading-tight">Pay once. Use it forever. Earn every time.</h2>
+      <p class="mt-4 text-white/60 max-w-2xl mx-auto">Built by a developer with 20 years of experience to be dead simple &mdash; break even on your very first sale.</p>
+    </div>
+
+    <div class="mt-12 grid gap-5 sm:grid-cols-3">
+      <div class="reveal cardline rounded-2xl p-7 text-center transition">
+        <div class="mx-auto h-12 w-12 rounded-full grad-gold text-brownd font-extrabold text-lg flex items-center justify-center">1</div>
+        <h3 class="mt-4 font-semibold text-white text-lg">Pay $100 one time</h3>
+        <p class="mt-2 text-white/60 text-sm leading-relaxed">A single payment to the member who referred you for lifetime access. No recurring fees, no contracts, no surprises.</p>
+      </div>
+      <div class="reveal cardline rounded-2xl p-7 text-center transition">
+        <div class="mx-auto h-12 w-12 rounded-full grad-gold text-brownd font-extrabold text-lg flex items-center justify-center">2</div>
+        <h3 class="mt-4 font-semibold text-white text-lg">Earn $100 on sale one</h3>
+        <p class="mt-2 text-white/60 text-sm leading-relaxed">You keep your first $100 sale, so you break even on your very first referral. After that, every dollar is pure profit.</p>
+      </div>
+      <div class="reveal cardline rounded-2xl p-7 text-center transition">
+        <div class="mx-auto h-12 w-12 rounded-full grad-gold text-brownd font-extrabold text-lg flex items-center justify-center">3</div>
+        <h3 class="mt-4 font-semibold text-white text-lg">All profit + pass-ups</h3>
+        <p class="mt-2 text-white/60 text-sm leading-relaxed">Keep all direct $100 sales and collect a pass-up from everyone who pays you &mdash; not just your direct referrals.</p>
+      </div>
+    </div>
+
+    <div class="mt-12 text-center reveal">
+      <a href="https://www.optimally.ltd/demo?partner=ai1up" target="_blank" rel="noopener noreferrer" class="cta">Learn More
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#1A0E00" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <p class="mt-3 text-white/45 text-[13px]">$100 one-time only · No monthly fees, ever</p>
+    </div>
+  </div>
+</section>
+
+<!-- 5. BUILDING TRUST (testimonials) -->
+<section class="py-20 bg-ink">
+  <div class="max-w-6xl mx-auto px-5">
+    <div class="text-center reveal">
+      <p class="text-gold text-xs font-semibold tracking-[.16em] uppercase">Real results</p>
+      <h2 class="mt-3 text-2xl sm:text-4xl font-bold text-white leading-tight">Members are already winning big</h2>
+      <p class="mt-4 text-white/60 max-w-2xl mx-auto">Early-access members are building funnels, collecting leads, and earning commissions &mdash; all from a single $100 investment.</p>
+    </div>
+
+    <div class="mt-12 grid gap-5 lg:grid-cols-3">
+      <figure class="reveal cardline rounded-2xl p-7 flex flex-col transition">
+        <div class="flex gap-1 text-gold">★★★★★</div>
+        <p class="mt-3 text-gold font-bold text-lg">$15,450 in under 3 weeks</p>
+        <blockquote class="mt-3 text-white/70 text-sm leading-relaxed flex-1">"I've earned $15,450 in less than 3 weeks. We get paid to give away something everyone already wants. This is by far the easiest sale of anything I've ever promoted. For anyone on the fence &mdash; don't miss out."</blockquote>
+        <figcaption class="mt-5 flex items-center gap-3">
+          <span class="h-11 w-11 rounded-full flex items-center justify-center" style="background:linear-gradient(135deg,#3D3315,#D4AF37)"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#0A0A0A" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M5 20a7 7 0 0 1 14 0"/></svg></span>
+          <div><p class="text-white font-semibold text-sm">Carlos Reyes</p><p class="text-white/45 text-xs">Founding Member</p></div>
+        </figcaption>
+      </figure>
+      <figure class="reveal cardline rounded-2xl p-7 flex flex-col transition">
+        <div class="flex gap-1 text-gold">★★★★★</div>
+        <p class="mt-3 text-gold font-bold text-lg">$6,450 in under a month</p>
+        <blockquote class="mt-3 text-white/70 text-sm leading-relaxed flex-1">"The price for the system you get is unreal. These are some of the easiest commissions I've ever made &mdash; a total no-brainer. The team-building bonus is great too. We get paid to help our teams grow."</blockquote>
+        <figcaption class="mt-5 flex items-center gap-3">
+          <span class="h-11 w-11 rounded-full flex items-center justify-center" style="background:linear-gradient(135deg,#3D3315,#D4AF37)"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#0A0A0A" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M5 20a7 7 0 0 1 14 0"/></svg></span>
+          <div><p class="text-white font-semibold text-sm">Vikram Gholap</p><p class="text-white/45 text-xs">Founding Member</p></div>
+        </figcaption>
+      </figure>
+      <figure class="reveal cardline rounded-2xl p-7 flex flex-col transition">
+        <div class="flex gap-1 text-gold">★★★★★</div>
+        <p class="mt-3 text-gold font-bold text-lg">$5,700 in under 3 weeks</p>
+        <blockquote class="mt-3 text-white/70 text-sm leading-relaxed flex-1">"I earned $5,700 this month and there's still a week left. If you market online, this is a must-have. You're getting 10x the value of what you pay. $100 one-time for lifetime access is unheard of."</blockquote>
+        <figcaption class="mt-5 flex items-center gap-3">
+          <span class="h-11 w-11 rounded-full flex items-center justify-center" style="background:linear-gradient(135deg,#3D3315,#D4AF37)"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#0A0A0A" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M5 20a7 7 0 0 1 14 0"/></svg></span>
+          <div><p class="text-white font-semibold text-sm">Darius Balaoing</p><p class="text-white/45 text-xs">Founding Member</p></div>
+        </figcaption>
+      </figure>
+    </div>
+
+    <div class="mt-12 text-center reveal">
+      <a href="https://www.optimally.ltd/demo?partner=ai1up" target="_blank" rel="noopener noreferrer" class="cta">Learn More
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#1A0E00" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <p class="mt-3 text-white/45 text-[13px]">Join the members already collecting real-time payments</p>
+    </div>
+  </div>
+</section>
+
+<!-- 6. FOUNDER -->
+<section class="grad-band py-20">
+  <div class="max-w-5xl mx-auto px-5">
+    <div class="reveal cardline rounded-3xl p-8 sm:p-12 grid gap-8 sm:grid-cols-[auto,1fr] items-center">
+      <div class="mx-auto sm:mx-0 h-40 w-40 rounded-2xl flex items-center justify-center" style="background: radial-gradient(120px 120px at 50% 30%, rgba(212,175,55,.35), transparent 65%), linear-gradient(160deg,#161514,#0A0A0A); border:1px solid rgba(212,175,55,.25)">
+        <svg viewBox="0 0 24 24" width="64" height="64" fill="none" stroke="#D4AF37" stroke-width="1.4"><circle cx="12" cy="8" r="4.2"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+      </div>
+      <div>
+        <p class="text-gold text-xs font-semibold tracking-[.16em] uppercase">Built by a developer with 20 years of experience</p>
+        <h2 class="mt-3 text-2xl sm:text-3xl font-bold text-white">Ryan Carlson &mdash; Founder of AI1Up</h2>
+        <p class="mt-4 text-white/65 text-sm sm:text-base leading-relaxed">Ryan has spent years developing and refining different versions of this system, and he's deeply committed to it &mdash; so you can count on AI1Up to last. Your access includes free lifetime updates, and Ryan is always open to suggestions, constantly adding new features to make the platform better for every member.</p>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <span class="chip rounded-full px-4 py-1.5 text-[13px] text-goldsoft font-medium">Lifetime updates included</span>
+          <span class="chip rounded-full px-4 py-1.5 text-[13px] text-goldsoft font-medium">Member-driven roadmap</span>
+        </div>
+        <div class="mt-7">
+          <a href="https://www.optimally.ltd/demo?partner=ai1up" target="_blank" rel="noopener noreferrer" class="cta">Learn More
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#1A0E00" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <p class="mt-3 text-white/45 text-[13px]">Backed by a founder who ships new features constantly</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. FAQ -->
+<section class="py-20 bg-ink">
+  <div class="max-w-3xl mx-auto px-5">
+    <div class="text-center reveal">
+      <p class="text-gold text-xs font-semibold tracking-[.16em] uppercase">Quick answers</p>
+      <h2 class="mt-3 text-2xl sm:text-4xl font-bold text-white leading-tight">Common questions answered</h2>
+      <p class="mt-4 text-white/60">Everything you need to know before you reserve your founding member position.</p>
+    </div>
+
+    <div class="mt-10 reveal">
+      <details class="faq py-5" open>
+        <summary class="flex items-center justify-between gap-4"><span class="font-semibold text-white text-[15px] sm:text-base">Isn't $100 too cheap to be any good?</span><span class="faq-plus text-gold text-2xl leading-none transition-transform">+</span></summary>
+        <p class="mt-3 text-white/60 text-sm leading-relaxed">It's a one-time $100 for lifetime access with no recurring fees. Most platforms charge $49&ndash;$500 every month for a fraction of this. The developer priced it low on purpose &mdash; 100% commissions create real incentive for members to share, which grows the platform faster than any ad spend ever could.</p>
+      </details>
+      <details class="faq py-5">
+        <summary class="flex items-center justify-between gap-4"><span class="font-semibold text-white text-[15px] sm:text-base">What exactly do I get access to?</span><span class="faq-plus text-gold text-2xl leading-none transition-transform">+</span></summary>
+        <p class="mt-3 text-white/60 text-sm leading-relaxed">Everything &mdash; unlimited funnels, website pages, leads, email &amp; SMS autoresponders, AI page generation, AI sequence writing, unlimited AI chatbots, AI voice calling, and 100% commissions for sharing it. You also get free lifetime updates as the platform keeps growing.</p>
+      </details>
+      <details class="faq py-5">
+        <summary class="flex items-center justify-between gap-4"><span class="font-semibold text-white text-[15px] sm:text-base">Are there hidden fees or markups on AI usage?</span><span class="faq-plus text-gold text-2xl leading-none transition-transform">+</span></summary>
+        <p class="mt-3 text-white/60 text-sm leading-relaxed">No. It's a single $100 payment &mdash; no recurring charges, no contracts, no surprise markups. You connect directly to Claude, OpenAI, and other services at their lowest direct prices. The money you save on marked-up AI usage alone will more than cover your lifetime access.</p>
+      </details>
+      <details class="faq py-5">
+        <summary class="flex items-center justify-between gap-4"><span class="font-semibold text-white text-[15px] sm:text-base">How do the 100% commissions actually work?</span><span class="faq-plus text-gold text-2xl leading-none transition-transform">+</span></summary>
+        <p class="mt-3 text-white/60 text-sm leading-relaxed">When someone buys through your link, the full $100 is paid directly to you in real time. You keep 100% of every sale except your 2nd, which passes up to your sponsor &mdash; and you receive that 2nd sale from every person you refer, plus everyone passed up to you.</p>
+      </details>
+      <details class="faq py-5">
+        <summary class="flex items-center justify-between gap-4"><span class="font-semibold text-white text-[15px] sm:text-base">Will this work for my niche?</span><span class="faq-plus text-gold text-2xl leading-none transition-transform">+</span></summary>
+        <p class="mt-3 text-white/60 text-sm leading-relaxed">If you market anything online, yes. AI1Up builds unlimited funnels and pages for any offer, and the AI writes copy tailored to what you sell &mdash; whether that's coaching, ecommerce, local services, or promoting AI1Up itself with the done-for-you funnels included.</p>
+      </details>
+      <details class="faq py-5">
+        <summary class="flex items-center justify-between gap-4"><span class="font-semibold text-white text-[15px] sm:text-base">How do I collect payments from referrals?</span><span class="faq-plus text-gold text-2xl leading-none transition-transform">+</span></summary>
+        <p class="mt-3 text-white/60 text-sm leading-relaxed">Inside your dashboard you can add a direct payment URL, embed your own payment button on the page, or collect manually and activate members yourself. You have full control over how and when you get paid.</p>
+      </details>
+      <details class="faq py-5">
+        <summary class="flex items-center justify-between gap-4"><span class="font-semibold text-white text-[15px] sm:text-base">Can I get a refund if it's not for me?</span><span class="faq-plus text-gold text-2xl leading-none transition-transform">+</span></summary>
+        <p class="mt-3 text-white/60 text-sm leading-relaxed">Because every member collects payments directly, refunds are handled member-to-member rather than by a central company &mdash; each person chooses their own policy. Given how much value is packed into a one-time $100, it's rare that anyone wants one.</p>
+      </details>
+    </div>
+
+    <div class="mt-12 text-center reveal">
+      <a href="https://www.optimally.ltd/demo?partner=ai1up" target="_blank" rel="noopener noreferrer" class="cta">Learn More
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#1A0E00" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <p class="mt-3 text-white/45 text-[13px]">Founding member price: $100 lifetime</p>
+    </div>
+  </div>
+</section>
+
+<!-- 8. FOOTER -->
+<footer class="grad-band border-t border-white/5 pt-14 pb-10">
+  <div class="max-w-5xl mx-auto px-5 text-center">
+    <img src="https://ai1up.com/storage/branding/01KTB0X9EKA2N2GQ3MZMQ3YWDH.png" alt="AI1Up Logo" class="h-9 w-auto mx-auto opacity-90" />
+    <h3 class="mt-6 text-xl sm:text-2xl font-bold text-white">Everything you need. One price. Forever.</h3>
+    <p class="mt-3 text-white/55 max-w-xl mx-auto text-sm">Lock in your founding member position and permanent $100 price today.</p>
+    <div class="mt-7">
+      <a href="https://www.optimally.ltd/demo?partner=ai1up" target="_blank" rel="noopener noreferrer" class="cta">Learn More
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#1A0E00" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <p class="mt-3 text-white/45 text-[13px]">$100 one-time only · Secure &amp; private</p>
+    </div>
+    <div class="mt-9 flex flex-wrap justify-center gap-x-7 gap-y-2 text-white/45 text-sm">
+      <a href="https://www.optimally.ltd/demo?partner=ai1up" target="_blank" rel="noopener noreferrer" class="hover:text-gold transition">Privacy</a>
+      <a href="https://www.optimally.ltd/demo?partner=ai1up" target="_blank" rel="noopener noreferrer" class="hover:text-gold transition">Terms</a>
+      <a href="https://www.optimally.ltd/demo?partner=ai1up" target="_blank" rel="noopener noreferrer" class="hover:text-gold transition">Contact</a>
+    </div>
+    <p class="mt-8 text-white/35 text-xs">&copy; 2026 AI1Up. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal
+  (function(){
+    var els = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) { els.forEach(function(e){ e.classList.add('in'); }); return; }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if (en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    els.forEach(function(e){ io.observe(e); });
+  })();
+</script>
+
+<!-- ============ OPTIMALLY DEMO INTERSTITIAL (auto @10s + CTA midpoint) ============ -->
+<div id="om-modal" aria-hidden="true">
+  <div class="om-card" role="dialog" aria-modal="true" aria-labelledby="om-title">
+    <button class="om-x" data-om-close aria-label="Close">&times;</button>
+    <div class="om-head">
+      <span class="om-badge"><span class="om-dot"></span> Live demo</span>
+      <img class="om-logo" src="https://framerusercontent.com/images/hUMFc5uZTevF0122Bkpv9kgZDI.png" alt="Optimally" />
+    </div>
+    <h2 id="om-title" class="om-title">Like what you see, <span class="om-accent">AI1Up</span>?</h2>
+    <p class="om-body">A live demo <strong>Optimally</strong> built for AI1Up. Book a quick walkthrough to see the strategy behind it &mdash; and how it powers a full funnel that brings <strong>AI1Up</strong> new clients.</p>
+    <div class="om-urgency">
+      <span class="om-pill" id="om-days">7 days left</span>
+      <span class="om-urgency-text" id="om-utext"></span>
+    </div>
+    <a id="om-book" class="om-cta" href="https://www.optimally.ltd/demo?partner=ai1up" target="_blank" rel="noopener noreferrer">Book my free walkthrough &rarr;</a>
+    <button class="om-later" data-om-close>Maybe later</button>
+  </div>
+</div>
+<style>
+  #om-modal{
+    --om-brand:#D4AF37; --om-accent:#B8922B;
+    position:fixed; inset:0; z-index:9999; display:none;
+    align-items:center; justify-content:center; padding:20px;
+    background:rgba(18,14,28,.55); backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px);
+    font-family:inherit;
+  }
+  #om-modal.open{display:flex; animation:om-fade .25s ease both}
+  @keyframes om-fade{from{opacity:0}to{opacity:1}}
+  #om-modal .om-card{
+    position:relative; width:100%; max-width:440px; background:#fff; border-radius:22px;
+    padding:30px 28px 26px; text-align:center;
+    max-height:92vh; max-height:92dvh; overflow-y:auto; -webkit-overflow-scrolling:touch;
+    box-shadow:0 30px 80px -20px rgba(18,14,28,.6); border:1px solid color-mix(in srgb, var(--om-brand) 12%, transparent);
+    animation:om-rise .35s cubic-bezier(.2,.8,.2,1) both;
+  }
+  @keyframes om-rise{from{opacity:0; transform:translateY(18px) scale(.98)}to{opacity:1; transform:none}}
+  #om-modal .om-x{position:absolute; top:12px; right:14px; width:34px; height:34px; border:0; cursor:pointer; background:transparent; color:#9b96a8; font-size:26px; line-height:1; border-radius:9px; transition:.15s;}
+  #om-modal .om-x:hover{background:color-mix(in srgb, var(--om-brand) 8%, transparent); color:#5b5668}
+  #om-modal .om-head{display:flex; align-items:center; justify-content:center; gap:12px; margin-bottom:16px}
+  #om-modal .om-badge{display:inline-flex; align-items:center; gap:7px; font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--om-brand); background:color-mix(in srgb, var(--om-brand) 10%, transparent); padding:6px 12px; border-radius:999px;}
+  #om-modal .om-dot{width:7px; height:7px; border-radius:50%; background:#3fbf6a; box-shadow:0 0 0 0 rgba(63,191,106,.5); animation:om-blink 1.8s ease-in-out infinite}
+  @keyframes om-blink{0%,100%{box-shadow:0 0 0 0 rgba(63,191,106,.5)}50%{box-shadow:0 0 0 5px rgba(63,191,106,0)}}
+  #om-modal .om-logo{height:20px; width:auto; opacity:.9}
+  #om-modal .om-title{font-size:24px; font-weight:700; line-height:1.2; margin:0 0 12px; color:#16151f}
+  #om-modal .om-accent{color:var(--om-accent)}
+  #om-modal .om-body{font-size:15px; line-height:1.6; color:#4a4658; margin:0 0 18px}
+  #om-modal .om-body strong{color:#16151f}
+  #om-modal .om-urgency{display:flex; align-items:flex-start; gap:11px; text-align:left; background:color-mix(in srgb, var(--om-brand) 6%, #fff); border:1px solid color-mix(in srgb, var(--om-brand) 12%, transparent); border-radius:14px; padding:13px 14px; margin-bottom:22px;}
+  #om-modal .om-pill{flex:0 0 auto; font-size:11.5px; font-weight:700; color:#fff; background:var(--om-brand); padding:5px 10px; border-radius:999px; white-space:nowrap; margin-top:1px;}
+  #om-modal .om-urgency-text{font-size:12.5px; line-height:1.5; color:#5b5668}
+  #om-modal .om-urgency-text strong{color:var(--om-brand)}
+  #om-modal .om-cta{display:block; width:100%; background:var(--om-brand); color:#fff; font-weight:600; font-size:16px; text-decoration:none; padding:15px; border-radius:999px; transition:.18s; box-shadow:0 12px 30px -8px color-mix(in srgb, var(--om-brand) 55%, transparent);}
+  #om-modal .om-cta:hover{background:var(--om-accent); transform:translateY(-1px); box-shadow:0 16px 38px -8px color-mix(in srgb, var(--om-accent) 60%, transparent)}
+  #om-modal .om-later{display:block; width:100%; margin-top:10px; background:transparent; border:0; cursor:pointer; color:#9b96a8; font-size:13.5px; font-weight:500; padding:8px; border-radius:8px; transition:.15s;}
+  #om-modal .om-later:hover{color:#5b5668}
+  @media (max-width:420px){ #om-modal .om-card{padding:26px 20px 22px} #om-modal .om-title{font-size:21px} }
+</style>
+<script>
+(function(){
+  var CREATED = "2026-07-21";
+  var LIVE_DAYS = 7;
+  var BOOK_URL = "https://www.optimally.ltd/demo?partner=ai1up";
+  var modal = document.getElementById('om-modal');
+  if(!modal) return;
+  var book = document.getElementById('om-book');
+  var seen = false;
+  function refreshUrgency(){
+    var created = new Date(CREATED + "T00:00:00");
+    var expiry  = new Date(created.getTime() + LIVE_DAYS*86400000);
+    var left    = Math.ceil((expiry - new Date())/86400000);
+    var pill = document.getElementById('om-days');
+    var txt  = document.getElementById('om-utext');
+    if(left > 0){
+      if(pill) pill.textContent = left === 1 ? "1 day left" : left + " days left";
+      if(txt)  txt.innerHTML = "Only live for 7 days \u2014 book before <strong>" + expiry.toLocaleDateString(undefined,{month:'long', day:'numeric'}) + "</strong>.";
+    } else {
+      if(pill) pill.textContent = "Expiring soon";
+      if(txt)  txt.innerHTML = "Live for a limited time and about to expire \u2014 <strong>act now</strong>.";
+    }
+  }
+  function open(){
+    if(modal.classList.contains('open')) return;
+    refreshUrgency();
+    modal.classList.add('open'); modal.setAttribute('aria-hidden','false');
+    document.body.style.overflow = 'hidden'; seen = true;
+    if(book) book.focus();
+  }
+  function close(){
+    modal.classList.remove('open'); modal.setAttribute('aria-hidden','true');
+    document.body.style.overflow = '';
+  }
+  modal.addEventListener('click', function(e){
+    if(e.target === modal || (e.target.closest && e.target.closest('[data-om-close]'))){ e.preventDefault(); close(); }
+  });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && modal.classList.contains('open')) close(); });
+  if(book) book.addEventListener('click', function(){ setTimeout(close, 120); });
+  document.addEventListener('click', function(e){
+    var el = e.target.closest('a, button');
+    if(!el || modal.contains(el) || el.closest('#om-chat')) return;
+    var isCta = el.matches('a[href*="optimally.ltd/demo?partner"]') || el.tagName === 'BUTTON';
+    if(!isCta) return;
+    e.preventDefault(); e.stopPropagation(); open();
+  }, true);
+  setTimeout(function(){ if(!seen && !window.__omChatEngaged) open(); }, 10000);
+})();
+</script>
+
+
+<!-- ============ OPTIMALLY ENGAGEMENT BEACON (posts to same-origin /api/track) ============ -->
+<script id="om-beacon">
+(function(){
+  try{ if(navigator.webdriver) return; if(document.visibilityState === 'prerender' || document.prerendering) return; }catch(e){}
+  var WEBHOOK = "/api/track";
+  var COMPANY = "AI1Up";
+  var SLUG = "ai1up";
+  function uid(){ try{ if(window.crypto && crypto.randomUUID) return crypto.randomUUID(); }catch(e){} return 'v-' + Date.now() + '-' + Math.random().toString(16).slice(2); }
+  var vid = '', visits = 1, newSession = true;
+  try{
+    vid = localStorage.getItem('om_vid') || '';
+    if(!vid){ vid = uid(); localStorage.setItem('om_vid', vid); }
+    var now = Date.now();
+    var last = parseInt(localStorage.getItem('om_lastopen') || '0', 10) || 0;
+    visits = parseInt(localStorage.getItem('om_visits') || '0', 10) || 0;
+    newSession = !last || (now - last) >= 1800000;          // 30 min inactivity = a new visit
+    if(newSession){ visits = visits + 1; localStorage.setItem('om_visits', String(visits)); }
+    if(visits < 1) visits = 1;
+    localStorage.setItem('om_lastopen', String(now));
+  }catch(e){ if(!vid) vid = uid(); }
+  function send(event, loc, detail){
+    try{ if(window.omPixel) window.omPixel(event); }catch(e){}
+    var payload = { company: COMPANY, slug: SLUG, event: event, location: loc || '', detail: detail || '', visitorId: vid, visitNumber: visits, referrer: document.referrer || '', pageUrl: window.location.href, ts: new Date().toISOString() };
+    var body = JSON.stringify(payload);
+    try{ if(navigator.sendBeacon){ navigator.sendBeacon(WEBHOOK, new Blob([body], {type:'text/plain'})); return; } }catch(e){}
+    try{ fetch(WEBHOOK, {method:'POST', body:body, keepalive:true, mode:'no-cors', headers:{'Content-Type':'text/plain'}}); }catch(e){}
+  }
+  function sectionLabel(el){
+    var sec = el.closest ? el.closest('section, header, footer') : null;
+    if(!sec) return '';
+    if(sec.tagName === 'HEADER') return 'hero';
+    if(sec.tagName === 'FOOTER') return 'footer';
+    var h = sec.querySelector('h1, h2, h3');
+    var t = h ? (h.textContent || '').replace(/\s+/g, ' ').trim() : '';
+    return t.slice(0, 60);
+  }
+  if (newSession) send('page_open', '', '');                                    // one per 30-min session (dedupes refreshes -> fewer n8n runs); visitNumber tracks returns
+  document.addEventListener('click', function(e){
+    var t = e.target;
+    if(!t || !t.closest) return;
+    if(t.closest('#om-book')){ send('book_click', 'popup', ''); return; }        // Book a Walkthrough (popup)
+    if(t.closest('.play-btn, [class~="play"], [aria-label*="Play"], [aria-label*="play"]')){ send('vsl_play', 'hero', ''); return; }
+    var cta = t.closest('a[href*="optimally.ltd/demo?partner"]');
+    if(cta){ send('cta_click', sectionLabel(cta), ''); return; }                 // Learn More
+  }, true);
+  var passed50 = false;
+  window.addEventListener('scroll', function(){
+    if(passed50) return;
+    var st = window.scrollY || document.documentElement.scrollTop || 0;
+    var vh = window.innerHeight || document.documentElement.clientHeight;
+    var dh = document.documentElement.scrollHeight;
+    if(dh > vh && (st + vh) / dh >= 0.5){ passed50 = true; send('scroll_50', '', ''); }
+  }, {passive:true});
+
+  window.omTrack = function(event, loc, detail){ try{ send(event, loc, detail); }catch(e){} };  // lets the chat concierge log events through this beacon
+})();
+</script>
+
+<!-- ============ OPTIMALLY DEMO CONCIERGE (AI chat + book + review) ============ -->
+<div id="om-chat" data-state="closed">
+  <button class="oc-fab" aria-label="Chat with Optimally">
+    <svg class="oc-fab-ic" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.4 8.5 8.5 0 0 1-3.6-.8L3 21l1.9-5.7a8.38 8.38 0 0 1-.8-3.6A8.5 8.5 0 0 1 12.5 3 8.38 8.38 0 0 1 21 11.5z"/></svg>
+    <span class="oc-fab-dot"></span>
+  </button>
+  <div class="oc-panel" role="dialog" aria-label="Optimally demo assistant">
+    <div class="oc-head">
+      <img class="oc-logo" src="https://assets.cdn.filesafe.space/pQhFS1dPlI6DlNuTjOdQ/media/69fd30913f4447300c0bce45.png" alt="Optimally" />
+      <div class="oc-head-t"><span class="oc-title">The Optimally Team</span><span class="oc-sub"><span class="oc-on"></span> Usually replies instantly</span></div>
+      <button class="oc-x" aria-label="Close">&times;</button>
+    </div>
+    <div class="oc-actions">
+      <a class="oc-chip oc-chip-go" href="https://www.optimally.ltd/demo?partner=ai1up" target="_blank" rel="noopener noreferrer">&#128197; Book a walkthrough</a>
+      <a class="oc-chip" href="https://www.trustpilot.com/evaluate/optimally.ltd" target="_blank" rel="noopener noreferrer">&#11088; Leave a review</a>
+    </div>
+    <div class="oc-msgs" id="oc-msgs"></div>
+    <form class="oc-input" id="oc-form">
+      <input id="oc-text" type="text" autocomplete="off" placeholder="Ask how this would work for you..." />
+      <button type="submit" class="oc-send" aria-label="Send">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+      </button>
+    </form>
+  </div>
+</div>
+<style>
+  #om-chat{ --oc-brand:#D4AF37; --oc-accent:#B8922B; position:fixed; right:20px; bottom:20px; z-index:9000; font-family:inherit; }
+  #om-chat .oc-fab{ width:60px; height:60px; border-radius:50%; border:0; cursor:pointer; position:relative; display:flex; align-items:center; justify-content:center; background:linear-gradient(180deg,var(--oc-brand),var(--oc-accent)); box-shadow:0 14px 34px -8px color-mix(in srgb, var(--oc-brand) 65%, transparent); transition:transform .16s ease, box-shadow .16s ease; }
+  #om-chat .oc-fab:hover{ transform:translateY(-2px) scale(1.04); }
+  #om-chat .oc-fab-dot{ position:absolute; top:11px; right:11px; width:11px; height:11px; border-radius:50%; background:#3fbf6a; border:2px solid #fff; }
+  #om-chat[data-state="open"] .oc-fab{ transform:scale(.9); opacity:.92; }
+  #om-chat .oc-panel{ position:absolute; right:0; bottom:78px; width:404px; max-width:calc(100vw - 32px); height:660px; max-height:calc(100dvh - 96px); background:#fff; border-radius:20px; overflow:hidden; display:none; flex-direction:column; box-shadow:0 30px 80px -20px rgba(20,12,8,.5); border:1px solid color-mix(in srgb, var(--oc-brand) 12%, #e7e2dc); animation:oc-rise .28s cubic-bezier(.2,.8,.2,1) both; }
+  #om-chat[data-state="open"] .oc-panel{ display:flex; }
+  @keyframes oc-rise{ from{opacity:0; transform:translateY(16px)} to{opacity:1; transform:none} }
+  @keyframes oc-fade{ from{opacity:0} to{opacity:1} }
+  #om-chat .oc-head{ display:flex; align-items:center; gap:11px; padding:14px 16px; border-bottom:1px solid #efeae4; }
+  #om-chat .oc-logo{ width:28px; height:28px; border-radius:7px; object-fit:cover; flex:0 0 auto; }
+  #om-chat .oc-head-t{ display:flex; flex-direction:column; line-height:1.25; margin-right:auto; }
+  #om-chat .oc-title{ font-size:14px; font-weight:700; color:#1c1a18; }
+  #om-chat .oc-sub{ font-size:11.5px; color:#8a847c; display:flex; align-items:center; gap:5px; }
+  #om-chat .oc-on{ width:7px; height:7px; border-radius:50%; background:#3fbf6a; display:inline-block; }
+  #om-chat .oc-x{ border:0; background:transparent; cursor:pointer; font-size:24px; line-height:1; color:#b3aca3; padding:2px 4px; border-radius:8px; }
+  #om-chat .oc-x:hover{ background:#f4f0eb; color:#6b655d; }
+  #om-chat .oc-actions{ display:flex; gap:8px; padding:12px 14px 4px; flex-wrap:wrap; }
+  #om-chat .oc-chip{ font-size:12.5px; font-weight:600; text-decoration:none; color:var(--oc-brand); background:color-mix(in srgb, var(--oc-brand) 8%, #fff); border:1px solid color-mix(in srgb, var(--oc-brand) 22%, transparent); padding:7px 11px; border-radius:999px; transition:.15s; }
+  #om-chat .oc-chip:hover{ background:color-mix(in srgb, var(--oc-brand) 14%, #fff); }
+  #om-chat .oc-chip-go{ color:#fff; background:var(--oc-brand); border-color:var(--oc-brand); }
+  #om-chat .oc-chip-go:hover{ background:var(--oc-accent); }
+  #om-chat .oc-msgs{ flex:1; overflow-y:auto; padding:14px; display:flex; flex-direction:column; gap:10px; }
+  #om-chat .oc-b{ max-width:84%; padding:10px 13px; border-radius:14px; font-size:13.5px; line-height:1.5; white-space:pre-wrap; word-wrap:break-word; }
+  #om-chat .oc-b.bot{ align-self:flex-start; background:#f5f1ec; color:#2a2722; border-bottom-left-radius:5px; }
+  #om-chat .oc-b.me{ align-self:flex-end; background:var(--oc-brand); color:#fff; border-bottom-right-radius:5px; }
+  #om-chat .oc-sugg{ display:flex; flex-direction:column; align-items:flex-end; gap:7px; margin-top:2px; }
+  #om-chat .oc-sugg button{ border:1px solid var(--oc-brand); background:#fff; color:var(--oc-brand); font:inherit; font-size:13px; font-weight:600; line-height:1.35; padding:9px 14px; border-radius:14px; border-bottom-right-radius:5px; cursor:pointer; max-width:90%; text-align:left; transition:.15s; }
+  #om-chat .oc-sugg button:hover{ background:color-mix(in srgb, var(--oc-brand) 8%, #fff); }
+  #om-chat .oc-typing{ display:inline-flex; gap:5px; align-items:center; padding:14px 15px; }
+  #om-chat .oc-typing span{ width:7px; height:7px; border-radius:50%; background:#b8b1a8; animation:oc-bounce 1.2s infinite ease-in-out; }
+  #om-chat .oc-typing span:nth-child(2){ animation-delay:.16s; }
+  #om-chat .oc-typing span:nth-child(3){ animation-delay:.32s; }
+  @keyframes oc-bounce{ 0%,60%,100%{ transform:translateY(0); opacity:.45 } 30%{ transform:translateY(-5px); opacity:1 } }
+  #om-chat .oc-input{ display:flex; gap:8px; padding:12px 14px; border-top:1px solid #efeae4; }
+  #om-chat .oc-input input{ flex:1; border:1px solid #e3ddd6; background:#faf8f5; border-radius:999px; padding:12px 16px; font:inherit; font-size:16px; outline:none; transition:.15s; }
+  #om-chat .oc-input input:focus{ border-color:var(--oc-brand); background:#fff; box-shadow:0 0 0 3px color-mix(in srgb, var(--oc-brand) 14%, transparent); }
+  #om-chat .oc-send{ flex:0 0 auto; width:42px; height:42px; border:0; border-radius:50%; cursor:pointer; background:var(--oc-brand); display:flex; align-items:center; justify-content:center; transition:.15s; }
+  #om-chat .oc-send:hover{ background:var(--oc-accent); }
+  #om-chat .oc-send:disabled{ opacity:.5; cursor:default; }
+  @media (max-width:560px){
+    #om-chat{ right:14px; bottom:14px; }
+    #om-chat .oc-panel{ position:fixed; inset:0; right:0; bottom:0; width:100%; max-width:100%; height:100dvh; max-height:100dvh; border-radius:0; border:0; animation:oc-fade .2s ease both; }
+    #om-chat[data-state="open"] .oc-fab{ display:none; }
+    #om-chat .oc-msgs{ padding:16px; }
+    #om-chat .oc-b{ font-size:15px; }
+  }
+</style>
+<script>
+(function(){
+  var COMPANY = "AI1Up";
+  var SLUG = "ai1up";
+  var BOOK_URL = "https://www.optimally.ltd/demo?partner=ai1up";
+  var root = document.getElementById('om-chat'); if(!root) return;
+  var fab = root.querySelector('.oc-fab');
+  var msgsEl = document.getElementById('oc-msgs');
+  var form = document.getElementById('oc-form');
+  var input = document.getElementById('oc-text');
+  var sendBtn = root.querySelector('.oc-send');
+  var history = [];
+  var greeted = false, busy = false;
+  function ctx(){
+    var d = (document.querySelector('meta[name="description"]')||{}).content || '';
+    return { company: COMPANY, slug: SLUG, title: document.title || '', description: d, bookingUrl: BOOK_URL };
+  }
+  function bubble(text, who){
+    var b = document.createElement('div'); b.className = 'oc-b ' + who; b.textContent = text;
+    msgsEl.appendChild(b); msgsEl.scrollTop = msgsEl.scrollHeight; return b;
+  }
+  function typeOut(el, text, done){
+    el.textContent = ''; var i = 0;
+    (function step(){
+      if(i >= text.length){ if(done) done(); return; }
+      el.textContent += text.slice(i, i + 2); i += 2;
+      msgsEl.scrollTop = msgsEl.scrollHeight;
+      setTimeout(step, 14);
+    })();
+  }
+  function removeSugg(){ var s = document.getElementById('oc-sugg'); if(s) s.remove(); }
+  function suggest(){
+    var qs = ["What exactly do you do?", "How would this work for " + COMPANY + "?", "How does this get me more clients?"];
+    var wrap = document.createElement('div'); wrap.className = 'oc-sugg'; wrap.id = 'oc-sugg';
+    qs.forEach(function(q){
+      var btn = document.createElement('button'); btn.type = 'button'; btn.textContent = q;
+      btn.addEventListener('click', function(){ if(busy) return; input.value = q; removeSugg(); form.dispatchEvent(new Event('submit', {cancelable:true, bubbles:true})); });
+      wrap.appendChild(btn);
+    });
+    msgsEl.appendChild(wrap); msgsEl.scrollTop = msgsEl.scrollHeight;
+  }
+  function open(){
+    window.__omChatEngaged = true;
+    root.setAttribute('data-state','open');
+    if(!greeted){ greeted = true; bubble("Hi! I'm the Optimally team's assistant. I can explain how a funnel like this would work for " + COMPANY + ", or get you booked in for a quick walkthrough. What would you like to know?", 'bot'); suggest(); }
+    setTimeout(function(){ input.focus(); }, 60);
+  }
+  function close(){ root.setAttribute('data-state','closed'); }
+  fab.addEventListener('click', function(){ root.getAttribute('data-state')==='open' ? close() : open(); });
+  root.querySelector('.oc-x').addEventListener('click', close);
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var text = (input.value||'').trim();
+    if(!text || busy) return;
+    removeSugg();
+    input.value = '';
+    bubble(text, 'me');
+    history.push({ role:'user', content:text });
+    busy = true; sendBtn.disabled = true;
+    var typingEl = null;
+    var showT = setTimeout(function(){
+      typingEl = document.createElement('div'); typingEl.className = 'oc-b bot oc-typing';
+      typingEl.innerHTML = '<span></span><span></span><span></span>';
+      msgsEl.appendChild(typingEl); msgsEl.scrollTop = msgsEl.scrollHeight;
+    }, 500);
+    var clearTyping = function(){ clearTimeout(showT); if(typingEl){ typingEl.remove(); typingEl = null; } };
+    var done = function(){ busy = false; sendBtn.disabled = false; input.focus(); };
+    fetch('/api/chat', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ messages: history, context: ctx() }) })
+      .then(function(r){ return r.json(); })
+      .then(function(d){
+        clearTyping();
+        var reply = (d && d.reply) ? d.reply : "Tap Book a walkthrough above and the team will help you directly.";
+        history.push({ role:'assistant', content: reply });
+        try{ if(window.omTrack) window.omTrack('bot_message', 'chat', ('Q: ' + text + '\nA: ' + reply).slice(0, 1200)); }catch(e){}
+        typeOut(bubble('', 'bot'), reply, done);
+      })
+      .catch(function(){
+        clearTyping();
+        typeOut(bubble('', 'bot'), "I'm having trouble connecting. Tap Book a walkthrough above and we'll take it from there.", done);
+      });
+  });
+})();
+</script>
+</body>
+</html>
