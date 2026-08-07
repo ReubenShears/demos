@@ -240,7 +240,10 @@ Try to find the prospect in the Optimally GHL CRM and write the live demo URL in
 Page URL** custom field. This is BEST-EFFORT and silent on miss: if no lead matches, do nothing (do not
 error, do not create a contact, do not block the run). Use the LeadConnector/GHL MCP (server
 `2a59a55b-bfd6-44e2-bc09-85d430112b39`, via the ghl-proxy):
-1. **Find:** `contacts_get-contacts` with `query=<demo domain>` (e.g. `trustrelations.agency`).
+1. **Find:** if the input gave you a **CRM lead email** (funnel-triggered runs always do), search
+   `contacts_get-contacts` with `query=<that email>` and use the exact match. That is authoritative:
+   do not fall back to domain matching when an email was supplied, and never create a contact.
+   Only when no email was supplied, search `query=<demo domain>` (e.g. `trustrelations.agency`).
 2. **Pick:** if one or more contacts return, take the best match — prefer an exact email-domain match;
    if several, the most recently updated. If zero return, STOP this step silently and continue to Slack.
 3. **Write:** `contacts_update-contact` with `path_contactId=<id>` and
@@ -287,5 +290,11 @@ confirmations, and whether the CRM lead was found + updated or not matched). Fla
   key instead of the ID `6dtdKnKMkB659ZVlsRof` — retry with the ID. (Needs the GHL connector enabled.)
 
 ## Notes on scope / side effects
-Deploys a real page, writes a Baserow row, posts to Slack on every run. One URL in → one real demo out.
+Deploys a real page, writes a Baserow row, posts to Slack on every run. One URL (or context block) in →
+one real demo out.
+
+**Never deliver the demo to the prospect.** Funnel-triggered runs build the page silently for a qualified
+lead who is booked onto a call: the link goes into the GHL **Demo Landing Page URL** field and Slack only.
+Do NOT write it to ManyChat, do not message the lead, do not treat "built" as "sent" — the demo is revealed
+live on the call.
 Don't run speculatively. Stitch is retired; if ever needed, the old Stitch-based skill is in this repo's git history.
