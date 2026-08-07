@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Disruptors Media | AI-Powered Marketing Automation</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&amp;family=Sora:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline-variant": "#4e4637",
+                    "on-background": "#e5e2e1",
+                    "secondary": "#e9c255",
+                    "on-primary-container": "#443000",
+                    "on-error-container": "#ffdad6",
+                    "primary-container": "#bf953f",
+                    "on-tertiary-fixed-variant": "#22467c",
+                    "background": "#131313",
+                    "primary-fixed": "#ffdea4",
+                    "error": "#ffb4ab",
+                    "on-secondary": "#3d2e00",
+                    "on-error": "#690005",
+                    "on-tertiary-fixed": "#001b3e",
+                    "surface": "#131313",
+                    "inverse-on-surface": "#313030",
+                    "surface-container-lowest": "#0e0e0e",
+                    "on-tertiary": "#002f64",
+                    "tertiary-fixed-dim": "#aac7ff",
+                    "on-primary": "#412d00",
+                    "secondary-fixed-dim": "#e9c255",
+                    "surface-container-highest": "#353534",
+                    "surface-container": "#201f1f",
+                    "surface-container-high": "#2a2a2a",
+                    "tertiary-container": "#7b9cd7",
+                    "primary-fixed-dim": "#eec065",
+                    "secondary-fixed": "#ffe08e",
+                    "surface-tint": "#eec065",
+                    "inverse-primary": "#7b5800",
+                    "outline": "#9b8f7e",
+                    "on-secondary-container": "#fffbff",
+                    "on-primary-fixed-variant": "#5d4200",
+                    "surface-bright": "#3a3939",
+                    "on-tertiary-container": "#043267",
+                    "on-primary-fixed": "#261900",
+                    "tertiary-fixed": "#d6e3ff",
+                    "on-surface": "#e5e2e1",
+                    "on-secondary-fixed": "#241a00",
+                    "error-container": "#93000a",
+                    "surface-container-low": "#1c1b1b",
+                    "on-secondary-fixed-variant": "#584400",
+                    "tertiary": "#aac7ff",
+                    "inverse-surface": "#e5e2e1",
+                    "surface-dim": "#131313",
+                    "on-surface-variant": "#d2c5b2",
+                    "secondary-container": "#8f7100",
+                    "surface-variant": "#353534",
+                    "primary": "#eec065"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Sora", "sans-serif"],
+                    "display": ["Sora", "sans-serif"],
+                    "body": ["Sora", "sans-serif"],
+                    "label": ["Public Sans", "sans-serif"]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-fill {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        /* Smooth scroll for anchor links */
+        html { scroll-behavior: smooth; }
+        
+        /* Utility for fluid typography */
+        .fluid-headline {
+            font-size: clamp(1.75rem, 4vw + 1rem, 3.5rem);
+            line-height: 1.1;
+        }
+        .fluid-eyebrow {
+            font-size: clamp(0.875rem, 1.5vw + 0.5rem, 1.125rem);
+        }
+    </style>
+</head>
+<body class="bg-surface-container-lowest text-on-surface font-body antialiased min-h-screen flex flex-col selection:bg-primary-container selection:text-on-primary-container">
+<!-- 0. BANNER -->
+<div class="w-full bg-primary-container text-on-primary-container py-2 px-4 text-center text-sm md:text-base font-bold tracking-wide">
+        ▶ Watch the free training below to see how it works
+    </div>
+<!-- Main Content Container (Centered Column) -->
+<main class="w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
+<!-- 1. HERO -->
+<section class="w-full pt-12 pb-16 md:py-20 flex flex-col items-center text-center space-y-8 min-h-[921px] justify-center">
+<img alt="Disruptors Media Logo" class="h-8 md:h-12 w-auto mb-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIrr7uABAOfa1sHH3GycKABgNPdzPogVd-2wmT6qaWC9ZrXm4g5r7gnlo-zDzglxE8mmwOo64GgL0yFnnpcWRg5F7YQCh8Kdfa7uz1D0gqHJkDXQevoehMw6yLcwWN4xAeGarOLAT1HkpSIROk-j2E_Z_3Ll4PJTYq6w14vOL7mbZz_mSk9N075eMLxnnBDr57lBgx0TlIcdTqlzqjUgCebKcG8qUUD0rTLPF_tBBMq3CKkLKvy35u4zwQYwL1ayi0__iSRGLOtg"/>
+<div class="space-y-6 max-w-3xl">
+<p class="fluid-eyebrow font-bold text-error uppercase tracking-widest">
+                    Attention: Business Owners, Coaches &amp; Service Providers Spending Money on Marketing That Isn't Working
+                </p>
+<h1 class="fluid-headline font-headline font-extrabold text-on-background">
+                    We'll take you from <span class="text-primary-container">scattered marketing and broken systems</span> to a <span class="text-primary-container">predictable pipeline of qualified leads</span> in 90 days using our AI-powered marketing automation.
+                </h1>
+<p class="text-xl md:text-2xl font-headline text-on-surface-variant font-semibold italic">
+                    ...or you don't pay a cent
+                </p>
+<p class="text-sm md:text-base text-on-surface-variant max-w-2xl mx-auto leading-relaxed">
+                    AI automation systems, social media marketing, SEO &amp; GEO, paid advertising management, lead generation funnels, CRM setup and management, podcast production, and fractional CMO guidance.
+                </p>
+</div>
+<!-- VSL Placeholder -->
+<div class="w-full max-w-3xl aspect-video bg-surface-container-highest rounded-xl overflow-hidden relative shadow-2xl group cursor-pointer border border-outline-variant/30 flex items-center justify-center bg-[url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&amp;w=2070&amp;auto=format&amp;fit=crop')] bg-cover bg-center" data-alt="A dark, cinematic workspace setting showing dual computer monitors displaying complex data analytics dashboards and marketing funnel charts. The lighting is moody with subtle amber and gold accents reflecting off the sleek, modern hardware, conveying a high-tech, professional agency environment focused on results and AI automation.">
+<div class="absolute inset-0 bg-surface-container-lowest/70 group-hover:bg-surface-container-lowest/50 transition-colors duration-300"></div>
+<div class="relative z-10 w-20 h-20 bg-primary-container rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+<span class="material-symbols-outlined icon-fill text-on-primary-container text-4xl ml-1">play_arrow</span>
+</div>
+<div class="absolute bottom-4 left-4 right-4 text-center z-10">
+<p class="text-sm font-semibold text-on-surface drop-shadow-md">Click to watch the system breakdown</p>
+</div>
+</div>
+<!-- CTA & Social Proof -->
+<div class="w-full max-w-md space-y-4 pt-4">
+<a href="https://www.optimally.ltd/demo?partner=disruptorsmedia" target="_blank" rel="noopener noreferrer" class="w-full bg-primary-container text-on-primary-container font-headline font-bold text-lg py-4 px-8 rounded-xl hover:opacity-90 transition-all active:scale-95 shadow-[0_0_20px_rgba(191,149,63,0.3)] hover:shadow-[0_0_30px_rgba(191,149,63,0.5)]">
+                    Learn More
+                </a>
+<div class="flex items-center justify-center space-x-3 text-sm text-on-surface-variant">
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full bg-surface-container-high border-2 border-surface-container-lowest flex items-center justify-center"><span class="material-symbols-outlined text-xs text-outline">person</span></div>
+<div class="w-8 h-8 rounded-full bg-surface-container-high border-2 border-surface-container-lowest flex items-center justify-center"><span class="material-symbols-outlined text-xs text-outline">person</span></div>
+<div class="w-8 h-8 rounded-full bg-surface-container-high border-2 border-surface-container-lowest flex items-center justify-center"><span class="material-symbols-outlined text-xs text-outline">person</span></div>
+<div class="w-8 h-8 rounded-full bg-surface-container-high border-2 border-surface-container-lowest flex items-center justify-center"><span class="material-symbols-outlined text-xs text-outline">person</span></div>
+</div>
+<div class="flex items-center space-x-1">
+<div class="flex text-primary-container text-sm">
+<span class="material-symbols-outlined icon-fill" style="font-size: 16px;">star</span>
+<span class="material-symbols-outlined icon-fill" style="font-size: 16px;">star</span>
+<span class="material-symbols-outlined icon-fill" style="font-size: 16px;">star</span>
+<span class="material-symbols-outlined icon-fill" style="font-size: 16px;">star</span>
+<span class="material-symbols-outlined icon-fill" style="font-size: 16px;">star_half</span>
+</div>
+<span class="font-medium">4.9/5 from 200+ businesses</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 2. PAINS -->
+<section class="w-full py-16 md:py-24 border-t border-outline-variant/20">
+<div class="text-center mb-12 space-y-4">
+<h2 class="text-3xl md:text-4xl font-headline font-bold text-on-background">Are you exhausted by the endless marketing grind?</h2>
+<p class="text-on-surface-variant max-w-2xl mx-auto">Most business owners are trapped in a cycle of high effort and low return. If you're experiencing any of these, you're not alone.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+<!-- Pain Cards -->
+<div class="bg-surface-container-low p-6 rounded-xl border border-outline-variant/30 flex flex-col items-center text-center space-y-4">
+<div class="w-12 h-12 rounded-full bg-error-container/20 flex items-center justify-center text-error">
+<span class="material-symbols-outlined">payments</span>
+</div>
+<h3 class="font-headline font-bold text-lg text-on-surface">Wasted Ad Spend</h3>
+<p class="text-sm text-on-surface-variant">Pouring money into campaigns that generate clicks but zero qualified appointments.</p>
+</div>
+<div class="bg-surface-container-low p-6 rounded-xl border border-outline-variant/30 flex flex-col items-center text-center space-y-4">
+<div class="w-12 h-12 rounded-full bg-error-container/20 flex items-center justify-center text-error">
+<span class="material-symbols-outlined">trending_down</span>
+</div>
+<h3 class="font-headline font-bold text-lg text-on-surface">Inconsistent Flow</h3>
+<p class="text-sm text-on-surface-variant">Feast or famine months because you lack a predictable system for generating new business.</p>
+</div>
+<div class="bg-surface-container-low p-6 rounded-xl border border-outline-variant/30 flex flex-col items-center text-center space-y-4">
+<div class="w-12 h-12 rounded-full bg-error-container/20 flex items-center justify-center text-error">
+<span class="material-symbols-outlined">handshake</span>
+</div>
+<h3 class="font-headline font-bold text-lg text-on-surface">Broken Promises</h3>
+<p class="text-sm text-on-surface-variant">Burned by past agencies who over-promised, under-delivered, and left you with nothing.</p>
+</div>
+<div class="bg-surface-container-low p-6 rounded-xl border border-outline-variant/30 flex flex-col items-center text-center space-y-4">
+<div class="w-12 h-12 rounded-full bg-error-container/20 flex items-center justify-center text-error">
+<span class="material-symbols-outlined">schedule</span>
+</div>
+<h3 class="font-headline font-bold text-lg text-on-surface">Zero Free Time</h3>
+<p class="text-sm text-on-surface-variant">Working IN the business doing manual outreach instead of ON the business scaling.</p>
+</div>
+<div class="bg-surface-container-low p-6 rounded-xl border border-outline-variant/30 flex flex-col items-center text-center space-y-4">
+<div class="w-12 h-12 rounded-full bg-error-container/20 flex items-center justify-center text-error">
+<span class="material-symbols-outlined">integration_instructions</span>
+</div>
+<h3 class="font-headline font-bold text-lg text-on-surface">Tech Stack Chaos</h3>
+<p class="text-sm text-on-surface-variant">Juggling 5 different software tools that don't talk to each other, losing leads in the cracks.</p>
+</div>
+<div class="bg-surface-container-low p-6 rounded-xl border border-outline-variant/30 flex flex-col items-center text-center space-y-4">
+<div class="w-12 h-12 rounded-full bg-error-container/20 flex items-center justify-center text-error">
+<span class="material-symbols-outlined">visibility_off</span>
+</div>
+<h3 class="font-headline font-bold text-lg text-on-surface">Invisible Online</h3>
+<p class="text-sm text-on-surface-variant">Your competitors are dominating search and social while your premium service stays hidden.</p>
+</div>
+</div>
+<div class="w-full max-w-md mx-auto space-y-4">
+<a href="https://www.optimally.ltd/demo?partner=disruptorsmedia" target="_blank" rel="noopener noreferrer" class="w-full bg-primary-container text-on-primary-container font-headline font-bold text-lg py-4 px-8 rounded-xl hover:opacity-90 transition-all active:scale-95 shadow-[0_0_20px_rgba(191,149,63,0.2)]">
+                    Learn More
+                </a>
+<div class="flex items-center justify-center space-x-1 text-sm text-on-surface-variant">
+<div class="flex text-primary-container text-sm">
+<span class="material-symbols-outlined icon-fill" style="font-size: 16px;">star</span>
+<span class="material-symbols-outlined icon-fill" style="font-size: 16px;">star</span>
+<span class="material-symbols-outlined icon-fill" style="font-size: 16px;">star</span>
+<span class="material-symbols-outlined icon-fill" style="font-size: 16px;">star</span>
+<span class="material-symbols-outlined icon-fill" style="font-size: 16px;">star</span>
+</div>
+<span class="font-medium">Stop the bleeding today</span>
+</div>
+</div>
+</section>
+<!-- 3. SOLUTION -->
+<section class="w-full py-16 md:py-24 border-t border-outline-variant/20 flex flex-col items-center text-center">
+<div class="mb-10 space-y-6 max-w-3xl">
+<span class="text-primary-container font-bold tracking-wider uppercase text-sm">The Paradigm Shift</span>
+<h2 class="text-3xl md:text-5xl font-headline font-bold text-on-background">
+                    Enter the <span class="text-primary-container">AI-Powered Ecosystem</span>
+</h2>
+<p class="text-lg text-on-surface-variant leading-relaxed">
+                    We don't just run ads. We build an autonomous machine for your business. By integrating enterprise-grade AI automation with proven direct-response frameworks, we replace human error and manual labor with relentless, perfectly executed systems.
+                </p>
+</div>
+<div class="w-full bg-surface-container p-8 md:p-12 rounded-2xl border border-primary-container/20 shadow-[0_0_40px_rgba(191,149,63,0.05)] mb-12 relative overflow-hidden">
+<!-- Decorative background elements -->
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary-container/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+<div class="absolute bottom-0 left-0 w-64 h-64 bg-primary-container/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
+<div class="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+<div class="space-y-3">
+<span class="material-symbols-outlined text-primary-container text-3xl">psychology</span>
+<h4 class="font-headline font-bold text-lg text-on-background">Smart Qualification</h4>
+<p class="text-sm text-on-surface-variant">AI agents engage, nurture, and qualify leads 24/7 before they ever hit your calendar.</p>
+</div>
+<div class="space-y-3">
+<span class="material-symbols-outlined text-primary-container text-3xl">route</span>
+<h4 class="font-headline font-bold text-lg text-on-background">Omnichannel Funnels</h4>
+<p class="text-sm text-on-surface-variant">Seamless integration across Meta, Google, SEO, and Email, driving traffic into a unified conversion engine.</p>
+</div>
+<div class="space-y-3">
+<span class="material-symbols-outlined text-primary-container text-3xl">query_stats</span>
+<h4 class="font-headline font-bold text-lg text-on-background">Predictable Scaling</h4>
+<p class="text-sm text-on-surface-variant">Clear attribution and automated optimization means you know exactly what ROI every dollar brings.</p>
+</div>
+</div>
+</div>
+<div class="w-full max-w-md mx-auto space-y-4">
+<a href="https://www.optimally.ltd/demo?partner=disruptorsmedia" target="_blank" rel="noopener noreferrer" class="w-full bg-primary-container text-on-primary-container font-headline font-bold text-lg py-4 px-8 rounded-xl hover:opacity-90 transition-all active:scale-95 shadow-[0_0_20px_rgba(191,149,63,0.2)]">
+                    Learn More
+                </a>
+<div class="flex items-center justify-center space-x-1 text-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-primary-container icon-fill" style="font-size: 18px;">verified_user</span>
+<span class="font-medium">100% Performance Guarantee</span>
+</div>
+</div>
+</section>
+<!-- 5. BUILDING TRUST -->
+<section class="w-full py-16 md:py-24 border-t border-outline-variant/20">
+<div class="text-center mb-12">
+<h2 class="text-3xl md:text-4xl font-headline font-bold text-on-background mb-4">Don't just take our word for it.</h2>
+<p class="text-on-surface-variant">See the results we've engineered for businesses exactly like yours.</p>
+</div>
+<!-- Stats Strip -->
+<div class="flex flex-wrap justify-center gap-4 md:gap-8 mb-12">
+<div class="bg-surface-container-high px-6 py-3 rounded-full flex items-center space-x-2 border border-outline-variant/20">
+<span class="material-symbols-outlined text-primary-container">visibility</span>
+<span class="font-bold text-on-surface">Millions of views</span>
+</div>
+<div class="bg-surface-container-high px-6 py-3 rounded-full flex items-center space-x-2 border border-outline-variant/20">
+<span class="material-symbols-outlined text-primary-container">domain</span>
+<span class="font-bold text-on-surface">Multiple industries</span>
+</div>
+<div class="bg-surface-container-high px-6 py-3 rounded-full flex items-center space-x-2 border border-outline-variant/20">
+<div class="flex text-primary-container text-sm">
+<span class="material-symbols-outlined icon-fill" style="font-size: 16px;">star</span>
+<span class="material-symbols-outlined icon-fill" style="font-size: 16px;">star</span>
+<span class="material-symbols-outlined icon-fill" style="font-size: 16px;">star</span>
+<span class="material-symbols-outlined icon-fill" style="font-size: 16px;">star</span>
+<span class="material-symbols-outlined icon-fill" style="font-size: 16px;">star</span>
+</div>
+<span class="font-bold text-on-surface">Google rating</span>
+</div>
+</div>
+<!-- Testimonials Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+<!-- Card 1 -->
+<div class="bg-surface p-6 rounded-xl border border-outline-variant/30 flex flex-col justify-between">
+<div>
+<div class="flex text-primary-container mb-4">
+<span class="material-symbols-outlined icon-fill" style="font-size: 18px;">star</span><span class="material-symbols-outlined icon-fill" style="font-size: 18px;">star</span><span class="material-symbols-outlined icon-fill" style="font-size: 18px;">star</span><span class="material-symbols-outlined icon-fill" style="font-size: 18px;">star</span><span class="material-symbols-outlined icon-fill" style="font-size: 18px;">star</span>
+</div>
+<p class="text-on-surface-variant italic mb-6">"Our calendar is packed. The automated follow-up system alone doubled our close rate within the first month. Incredible ROI."</p>
+</div>
+<div class="flex items-center space-x-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center border border-outline-variant/50">
+<span class="material-symbols-outlined text-on-surface-variant">person</span>
+</div>
+<div>
+<p class="font-bold text-on-surface text-sm">Jason Painter</p>
+<p class="text-xs text-on-surface-variant">CEO, Service Business</p>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface p-6 rounded-xl border border-outline-variant/30 flex flex-col justify-between">
+<div>
+<div class="flex text-primary-container mb-4">
+<span class="material-symbols-outlined icon-fill" style="font-size: 18px;">star</span><span class="material-symbols-outlined icon-fill" style="font-size: 18px;">star</span><span class="material-symbols-outlined icon-fill" style="font-size: 18px;">star</span><span class="material-symbols-outlined icon-fill" style="font-size: 18px;">star</span><span class="material-symbols-outlined icon-fill" style="font-size: 18px;">star</span>
+</div>
+<p class="text-on-surface-variant italic mb-6">"I was skeptical about 'AI' but this is the real deal. They didn't just run ads; they fixed our entire backend sales process."</p>
+</div>
+<div class="flex items-center space-x-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center border border-outline-variant/50">
+<span class="material-symbols-outlined text-on-surface-variant">person</span>
+</div>
+<div>
+<p class="font-bold text-on-surface text-sm">Alde Nguyen</p>
+<p class="text-xs text-on-surface-variant">Founder, Coaching Program</p>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface p-6 rounded-xl border border-outline-variant/30 flex flex-col justify-between">
+<div>
+<div class="flex text-primary-container mb-4">
+<span class="material-symbols-outlined icon-fill" style="font-size: 18px;">star</span><span class="material-symbols-outlined icon-fill" style="font-size: 18px;">star</span><span class="material-symbols-outlined icon-fill" style="font-size: 18px;">star</span><span class="material-symbols-outlined icon-fill" style="font-size: 18px;">star</span><span class="material-symbols-outlined icon-fill" style="font-size: 18px;">star</span>
+</div>
+<p class="text-on-surface-variant italic mb-6">"Finally, an agency that actually understands data. The transparency and the quality of leads are unmatched."</p>
+</div>
+<div class="flex items-center space-x-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center border border-outline-variant/50">
+<span class="material-symbols-outlined text-on-surface-variant">person</span>
+</div>
+<div>
+<p class="font-bold text-on-surface text-sm">Mitchell Halvorsen</p>
+<p class="text-xs text-on-surface-variant">Director</p>
+</div>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="bg-surface p-6 rounded-xl border border-outline-variant/30 flex flex-col justify-between">
+<div>
+<div class="flex text-primary-container mb-4">
+<span class="material-symbols-outlined icon-fill" style="font-size: 18px;">star</span><span class="material-symbols-outlined icon-fill" style="font-size: 18px;">star</span><span class="material-symbols-outlined icon-fill" style="font-size: 18px;">star</span><span class="material-symbols-outlined icon-fill" style="font-size: 18px;">star</span><span class="material-symbols-outlined icon-fill" style="font-size: 18px;">star</span>
+</div>
+<p class="text-on-surface-variant italic mb-6">"We went from 3-4 appointments a week to 15+ highly qualified calls. The system just works, plain and simple."</p>
+</div>
+<div class="flex items-center space-x-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center border border-outline-variant/50">
+<span class="material-symbols-outlined text-on-surface-variant">person</span>
+</div>
+<div>
+<p class="font-bold text-on-surface text-sm">Gabriel Costa e Silva</p>
+<p class="text-xs text-on-surface-variant">Business Owner</p>
+</div>
+</div>
+</div>
+</div>
+<div class="w-full max-w-md mx-auto space-y-4">
+<a href="https://www.optimally.ltd/demo?partner=disruptorsmedia" target="_blank" rel="noopener noreferrer" class="w-full bg-primary-container text-on-primary-container font-headline font-bold text-lg py-4 px-8 rounded-xl hover:opacity-90 transition-all active:scale-95 shadow-[0_0_20px_rgba(191,149,63,0.2)]">
+                    Learn More
+                </a>
+<div class="flex items-center justify-center space-x-1 text-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-primary-container icon-fill" style="font-size: 18px;">group_add</span>
+<span class="font-medium">Join 200+ thriving clients</span>
+</div>
+</div>
+</section>
+<!-- 6. FOUNDER -->
+<section class="w-full py-16 md:py-24 border-t border-outline-variant/20 flex flex-col md:flex-row items-center gap-12">
+<div class="w-full md:w-1/2 aspect-[4/5] bg-surface-container rounded-2xl overflow-hidden border border-outline-variant/20 relative flex items-center justify-center" data-alt="A sophisticated, high-end executive office setting bathed in moody, cinematic lighting. Dark walls contrast with subtle warm amber accents. The scene conveys absolute authority and premium consulting status in the digital marketing and AI automation space, focusing on modern professional aesthetics without showing any specific individuals." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCkN7QeCMdo93V20dD171e3s52x0Ys_KKH1JmH4o4hD1gHfvh2V_Us11mmdgCXZRL_dlyU06KcEWZwqtfr2NRM7Aurb9pgT8QqJr84umBawet5S6CUgADyj5vQ0X4_KixAnaOL6WKS7JRoYaQxV6duTMY5fegRigNmoNhOE574-0zlz9l50WqHI0yJlapHdRjp7AjkaJddeYKzBtZrTxGFctErMC44vJtz-x_OsxpkTAAIdkTIol3z7RralQeRLO_1llZYgZht7-g'); background-size: cover; background-position: center;">
+<!-- Overlay to ensure text/icons contrast if needed, but since it's a placeholder asking for no faces, we just use a scenic background -->
+<div class="absolute inset-0 bg-surface-container-lowest/40 mix-blend-multiply"></div>
+<div class="relative z-10 w-24 h-24 rounded-full bg-surface-container-highest/80 backdrop-blur-sm border border-outline-variant/50 flex items-center justify-center">
+<span class="material-symbols-outlined text-4xl text-on-surface-variant">person</span>
+</div>
+</div>
+<div class="w-full md:w-1/2 space-y-6">
+<span class="text-primary-container font-bold tracking-wider uppercase text-sm">The Vision</span>
+<h2 class="text-3xl md:text-4xl font-headline font-bold text-on-background">
+                    Bringing Enterprise AI to Your Business
+                </h2>
+<div class="space-y-4 text-on-surface-variant leading-relaxed">
+<p>
+                        We founded Disruptors Media because we saw a massive gap. Fortune 500 companies were using advanced automation and AI to ruthlessly scale, while independent business owners and agencies were stuck relying on outdated tactics and brute-force labor.
+                    </p>
+<p>
+                        The tools are available, but the implementation is complex. We bridge that gap.
+                    </p>
+<p>
+                        We don't just hand you a software subscription; we engineer a bespoke growth infrastructure. Our goal is to make your lead generation so reliable that your only bottleneck becomes fulfillment.
+                    </p>
+</div>
+<div class="pt-6">
+<a href="https://www.optimally.ltd/demo?partner=disruptorsmedia" target="_blank" rel="noopener noreferrer" class="w-full md:w-auto bg-primary-container text-on-primary-container font-headline font-bold text-lg py-4 px-8 rounded-xl hover:opacity-90 transition-all active:scale-95 shadow-[0_0_20px_rgba(191,149,63,0.2)]">
+                        Learn More
+                    </a>
+</div>
+</div>
+</section>
+<!-- 7. FAQ -->
+<section class="w-full py-16 md:py-24 border-t border-outline-variant/20">
+<div class="text-center mb-12">
+<h2 class="text-3xl md:text-4xl font-headline font-bold text-on-background mb-4">Frequently Asked Questions</h2>
+<p class="text-on-surface-variant">Everything you need to know about the system.</p>
+</div>
+<div class="max-w-3xl mx-auto space-y-4 mb-12">
+<!-- FAQ Item 1 -->
+<details class="group bg-surface border border-outline-variant/30 rounded-xl overflow-hidden [&amp;_summary::-webkit-details-marker]:hidden">
+<summary class="flex cursor-pointer items-center justify-between p-6 text-on-background font-headline font-semibold">
+                        How much does this cost?
+                        <span class="material-symbols-outlined transition duration-300 group-open:-rotate-180 text-primary-container">expand_more</span>
+</summary>
+<div class="px-6 pb-6 text-on-surface-variant text-sm leading-relaxed">
+                        Pricing is bespoke to your business needs, current infrastructure, and the scale of the system required. Because we operate on a performance or ROI-guarantee basis, we only work with businesses where we know the math makes sense. Book a call to get a custom breakdown.
+                    </div>
+</details>
+<!-- FAQ Item 2 -->
+<details class="group bg-surface border border-outline-variant/30 rounded-xl overflow-hidden [&amp;_summary::-webkit-details-marker]:hidden">
+<summary class="flex cursor-pointer items-center justify-between p-6 text-on-background font-headline font-semibold">
+                        How fast will I see results?
+                        <span class="material-symbols-outlined transition duration-300 group-open:-rotate-180 text-primary-container">expand_more</span>
+</summary>
+<div class="px-6 pb-6 text-on-surface-variant text-sm leading-relaxed">
+                        Our build phase typically takes 14-21 days. Once the system is live, clients usually see a significant increase in qualified lead volume within the first 30 days, with the system fully optimizing and hitting peak performance around the 90-day mark.
+                    </div>
+</details>
+<!-- FAQ Item 3 -->
+<details class="group bg-surface border border-outline-variant/30 rounded-xl overflow-hidden [&amp;_summary::-webkit-details-marker]:hidden">
+<summary class="flex cursor-pointer items-center justify-between p-6 text-on-background font-headline font-semibold">
+                        Will this work for my specific industry?
+                        <span class="material-symbols-outlined transition duration-300 group-open:-rotate-180 text-primary-container">expand_more</span>
+</summary>
+<div class="px-6 pb-6 text-on-surface-variant text-sm leading-relaxed">
+                        The fundamental architecture of lead acquisition and conversion works across industries. We specialize in high-ticket B2B services, coaches, consultants, and localized service businesses. If your business relies on booking qualified appointments, this system is built for you.
+                    </div>
+</details>
+<!-- FAQ Item 4 -->
+<details class="group bg-surface border border-outline-variant/30 rounded-xl overflow-hidden [&amp;_summary::-webkit-details-marker]:hidden">
+<summary class="flex cursor-pointer items-center justify-between p-6 text-on-background font-headline font-semibold">
+                        How does the guarantee work?
+                        <span class="material-symbols-outlined transition duration-300 group-open:-rotate-180 text-primary-container">expand_more</span>
+</summary>
+<div class="px-6 pb-6 text-on-surface-variant text-sm leading-relaxed">
+                        We define specific KPIs (Key Performance Indicators) before we start. If we do not hit those mutually agreed-upon targets within the 90-day timeframe, you don't pay. It forces us to put our money where our mouth is and ensures you have zero downside risk.
+                    </div>
+</details>
+<!-- FAQ Item 5 -->
+<details class="group bg-surface border border-outline-variant/30 rounded-xl overflow-hidden [&amp;_summary::-webkit-details-marker]:hidden">
+<summary class="flex cursor-pointer items-center justify-between p-6 text-on-background font-headline font-semibold">
+                        Am I locked into a long-term contract?
+                        <span class="material-symbols-outlined transition duration-300 group-open:-rotate-180 text-primary-container">expand_more</span>
+</summary>
+<div class="px-6 pb-6 text-on-surface-variant text-sm leading-relaxed">
+                        No. We operate on initial 90-day sprints to build, launch, and prove the system. After that, we transition to a month-to-month growth partnership. We keep you by delivering consistent ROI, not through legal lock-ins.
+                    </div>
+</details>
+<!-- FAQ Item 6 -->
+<details class="group bg-surface border border-outline-variant/30 rounded-xl overflow-hidden [&amp;_summary::-webkit-details-marker]:hidden">
+<summary class="flex cursor-pointer items-center justify-between p-6 text-on-background font-headline font-semibold">
+                        How is this different from a normal ad agency?
+                        <span class="material-symbols-outlined transition duration-300 group-open:-rotate-180 text-primary-container">expand_more</span>
+</summary>
+<div class="px-6 pb-6 text-on-surface-variant text-sm leading-relaxed">
+                        Traditional agencies run traffic and send you a spreadsheet of 'leads' leaving you to do the heavy lifting of chasing them down. We build end-to-end ecosystems. We handle the traffic, the landing pages, the automated SMS/Email follow-up, and the CRM integration. We don't deliver clicks; we deliver booked appointments.
+                    </div>
+</details>
+<!-- FAQ Item 7 -->
+<details class="group bg-surface border border-outline-variant/30 rounded-xl overflow-hidden [&amp;_summary::-webkit-details-marker]:hidden">
+<summary class="flex cursor-pointer items-center justify-between p-6 text-on-background font-headline font-semibold">
+                        Will AI replace human interaction in my sales process?
+                        <span class="material-symbols-outlined transition duration-300 group-open:-rotate-180 text-primary-container">expand_more</span>
+</summary>
+<div class="px-6 pb-6 text-on-surface-variant text-sm leading-relaxed">
+                        No. Our AI automation handles the top and middle of the funnel—the repetitive tasks of qualification and initial follow-up. It hands off the prospect to a human (you or your sales team) exactly when they are warmed up and ready to buy, allowing your human talent to focus solely on closing.
+                    </div>
+</details>
+</div>
+<div class="w-full max-w-md mx-auto space-y-4">
+<a href="https://www.optimally.ltd/demo?partner=disruptorsmedia" target="_blank" rel="noopener noreferrer" class="w-full bg-primary-container text-on-primary-container font-headline font-bold text-lg py-4 px-8 rounded-xl hover:opacity-90 transition-all active:scale-95 shadow-[0_0_20px_rgba(191,149,63,0.2)]">
+                    Learn More
+                </a>
+<div class="flex items-center justify-center space-x-1 text-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-primary-container icon-fill" style="font-size: 18px;">event_available</span>
+<span class="font-medium">Book your free discovery call</span>
+</div>
+</div>
+</section>
+</main>
+<!-- 8. FOOTER -->
+<footer class="bg-surface-container-lowest border-t border-outline-variant/20 flex flex-col items-center justify-center w-full py-12 px-4 space-y-6 mt-auto">
+<img alt="Disruptors Media" class="h-8 w-auto mb-2 opacity-80" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6Rw8ead0cN_JTXnZy_LTDpknFPVYRPHqN3cHUqUMzmw4hDkCmsT8REEE3XqDpg5ejxZrPkLmNDl6bw4erMvsuVcDRhITH89rjGljLOIIg11bnkZzG4mYu3_1hlU5YxqzV-Nl7s0nF5tWmy8uMvkMoXM-U_evbF-I2naYvn47nnZz2W0l-1MAq3idMmtBVm1Oumxlo1A9s4M2mvxhaX8iqOeItdYlCxp_zsxuwx_ZUMdGsKGws64aB2vKUJTUnz_LGI3RWO9EE3g"/>
+<a href="https://www.optimally.ltd/demo?partner=disruptorsmedia" target="_blank" rel="noopener noreferrer" class="bg-primary-container text-on-primary-container font-headline font-bold text-sm py-3 px-8 rounded-xl hover:opacity-90 transition-all shadow-md">
+            Learn More
+        </a>
+<div class="flex flex-wrap justify-center gap-6 text-sm text-on-surface-variant mt-4">
+<a class="hover:text-primary-container transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-primary-container transition-colors" href="#">Terms of Service</a>
+<a class="hover:text-primary-container transition-colors" href="#">Contact Us</a>
+</div>
+<p class="font-body text-xs text-outline pt-4">
+            © 2026 Disruptors Media. All rights reserved.
+        </p>
+</footer>
+</body></html>

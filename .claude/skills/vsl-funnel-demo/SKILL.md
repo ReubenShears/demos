@@ -263,13 +263,18 @@ Use the LeadConnector/GHL MCP (server `2a59a55b-bfd6-44e2-bc09-85d430112b39`, vi
    **CRITICAL: use the field ID `6dtdKnKMkB659ZVlsRof`, NOT the field key
    `contact.demo_landing_page_url`** — the key returns `succeeded: true` but silently fails to persist
    (`customFields` stays `[]`). Confirm the returned `customFields` array shows the URL, then continue.
-4. **Also write it onto the Baserow lead row** (funnel runs only, i.e. whenever you were given a lead
-   email). In **Lead Data** (table `1000548`), find the lead by that email (`list_table_rows` with
-   `search=<email>`, take the most recent match) and `update_rows` setting **`Demo URL`** to the live
-   demo URL. This is what ties the lead to the page built for them; without it the lead row has no idea
-   a demo exists. If `update_rows` rejects the table id as a string, reload that tool with a KEYWORD
-   ToolSearch (not `select:`) to get its full schema, then retry. Treat a failure here like the CRM
-   failure above: flag it in Slack rather than passing over it silently.
+4. **Then call the build-complete webhook** (funnel runs only, i.e. whenever you were given a lead
+   email). This saves the URL onto the Baserow lead row and applies the ManyChat **Landing Page Ready**
+   tag, which triggers the "your page is ready, when suits for a walkthrough?" DM. It deliberately does
+   NOT put the demo URL into ManyChat, so the demo stays gated until the call.
+```bash
+curl -sS -G "https://optimally.app.n8n.cloud/webhook/build-complete" \
+  --data-urlencode "lead_email=<the lead email you were given>" \
+  --data-urlencode "url=https://demos.optimally.ltd/<slug>" \
+  --data-urlencode "kind=demo"
+```
+   Skipping this means the demo is built but nothing downstream knows. If it returns anything other
+   than 200, flag it in Slack rather than passing over it silently.
 
 ### 8. Announce in Slack
 Post to `C0AN653QCF2` with `slack_send_message` using **Slack mrkdwn** (single-asterisk `*bold*`,
