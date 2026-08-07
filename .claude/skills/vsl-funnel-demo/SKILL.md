@@ -235,17 +235,28 @@ Source URL, Live Demo URL (`https://demos.optimally.ltd/<slug>`), CTA Tracking U
 Headline, ICP, Primary Colour, Secondary Colour, Logo URL, Date Generated (today). Only send fields that
 exist. (Stitch Project ID/URL no longer apply — leave blank or skip.)
 
-### 7. Attach the demo link to the CRM lead (GoHighLevel — conditional, best-effort)
-Try to find the prospect in the Optimally GHL CRM and write the live demo URL into their **Demo Landing
-Page URL** custom field. This is BEST-EFFORT and silent on miss: if no lead matches, do nothing (do not
-error, do not create a contact, do not block the run). Use the LeadConnector/GHL MCP (server
-`2a59a55b-bfd6-44e2-bc09-85d430112b39`, via the ghl-proxy):
+### 7. Attach the demo link to the CRM lead (GoHighLevel — REQUIRED on funnel runs)
+Find the prospect in the Optimally GHL CRM and write the live demo URL into their **Demo Landing Page
+URL** custom field. **Never skip this step.**
+
+How hard it is required depends on the input:
+- **A CRM lead email was supplied** (every funnel-triggered run): this write is MANDATORY, not
+  best-effort. The GHL field is the ONLY place this demo is delivered — nothing is sent to the lead and
+  nothing is written to ManyChat — so a demo whose link never reaches the CRM is a lost demo. If the
+  contact cannot be found, or the write does not persist, you MUST say so loudly in the Slack post
+  (step 8) with the lead email and the live demo URL, so a human can attach it manually. Never fail
+  silently and never create a contact.
+- **No email was supplied** (manual URL run): best-effort. If no lead matches, continue quietly to Slack.
+
+Use the LeadConnector/GHL MCP (server `2a59a55b-bfd6-44e2-bc09-85d430112b39`, via the ghl-proxy):
 1. **Find:** if the input gave you a **CRM lead email** (funnel-triggered runs always do), search
    `contacts_get-contacts` with `query=<that email>` and use the exact match. That is authoritative:
    do not fall back to domain matching when an email was supplied, and never create a contact.
    Only when no email was supplied, search `query=<demo domain>` (e.g. `trustrelations.agency`).
-2. **Pick:** if one or more contacts return, take the best match — prefer an exact email-domain match;
-   if several, the most recently updated. If zero return, STOP this step silently and continue to Slack.
+2. **Pick:** when you searched by email, take the exact email match (there should be one). When you
+   searched by domain, take the best match — prefer an exact email-domain match; if several, the most
+   recently updated. If zero return: on a funnel run flag it in Slack per the rule above; on a manual
+   run stop this step silently and continue to Slack.
 3. **Write:** `contacts_update-contact` with `path_contactId=<id>` and
    `body_customFields=[{"id":"6dtdKnKMkB659ZVlsRof","field_value":"https://demos.optimally.ltd/<slug>"}]`.
    **CRITICAL: use the field ID `6dtdKnKMkB659ZVlsRof`, NOT the field key
@@ -269,7 +280,12 @@ not `:framed_picture:`):
 > :busts_in_silhouette:  *ICP:*  {{icp}}
 > :art:  *Brand:*  `{{primary}}`  /  `{{secondary}}`
 
-> :white_check_mark:  *Status:*  Deployed  ·  Logged to Baserow
+> :white_check_mark:  *Status:*  Deployed  ·  Logged to Baserow  ·  CRM: {{crmStatus}}
+```
+`{{crmStatus}}` is `Attached to <lead email>` when step 7 wrote the field. If step 7 could not attach it
+on a funnel run, replace that whole line with a loud flag instead, so it cannot be missed:
+```
+> :rotating_light:  *CRM NOT ATTACHED* - could not write the demo link for `{{leadEmail}}`. Attach it manually: {{liveUrl}}
 ```
 
 ### 9. Report back
@@ -285,8 +301,10 @@ confirmations, and whether the CRM lead was found + updated or not matched). Fla
 - **Deploy 403:** ensure you used the git CLI (not GitHub MCP) and the token/permission; report the real error.
 - **Live URL 404 after push:** confirm `<slug>/index.html` exists and the push landed on `main`; allow build time.
 - **Baserow field mismatch:** log what you can; note skipped fields. Don't abort the run over a logging field.
-- **GHL lead not found / write fails:** skip silently — the CRM step is best-effort and must never block the
-  deploy/Baserow/Slack steps. If the write returns success but `customFields` is empty, you used the field
+- **GHL lead not found / write fails:** never block the deploy/Baserow/Slack steps, but do not hide it
+  either. On a funnel run (a lead email was supplied) post the loud `CRM NOT ATTACHED` flag from step 8
+  with the lead email and live URL so a human can attach it by hand; on a manual URL run, skip quietly.
+  If the write returns success but `customFields` is empty, you used the field
   key instead of the ID `6dtdKnKMkB659ZVlsRof` — retry with the ID. (Needs the GHL connector enabled.)
 
 ## Notes on scope / side effects
