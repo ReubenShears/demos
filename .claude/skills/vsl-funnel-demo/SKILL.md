@@ -1,7 +1,8 @@
 ---
 name: vsl-funnel-demo
 description: >-
-  Turn a single company URL into a fully deployed, premium VSL (video sales letter) call-funnel demo
+  Turn a single company URL (OR a written business-context block, for prospects with no website) into a
+  fully deployed, premium VSL (video sales letter) call-funnel demo
   landing page, end to end. Use this whenever the user gives a company/website URL and wants a demo
   funnel, demo landing page, mock funnel, recreated funnel, or "build a demo for this site" — even if
   they don't say the word "skill". Trigger on phrases like "make a demo landing page for optimally.ltd",
@@ -45,10 +46,12 @@ partner CTA. Conventions also live in the user's memory files (source of truth; 
 
 Work in order; short status lines as you go. Total run ~1–3 min (no Stitch generation wait).
 
-> **Be patient for the input URL (cloud routine) — wait up to 10 minutes before giving up.** The routine
+> **Be patient for the input (cloud routine) — wait up to 10 minutes before giving up.** The routine
 > that fires this skill very often starts a moment *before* the company URL has actually arrived in your
 > input/trigger context — the URL routinely lands a little after the routine fires (timing race). **If the
-> URL is missing or empty when you begin, do NOT abort and do NOT post anything to Slack yet.** Poll for it:
+> URL is missing or empty when you begin, first check whether you were given a business-context block
+> instead (see step 0, CONTEXT MODE) — if so, that IS your input, proceed immediately and never wait.**
+> Otherwise do NOT abort and do NOT post anything to Slack yet. Poll for it:
 > wait ~30 seconds (`sleep 30`), re-check your input/trigger payload (and any source you were told to read
 > it from, e.g. the latest relevant Baserow row), and repeat — keep doing this for a **FULL 10 minutes**
 > before concluding the URL is genuinely absent. **Posting the "no URL provided" failure to Slack before
@@ -67,12 +70,31 @@ Work in order; short status lines as you go. Total run ~1–3 min (no Stitch gen
 > spare: minimise narration, don't re-read files you've already read, and do **NOT** `curl`/verify image
 > URLs (the network proxy blocks them and the scraped URLs render fine in the browser anyway).
 
-### 0. Derive identifiers from the URL
+### 0. Decide the input mode, then derive identifiers
+
+This skill accepts **either a URL or a written business-context block**. Check your input first:
+
+- **URL MODE** (default): you were given a company URL. Follow steps 1-2 as written (scrape, then write).
+- **CONTEXT MODE**: you were given a context block instead of a URL (a lead with no website; comes from
+  the IG funnel's no-website path, and looks like `BUSINESS: ... / OFFER / RESULT: ... / IDEAL CLIENT: ...
+  / EXTRA: ... / BRAND LOOK: <label> (#hex, #hex)`). **Skip step 1 entirely (there is nothing to scrape)
+  and follow step 1B instead.** Never abort just because no URL was supplied: a context block is a
+  complete, valid input.
+
+**URL mode identifiers**
 - **slug** (king): first domain label after removing a leading `www.`, lowercased.
   `www.unorthodox.digital` → `unorthodox`; `getacme.io` → `getacme`. Drops the TLD entirely (never
   `unorthodox-digital`). Reused for the folder, URL path, and `partner=` param.
 - **Brand name (short)** for display (e.g. `Unorthodox`); **Company name (full)** for Baserow Prospect
   Name + footer (e.g. `Unorthodox Systems`). Refine both after the scrape from `ogTitle`.
+
+**Context mode identifiers**
+- **slug**: slugify the business name — lowercase, strip punctuation, drop filler words like `ltd`,
+  `limited`, `the`, join words with `-` (`Smith Consulting Ltd` → `smith-consulting`). **Check the
+  `demos/` directory for a collision first** (business names clash far more than domains do); if the
+  folder already exists, append a short discriminator (`smith-consulting-2`).
+- **Brand name (short)** and **Company name (full)** both come from the supplied business name.
+- **Source URL** for Baserow: leave blank or record `context-provided` (there is no source site).
 
 ### 1. Scrape the site — ONE Firecrawl call (keep it lean)
 Call `firecrawl_scrape` **ONCE** on the URL with `formats: ["branding","markdown"]`. That single call
@@ -93,6 +115,26 @@ EFFICIENCY — do NOT bloat this step (this is important — it was over-running
 - If the homepage lacks founder / testimonial / FAQ specifics, write reasonable on-brand copy for those
   sections (founder = placeholder graphic + plausible bio, testimonials = neutral quotes, FAQ = 7
   plausible objections for this offer) rather than fetching more pages.
+
+### 1B. CONTEXT MODE — build the brief from the supplied context (no scrape)
+Only for context mode. There is no site to scrape, so you construct the same brief from the block:
+- **Offer / mechanism / result** ← the `OFFER / RESULT` line. **ICP** ← the `IDEAL CLIENT` line.
+  **Trust / proof** ← the `EXTRA` line (guarantees, years in business, awards) if present.
+- **Palette** ← the `BRAND LOOK` line's two hex codes: first = primary/dark, second = accent. Use them
+  exactly as the page's brand colours, and pass them as `BRAND_COLOR`/`ACCENT_COLOR` in step 3. If the
+  label says the lead was unsure (or no hex codes are present), **choose a tasteful palette yourself**
+  that suits their industry — a deep neutral plus one confident accent. Never leave the page unstyled.
+- **Logo**: there is none. Render a clean **typographic wordmark** of the business name in the hero and
+  footer (brand font, generous weight) instead of an `<img>`. Pass an empty string for `<logo-url>` in
+  step 3 and omit `FAVICON_URL` / `OG_IMAGE_URL`; the script tolerates missing images. Do NOT invent a
+  logo URL and do NOT hotlink someone else's asset.
+- **Colour scheme**: pick light or dark to suit the palette, then keep it consistent.
+- Everything else follows the normal rules: all 9 sections, and where the context is thin, write
+  reasonable on-brand copy (founder = placeholder graphic + plausible bio, testimonials = neutral
+  quotes, FAQ = 7 plausible objections for this offer) exactly as you would for a thin homepage.
+
+The context block is deliberately short — it is not a limitation. Treat it as the business brief and
+write with the same confidence and specificity you would from a scrape.
 
 ### 2. Write the page (Claude authors it — the core step)
 **Do this as your VERY NEXT action after the scrape — actually write the file now, in one `Write` call.
@@ -231,6 +273,10 @@ Live link first and biggest, then a compact recap (brand colours, CTA tracking p
 confirmations, and whether the CRM lead was found + updated or not matched). Flag anything that needed a fallback.
 
 ## Failure handling
+- **No URL supplied:** check for a context block before failing (step 0 CONTEXT MODE). Only report a
+  missing input if BOTH a URL and a context block are genuinely absent after the full 10-minute poll.
+- **Context mode, thin context:** still build all 9 sections; invent on-brand supporting copy rather than
+  asking for more. Never leave a section out because the context was short.
 - **Firecrawl map/deep-scrape thin:** fall back to the homepage scrape; still build all sections from it.
 - **Deploy 403:** ensure you used the git CLI (not GitHub MCP) and the token/permission; report the real error.
 - **Live URL 404 after push:** confirm `<slug>/index.html` exists and the push landed on `main`; allow build time.
