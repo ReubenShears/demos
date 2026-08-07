@@ -49,6 +49,11 @@ controlled headline length and logo size, real animations.
 - Use the real scraped logo ONCE at the top — placed in the hero directly under the banner. Do NOT also
   add a separate header/nav bar with a second logo (that creates a duplicate logo + a big gap). One
   prominent logo up top, one small one in the footer.
+- **CONTEXT MODE (no site was scraped):** there is no logo image. Render a clean **typographic wordmark**
+  of the business name in the exact same hero + footer positions (brand font, confident weight, brand
+  colour) instead of an `<img>`. Never invent a logo URL or hotlink another site's asset. The palette
+  comes from the supplied `BRAND LOOK` hexes: first = primary, second = accent; if only one hex is given,
+  derive a tasteful complementary accent yourself.
 - Size: hero logo height ~56–72px desktop / ~44–52px mobile, with MINIMAL padding around it — never tiny,
   never buried in whitespace. Footer logo ~32–40px.
 - **CONTRAST — critical (this broke on a black-on-black brand):** check the logo against the background it

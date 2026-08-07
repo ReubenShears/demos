@@ -120,10 +120,11 @@ EFFICIENCY — do NOT bloat this step (this is important — it was over-running
 Only for context mode. There is no site to scrape, so you construct the same brief from the block:
 - **Offer / mechanism / result** ← the `OFFER / RESULT` line. **ICP** ← the `IDEAL CLIENT` line.
   **Trust / proof** ← the `EXTRA` line (guarantees, years in business, awards) if present.
-- **Palette** ← the `BRAND LOOK` line's two hex codes: first = primary/dark, second = accent. Use them
-  exactly as the page's brand colours, and pass them as `BRAND_COLOR`/`ACCENT_COLOR` in step 3. If the
-  label says the lead was unsure (or no hex codes are present), **choose a tasteful palette yourself**
-  that suits their industry — a deep neutral plus one confident accent. Never leave the page unstyled.
+- **Palette** ← the `BRAND LOOK` line's hex codes (the form requires at least one): first = primary,
+  second = accent. Use them exactly as the page's brand colours, and pass them as
+  `BRAND_COLOR`/`ACCENT_COLOR` in step 3. If only ONE hex is given, derive a tasteful complementary
+  accent yourself. If somehow none are present, choose a palette that suits their industry — a deep
+  neutral plus one confident accent. Never leave the page unstyled.
 - **Logo**: there is none. Render a clean **typographic wordmark** of the business name in the hero and
   footer (brand font, generous weight) instead of an `<img>`. Pass an empty string for `<logo-url>` in
   step 3 and omit `FAVICON_URL` / `OG_IMAGE_URL`; the script tolerates missing images. Do NOT invent a
