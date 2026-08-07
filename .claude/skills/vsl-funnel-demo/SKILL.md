@@ -35,6 +35,7 @@ partner CTA. Conventions also live in the user's memory files (source of truth; 
 | Live domain | `https://demos.optimally.ltd/<slug>` (Vercel auto-builds on push to `main`) |
 | CTA tracking base | `https://www.optimally.ltd/demo?partner=<slug>` (opens new tab) |
 | Baserow database / table | `Backend` (id `453125`) / `Demo Landing Page Data` (id `1024310`) |
+| Baserow lead row (funnel runs) | `Lead Data` (id `1000548`), field **`Demo URL`** — set on the lead matching the supplied lead email |
 | Slack channel | `#5-asset-generation` (id `C0AN653QCF2`) |
 | CRM (GoHighLevel) | LeadConnector MCP server `2a59a55b-bfd6-44e2-bc09-85d430112b39` (via ghl-proxy). Custom field **Demo Landing Page URL** id `6dtdKnKMkB659ZVlsRof` |
 | Engagement tracking | Beacon → same-origin `/api/track` (`api/track.js` proxy, env `TRACK_WEBHOOK_URL`/`TRACK_SECRET`) → n8n **Demo Engagement Tracker** (`mkjbBhNAh3HHHH3U`, webhook `demo-event`) → Baserow **Demo Engagement Data** (id `1047489`) + Slack **#6-demo-notifications** (`C0B0NGYQ71P`). Microsoft Clarity id `xd2h3tb6o4`. All universal — injected by `place_demo.mjs`, no per-demo setup. |
@@ -262,6 +263,13 @@ Use the LeadConnector/GHL MCP (server `2a59a55b-bfd6-44e2-bc09-85d430112b39`, vi
    **CRITICAL: use the field ID `6dtdKnKMkB659ZVlsRof`, NOT the field key
    `contact.demo_landing_page_url`** — the key returns `succeeded: true` but silently fails to persist
    (`customFields` stays `[]`). Confirm the returned `customFields` array shows the URL, then continue.
+4. **Also write it onto the Baserow lead row** (funnel runs only, i.e. whenever you were given a lead
+   email). In **Lead Data** (table `1000548`), find the lead by that email (`list_table_rows` with
+   `search=<email>`, take the most recent match) and `update_rows` setting **`Demo URL`** to the live
+   demo URL. This is what ties the lead to the page built for them; without it the lead row has no idea
+   a demo exists. If `update_rows` rejects the table id as a string, reload that tool with a KEYWORD
+   ToolSearch (not `select:`) to get its full schema, then retry. Treat a failure here like the CRM
+   failure above: flag it in Slack rather than passing over it silently.
 
 ### 8. Announce in Slack
 Post to `C0AN653QCF2` with `slack_send_message` using **Slack mrkdwn** (single-asterisk `*bold*`,
