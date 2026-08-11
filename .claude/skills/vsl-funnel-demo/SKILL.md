@@ -263,18 +263,10 @@ Use the LeadConnector/GHL MCP (server `2a59a55b-bfd6-44e2-bc09-85d430112b39`, vi
    **CRITICAL: use the field ID `6dtdKnKMkB659ZVlsRof`, NOT the field key
    `contact.demo_landing_page_url`** — the key returns `succeeded: true` but silently fails to persist
    (`customFields` stays `[]`). Confirm the returned `customFields` array shows the URL, then continue.
-4. **Then call the build-complete webhook** (funnel runs only, i.e. whenever you were given a lead
-   email). This saves the URL onto the Baserow lead row and applies the ManyChat **Landing Page Ready**
-   tag, which triggers the "your page is ready, when suits for a walkthrough?" DM. It deliberately does
-   NOT put the demo URL into ManyChat, so the demo stays gated until the call.
-```bash
-curl -sS -G "https://optimally.app.n8n.cloud/webhook/build-complete" \
-  --data-urlencode "lead_email=<the lead email you were given>" \
-  --data-urlencode "url=https://demos.optimally.ltd/<slug>" \
-  --data-urlencode "kind=demo"
-```
-   Skipping this means the demo is built but nothing downstream knows. If it returns anything other
-   than 200, flag it in Slack rather than passing over it silently.
+4. **Do NOT call any build-complete webhook and do NOT write to the Baserow lead row.** Delivery is
+   owned by the funnel's n8n automation, which polls for the live page and handles the Baserow write,
+   the ManyChat tag and the Slack notification itself. Your job ends at: page live, GHL field written,
+   Baserow demo log row added, Slack build announcement posted.
 
 ### 8. Announce in Slack
 Post to `C0AN653QCF2` with `slack_send_message` using **Slack mrkdwn** (single-asterisk `*bold*`,
