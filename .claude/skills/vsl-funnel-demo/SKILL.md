@@ -242,8 +242,8 @@ URL** custom field. **Never skip this step.**
 
 How hard it is required depends on the input:
 - **A CRM lead email was supplied** (every funnel-triggered run): this write is MANDATORY, not
-  best-effort. The GHL field is the ONLY place this demo is delivered — nothing is sent to the lead and
-  nothing is written to ManyChat — so a demo whose link never reaches the CRM is a lost demo. If the
+  best-effort. The GHL field is where the demo link is stored for the call, and the link is never sent
+  to the lead - so a demo whose link never reaches the CRM is a lost demo. If the
   contact cannot be found, or the write does not persist, you MUST say so loudly in the Slack post
   (step 8) with the lead email and the live demo URL, so a human can attach it manually. Never fail
   silently and never create a contact.
@@ -263,10 +263,25 @@ Use the LeadConnector/GHL MCP (server `2a59a55b-bfd6-44e2-bc09-85d430112b39`, vi
    **CRITICAL: use the field ID `6dtdKnKMkB659ZVlsRof`, NOT the field key
    `contact.demo_landing_page_url`** — the key returns `succeeded: true` but silently fails to persist
    (`customFields` stays `[]`). Confirm the returned `customFields` array shows the URL, then continue.
-4. **Do NOT call any build-complete webhook and do NOT write to the Baserow lead row.** Delivery is
-   owned by the funnel's n8n automation, which polls for the live page and handles the Baserow write,
-   the ManyChat tag and the Slack notification itself. Your job ends at: page live, GHL field written,
-   Baserow demo log row added, Slack build announcement posted.
+4. **Once the page is live and returning 200, call the build-complete webhook.** This is what tells
+   the funnel the demo exists, and nothing else does - there is no poller.
+
+```bash
+curl -sS -G "https://optimally.app.n8n.cloud/webhook/build-complete" \
+  --data-urlencode "lead_email=<the CRM lead email you were given>" \
+  --data-urlencode "url=https://demos.optimally.ltd/<slug>" \
+  --data-urlencode "kind=demo"
+```
+
+   `kind=demo` matters: n8n writes the URL to **Demo URL** (not Launchpad URL), tags the lead
+   **Landing Page Ready** in Sendblue and the CRM, posts to the lead's Slack thread, and sends the
+   qualified lead a message saying their page is ready. **The demo link itself is never sent to them**
+   - the gate holds, they are asked for a walkthrough time instead. Skipping this call means the demo
+   is built and the lead is never told.
+
+   Only skip it when no lead email was supplied (a manual one-off build). If it returns anything other
+   than 200, say so in the Slack post. Do **not** write the Baserow lead row yourself; build-complete
+   owns that write.
 
 ### 8. Announce in Slack
 Post to `C0AN653QCF2` with `slack_send_message` using **Slack mrkdwn** (single-asterisk `*bold*`,
@@ -318,6 +333,6 @@ one real demo out.
 
 **Never deliver the demo to the prospect.** Funnel-triggered runs build the page silently for a qualified
 lead who is booked onto a call: the link goes into the GHL **Demo Landing Page URL** field and Slack only.
-Do NOT write it to ManyChat, do not message the lead, do not treat "built" as "sent" — the demo is revealed
+Do NOT send the demo link to the lead and do not treat "built" as "sent" — the demo is revealed
 live on the call.
 Don't run speculatively. Stitch is retired; if ever needed, the old Stitch-based skill is in this repo's git history.
