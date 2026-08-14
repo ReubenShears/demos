@@ -263,25 +263,14 @@ Use the LeadConnector/GHL MCP (server `2a59a55b-bfd6-44e2-bc09-85d430112b39`, vi
    **CRITICAL: use the field ID `6dtdKnKMkB659ZVlsRof`, NOT the field key
    `contact.demo_landing_page_url`** — the key returns `succeeded: true` but silently fails to persist
    (`customFields` stays `[]`). Confirm the returned `customFields` array shows the URL, then continue.
-4. **Once the page is live and returning 200, call the build-complete webhook.** This is what tells
-   the funnel the demo exists, and nothing else does - there is no poller.
-
-```bash
-curl -sS -G "https://optimally.app.n8n.cloud/webhook/build-complete" \
-  --data-urlencode "lead_email=<the CRM lead email you were given>" \
-  --data-urlencode "url=https://demos.optimally.ltd/<slug>" \
-  --data-urlencode "kind=demo"
-```
-
-   `kind=demo` matters: n8n writes the URL to **Demo URL** (not Launchpad URL), tags the lead
-   **Landing Page Ready** in Sendblue and the CRM, posts to the lead's Slack thread, and sends the
-   qualified lead a message saying their page is ready. **The demo link itself is never sent to them**
-   - the gate holds, they are asked for a walkthrough time instead. Skipping this call means the demo
-   is built and the lead is never told.
-
-   Only skip it when no lead email was supplied (a manual one-off build). If it returns anything other
-   than 200, say so in the Slack post. Do **not** write the Baserow lead row yourself; build-complete
-   owns that write.
+4. **Do NOT call any build-complete webhook and do NOT write to the Baserow lead row.** Delivery is
+   owned by the funnel's n8n automation. The `Demo Landing Page Generator` workflow polls
+   `https://demos.optimally.ltd/<slug>` every 6-8 minutes for up to ~40 minutes and fires
+   build-complete itself the moment it returns 200; that call does the Baserow write, the Sendblue and
+   CRM tagging, and the Slack lead-thread post. Firing it yourself makes all of that happen twice.
+   If the page never goes live the poller posts a timeout warning to Slack, so a silent failure is
+   still visible. Your job ends at: page live, GHL field written, Baserow demo log row added, Slack
+   build announcement posted.
 
 ### 8. Announce in Slack
 Post to `C0AN653QCF2` with `slack_send_message` using **Slack mrkdwn** (single-asterisk `*bold*`,
