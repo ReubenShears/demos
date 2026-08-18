@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
 <!-- Meta Pixel (central loader — ID swappable via /api/pixel, no page edits) -->
 <script>window.OM_PIXEL={slug:"optimally",company:"Optimally"};</script>
@@ -13,387 +13,481 @@
     })(window, document, "clarity", "script", "xd2h3tb6o4");
     try{ if(window.clarity){ window.clarity("identify", "optimally"); window.clarity("set", "slug", "optimally"); } }catch(e){}
 </script>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Optimally — The Webinar Conversion Ecosystem for B2B Coaches & Consultants</title>
-<meta name="description" content="Optimally builds the done-for-you Webinar Conversion Ecosystem for B2B coaches, consultants and agencies — VSL call funnels engineered to turn cold traffic into booked, pre-framed sales calls in 90 days." />
-<meta property="og:title" content="Optimally — Done-For-You Client Acquisition Funnels" />
-<meta property="og:description" content="Turn cold traffic into booked calls with a funnel engineered to convert at every step. Built for you in 90 days." />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://demos.optimally.ltd/optimally" />
-<meta property="og:image" content="https://framerusercontent.com/images/JcLcgqDkVfrwOwaghZ0wgVMfpG0.png" />
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Optimally — Done-For-You Client Acquisition Funnels" />
-<meta name="twitter:description" content="VSL call funnels that turn cold traffic into booked, pre-framed calls. Done for you in 90 days." />
-<meta name="twitter:image" content="https://framerusercontent.com/images/JcLcgqDkVfrwOwaghZ0wgVMfpG0.png" />
-<link rel="icon" href="https://framerusercontent.com/images/MK4JLp1ygZpQ2qGOdpiSnwQOhog.png" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet" />
-<script src="https://cdn.tailwindcss.com"></script>
-<style>
-  :root{
-    --green:#728C41;
-    --green-bright:#9ab85a;
-    --green-deep:#5f7a36;
-    --teal:#365555;
-    --bg:#0a1514;
-    --bg-2:#0d1d1b;
-    --bg-3:#0f2421;
-    --ink:#eaf1ea;
-    --muted:#9fb3a8;
-    --line:rgba(154,184,90,.16);
-    --radius:14px;
-  }
-  *{box-sizing:border-box}
-  html,body{overflow-x:hidden;max-width:100%}
-  html{scroll-behavior:smooth}
-  body{
-    margin:0;background:var(--bg);color:var(--ink);
-    font-family:'Inter',system-ui,sans-serif;
-    font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;
-  }
-  img{max-width:100%;display:block}
-  h1,h2,h3,.font-display{font-family:'Sora','Inter',sans-serif;letter-spacing:-.02em;line-height:1.14}
-  .wrap{width:100%;max-width:1140px;margin:0 auto;padding:0 22px}
-  .accent{color:var(--green-bright)}
-  .eyebrow{font-size:.82rem;letter-spacing:.18em;text-transform:uppercase;color:var(--green-bright);font-weight:600}
-  section{position:relative}
-  .glow{position:absolute;border-radius:50%;filter:blur(90px);opacity:.5;pointer-events:none;z-index:0}
-  .sec-pad{padding:96px 0}
-  .tone-a{background:radial-gradient(1100px 560px at 18% -10%,rgba(54,85,85,.55),transparent 60%),var(--bg)}
-  .tone-b{background:linear-gradient(180deg,var(--bg),var(--bg-2))}
-  .tone-c{background:linear-gradient(180deg,var(--bg-2),var(--bg-3))}
-  .tone-d{background:linear-gradient(180deg,var(--bg-3),var(--bg-2))}
-  .content{position:relative;z-index:1}
-  .banner{background:linear-gradient(90deg,rgba(114,140,65,.16),rgba(54,85,85,.16));border-bottom:1px solid var(--line);font-size:.83rem;color:#cdddcf}
-  .banner .wrap{padding-top:11px;padding-bottom:11px;display:flex;gap:9px;align-items:center;justify-content:center;text-align:center;flex-wrap:wrap}
-  .pulse{width:8px;height:8px;border-radius:50%;background:var(--green-bright);box-shadow:0 0 0 0 rgba(154,184,90,.7);animation:pulse 2.2s infinite}
-  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(154,184,90,.6)}70%{box-shadow:0 0 0 10px rgba(154,184,90,0)}100%{box-shadow:0 0 0 0 rgba(154,184,90,0)}}
-  .cta{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(180deg,var(--green-bright),var(--green));color:#0a140a;font-weight:700;font-family:'Sora',sans-serif;
-    padding:15px 32px;border-radius:999px;text-decoration:none;font-size:1.02rem;white-space:nowrap;
-    box-shadow:0 10px 34px -10px rgba(154,184,90,.6);transition:transform .18s ease,box-shadow .18s ease}
-  .cta:hover{transform:translateY(-2px) scale(1.02);box-shadow:0 16px 44px -10px rgba(154,184,90,.75)}
-  .cta svg{width:18px;height:18px}
-  .proof{display:flex;align-items:center;gap:10px;justify-content:center;margin-top:14px;color:var(--muted);font-size:.86rem;flex-wrap:wrap}
-  .avatars{display:flex}
-  .avatars span{width:30px;height:30px;border-radius:50%;border:2px solid var(--bg-2);margin-left:-9px;display:grid;place-items:center;
-    background:linear-gradient(135deg,var(--teal),var(--green-deep))}
-  .avatars span:first-child{margin-left:0}
-  .avatars svg{width:15px;height:15px;color:#dfeada}
-  .stars{color:var(--green-bright);letter-spacing:2px}
-  .card{background:linear-gradient(180deg,rgba(255,255,255,.028),rgba(255,255,255,.01));border:1px solid var(--line);border-radius:var(--radius);padding:26px}
-  .card.feat{box-shadow:0 0 0 1px rgba(154,184,90,.18),0 24px 60px -30px rgba(154,184,90,.35)}
-  .ic{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;margin-bottom:16px;
-    background:linear-gradient(135deg,rgba(154,184,90,.18),rgba(54,85,85,.22));border:1px solid var(--line)}
-  .ic svg{width:23px;height:23px;color:var(--green-bright)}
-  .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
-  .reveal.in{opacity:1;transform:none}
-  .vsl{position:relative;border-radius:18px;overflow:hidden;border:1px solid var(--line);aspect-ratio:16/9;
-    background:radial-gradient(600px 300px at 50% 40%,rgba(54,85,85,.6),transparent 70%),linear-gradient(135deg,#0e211d,#0a1514);
-    display:grid;place-items:center;box-shadow:0 40px 90px -40px rgba(0,0,0,.8)}
-  .vsl::after{content:"";position:absolute;inset:0;background:radial-gradient(400px 200px at 50% 50%,rgba(154,184,90,.12),transparent 70%)}
-  .play-btn{position:relative;z-index:2;width:88px;height:88px;border-radius:50%;border:none;cursor:pointer;
-    background:linear-gradient(180deg,var(--green-bright),var(--green));display:grid;place-items:center;
-    box-shadow:0 12px 40px -8px rgba(154,184,90,.7);transition:transform .2s ease}
-  .play-btn:hover{transform:scale(1.07)}
-  .play-btn svg{width:34px;height:34px;color:#0a140a;margin-left:5px}
-  .vsl-cap{position:absolute;bottom:14px;left:0;right:0;text-align:center;color:var(--muted);font-size:.82rem;z-index:2}
-  .vsl-tag{position:absolute;top:14px;left:14px;z-index:2;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;
-    background:rgba(10,20,18,.6);border:1px solid var(--line);color:var(--green-bright);padding:5px 11px;border-radius:999px;backdrop-filter:blur(6px)}
-  .stat{font-family:'Sora',sans-serif;font-weight:800;font-size:2.5rem;color:var(--green-bright);line-height:1}
-  details{border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.02);margin-bottom:12px;overflow:hidden}
-  details summary{cursor:pointer;list-style:none;padding:19px 22px;font-family:'Sora',sans-serif;font-weight:600;font-size:1.02rem;
-    display:flex;justify-content:space-between;align-items:center;gap:16px}
-  details summary::-webkit-details-marker{display:none}
-  details summary .chev{transition:transform .25s ease;color:var(--green-bright);flex-shrink:0}
-  details[open] summary .chev{transform:rotate(45deg)}
-  details .ans{padding:0 22px 20px;color:var(--muted);font-size:.98rem}
-  .logo-hero{height:64px;width:auto;filter:drop-shadow(0 6px 18px rgba(0,0,0,.5))}
-  .logo-foot{height:34px;width:auto;opacity:.9}
-  .marquee{overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:20px 0;background:rgba(255,255,255,.015)}
-  .marquee-track{display:flex;gap:56px;white-space:nowrap;animation:scroll 26s linear infinite;color:var(--muted);font-family:'Sora',sans-serif;font-weight:600;letter-spacing:.02em}
-  @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-  @media (max-width:640px){
-    .sec-pad{padding:66px 0}
-    .logo-hero{height:50px}
-    .stat{font-size:2rem}
-  }
-  @media (prefers-reduced-motion:reduce){
-    .reveal{opacity:1;transform:none;transition:none}
-    .marquee-track{animation:none}
-    .pulse{animation:none}
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Optimally Systems | Done-For-You Client Acquisition</title>
+  <meta name="description" content="Optimally builds the conversion funnels, VSLs and automated systems that book more calls and close more clients for coaches, consultants and online businesses — all done for you." />
+  <link rel="icon" href="https://framerusercontent.com/images/MK4JLp1ygZpQ2qGOdpiSnwQOhog.png" />
+
+  <!-- Social / sharing -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Optimally Systems | Done-For-You Client Acquisition" />
+  <meta property="og:description" content="Conversion funnels and automated systems that book more calls and close more clients — done for you." />
+  <meta property="og:url" content="https://demos.optimally.ltd/optimally" />
+  <meta property="og:image" content="https://framerusercontent.com/images/JcLcgqDkVfrwOwaghZ0wgVMfpG0.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Optimally Systems | Done-For-You Client Acquisition" />
+  <meta name="twitter:image" content="https://framerusercontent.com/images/JcLcgqDkVfrwOwaghZ0wgVMfpG0.png" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: '#0000EE',
+            brandink: '#0b1020',
+            brandmute: '#5b6172',
+          },
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            display: ['Sora', 'Inter', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    :root { --brand: #0000EE; --ink: #0b1020; --mute: #5b6172; }
+    html, body { overflow-x: hidden; max-width: 100%; }
+    body {
+      background:
+        radial-gradient(1100px 620px at 82% -8%, rgba(0,0,238,0.10), transparent 60%),
+        radial-gradient(900px 520px at 8% 8%, rgba(0,0,238,0.06), transparent 55%),
+        linear-gradient(180deg, #ffffff 0%, #f7f8ff 100%);
+      color: var(--ink);
+    }
+    .font-display { font-family: 'Sora', 'Inter', sans-serif; }
+    .accent { color: var(--brand); }
+    .grad-text {
+      background: linear-gradient(120deg, #0000EE 0%, #3b3bff 55%, #7a5cff 100%);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .mesh-card {
+      background:
+        radial-gradient(600px 300px at 20% 0%, rgba(0,0,238,0.10), transparent 60%),
+        linear-gradient(180deg, #ffffff, #f4f6ff);
+    }
+    .glass {
+      background: rgba(255,255,255,0.72);
+      backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(11,16,32,0.08);
+    }
+    .ring-soft { box-shadow: 0 1px 0 rgba(255,255,255,0.6) inset, 0 24px 60px -28px rgba(0,0,238,0.35); }
+    .cta {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: linear-gradient(180deg, #1a1aff, #0000EE);
+      color: #fff; font-weight: 600; letter-spacing: .1px;
+      padding: 15px 30px; border-radius: 999px;
+      box-shadow: 0 14px 34px -10px rgba(0,0,238,0.65);
+      transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
+    }
+    .cta:hover { transform: translateY(-2px); box-shadow: 0 20px 46px -12px rgba(0,0,238,0.7); filter: brightness(1.03); }
+    .cta svg { transition: transform .18s ease; }
+    .cta:hover svg { transform: translateX(3px); }
+    .eyebrow {
+      display:inline-flex; align-items:center; gap:8px;
+      font-size:12px; font-weight:700; letter-spacing:.14em; text-transform:uppercase;
+      color: var(--brand);
+      background: rgba(0,0,238,0.07); border:1px solid rgba(0,0,238,0.16);
+      padding:7px 14px; border-radius:999px;
+    }
+    .reveal { opacity: 0; transform: translateY(26px); transition: opacity .7s cubic-bezier(.2,.8,.2,1), transform .7s cubic-bezier(.2,.8,.2,1); }
+    .reveal.in { opacity: 1; transform: none; }
+    .float-slow { animation: floaty 7s ease-in-out infinite; }
+    @keyframes floaty { 0%,100%{ transform: translateY(0) } 50%{ transform: translateY(-10px) } }
+    .play-btn {
+      width: 88px; height: 88px; border-radius: 999px; cursor: pointer;
+      background: rgba(255,255,255,0.92);
+      display:flex; align-items:center; justify-content:center;
+      box-shadow: 0 20px 60px -14px rgba(0,0,238,0.55);
+      transition: transform .2s ease;
+    }
+    .play-btn:hover { transform: scale(1.06); }
+    .play-btn::after {
+      content:''; position:absolute; width:88px; height:88px; border-radius:999px;
+      border: 2px solid rgba(0,0,238,0.45); animation: pulse 2.4s ease-out infinite;
+    }
+    @keyframes pulse { 0%{ transform: scale(1); opacity:.7 } 100%{ transform: scale(1.6); opacity:0 } }
+    details[open] .faq-ic { transform: rotate(45deg); }
+    .faq-ic { transition: transform .2s ease; }
+    .divide-fade { height:1px; background: linear-gradient(90deg, transparent, rgba(11,16,32,0.12), transparent); }
+  </style>
 </head>
-<body>
+<body class="font-sans antialiased text-brandink">
 
-<!-- 0. BANNER -->
-<div class="banner">
-  <div class="wrap"><span class="pulse"></span> New: watch the 4-minute breakdown below — see the exact funnel that books pre-framed calls on autopilot.</div>
-</div>
-
-<!-- 1. HERO -->
-<section class="tone-a sec-pad" style="padding-top:44px">
-  <div class="glow" style="width:520px;height:520px;background:var(--teal);top:-120px;left:-80px"></div>
-  <div class="glow" style="width:440px;height:440px;background:var(--green-deep);bottom:-160px;right:-90px;opacity:.35"></div>
-  <div class="wrap content" style="text-align:center;max-width:920px">
-    <img class="logo-hero" style="margin:0 auto 22px" src="https://framerusercontent.com/images/hUMFc5uZTevF0122Bkpv9kgZDI.png?width=10432&height=4221" alt="Optimally" />
-    <p class="eyebrow reveal">Attention: B2B coaches, consultants &amp; agency owners</p>
-    <h1 class="reveal" style="font-size:clamp(2rem,5.4vw,3.9rem);font-weight:700;margin:16px 0 0;max-width:15ch;margin-left:auto;margin-right:auto">
-      Turn cold traffic into <span class="accent">booked, pre-framed calls</span> in 90 days
-    </h1>
-    <p class="reveal" style="margin:20px auto 0;color:var(--green-bright);font-weight:600;font-family:'Sora',sans-serif;font-size:1.02rem">
-      Backed by our 90-day booked-calls guarantee — or we work free until it lands.
-    </p>
-    <p class="reveal" style="margin:12px auto 0;color:var(--muted);max-width:60ch">
-      We build your entire done-for-you Webinar Conversion Ecosystem — VSL, call funnel, ad creative, booking flow and follow-up — engineered to convert at every step.
-    </p>
-
-    <div class="reveal vsl" style="margin:34px auto 0;max-width:820px">
-      <span class="vsl-tag">▶ VSL &middot; 4:12</span>
-      <button class="play-btn" aria-label="play the video"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
-      <div class="vsl-cap">Watch: how the Webinar Conversion Ecosystem fills your calendar with qualified calls</div>
-    </div>
-    <p class="reveal" style="margin:18px auto 0;color:var(--muted);font-size:.95rem;max-width:52ch">
-      No more chasing cold leads. A structured buyer journey that pre-sells the call before your prospect ever picks up the phone.
-    </p>
-
-    <div class="reveal" style="margin-top:26px">
-      <a href="https://www.optimally.ltd/demo?partner=optimally" target="_blank" rel="noopener noreferrer" class="cta">
-        Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      </a>
-      <div class="proof">
-        <span class="avatars"><span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12a5 5 0 100-10 5 5 0 000 10zm0 2c-5 0-9 2.5-9 6v2h18v-2c0-3.5-4-6-9-6z"/></svg></span><span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12a5 5 0 100-10 5 5 0 000 10zm0 2c-5 0-9 2.5-9 6v2h18v-2c0-3.5-4-6-9-6z"/></svg></span><span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12a5 5 0 100-10 5 5 0 000 10zm0 2c-5 0-9 2.5-9 6v2h18v-2c0-3.5-4-6-9-6z"/></svg></span></span>
-        <span class="stars">★★★★★</span>
-        <span>Trusted by 120+ coaches, consultants &amp; agencies</span>
-      </div>
-    </div>
+  <!-- ============ 1. BANNER ============ -->
+  <div class="w-full text-white text-center text-[13px] sm:text-sm font-medium py-2.5 px-4" style="background: linear-gradient(90deg,#0000EE,#3b3bff);">
+    <span class="opacity-95">Now booking Q3 build slots — </span>
+    <a href="https://www.optimally.ltd/demo?partner=optimally" target="_blank" rel="noopener noreferrer" class="underline underline-offset-2 font-semibold hover:opacity-90">Learn More</a>
   </div>
-</section>
 
-<!-- TRUST MARQUEE -->
-<div class="marquee">
-  <div class="marquee-track">
-    <span>Done-For-You Build</span><span>&bull;</span><span>VSL Call Funnels</span><span>&bull;</span><span>90-Day Guarantee</span><span>&bull;</span><span>Webinar Conversion Ecosystem</span><span>&bull;</span><span>Pre-Framed Prospects</span><span>&bull;</span>
-    <span>Done-For-You Build</span><span>&bull;</span><span>VSL Call Funnels</span><span>&bull;</span><span>90-Day Guarantee</span><span>&bull;</span><span>Webinar Conversion Ecosystem</span><span>&bull;</span><span>Pre-Framed Prospects</span><span>&bull;</span>
-  </div>
-</div>
+  <!-- Nav -->
+  <header class="sticky top-0 z-40">
+    <div class="glass">
+      <div class="max-w-6xl mx-auto px-5 sm:px-8 h-[68px] flex items-center justify-between">
+        <a href="https://www.optimally.ltd/demo?partner=optimally" target="_blank" rel="noopener noreferrer" class="flex items-center">
+          <img src="https://framerusercontent.com/images/uJcDzFBrnQWp6YsOl4y65BWsUTQ.png" alt="Optimally Systems logo" class="h-8 sm:h-9 w-auto" />
+        </a>
+        <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-brandmute">
+          <a href="#solution" class="hover:text-brandink transition">How it works</a>
+          <a href="#trust" class="hover:text-brandink transition">Results</a>
+          <a href="#faq" class="hover:text-brandink transition">FAQ</a>
+        </nav>
+        <a href="https://www.optimally.ltd/demo?partner=optimally" target="_blank" rel="noopener noreferrer" class="cta !py-2.5 !px-5 text-sm">Learn More
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
 
-<!-- 2. PAINS -->
-<section class="tone-b sec-pad">
-  <div class="wrap content">
-    <div style="text-align:center;max-width:680px;margin:0 auto 48px" class="reveal">
-      <p class="eyebrow">Sound familiar?</p>
-      <h2 style="font-size:clamp(1.7rem,4vw,2.6rem);margin:12px 0 0">Your offer converts. Your pipeline doesn't.</h2>
-      <p style="color:var(--muted);margin-top:14px">You're great at what you do. The problem is everything that happens <em>before</em> the sales call.</p>
-    </div>
-    <div class="grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
-      <div class="card reveal">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg></div>
-        <h3 style="font-size:1.15rem;margin:0 0 8px">Leads that never book</h3>
-        <p style="color:var(--muted);margin:0;font-size:.96rem">Ad clicks and DMs pour in, then vanish. No structured path takes a cold prospect from curious to calendar.</p>
-      </div>
-      <div class="card reveal">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
-        <h3 style="font-size:1.15rem;margin:0 0 8px">Calls that waste your time</h3>
-        <p style="color:var(--muted);margin:0;font-size:.96rem">Unqualified, un-warmed prospects show up cold. You pitch from scratch and burn hours on people who never buy.</p>
-      </div>
-      <div class="card reveal">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 7h16M4 12h10M4 17h7"/></svg></div>
-        <h3 style="font-size:1.15rem;margin:0 0 8px">A "funnel" held together with tape</h3>
-        <p style="color:var(--muted);margin:0;font-size:.96rem">A page here, a Calendly there, a half-built email flow. Nothing connected, nothing measured, nothing compounding.</p>
-      </div>
-      <div class="card reveal">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M12 2v20M5 9l7-7 7 7"/></svg></div>
-        <h3 style="font-size:1.15rem;margin:0 0 8px">Revenue that rides on referrals</h3>
-        <p style="color:var(--muted);margin:0;font-size:.96rem">Great months and dead months. Growth depends on word of mouth instead of a system you actually control.</p>
-      </div>
-      <div class="card reveal">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div>
-        <h3 style="font-size:1.15rem;margin:0 0 8px">No idea what's actually broken</h3>
-        <p style="color:var(--muted);margin:0;font-size:.96rem">You can't see where prospects drop off, so you keep guessing — throwing more spend at a leaky bucket.</p>
-      </div>
-      <div class="card reveal">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M20 6L9 17l-5-5"/></svg></div>
-        <h3 style="font-size:1.15rem;margin:0 0 8px">You're the bottleneck</h3>
-        <p style="color:var(--muted);margin:0;font-size:.96rem">Every deal needs you. You can't scale acquisition because it lives in your head, not in a repeatable machine.</p>
-      </div>
-    </div>
-    <div style="text-align:center;margin-top:44px" class="reveal">
-      <a href="https://www.optimally.ltd/demo?partner=optimally" target="_blank" rel="noopener noreferrer" class="cta">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      <div class="proof"><span class="stars">★★★★★</span><span>"Finally, a pipeline we can predict." — 120+ founders served</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- 3. SOLUTION -->
-<section class="tone-c sec-pad">
-  <div class="glow" style="width:520px;height:520px;background:var(--green-deep);top:10%;right:-160px;opacity:.28"></div>
-  <div class="wrap content">
-    <div style="text-align:center;max-width:720px;margin:0 auto 50px" class="reveal">
-      <p class="eyebrow">The Optimally system</p>
-      <h2 style="font-size:clamp(1.7rem,4vw,2.6rem);margin:12px 0 0">One connected ecosystem — built and run <span class="accent">for you</span></h2>
-      <p style="color:var(--muted);margin-top:14px">We engineer the whole buyer journey so every step pre-frames the next. Cold traffic in, booked and ready-to-buy calls out.</p>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:20px">
-      <div class="card feat reveal">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 4h16v12H4z"/><path d="M2 20h20"/><path d="M10 9l4 2-4 2z" fill="currentColor"/></svg></div>
-        <h3 style="font-size:1.25rem;margin:0 0 8px">The VSL that pre-sells</h3>
-        <p style="color:var(--muted);margin:0;font-size:.97rem">A video sales letter scripted to build authority, handle objections and get the prospect nodding "yes" before the call is ever booked.</p>
-      </div>
-      <div class="card feat reveal">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M3 12a9 9 0 1018 0 9 9 0 00-18 0z"/><path d="M12 7v5l4 2"/></svg></div>
-        <h3 style="font-size:1.25rem;margin:0 0 8px">A structured buyer journey</h3>
-        <p style="color:var(--muted);margin:0;font-size:.97rem">Every page, message and touchpoint guides the prospect down a deliberate path — so they arrive warm, qualified and expecting to buy.</p>
-      </div>
-      <div class="card feat reveal">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div>
-        <h3 style="font-size:1.25rem;margin:0 0 8px">Booking &amp; follow-up flow</h3>
-        <p style="color:var(--muted);margin:0;font-size:.97rem">Automated scheduling, reminders and nurture that kill no-shows and re-engage the ones who ghost — so your calendar stays full.</p>
-      </div>
-      <div class="card feat reveal">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M3 3v18h18"/><rect x="7" y="11" width="3" height="7"/><rect x="12" y="7" width="3" height="11"/><rect x="17" y="4" width="3" height="14"/></svg></div>
-        <h3 style="font-size:1.25rem;margin:0 0 8px">Tracking on every step</h3>
-        <p style="color:var(--muted);margin:0;font-size:.97rem">You see exactly where prospects move and where they stall — so we optimise with data, not guesses, and the funnel compounds.</p>
-      </div>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:34px;text-align:center">
-      <div class="card reveal"><div class="stat" data-count="90">90</div><p style="color:var(--muted);margin:8px 0 0;font-size:.9rem">Days to a live, converting funnel</p></div>
-      <div class="card reveal"><div class="stat" data-count="120">120</div><p style="color:var(--muted);margin:8px 0 0;font-size:.9rem">Founders served &amp; counting</p></div>
-      <div class="card reveal"><div class="stat" data-count="2" data-suffix="x">2x</div><p style="color:var(--muted);margin:8px 0 0;font-size:.9rem">Typical lift in cash collected</p></div>
-    </div>
-    <div style="text-align:center;margin-top:44px" class="reveal">
-      <a href="https://www.optimally.ltd/demo?partner=optimally" target="_blank" rel="noopener noreferrer" class="cta">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      <div class="proof"><span class="stars">★★★★★</span><span>Done-for-you, start to finish — you stay in your zone of genius</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- 4. CALL TO ACTION -->
-<section class="tone-a sec-pad">
-  <div class="glow" style="width:600px;height:400px;background:var(--teal);top:-40px;left:50%;transform:translateX(-50%);opacity:.4"></div>
-  <div class="wrap content" style="text-align:center;max-width:760px">
-    <div class="reveal">
-      <p class="eyebrow">Ready when you are</p>
-      <h2 style="font-size:clamp(1.8rem,4.4vw,2.8rem);margin:12px 0 0">See the exact funnel we'd build for your business</h2>
-      <p style="color:var(--muted);margin:16px auto 0;max-width:56ch">Book a walkthrough and we'll map your Webinar Conversion Ecosystem live — the offer, the VSL angle, the booking flow — and show you how it fits together to double the cash you collect.</p>
-      <div style="margin-top:28px">
-        <a href="https://www.optimally.ltd/demo?partner=optimally" target="_blank" rel="noopener noreferrer" class="cta">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        <div class="proof"><span class="stars">★★★★★</span><span>Limited builds each month — we only take what we can deliver</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 5. BUILDING TRUST -->
-<section class="tone-b sec-pad">
-  <div class="wrap content">
-    <div style="text-align:center;max-width:640px;margin:0 auto 48px" class="reveal">
-      <p class="eyebrow">Building trust</p>
-      <h2 style="font-size:clamp(1.7rem,4vw,2.6rem);margin:12px 0 0">Founders who stopped guessing</h2>
-      <p style="color:var(--muted);margin-top:14px">Real operators who traded a leaky pipeline for a predictable client-generating machine.</p>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
-      <div class="card reveal">
-        <div class="stars" style="margin-bottom:12px">★★★★★</div>
-        <p style="margin:0 0 18px;font-size:1rem">"Within the first 45 days our calendar went from scraping for calls to genuinely booked out. The VSL does the selling — I just close."</p>
-        <div style="display:flex;align-items:center;gap:12px">
-          <span style="width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,var(--teal),var(--green-deep));border:1px solid var(--line)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--green-bright)" stroke-width="1.8" width="20"><path d="M12 12a4 4 0 100-8 4 4 0 000 8zM5 20c0-3 3-5 7-5s7 2 7 5"/></svg></span>
-          <div><div style="font-family:'Sora',sans-serif;font-weight:600;font-size:.95rem">Marcus D.</div><div style="color:var(--muted);font-size:.83rem">B2B Sales Consultant</div></div>
+  <!-- ============ 2. HERO ============ -->
+  <section class="relative overflow-hidden">
+    <div class="max-w-6xl mx-auto px-5 sm:px-8 pt-16 sm:pt-24 pb-14 sm:pb-20">
+      <div class="text-center max-w-4xl mx-auto reveal">
+        <span class="eyebrow">Done-For-You Client Acquisition</span>
+        <h1 class="font-display font-800 mt-6 text-4xl sm:text-6xl leading-[1.06] tracking-tight">
+          More booked calls. More <span class="grad-text">closed clients.</span> Done for you.
+        </h1>
+        <p class="mt-6 text-lg sm:text-xl text-brandmute max-w-2xl mx-auto leading-relaxed">
+          We build the conversion funnels, VSLs and automated follow-up that turn your traffic into booked calls and paying clients — engineered, written and wired up entirely by our team.
+        </p>
+        <div class="mt-9 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a href="https://www.optimally.ltd/demo?partner=optimally" target="_blank" rel="noopener noreferrer" class="cta text-base">Learn More
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <div class="flex items-center gap-2 text-sm text-brandmute">
+            <div class="flex -space-x-2">
+              <span class="w-7 h-7 rounded-full bg-brand/15 border border-white"></span>
+              <span class="w-7 h-7 rounded-full bg-brand/25 border border-white"></span>
+              <span class="w-7 h-7 rounded-full bg-brand/40 border border-white"></span>
+            </div>
+            Trusted by dozens of online businesses
+          </div>
         </div>
       </div>
-      <div class="card reveal">
-        <div class="stars" style="margin-bottom:12px">★★★★★</div>
-        <p style="margin:0 0 18px;font-size:1rem">"They rebuilt our entire acquisition system in under 90 days. Cash collected almost doubled and, honestly, I barely touched it."</p>
-        <div style="display:flex;align-items:center;gap:12px">
-          <span style="width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,var(--teal),var(--green-deep));border:1px solid var(--line)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--green-bright)" stroke-width="1.8" width="20"><path d="M12 12a4 4 0 100-8 4 4 0 000 8zM5 20c0-3 3-5 7-5s7 2 7 5"/></svg></span>
-          <div><div style="font-family:'Sora',sans-serif;font-weight:600;font-size:.95rem">Priya S.</div><div style="color:var(--muted);font-size:.83rem">Agency Founder</div></div>
-        </div>
-      </div>
-      <div class="card reveal">
-        <div class="stars" style="margin-bottom:12px">★★★★★</div>
-        <p style="margin:0 0 18px;font-size:1rem">"The difference is the prospects show up already sold. Every call is warm now. It changed the economics of my whole business."</p>
-        <div style="display:flex;align-items:center;gap:12px">
-          <span style="width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,var(--teal),var(--green-deep));border:1px solid var(--line)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--green-bright)" stroke-width="1.8" width="20"><path d="M12 12a4 4 0 100-8 4 4 0 000 8zM5 20c0-3 3-5 7-5s7 2 7 5"/></svg></span>
-          <div><div style="font-family:'Sora',sans-serif;font-weight:600;font-size:.95rem">James T.</div><div style="color:var(--muted);font-size:.83rem">Executive Coach</div></div>
+
+      <!-- VSL -->
+      <div class="mt-14 sm:mt-16 max-w-4xl mx-auto reveal">
+        <div class="relative rounded-3xl overflow-hidden ring-soft mesh-card border border-brandink/5">
+          <div class="relative aspect-video w-full flex items-center justify-center">
+            <div class="absolute inset-0" style="background: radial-gradient(700px 340px at 50% 30%, rgba(0,0,238,0.14), transparent 62%);"></div>
+            <div class="play-btn relative float-slow" role="button" aria-label="Play the video">
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="#0000EE"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+            <div class="absolute bottom-4 left-4 glass rounded-full px-3.5 py-1.5 text-xs font-semibold text-brandink flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-brand animate-pulse"></span> Watch: the funnel in 90 seconds
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <div style="text-align:center;margin-top:44px" class="reveal">
-      <a href="https://www.optimally.ltd/demo?partner=optimally" target="_blank" rel="noopener noreferrer" class="cta">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      <div class="proof"><span class="stars">★★★★★</span><span>Rated 4.9/5 across 120+ done-for-you builds</span></div>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- 6. FOUNDER -->
-<section class="tone-d sec-pad">
-  <div class="wrap content">
-    <div style="display:grid;grid-template-columns:0.8fr 1.2fr;gap:44px;align-items:center">
-      <div class="reveal" style="display:grid;place-items:center">
-        <div style="width:100%;max-width:300px;aspect-ratio:1;border-radius:20px;border:1px solid var(--line);display:grid;place-items:center;
-          background:radial-gradient(300px 200px at 50% 30%,rgba(154,184,90,.16),transparent 70%),linear-gradient(135deg,#0e211d,#0a1514)">
-          <svg viewBox="0 0 24 24" fill="none" stroke="var(--green-bright)" stroke-width="1.4" width="88"><path d="M12 12a5 5 0 100-10 5 5 0 000 10zM4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
+  <div class="max-w-6xl mx-auto px-8"><div class="divide-fade"></div></div>
+
+  <!-- ============ 3. PAINS ============ -->
+  <section class="py-16 sm:py-24">
+    <div class="max-w-6xl mx-auto px-5 sm:px-8">
+      <div class="max-w-3xl reveal">
+        <span class="eyebrow">Attention: coaches, consultants &amp; online businesses</span>
+        <h2 class="font-display font-800 mt-5 text-3xl sm:text-5xl tracking-tight leading-tight">
+          Great offer. Great delivery. So why is the calendar still quiet?
+        </h2>
+        <p class="mt-5 text-lg text-brandmute leading-relaxed">
+          The problem is almost never the work you do. It's the machine in front of it — the page, the message, the follow-up that decides whether a stranger ever gets on a call with you.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-5 mt-12">
+        <div class="reveal glass rounded-2xl p-7">
+          <div class="w-11 h-11 rounded-xl bg-brand/10 flex items-center justify-center accent mb-4">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+          </div>
+          <h3 class="font-display font-700 text-lg">Traffic that leaks</h3>
+          <p class="mt-2 text-brandmute text-[15px] leading-relaxed">Ads and content send people to a page that doesn't hold them. Clicks go in, nothing comes out.</p>
+        </div>
+        <div class="reveal glass rounded-2xl p-7" style="transition-delay:.08s">
+          <div class="w-11 h-11 rounded-xl bg-brand/10 flex items-center justify-center accent mb-4">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6v6l4 2"/><circle cx="12" cy="12" r="9"/></svg>
+          </div>
+          <h3 class="font-display font-700 text-lg">Leads that go cold</h3>
+          <p class="mt-2 text-brandmute text-[15px] leading-relaxed">Interested prospects never hear from you again, because the follow-up lives in your head instead of a system.</p>
+        </div>
+        <div class="reveal glass rounded-2xl p-7" style="transition-delay:.16s">
+          <div class="w-11 h-11 rounded-xl bg-brand/10 flex items-center justify-center accent mb-4">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m7 14 4-4 3 3 5-6"/></svg>
+          </div>
+          <h3 class="font-display font-700 text-lg">Calls that don't convert</h3>
+          <p class="mt-2 text-brandmute text-[15px] leading-relaxed">The few who do book arrive unqualified and unconvinced — so you sell hard instead of simply confirming a yes.</p>
         </div>
       </div>
-      <div class="reveal">
-        <p class="eyebrow">Meet the founder</p>
-        <h2 style="font-size:clamp(1.6rem,3.6vw,2.4rem);margin:12px 0 16px">Built by an operator, not an agency middleman</h2>
-        <p style="color:var(--muted);margin:0 0 14px">Optimally was founded on a simple frustration: brilliant coaches and consultants losing deals not because of their offer, but because the machine in front of the offer was broken. Ad clicks leaked, calls went cold, and nobody could see why.</p>
-        <p style="color:var(--muted);margin:0 0 22px">So we built the fix — a single, tracked Webinar Conversion Ecosystem that pre-frames prospects and hands you calls that are ready to buy. We build it, we run it, and we stand behind it with a 90-day guarantee. You stay in your zone of genius; we own the pipeline.</p>
-        <a href="https://www.optimally.ltd/demo?partner=optimally" target="_blank" rel="noopener noreferrer" class="cta">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        <div class="proof" style="justify-content:flex-start"><span class="stars">★★★★★</span><span>Founder-led builds &middot; senior team, no juniors</span></div>
+
+      <div class="mt-11 reveal">
+        <a href="https://www.optimally.ltd/demo?partner=optimally" target="_blank" rel="noopener noreferrer" class="cta text-base">Learn More
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <p class="mt-3 text-sm text-brandmute">See exactly where your funnel is losing calls — free walkthrough.</p>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- 7. FAQ -->
-<section class="tone-b sec-pad">
-  <div class="wrap content" style="max-width:820px">
-    <div style="text-align:center;margin:0 auto 42px" class="reveal">
-      <p class="eyebrow">Questions, answered</p>
-      <h2 style="font-size:clamp(1.7rem,4vw,2.6rem);margin:12px 0 0">The things founders ask us first</h2>
-    </div>
-    <div class="reveal">
-      <details><summary>How much does it cost?<span class="chev">+</span></summary><div class="ans">Every build is scoped to your offer and revenue goals, so pricing is set on a quick walkthrough — not a one-size number. What we can tell you: it's built to pay for itself out of the additional cash it collects, and it's backed by our 90-day guarantee. Book a walkthrough and we'll give you exact numbers.</div></details>
-      <details><summary>How long until it's live?<span class="chev">+</span></summary><div class="ans">Your full Webinar Conversion Ecosystem is designed, built and live within 90 days — often with the first pieces (VSL and booking flow) running much sooner. We move fast because we've built this system dozens of times.</div></details>
-      <details><summary>Will this work for my niche?<span class="chev">+</span></summary><div class="ans">If you sell a considered offer to B2B coaches, consultants, or agency clients through calls, yes. The structure — pre-frame, VSL, booked call — is niche-agnostic; we tailor the messaging and angle to your specific audience and offer.</div></details>
-      <details><summary>What if it doesn't work?<span class="chev">+</span></summary><div class="ans">You're covered by our 90-day booked-calls guarantee: if the funnel isn't delivering qualified, booked calls in the agreed window, we keep working at no extra cost until it does. We only win when your pipeline does.</div></details>
-      <details><summary>Do I have to build or manage anything myself?<span class="chev">+</span></summary><div class="ans">No — it's fully done-for-you. We handle the strategy, copy, VSL script, pages, automations and tracking. You review, approve, and show up to the calls we book. You stay in your zone of genius.</div></details>
-      <details><summary>Am I locked into a long contract?<span class="chev">+</span></summary><div class="ans">No lengthy lock-ins. We structure the engagement around delivering your funnel and hitting the guarantee. The goal is to hand you a machine that keeps working — not to trap you in a retainer.</div></details>
-      <details><summary>How fast will I see results?<span class="chev">+</span></summary><div class="ans">Many clients see booked calls landing within the first several weeks as the VSL and booking flow go live, with the full compounding effect over the 90-day build. We track every step so improvements are measured, not guessed.</div></details>
-    </div>
-    <div style="text-align:center;margin-top:38px" class="reveal">
-      <a href="https://www.optimally.ltd/demo?partner=optimally" target="_blank" rel="noopener noreferrer" class="cta">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      <div class="proof"><span class="stars">★★★★★</span><span>Still have a question? The walkthrough answers all of them</span></div>
-    </div>
-  </div>
-</section>
+  <!-- ============ 4. SOLUTION ============ -->
+  <section id="solution" class="py-16 sm:py-24 relative">
+    <div class="absolute inset-0" style="background: linear-gradient(180deg, transparent, rgba(0,0,238,0.035), transparent);"></div>
+    <div class="max-w-6xl mx-auto px-5 sm:px-8 relative">
+      <div class="text-center max-w-3xl mx-auto reveal">
+        <span class="eyebrow">The Optimally System</span>
+        <h2 class="font-display font-800 mt-5 text-3xl sm:text-5xl tracking-tight leading-tight">
+          One team builds the entire <span class="accent">client-getting machine</span>.
+        </h2>
+        <p class="mt-5 text-lg text-brandmute leading-relaxed">
+          You keep doing the work you're brilliant at. We design, write and wire the funnel that fills your calendar — end to end, done for you.
+        </p>
+      </div>
 
-<!-- 8. FOOTER -->
-<footer class="tone-a" style="padding:60px 0 40px;border-top:1px solid var(--line)">
-  <div class="wrap content" style="text-align:center">
-    <img class="logo-foot" style="margin:0 auto 20px" src="https://framerusercontent.com/images/hUMFc5uZTevF0122Bkpv9kgZDI.png?width=10432&height=4221" alt="Optimally" />
-    <p style="color:var(--muted);max-width:52ch;margin:0 auto 22px">The done-for-you Webinar Conversion Ecosystem that turns cold traffic into booked, pre-framed calls.</p>
-    <a href="https://www.optimally.ltd/demo?partner=optimally" target="_blank" rel="noopener noreferrer" class="cta">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-    <div style="display:flex;gap:26px;justify-content:center;flex-wrap:wrap;margin:30px 0 22px;color:var(--muted);font-size:.9rem">
-      <a href="https://www.optimally.ltd/demo?partner=optimally" target="_blank" rel="noopener noreferrer" style="color:var(--muted);text-decoration:none">Privacy</a>
-      <a href="https://www.optimally.ltd/demo?partner=optimally" target="_blank" rel="noopener noreferrer" style="color:var(--muted);text-decoration:none">Terms</a>
-      <a href="https://www.optimally.ltd/demo?partner=optimally" target="_blank" rel="noopener noreferrer" style="color:var(--muted);text-decoration:none">Contact</a>
-    </div>
-    <p style="color:var(--muted);font-size:.82rem;opacity:.7;margin:0">© 2026 Optimally Ltd. All rights reserved.</p>
-  </div>
-</footer>
+      <div class="grid md:grid-cols-2 gap-5 mt-14">
+        <div class="reveal mesh-card rounded-2xl p-8 border border-brandink/5 ring-soft">
+          <span class="text-sm font-bold accent">01</span>
+          <h3 class="font-display font-700 text-xl mt-2">A page built to convert</h3>
+          <p class="mt-2 text-brandmute leading-relaxed">A premium landing page and VSL scripted on real conversion psychology — so the right visitor books, and the wrong one self-selects out.</p>
+        </div>
+        <div class="reveal mesh-card rounded-2xl p-8 border border-brandink/5 ring-soft" style="transition-delay:.08s">
+          <span class="text-sm font-bold accent">02</span>
+          <h3 class="font-display font-700 text-xl mt-2">A VSL that sells for you</h3>
+          <p class="mt-2 text-brandmute leading-relaxed">We write and produce the video sales letter that does the convincing before the call — the psychology Reuben is known for, in your voice.</p>
+        </div>
+        <div class="reveal mesh-card rounded-2xl p-8 border border-brandink/5 ring-soft" style="transition-delay:.16s">
+          <span class="text-sm font-bold accent">03</span>
+          <h3 class="font-display font-700 text-xl mt-2">Automation that follows up</h3>
+          <p class="mt-2 text-brandmute leading-relaxed">Booking, reminders and nurture wired into one system, so no lead slips and every reply happens without you lifting a finger.</p>
+        </div>
+        <div class="reveal mesh-card rounded-2xl p-8 border border-brandink/5 ring-soft" style="transition-delay:.24s">
+          <span class="text-sm font-bold accent">04</span>
+          <h3 class="font-display font-700 text-xl mt-2">Built fast, handed over clean</h3>
+          <p class="mt-2 text-brandmute leading-relaxed">Delivered in weeks, not quarters — and simple enough to edit yourself once it's live. You own it entirely.</p>
+        </div>
+      </div>
 
-<script>
-  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
-  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-  // count-ups on real stats
-  const cio=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){const el=e.target;const t=+el.dataset.count;const sfx=el.dataset.suffix||'';let n=0;const step=Math.max(1,Math.ceil(t/45));const tick=()=>{n+=step;if(n>=t){el.textContent=t+sfx}else{el.textContent=n+sfx;requestAnimationFrame(tick)}};tick();cio.unobserve(el)}})},{threshold:.5});
-  document.querySelectorAll('[data-count]').forEach(el=>cio.observe(el));
-</script>
+      <div class="mt-12 text-center reveal">
+        <a href="https://www.optimally.ltd/demo?partner=optimally" target="_blank" rel="noopener noreferrer" class="cta text-base">Learn More
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <p class="mt-3 text-sm text-brandmute">Walk through the exact system on a free call.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 5. CTA (mid-page) ============ -->
+  <section class="py-6">
+    <div class="max-w-6xl mx-auto px-5 sm:px-8">
+      <div class="reveal rounded-3xl overflow-hidden ring-soft relative" style="background: linear-gradient(120deg,#0000EE,#3b3bff 60%,#6a4bff);">
+        <div class="absolute inset-0 opacity-30" style="background: radial-gradient(600px 300px at 15% 0%, rgba(255,255,255,0.35), transparent 60%);"></div>
+        <div class="relative px-7 sm:px-14 py-12 sm:py-16 text-center text-white">
+          <h2 class="font-display font-800 text-3xl sm:text-4xl leading-tight max-w-2xl mx-auto">
+            Ready to see the funnel we'd build for you?
+          </h2>
+          <p class="mt-4 text-white/85 text-lg max-w-xl mx-auto">
+            Book a free walkthrough and we'll map the exact page, VSL and automation that fills your calendar.
+          </p>
+          <div class="mt-8">
+            <a href="https://www.optimally.ltd/demo?partner=optimally" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2.5 bg-white text-brand font-semibold px-8 py-4 rounded-full shadow-xl hover:-translate-y-0.5 transition text-base">Learn More
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <p class="mt-3 text-sm text-white/75">No pressure, no pitch deck — just a plan you can keep.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 6. TRUST / TESTIMONIALS ============ -->
+  <section id="trust" class="py-16 sm:py-24">
+    <div class="max-w-6xl mx-auto px-5 sm:px-8">
+      <div class="text-center max-w-3xl mx-auto reveal">
+        <span class="eyebrow">Building trust</span>
+        <h2 class="font-display font-800 mt-5 text-3xl sm:text-5xl tracking-tight leading-tight">
+          Tangible results for dozens of online businesses
+        </h2>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6 text-center reveal">
+        <div class="glass rounded-2xl py-7"><div class="font-display font-800 text-4xl accent">80k</div><p class="text-sm text-brandmute mt-1">MRR milestone, Kasey Jones</p></div>
+        <div class="glass rounded-2xl py-7"><div class="font-display font-800 text-4xl accent">15k/mo</div><p class="text-sm text-brandmute mt-1">in 30 days, Adam Bhatti</p></div>
+        <div class="glass rounded-2xl py-7"><div class="font-display font-800 text-4xl accent">4k deal</div><p class="text-sm text-brandmute mt-1">within 5 days, Cheek Productions</p></div>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-5 mt-8">
+        <figure class="reveal glass rounded-2xl p-7 flex flex-col">
+          <div class="flex gap-1 accent mb-3">★★★★★</div>
+          <blockquote class="text-[15px] leading-relaxed text-brandink flex-1">"Reuben is just a beautiful genius. What he's helping me do is not just make my life easier, but make the experience I deliver for my clients have that wow factor — it's the freaking best."</blockquote>
+          <figcaption class="mt-5 flex items-center gap-3">
+            <span class="w-10 h-10 rounded-full bg-brand/15 flex items-center justify-center font-bold accent">K</span>
+            <span><span class="block font-semibold text-sm">Kasey Jones</span><span class="block text-xs text-brandmute">The Solo CEO</span></span>
+          </figcaption>
+        </figure>
+        <figure class="reveal glass rounded-2xl p-7 flex flex-col" style="transition-delay:.08s">
+          <div class="flex gap-1 accent mb-3">★★★★★</div>
+          <blockquote class="text-[15px] leading-relaxed text-brandink flex-1">"So far, working with Reuben has been the best investment I've made in my company. Every single client now follows the process we built together — it's made my life easier, my system more efficient, and brought in a lot more money."</blockquote>
+          <figcaption class="mt-5 flex items-center gap-3">
+            <span class="w-10 h-10 rounded-full bg-brand/15 flex items-center justify-center font-bold accent">A</span>
+            <span><span class="block font-semibold text-sm">Adam Bhatti</span><span class="block text-xs text-brandmute">Pilot Mentoring</span></span>
+          </figcaption>
+        </figure>
+        <figure class="reveal glass rounded-2xl p-7 flex flex-col" style="transition-delay:.16s">
+          <div class="flex gap-1 accent mb-3">★★★★★</div>
+          <blockquote class="text-[15px] leading-relaxed text-brandink flex-1">"They're very proactive and the quality of what Reuben and the team produce is next level. Super quick to come back, very responsive. Would not hesitate to recommend — you'll find them absolutely fantastic."</blockquote>
+          <figcaption class="mt-5 flex items-center gap-3">
+            <span class="w-10 h-10 rounded-full bg-brand/15 flex items-center justify-center font-bold accent">M</span>
+            <span><span class="block font-semibold text-sm">Mark Wilson</span><span class="block text-xs text-brandmute">Unorthodox Digital</span></span>
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="mt-11 text-center reveal">
+        <a href="https://www.optimally.ltd/demo?partner=optimally" target="_blank" rel="noopener noreferrer" class="cta text-base">Learn More
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <p class="mt-3 text-sm text-brandmute">Join the businesses already running an Optimally funnel.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 7. FOUNDER ============ -->
+  <section class="py-16 sm:py-24 relative">
+    <div class="max-w-6xl mx-auto px-5 sm:px-8">
+      <div class="grid md:grid-cols-5 gap-10 items-center">
+        <div class="md:col-span-2 reveal">
+          <div class="relative rounded-3xl overflow-hidden mesh-card border border-brandink/5 ring-soft aspect-[4/5] flex items-center justify-center">
+            <div class="absolute inset-0" style="background: radial-gradient(400px 300px at 50% 20%, rgba(0,0,238,0.16), transparent 60%);"></div>
+            <div class="relative text-center">
+              <div class="w-28 h-28 mx-auto rounded-full bg-white flex items-center justify-center font-display font-800 text-4xl accent ring-soft">RS</div>
+              <p class="mt-4 font-display font-700 text-lg">Reuben Shears</p>
+              <p class="text-sm text-brandmute">Founder, Optimally</p>
+            </div>
+          </div>
+        </div>
+        <div class="md:col-span-3 reveal">
+          <span class="eyebrow">Meet the founder</span>
+          <h2 class="font-display font-800 mt-5 text-3xl sm:text-4xl tracking-tight leading-tight">
+            The person who writes the psychology behind the funnel
+          </h2>
+          <p class="mt-5 text-lg text-brandmute leading-relaxed">
+            Reuben founded Optimally on a simple belief: a brilliant offer deserves a machine worthy of it. He and his team have built conversion funnels, landing pages and VSLs for coaches, consultants and agencies across dozens of industries — the kind of work clients call "next level" and "the best thing I've ever seen."
+          </p>
+          <p class="mt-4 text-lg text-brandmute leading-relaxed">
+            Every build is grounded in the same thing: the psychology of why people book, why they say yes, and how to make that happen without you chasing anyone.
+          </p>
+          <div class="mt-7">
+            <a href="https://www.optimally.ltd/demo?partner=optimally" target="_blank" rel="noopener noreferrer" class="cta text-base">Learn More
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <p class="mt-3 text-sm text-brandmute">Talk it through with Reuben's team directly.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 8. FAQ ============ -->
+  <section id="faq" class="py-16 sm:py-24">
+    <div class="max-w-3xl mx-auto px-5 sm:px-8">
+      <div class="text-center reveal">
+        <span class="eyebrow">Questions</span>
+        <h2 class="font-display font-800 mt-5 text-3xl sm:text-5xl tracking-tight leading-tight">Everything you might be wondering</h2>
+      </div>
+
+      <div class="mt-12 space-y-3 reveal">
+        <details class="glass rounded-2xl px-6 py-5 group">
+          <summary class="flex items-center justify-between cursor-pointer list-none font-display font-600 text-lg">Is this really done for you, or do I get handed a template?<span class="faq-ic accent text-2xl leading-none">+</span></summary>
+          <p class="mt-3 text-brandmute leading-relaxed">Fully done for you. We design the page, write and produce the VSL, and wire the automation ourselves. You review, we refine, you go live — no drag-and-drop homework.</p>
+        </details>
+        <details class="glass rounded-2xl px-6 py-5 group">
+          <summary class="flex items-center justify-between cursor-pointer list-none font-display font-600 text-lg">How long until my funnel is live?<span class="faq-ic accent text-2xl leading-none">+</span></summary>
+          <p class="mt-3 text-brandmute leading-relaxed">Most builds go live in a matter of weeks, not quarters. Clients regularly mention we deliver "in record time" while still hitting the quality bar.</p>
+        </details>
+        <details class="glass rounded-2xl px-6 py-5 group">
+          <summary class="flex items-center justify-between cursor-pointer list-none font-display font-600 text-lg">Will this work for my niche?<span class="faq-ic accent text-2xl leading-none">+</span></summary>
+          <p class="mt-3 text-brandmute leading-relaxed">We've built funnels across coaching, consulting, fitness, agencies and beyond. The mechanism — a page and VSL engineered on conversion psychology — travels across niches; the walkthrough is where we confirm the fit for yours.</p>
+        </details>
+        <details class="glass rounded-2xl px-6 py-5 group">
+          <summary class="flex items-center justify-between cursor-pointer list-none font-display font-600 text-lg">I'm not technical — can I actually manage it afterwards?<span class="faq-ic accent text-2xl leading-none">+</span></summary>
+          <p class="mt-3 text-brandmute leading-relaxed">Yes. We hand over something simple to edit yourself, and clients specifically praise how easy it is to run without a developer on call.</p>
+        </details>
+        <details class="glass rounded-2xl px-6 py-5 group">
+          <summary class="flex items-center justify-between cursor-pointer list-none font-display font-600 text-lg">What if I want changes during the build?<span class="faq-ic accent text-2xl leading-none">+</span></summary>
+          <p class="mt-3 text-brandmute leading-relaxed">Revisions are part of the process. As one client put it, she "did not feel pressure to accept something" — even when she changed her own mind. We build until it's right.</p>
+        </details>
+        <details class="glass rounded-2xl px-6 py-5 group">
+          <summary class="flex items-center justify-between cursor-pointer list-none font-display font-600 text-lg">Do you only build the page, or the whole system?<span class="faq-ic accent text-2xl leading-none">+</span></summary>
+          <p class="mt-3 text-brandmute leading-relaxed">The whole system: landing page, VSL, booking and the automated follow-up that connects them. It's the complete client-getting machine, not a single asset.</p>
+        </details>
+        <details class="glass rounded-2xl px-6 py-5 group">
+          <summary class="flex items-center justify-between cursor-pointer list-none font-display font-600 text-lg">What happens on the free walkthrough?<span class="faq-ic accent text-2xl leading-none">+</span></summary>
+          <p class="mt-3 text-brandmute leading-relaxed">We look at your current setup, show you where calls are being lost, and map the exact funnel we'd build. You leave with a plan you can keep whether or not we work together.</p>
+        </details>
+      </div>
+
+      <div class="mt-11 text-center reveal">
+        <a href="https://www.optimally.ltd/demo?partner=optimally" target="_blank" rel="noopener noreferrer" class="cta text-base">Learn More
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <p class="mt-3 text-sm text-brandmute">Still have a question? Ask it live.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 9. FOOTER ============ -->
+  <footer class="border-t border-brandink/10 pt-14 pb-10 bg-white/60">
+    <div class="max-w-6xl mx-auto px-5 sm:px-8">
+      <div class="flex flex-col md:flex-row justify-between gap-10">
+        <div class="max-w-sm">
+          <img src="https://framerusercontent.com/images/uJcDzFBrnQWp6YsOl4y65BWsUTQ.png" alt="Optimally Systems logo" class="h-8 w-auto" />
+          <p class="mt-4 text-brandmute text-sm leading-relaxed">Done-for-you conversion funnels, VSLs and automated systems that book more calls and close more clients — engineered end to end by the Optimally team.</p>
+          <div class="mt-6">
+            <a href="https://www.optimally.ltd/demo?partner=optimally" target="_blank" rel="noopener noreferrer" class="cta !py-3 !px-6 text-sm">Learn More
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-10 text-sm">
+          <div>
+            <p class="font-semibold mb-3">Company</p>
+            <ul class="space-y-2 text-brandmute">
+              <li><a href="#solution" class="hover:text-brandink transition">How it works</a></li>
+              <li><a href="#trust" class="hover:text-brandink transition">Results</a></li>
+              <li><a href="#faq" class="hover:text-brandink transition">FAQ</a></li>
+            </ul>
+          </div>
+          <div>
+            <p class="font-semibold mb-3">Get started</p>
+            <ul class="space-y-2 text-brandmute">
+              <li><a href="https://www.optimally.ltd/demo?partner=optimally" target="_blank" rel="noopener noreferrer" class="hover:text-brandink transition">Book a walkthrough</a></li>
+              <li><a href="https://www.optimally.ltd/demo?partner=optimally" target="_blank" rel="noopener noreferrer" class="hover:text-brandink transition">See the system</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="divide-fade my-8"></div>
+      <div class="flex flex-col sm:flex-row justify-between items-center gap-3 text-sm text-brandmute">
+        <p>© 2026 Optimally Ltd. All rights reserved.</p>
+        <p class="text-xs">Demo landing page built by Optimally.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Subtle scroll reveal
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+  </script>
 
 <!-- ============ OPTIMALLY DEMO INTERSTITIAL (auto @10s + CTA midpoint) ============ -->
 <div id="om-modal" aria-hidden="true">
@@ -415,7 +509,7 @@
 </div>
 <style>
   #om-modal{
-    --om-brand:#728C41; --om-accent:#365555;
+    --om-brand:#0000EE; --om-accent:#3b3bff;
     position:fixed; inset:0; z-index:9999; display:none;
     align-items:center; justify-content:center; padding:20px;
     background:rgba(18,14,28,.55); backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px);
@@ -454,7 +548,7 @@
 </style>
 <script>
 (function(){
-  var CREATED = "2026-08-07";
+  var CREATED = "2026-08-18";
   var LIVE_DAYS = 7;
   var BOOK_URL = "https://www.optimally.ltd/demo?partner=optimally";
   var modal = document.getElementById('om-modal');
@@ -587,7 +681,7 @@
   </div>
 </div>
 <style>
-  #om-chat{ --oc-brand:#728C41; --oc-accent:#365555; position:fixed; right:20px; bottom:20px; z-index:9000; font-family:inherit; }
+  #om-chat{ --oc-brand:#0000EE; --oc-accent:#3b3bff; position:fixed; right:20px; bottom:20px; z-index:9000; font-family:inherit; }
   #om-chat .oc-fab{ width:60px; height:60px; border-radius:50%; border:0; cursor:pointer; position:relative; display:flex; align-items:center; justify-content:center; background:linear-gradient(180deg,var(--oc-brand),var(--oc-accent)); box-shadow:0 14px 34px -8px color-mix(in srgb, var(--oc-brand) 65%, transparent); transition:transform .16s ease, box-shadow .16s ease; }
   #om-chat .oc-fab:hover{ transform:translateY(-2px) scale(1.04); }
   #om-chat .oc-fab-dot{ position:absolute; top:11px; right:11px; width:11px; height:11px; border-radius:50%; background:#3fbf6a; border:2px solid #fff; }
